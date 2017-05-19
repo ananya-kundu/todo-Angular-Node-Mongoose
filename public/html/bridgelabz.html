@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/bridgelabz.css">
+  <script src = "../controller/next.js"></script>
+  <script src="../js/bridgelabz.js"></script>
+
+</head>
+
+
+
+
+<body ng-app="myApp" ng-controller="next">
+  <div>
+    <div >
+      <div class="w3-container ">
+        <div class="row">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-6">
+          <!-- <div class="w3-card-4 " data-toggle='modal' data-target='#myModal' id="note"> -->
+            <header class="w3-container w3-blue">
+              <!-- <h4>Title1</h4> -->
+            </header>
+            <!-- <div  ng-repeat ='d in dummy'>
+            <div class="w3-container" id="noteContent">
+              <span class="content" id="content">{{d.Content.content1}}</span>
+              <span class="status" id="float" style="color:green;">edit|status</span>
+            </div>
+          </div>
+</div> -->
+
+        <!-- <div class="w3-card-4" data-toggle='modal' data-target='#myModal' id="note">
+          <header class="w3-container w3-blue">
+            <h4>Title2</h4>
+          </header>
+          <div class="w3-container" id="noteContent">
+            <span class="content" id="content">ananya@gmail.com</span>
+            <span class="status" id="float" style="color:green;">edit|status</span>
+          </div>
+        </div> -->
+
+
+        <!-- <div class="w3-card-4" data-toggle='modal' data-target='#myModal' id="note">
+          <header class="w3-container w3-blue">
+            <h4>Title3</h4>
+          </header>
+          <div class="w3-container">
+            <span class="content" id="content">ananyakundu@gmail.com</span>
+            <span class="status" id="float" style="color:green;">edit|status</span>
+          </div>
+        </div> -->
+      <div ng-repeat="x in dummy.obj1">
+        <div  class="w3-card-4 " data-toggle='modal' data-target='#myModal' id="note">
+          <div><b>{{x.title}}</b></div><div>{{x.content}}<span class="status" id="float" style="color:green;">edit|status</span></div></div>
+
+
+          <div ng-repeat="x in dummy.obj2">
+            <div  class="w3-card-4 " data-toggle='modal' data-target='#myModal' id="note">
+              <div><b>{{x.title}}</b></div><div>{{x.content}}<span class="status" id="float" style="color:green;">edit|status</span></div></div>
+
+              <div ng-repeat="x in dummy.obj3">
+                <div  class="w3-card-4 " data-toggle='modal' data-target='#myModal' id="note">
+                  <div><b>{{x.title}}</b></div><div>{{x.content}}<span class="status" id="float" style="color:green;">edit|status</span></div></div>
+
+      <!-- <div ng-repeat="x in dummy.obj2"><div><b>{{x.title}}</b></div><div>{{x.content}}<span class="status" id="float" style="color:green;">edit|status</span></div>
+      <div ng-repeat="x in dummy.obj3"><div><b>{{x.title}}</b></div><div>{{x.content}}<span class="status" id="float" style="color:green;">edit|status</span></div> -->
+
+      </div>
+        <div class="col-sm-3">
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div id="update">
+        <div class="col-lg-12">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  ​
+</body>
+
+</html>
+
+
+
+
+<!-- <footer class="w3-container w3-blue">
+<h5>Footer</h5>
+</footer> -->
+
+
+​
+<!-- <div class="container">
+
+
+<table class="table" data-toggle='modal' data-target='#myModal' >
+
+  <thead>
+<th colspan="3">Title</th>
+    <tr>
+      <th>Email-id</th>
+      <th>Edit  </th>
+      <th>Status  </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ananya@gmail.com</td>
+      <td>yes</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>prajakta@gmail.com</td>
+      <td>yes</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>salman@gmail.com</td>
+      <td>yes</td>
+      <td>true</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div> -->
+<!-- <!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body> -->

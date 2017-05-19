@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>mykeep</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body ng-controller="dashboardController">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(6,6,6,1);" role="navigation">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;"><span class="glyphicon glyphicon-list tglid" id="tglid" aria-hidden="true"></span></a>
+          </div>
+          <div>
+          <a class="navbar-brand"  href="#menu-toggle" id="menu-toggle" >
+          <span> <span id="keepClass" >My Keep </span></span>
+          </a>
+        </div>
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true"></span> </a></li>
+                <li>
+                  <p class="navbar-text" id="textColor">
+                    <span class="list-style-buttons">
+                        <a id="gridview"><span class="glyphicon glyphicon-th" id="gridcss"></a></span>
+                        <a  id="listview" ><span class="glyphicon glyphicon-align-justify" id="listcss" style="background-color:white;color:#080808;"></a></span>
+                      </p>
+                </li>
+  				<!-- <li><a href="#"><span class="list-style-buttons" aria-hidden="true">
+            <a id="gridview"><span class="glyphicon glyphicon-th" style="background-color:#fb0;color:black;"></a>
+            <a  id="listview" ><span class="glyphicon glyphicon-align-justify" style="background-color:white;color:#080808;"></a>
+          </span>  </a></li> -->
+
+               	<!-- <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li> -->
+                  <li><a href="#"><span class="glyphicon glyphicon-off" id="logOutId"  aria-hidden="true"></span> </a></li>
+              </ul>
+              <form class="navbar-form navbar-right" action="#" method="GET">
+             		<div class="input-group" id="inputid">
+  					<input type="text" class="form-control" placeholder="Search..." id="query" name="search" value="">
+                    	<div class="input-group-btn">
+                      	<button type="submit" class="btn btn-default btn-block" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                    	</div>
+  				</div>
+              </form>
+          </div>
+      </div>
+  </nav>
+
+
+
+
+  <div id="wrapper" class="toggled">
+    <div class="container-fluid">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper" style="margin-top:-19px">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <br>
+          </li>
+          <li class="sidebar-brand">
+            <a href="#" class="navbar-brand">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile
+            </a>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+          </li>
+          <li>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <font color="#337AB7"> STATISTICS</font>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Reports</a>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Statistic</a>
+          </li>
+          <li>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <font color="#337AB7"> ADMINISTRATION</font>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messages</a>
+          </li>
+        </ul>
+      </div>
+      <!-- </div> -->
+      <!-- </div> -->
+      <!-- /#sidebar-wrapper -->
+
+
+<!-- for pop-up -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">
+                <div id="popupTitle" contenteditable="true" placeholder="Title" ></div>
+              </h4>
+            </div>
+            <div class="modal-body">
+              <div id="popupContent" contenteditable="true" placeholder="Take a note.." ></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="close"  class="btn btn-default" data-dismiss="modal">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- for cards -->
+      <div id="page-content-wrapper"  >
+        <!-- <div class="container" style = "border:1px solid black"> -->
+        <div class="row" id="msgDivId" >
+          <div class="col-md-3"></div>
+          <div class="col-lg-12">
+            <div class="col-md-6" style="margin-left:20%">
+
+              <div id="mainMsgBox" >
+                <div id="title">
+                  <input type="text" id="dummyTitle" ng-show = "dummyNote" ng-hide = "mainNote" ng-click = "mainNote = !mainNote" placeholder="Take a note.." size="50"></input>
+                </div>
+
+                <div id="userMsgBox" ng-show="mainNote" class="toggled"  >
+                  <div id="title1" newcontenteditable contenteditable="true" ng-model="title" class="userGivenTitle" placeholder="Title" size="50" style="border:none;outline:none;"></div>
+                  <div id="content" newcontenteditable contenteditable="true"  ng-model="note" placeholder="Take a Note.." size="50" style="border:none;outline:none;"></div>
+
+                  <p id="writeMsg" >
+                    <i style="margin-left:16px" class="fa fa-hand-pointer-o fa-lg" aria-hidden="true" style="font-size:24px"></i>
+                    <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
+                    <i style="margin-left:16px" class="fa fa-paint-brush fa-lg" style="font-size:24px" aria-hidden="true"></i>
+                    <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
+                    <i style="margin-left:16px" class="fa fa-ellipsis-v" aria-hidden="true"></i>
+
+                    <button type="button" id="done" ng-click="savemsgcard()">DONE</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="notes" >
+          <div class="col-sm-4" id="innote" ng-repeat = "x in message" style="display:block;transition-property: opacity,transform;">
+            <pre id="preid"> <div id="divtitle"><b style="font-size:20px;font-family:sans-serif;" ng-bind-html = "x.title1"></b></div><div id="noteinner" style="padding: 0px 14px 1px 8px;" ng-bind-html = "x.content"></div><div id="del"><a id="delete">delete</a></div></pre>
+           </div></div>
+      </div>
+    </div>
+  </div>
+  <!-- </div>
+  </div> -->
+  <!-- /#wrapper -->
+</body>
+
+<script>
+  $('#mynavbar').click('li', function() {
+    $('#mynavbar').collapse('hide');
+  });
+
+  //this is for sidebar
+  $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+  // <Msg box>
+  $("#userMsgBox").hide();
+  $("#mainMsgBox").click(function() {
+    $("#dummyTitle").hide();
+    $("#userMsgBox").show();
+  });
+  $("#wrapper").click(function() {
+    $("#glyList").css("margin-left", "0px");
+    // $("#userMsgBox").show();
+  });
+</script>
+
+</html>
+
+
+
+<!-- <nav class="navbar navbar-default navbar-inverse" id="navbarColor" role="navigation">
+
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-target="#mynavbar" data-toggle="collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+      <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
+        <span class="glyphicon glyphicon-list" id="glyList" aria-hidden="true"></span></a>
+      <span> <span id="keepClass">
+              <span></span> My Keep
+      </span>
+      </span>
+      </a>
+    </div>
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <form class="navbar-form navbar-left">
+        <div class="input-group" id="search">
+          <input type="text" class="form-control" placeholder="Search" style="background-color:rgba(255,255,255,.8);">
+          <div class="input-group-btn">
+            <button class="btn btn-default btn-block" type="submit" style="background-color:rgba(255, 255,255, .8);">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <li>
+        <p class="navbar-text" id="textColor">
+          <b><span class="glyphicon glyphicon-refresh" id="refresh"></span></b></p>
+      </li>
+      <li>
+        <p class="navbar-text" id="textColor">
+          <span class="list-style-buttons">
+  <a id="gridview"><span class="glyphicon glyphicon-th" style="background-color:#fb0;color:black;"></a>
+  <a  id="listview" ><span class="glyphicon glyphicon-align-justify" style="background-color:#fb0;color:black;"></a>
+</span>
+
+          <li class="dropdown" style="background-color:#fb0;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#fb0;color:black;">
+              <b><span class="glyphicon glyphicon-user" id="usernavbar" ></b>
+              <span class="caret" id="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="social-buttons" id="acbuttons">
+                      <a href="#" class="btn btn-fb"><span class="glyphicon glyphicon-user" id="account">MyAccount</span></a>
+                      <a href="#" class="btn btn-tw" id="logOutId"><span class="glyphicon glyphicon-off">SignOut</span></a>
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+    </ul>
+    </ul>
+  </div>
+  </li>
+</nav> -->

@@ -3,7 +3,7 @@
 // });
 
 
-app.controller('signupController', function($scope,$location,signupservice) {
+app.controller('signupController', function($scope,$state,$location,signupservice) {
   console.log("signup page");
   $scope.message = ' I am a signup page.';
 
@@ -24,9 +24,9 @@ app.controller('signupController', function($scope,$location,signupservice) {
     var signupObj = signupservice.app(userObj);
     signupObj.then(function(data) {
       if(data.data.status == true){
-        $location.path('/login');
+        $state.go('login');
       }else{
-          $location.path('/signup');
+          $state.go('signup');
       }
       console.log(data);
     }).catch(function(error) {

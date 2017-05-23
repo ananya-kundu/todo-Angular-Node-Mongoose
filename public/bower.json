@@ -1,8 +1,8 @@
 {
   "name": "public",
-  "homepage": "https://github.com/him26/Angular-AndNode-Login-Signup",
+  "homepage": "https://github.com/ananya-kundu/todo-Angular-Node-Mongoose",
   "authors": [
-    "ananya kundu <ananyakundu.gnit@gmail.com>"
+    "Ananya <ananyakundu.gnit@gmail.com>"
   ],
   "description": "",
   "main": "",
@@ -15,11 +15,15 @@
     "tests"
   ],
   "dependencies": {
+    "angular-animate": "^1.6.4",
+    "angular-material": "^1.0.9",
+    "angular-route": "^1.5.6",
+    "angular-sanitize": "^1.6.4",
+    "angular-ui-bootstrap": "*",
+    "angular-ui-router": "^0.3.1",
+    "angular": "^1.5.6",
     "bootstrap": "^3.3.7",
-    "handlebars": "^4.0.5",
-    "jquery": "^3.2.1",
-    "isotope": "^3.0.4",
-    "jquery-ui": "jqueryui#^1.12.1",
-    "packery": "^2.1.1"
+    "angular-bootstrap": "^2.5.0",
+    "firebase": "^4.0.0"
   }
 }

@@ -1,4 +1,4 @@
-app.controller('loginController', function($scope,$location,loginservice) {
+app.controller('loginController', function($scope,$location,$state,loginservice) {
   console.log("cfdsfsdf");
   $scope.message = ' I am a login page.';
 
@@ -15,9 +15,11 @@ app.controller('loginController', function($scope,$location,loginservice) {
     var userNewObj = loginservice.app(userLogin);
     userNewObj.then(function(data) {
       if(data.data.status == true){
-        $location.path('/dashboard');
+        // $location.path('/dashboard');
+        $state.go('dashboard');
       }else{
-          $location.path('/login');
+          // $location.path('/login');
+          $state.go('login');
       }
       console.log(data);
     }).catch(function(error) {

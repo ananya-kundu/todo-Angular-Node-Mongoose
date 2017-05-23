@@ -7,6 +7,8 @@ var    router = express.Router();
 router.use(function(req, res, next) {
   console.log("auth library....");
  var token = req.headers['x-access-token'] || req.headers.cookie ;
+ // console.log( req.headers.cookie);
+
  token = token.substr(7);
 
  console.log( req.headers.cookie);

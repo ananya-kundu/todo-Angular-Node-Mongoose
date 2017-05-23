@@ -14,51 +14,53 @@
 <body ng-controller="dashboardController">
 
   <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(6,6,6,1);" role="navigation">
-      <div class="container-fluid">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <div class="container-fluid" >
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;"><span class="glyphicon glyphicon-list tglid" id="tglid" aria-hidden="true"></span></a>
-          </div>
-          <div>
-          <a class="navbar-brand"  href="#menu-toggle" id="menu-toggle" >
+        <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;"><span class="glyphicon glyphicon-list tglid" id="tglid" aria-hidden="true"></span></a>
+      </div>
+      <div>
+        <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
           <span> <span id="keepClass" >My Keep </span></span>
-          </a>
-        </div>
-          <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true"></span> </a></li>
-                <li>
-                  <p class="navbar-text" id="textColor">
-                    <span class="list-style-buttons">
-                        <a id="gridview"><span class="glyphicon glyphicon-th" id="gridcss"></a></span>
-                        <a  id="listview" ><span class="glyphicon glyphicon-align-justify" id="listcss" style="background-color:white;color:#080808;"></a></span>
-                      </p>
-                </li>
-  				<!-- <li><a href="#"><span class="list-style-buttons" aria-hidden="true">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true"></span> </a></li>
+          <li>
+            <p class="navbar-text" id="textColor">
+              <span class="list-style-buttons" id="textColor">
+              <a id="gridview1"><span class="glyphicon glyphicon-th" id="ab" ng-style="gridstyle" style="color:white;" ng-click="gridview()"></a></span>
+              <a id="listview1"><span class="glyphicon glyphicon-align-justify" ng-style="liststyle"  style="color:grey;display:none;" ng-click="listview()" ></a></span>
+              </span>
+            </p>
+          </li>
+          <!-- <li><a href="#"><span class="list-style-buttons" aria-hidden="true">
             <a id="gridview"><span class="glyphicon glyphicon-th" style="background-color:#fb0;color:black;"></a>
             <a  id="listview" ><span class="glyphicon glyphicon-align-justify" style="background-color:white;color:#080808;"></a>
           </span>  </a></li> -->
 
-               	<!-- <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li> -->
-                  <li><a href="#"><span class="glyphicon glyphicon-off" id="logOutId"  aria-hidden="true"></span> </a></li>
-              </ul>
-              <form class="navbar-form navbar-right" action="#" method="GET">
-             		<div class="input-group" id="inputid">
-  					<input type="text" class="form-control" placeholder="Search..." id="query" name="search" value="">
-                    	<div class="input-group-btn">
-                      	<button type="submit" class="btn btn-default btn-block" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                    	</div>
-  				</div>
-              </form>
+          <!-- <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li> -->
+          <li><a href="#"><span class="glyphicon glyphicon-off" id="logOutId"  aria-hidden="true"></span> </a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <div class="input-group" id="inputid">
+            <input type="text" class="form-control" placeholder="Search..." id="query" name="search" value="">
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default btn-block" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
           </div>
+        </form>
       </div>
+    </div>
   </nav>
 
+  <!-- style="background-color:white;color:#080808;" -->
 
 
 
@@ -108,61 +110,96 @@
       <!-- /#sidebar-wrapper -->
 
 
-<!-- for pop-up -->
-      <div class="modal fade" id="myModal" role="dialog">
+
+<!-- popup -->
+      <!-- <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">
-                <div id="popupTitle" contenteditable="true" placeholder="Title" ></div>
-              </h4>
-            </div>
-            <div class="modal-body">
-              <div id="popupContent" contenteditable="true" placeholder="Take a note.." ></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="close"  class="btn btn-default" data-dismiss="modal">Done</button>
+          <div id="update">
+            <div class="col-lg-12">
+
             </div>
           </div>
         </div>
       </div>
+      ​ -->
+      <!-- <div ng-controller="ModalDemoCtrl">
+          <script type="text/ng-template" id="myModalContent.html">
+              <div class="modal-header">
+                  <h3>I'm a modal!</h3>
+              </div>
+              <div class="modal-body">
+                  <ul>
+                      <li ng-repeat="item in items">
+                          <a style="cursor:pointer" ng-click="selected.item = item">{{ item }}</a>
+                      </li>
+                  </ul>
+                  Selected: <b>{{ selected.item }}</b>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-primary" ng-click="ok()">OK</button>
+                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+              </div>
+          </script>
 
-<!-- for cards -->
-      <div id="page-content-wrapper"  >
+          <button class="btn" ng-click="open()">Open me!</button>
+          <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+      </div> -->
+
+
+      <!-- for cards -->
+      <div id="page-content-wrapper" >
         <!-- <div class="container" style = "border:1px solid black"> -->
-        <div class="row" id="msgDivId" >
+        <div class="row" id="msgDivId">
           <div class="col-md-3"></div>
           <div class="col-lg-12">
             <div class="col-md-6" style="margin-left:20%">
 
-              <div id="mainMsgBox" >
-                <div id="title">
-                  <input type="text" id="dummyTitle" ng-show = "dummyNote" ng-hide = "mainNote" ng-click = "mainNote = !mainNote" placeholder="Take a note.." size="50"></input>
+              <div id="mainMsgBox">
+                <div id="title" ng-show="mainNote" ng-click="takeclick()">
+                  <input type="text" id="dummyTitle" ng-click="mainNote = !mainNote" placeholder="Take a note.." size="50"></input>
                 </div>
+              </div>
 
-                <div id="userMsgBox" ng-show="mainNote" class="toggled"  >
-                  <div id="title1" newcontenteditable contenteditable="true" ng-model="title" class="userGivenTitle" placeholder="Title" size="50" style="border:none;outline:none;"></div>
-                  <div id="content" newcontenteditable contenteditable="true"  ng-model="note" placeholder="Take a Note.." size="50" style="border:none;outline:none;"></div>
+              <div id="userMsgBox" ng-show="dummyNote" class="toggled">
+                <div id="title1" newcontenteditable contenteditable="true" ng-model="title" class="userGivenTitle" placeholder="Title" size="50" style="border:none;outline:none;"></div>
+                <div id="content" newcontenteditable contenteditable="true" ng-model="note" placeholder="Take a Note.." size="50" style="border:none;outline:none;"></div>
 
-                  <p id="writeMsg" >
-                    <i style="margin-left:16px" class="fa fa-hand-pointer-o fa-lg" aria-hidden="true" style="font-size:24px"></i>
-                    <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-                    <i style="margin-left:16px" class="fa fa-paint-brush fa-lg" style="font-size:24px" aria-hidden="true"></i>
-                    <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
-                    <i style="margin-left:16px" class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                <p id="writeMsg">
+                  <i style="margin-left:16px" class="fa fa-hand-pointer-o fa-lg" aria-hidden="true" style="font-size:24px"></i>
+                  <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
+                  <i style="margin-left:16px" class="fa fa-paint-brush fa-lg" style="font-size:24px" aria-hidden="true"></i>
+                  <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
+                  <i style="margin-left:16px" class="fa fa-ellipsis-v" aria-hidden="true"></i>
 
-                    <button type="button" id="done" ng-click="savemsgcard()">DONE</button>
-                  </p>
-                </div>
+                  <button class="btn btn-warning" type="button" id="done" ng-click="savemsgcard()">DONE</button>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="row" id="notes" >
-          <div class="col-sm-4" id="innote" ng-repeat = "x in message" style="display:block;transition-property: opacity,transform;">
-            <pre id="preid"> <div id="divtitle"><b style="font-size:20px;font-family:sans-serif;" ng-bind-html = "x.title1"></b></div><div id="noteinner" style="padding: 0px 14px 1px 8px;" ng-bind-html = "x.content"></div><div id="del"><a id="delete">delete</a></div></pre>
-           </div></div>
+        <div ng-show="grid">
+          <!-- style="border:2px solid green;" -->
+          <div class="row" id="notes">
+            <div class="col-sm-4" id="innote" ng-repeat="x in message" style="display:block;transition-property: opacity,transform;">
+              <div id="preid">
+                <div id="divtitle" style="margin-left:1%;"><b style="font-size:20px;font-family:sans-serif;" ng-click="popup(x)" ng-bind-html = "x.title1"></b></div>
+                <div id="noteinner" ng-click="popup(x)" style="padding: 0px 14px 1px 8px;" ng-bind-html = "x.content"></div>
+                <div id="del"><a id="delete" ng-click = "deletecards(x._id)">delete</a></div></div>
+            </div>
+          </div>
+        </div>
+        <div ng-show="list">
+          <div class="row" id="noteslist" style="margin-top:4%;">
+            <!-- <div class="col-sm-3" style="3px solid red"> -->
+            <div class="col-sm-6" id="innote" ng-repeat="x in message" style="margin-left:6%;width:80%;display:block;transition-property: opacity,transform;">
+              <div id="preid1">
+                <div id="divtitle" style="margin-left:1%;"><b style="font-size:20px;font-family:sans-serif;" ng-click="popup(x)" ng-bind-html = "x.title1"></b></div>
+                <div id="noteinner" ng-click="popup(x)" style="padding: 0px 14px 1px 8px;" ng-bind-html = "x.content"></div>
+                <div id="del"><a id="delete" ng-click = "deletecards(x._id)" >delete</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -178,16 +215,16 @@
 
   //this is for sidebar
   $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
 
   // <Msg box>
-  $("#userMsgBox").hide();
-  $("#mainMsgBox").click(function() {
-    $("#dummyTitle").hide();
-    $("#userMsgBox").show();
-  });
+  // $("#userMsgBox").hide();
+  // $("#mainMsgBox").click(function() {
+  //   $("#dummyTitle").hide();
+  //   $("#userMsgBox").show();
+  // });
   $("#wrapper").click(function() {
     $("#glyList").css("margin-left", "0px");
     // $("#userMsgBox").show();

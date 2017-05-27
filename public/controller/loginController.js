@@ -1,6 +1,21 @@
-app.controller('loginController', function($scope,$location,$state,loginservice) {
+app.controller('loginController', function($scope,$location,$state,loginservice, sessionService) {
   console.log("cfdsfsdf");
   $scope.message = ' I am a login page.';
+
+  var checkUser = sessionService.app();
+  checkUser.then(function(data) {
+    if(data.data.status == true){
+      // $location.path('/dashboard');
+      $state.go('dashboard');
+    }else{
+        // $location.path('/login');
+        $state.go('login');
+    }
+    // console.log(data);
+  }).catch(function(error) {
+    console.log(error);
+  })
+
 
   $scope.login = function() {
     var emailid = $scope.emailid;
@@ -37,6 +52,16 @@ app.service('loginservice', function($http) {
     });
   }
 });
+app.service('sessionService', function($http) {
+  this.app = function() {
+    return $http({
+      url: "http://localhost:8081/session",
+      method: "GET",
+      // data: object
+    });
+  }
+});
+
 // app.service('loginservice', function($http) {
 //   this.app = function() {
 //     return $http({

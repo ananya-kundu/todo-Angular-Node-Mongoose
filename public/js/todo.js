@@ -1,33 +1,5 @@
 $(document).ready(function() {
 
-  // $.ajax({
-  //   url: "http://localhost:8081/session",
-  //   datatype: "json",
-  //   type: "GET",
-  //   success: function(data) {
-  //     if (data.session == true) {
-  //       console.log("session..");
-  //       loginSuccessPage();
-  //     }
-  //   }
-  // });
-  // function loginSuccessPage() {
-  //   $.ajax({
-  //     url: "dashboard.html",
-  //     datatype: "text",
-  //     type: "GET",
-  //     success: function(res) {
-  //       $("#body").html(res);
-  //       readmsgcards();
-  //     }
-  //   });
-  // }
-  // $(function($){
-  // $.fn.editableContent = function()
-  //     {
-  //         return this.html().replace(/<div>/gi,'<br>').replace(/<\/div>/gi,'');
-  //     };
-  // });
   var User = function(userName,mobileNo,email, password) {
     this.userName = userName;
     this.mobileNo = mobileNo;

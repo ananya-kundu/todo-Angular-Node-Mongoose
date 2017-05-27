@@ -1,34 +1,14 @@
 <!-- for pop-up -->
-<!-- <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">
-          <div id="popupTitle" newcontenteditable contenteditable="true" placeholder="Title"></div>
-        </h4>
-      </div>
-
-      <div class="modal-body">
-        <div id="popupContent" contenteditable="true" placeholder="Take a note.."></div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" id="close" class="btn btn-default" data-dismiss="modal">Done</button>
-      </div>
-    </div>
-  </div>
-</div>
- -->
 <div class="modal-header">
-  <h3 class="modal-title" newcontenteditable contenteditable="true" ng-model="$ctrl.title1">Title</h3>
+  <h3 class="modal-title" newcontenteditable contenteditable="true" ng-model="$ctrl.title1" style="outline: none;">Title</h3>
 </div>
-<div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content"><span><b></b></span>{{title}} Hi..</div>
+<div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content" style="outline: none;"><span><b></b></span>{{title}} Hi..</div>
 <div class="modal-footer">
-  <button class="btn btn-warning" type="button" ng-click="$ctrl.updateCard();$ctrl.cancel()">Done</button>
 
-  <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+  <div newcontenteditable contenteditable="true" ng-model="$ctrl.updated_at" style="outline: none;"> {{$ctrl.date | date :'HH:MM'}}</div>
+  <!-- <button class="btn btn-warning" type="button" ng-click="$ctrl.updateCard();$ctrl.cancel()">Done</button> -->
+  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.updateCard();$ctrl.cancel()">DONE</button>
+  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.cancel()">CANCEL</button>
 </div>
 
 <!-- <form name="popup">

@@ -19,29 +19,35 @@ var msg = Schema({
   content: {
     type: String,
     minlength: 0
-  }
-  // ,created_at: {
-  //      type: Date,
-  //       default: Date.now
-  //     },
-  //   updated_at: {
-  //       type: Date,
-  //       default: Date.now
-  //   }
+  },
+  created_at: {
+       type: Date,
+        default: Date.now
+      },
+    updated_at: {
+        type: Date,
+        default: Date.now
+    },
+    reminder :{
+      type: Date
+    },
+    color :{
+      type: String
+    }
 
 }, {
   collection: "userMsgSchema"
 });
 
 
-//
-// msg.pre('save', function(next) {
-//   var currentDate = new Date();
-//   this.updated_at = currentDate;
-//   if (!this.created_at)
-//     this.created_at = currentDate;
-//   next();
-// });
+
+msg.pre('save', function(next) {
+  var currentDate = new Date();
+  this.updated_at = currentDate;
+  if (!this.created_at)
+    this.created_at = currentDate;
+  next();
+});
 
 msg.statics.saveMsgData = function(reqData, cb) {
   var userMsgSchemaObj = new userMsgSchema(reqData);
@@ -54,7 +60,6 @@ msg.statics.getMsgData = function(userid, cb) {
   this.find(userid, cb);
 }
 msg.statics.deleteCardsData = function(userid, cb) {
-
   console.log("userid delete...", userid);
   console.log(userid);
   // this.findOne({_id:userid._id},cb);
@@ -75,13 +80,39 @@ msg.statics.updateData = function(userid,req, cb) {
 }
 
 msg.statics.popupCardsData = function(userid, cb) {
-  // console.log("userid popup...", userid);
-  // console.log(userid);
-  // this.findOne({_id:userid._id},cb);
   this.find({
     _id: userid
   }, cb);
 }
+msg.statics.remainderData = function(userid,req,cb) {
+  this.update({
+    _id: userid
+  }, {
+    $set: {
+    reminder: req.reminder
+    }
+  }, cb);
+  }
+
+  msg.statics.deleteReminderData = function(userid, cb) {
+    console.log("reminder delete...");
+    this.update({
+      _id: userid
+    }, {
+      $unset: {
+      reminder: ""
+      }
+    }, cb);
+    }
+    msg.statics.changeColor = function(userid,req,cb) {
+      this.update({
+        _id: userid
+      }, {
+        $set: {
+        color: req.color
+        }
+      }, cb);
+      }
 
 var userMsgSchema = mongoose.model('userMsgSchema', msg);
 

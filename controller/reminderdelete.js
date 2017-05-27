@@ -2,15 +2,14 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var todocards = require('../model/dashBoardSchema.js');
-router.delete('/:userid', function(req, res) {
+router.delete('/:id', function(req, res) {
     try {
-console.log("delete");
-            var deleteddata =req.params.userid;
+        console.log("reminder delete");
+          var deleteddata =req.params.id;
                 // userid:req.decoded.id,
 
-
-            // console.log("idddd",deleteddata);
-            todocards.deleteCardsData(deleteddata,function(err, result) {
+            todocards.deleteReminderData(deleteddata,function(err, result) {
+                console.log(deleteddata);
               if (!err) {
                 res.send({"status": true,"message": result});
               } else {

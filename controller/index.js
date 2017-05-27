@@ -15,6 +15,9 @@ router.use("/pinup",auth,require("./pinup"));
 router.use("/deletemsgcard",auth,require("./deletemsgcard"));
 router.use("/popupcard",auth,require("./popupcard"));
 router.use("/updatemsgcards",auth,require("./updatemsgcards"));
+router.use("/reminder",auth,require("./reminder"));
+router.use("/reminderdelete",auth,require("./reminderdelete"));
+router.use("/color",auth,require("./color"));
 
 
 module.exports = router;

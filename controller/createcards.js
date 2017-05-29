@@ -11,8 +11,9 @@ router.post('/', function(req, res) {
               userid:userid,
               title1:req.body.title1,
               content:req.body.content,
+              color:req.body.color
             }
-            console.log(data);
+            console.log("I'M INSIDE SAVEMSGDATA",data);
             dashboard.saveMsgData(data,function(err, result) {
               if (!err) {
                 res.send({"status": true,"message": "Your cards data is saved"});

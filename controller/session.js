@@ -1,7 +1,7 @@
 var express = require('express'),
 	router = express.Router();
 
-router.get('/session',function(req,res){
+router.post('/session',function(req,res){
 console.log("ananya session",req.session);
 if (req.headers.cookie) {
 	res.send({"status":true,"message":"user exist","session":true})

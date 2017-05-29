@@ -1,46 +1,36 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>mykeep</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css">
-</head> -->
 
 <body ng-controller="dashboardController">
 
   <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(6,6,6,1);" role="navigation">
     <div class="container-fluid" >
-      <div class="navbar-header" >
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="margin-right:10%;">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;"><span class="glyphicon glyphicon-list tglid" id="tglid" aria-hidden="true"></span></a>
+
+          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
+              <span id="keepClass">My Keep </span>
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;"><span class="glyphicon glyphicon-list tglid" id="tglid" aria-hidden="true"></span></a>
+            </button>
       </div>
-      <div>
-        <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
-          <span> <span id="keepClass">My Keep </span></span>
-        </a>
-      </div>
+      <!-- <div>
+
+      </div> -->
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true"></span> </a></li>
+          <li><a><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true" style="margin-left:2%;"></span> </a></li>
           <li>
             <p class="navbar-text" id="textColor">
               <span class="list-style-buttons" id="textColor">
-                  <a id="gridview1"><span class="glyphicon glyphicon-th" id="ab" ng-style="gridstyle" style="color:white;" ng-click="gridview()"></a></span>
-                  <a id="listview1"><span class="glyphicon glyphicon-align-justify" ng-style="liststyle" style="color:grey;display:none;" ng-click="listview()" ></a></span>
+                  <a id="gridview1"><span class="glyphicon glyphicon-th" id="gridgly" ng-style="gridstyle" style="margin-left:4%;" ng-click="gridview()"></a>
+                  <a id="listview1"><span class="glyphicon glyphicon-align-justify" id="listgly" ng-style="liststyle" style="display:none;margin-left:5%;" ng-click="listview()" ></a></span></span>
               </span>
             </p>
           </li>
-          <!-- <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li> -->
-           <li><a href="#"><span class="glyphicon glyphicon-off" id="logOutId"  aria-hidden="true"></span> </a></li>
+           <li><a href="#"><span class="glyphicon glyphicon-off" id="logOutId" ng-click="logOut()" aria-hidden="true" style="margin-left:2%;"></span> </a></li>
         </ul>
         <form class="navbar-form navbar-right">
           <div class="input-group" id="inputid" style="padding-right:3%;background-color:black;">
@@ -53,8 +43,6 @@
       </div>
     </div>
   </nav>
-
-  <!-- style="background-color:white;color:#080808;" -->
 
   <div id="wrapper" class="toggled">
     <div class="container-fluid">
@@ -140,11 +128,14 @@
             <div class="col-sm-4" id="innotegrid" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search" >
 
               <div id="preid" style="background-color:{{x.color}}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 cardhover">
-                <div id="divtitle" style="margin-left:2%;"><i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i></div>
+                <div style="padding:2%;">
+                <div id="divtitle" style="margin-left:2%;">
+                  <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i></div>
                 <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
 
                    <div id="footer" >
                      <span ng-show="icons">
+                       <i aria-hidden="true">
                       <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
                             <a href uib-dropdown-toggle>
                                 <i id='reminder' uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-hand-pointer-o fa-lg"></i>
@@ -158,14 +149,15 @@
                                   </li>
                                 </ul>
                           </span>
+                          <i>
 
 
-
-                          <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-
+                          <i style="margin-left:8px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
+                          <i aria-hidden="true">
                           <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
                                 <a href uib-dropdown-toggle>
-                                    <i id='reminder' style="width:1%;" class="fa fa-paint-brush fa-lg" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i>
+                                  <img id='reminder1'  style="width:7%;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                                    <!-- <i id='reminder' style="width:1%;" class="fa fa-paint-brush fa-lg" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i> -->
                                   </a>
                                   <div uib-dropdown-menu aria-labelledby="simple-dropdown">
                                             <a id="normal" ng-repeat = "y in color" style="font-size:10px;">
@@ -173,11 +165,12 @@
                                             </a>
                                     </div>
                               </span>
+                            </i>
 
                    <!-- <i style="margin-left:10px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
                    <i style="margin-left:px" class="fa fa-paint-brush fa-lg" style="font-size:24px" aria-hidden="true"></i> -->
-                   <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
-
+                   <!-- <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i> -->
+                   <i style="margin-left:8px">
                       <span uib-dropdown on-toggle dropdown-append-to-body="true" >
                             <a href uib-dropdown-toggle>
                                 <i id='more' uib-popover="More"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
@@ -189,7 +182,8 @@
                                   </li>
                               </ul>
                         </span>
-                      </span>
+                      </i>
+                    </span>
                     </div>
 
                         <div ng-if="x.reminder" id="remindercss">
@@ -200,6 +194,7 @@
                         </div>
 
               </div>
+            </div>
             </div>
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2">
@@ -240,19 +235,21 @@
 
                 <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
 
+                <i aria-hidden="true">
                 <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
                       <a href uib-dropdown-toggle>
-                          <i id='reminder' style="width:1%;" class="fa fa-paint-brush fa-lg" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i>
+                          <img id='reminder'  style="width:2%;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
                         </a>
                         <div uib-dropdown-menu aria-labelledby="simple-dropdown">
                                   <a id="normal" ng-repeat = "y in color" style="font-size:16px"><img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)"></a>
                           </div>
                     </span>
+                  </i>
 
 
-                <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
+                <!-- <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i> -->
 
-
+                <i style="margin-left:6px" aria-hidden="true">
                    <span uib-dropdown on-toggle dropdown-append-to-body="true" >
                          <a href uib-dropdown-toggle>
                              <i id='more' uib-popover="More"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
@@ -264,7 +261,9 @@
                                </li>
                            </ul>
                      </span>
+                      </i>
                    </span>
+
                  </div>
 
                      <div ng-if="x.reminder" id="remindercss">
@@ -292,9 +291,10 @@
 </body>
 
 <script>
-  $('#mynavbar').click('li', function() {
-    $('#mynavbar').collapse('hide');
-  });
+// this is for closing collapse icon
+  $('#navbar').click('li', function() {
+       $('#navbar').collapse('hide');
+   });
 
   //this is for sidebar
   $("#menu-toggle").click(function(e) {

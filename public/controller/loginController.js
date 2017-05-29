@@ -1,8 +1,8 @@
-app.controller('loginController', function($scope,$location,$state,loginservice, sessionService) {
+app.controller('loginController', function($scope,$location,$state,mykeepService) {
   console.log("cfdsfsdf");
   $scope.message = ' I am a login page.';
-
-  var checkUser = sessionService.app();
+    var url="http://localhost:8081/session";
+  var checkUser = mykeepService.app(url);
   checkUser.then(function(data) {
     if(data.data.status == true){
       // $location.path('/dashboard');
@@ -27,7 +27,8 @@ app.controller('loginController', function($scope,$location,$state,loginservice,
     }
 
     console.log(userLogin);
-    var userNewObj = loginservice.app(userLogin);
+    var url="http://localhost:8081/login";
+    var userNewObj = mykeepService.app(url,userLogin);
     userNewObj.then(function(data) {
       if(data.data.status == true){
         // $location.path('/dashboard');
@@ -43,24 +44,7 @@ app.controller('loginController', function($scope,$location,$state,loginservice,
   }
 
 });
-app.service('loginservice', function($http) {
-  this.app = function(userLogin) {
-    return $http({
-      url: "http://localhost:8081/login",
-      method: "POST",
-      data: userLogin
-    });
-  }
-});
-app.service('sessionService', function($http) {
-  this.app = function() {
-    return $http({
-      url: "http://localhost:8081/session",
-      method: "GET",
-      // data: object
-    });
-  }
-});
+
 
 // app.service('loginservice', function($http) {
 //   this.app = function() {

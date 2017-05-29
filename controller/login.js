@@ -31,7 +31,8 @@ router.post('/login', function(req, res) {
                     if (newLoginPassword == encryptLoginPassword) {
                       // console.log(user._id);
                       var token = jwt.sign({ id: user._id }, connDb.secret, {
-                        expiresIn: 864000
+                        // expiresIn: 864000
+                          expiresIn: 60*60*24
                       });
                       res.cookie("cookie",token);
                       res.send({

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var todocards = require('../model/dashBoardSchema.js');
-router.delete('/:id', function(req, res) {
+router.post('/:id', function(req, res) {
     try {
         console.log("reminder delete");
           var deleteddata =req.params.id;

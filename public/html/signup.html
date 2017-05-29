@@ -1,74 +1,66 @@
 <header>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#home">My Keep</a>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <!-- <li><a href="#"><span class="fa fa-home"></span> Home</a></li> -->
-            <li><a href="#login"><span class="fa fa-shield"></span> LOGIN</a></li>
-            <li><a href="#signup"><span class="fa fa-comment"></span> signup</a></li>
-          </ul>
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(6,6,6,1);" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#home">My Keep</a>
 
-          </div>
-      </div>
-  </nav>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#login"><span class="fa fa-shield" aria-hidden="true"></span> Login</a></li>
+                      <li><a href="#signup"><span class="fa fa-comment" aria-hidden="true"></span> signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
   </header>
 
-
-
-
 <div class = "container-fluid">
-<div class="login-page">
-  <div class="form">
-
-    <form name="signupform" ng-controller="signupController">
+  <div class="login-page">
+    <div class="form">
+      <form name="signupform" ng-controller="signupController">
 
       <p>
       <input type="userName" name="userName" id="userName" placeholder="User Name"  ng-model="userName" required>
       <span style="color:red" ng-show="signupform.userName.$dirty && signupform.userName.$invalid">
-      <span ng-show="signupform.userName.$error.required">User name is required.</span>
-      <!-- <span ng-show="signupform.userName.$error.userName">Invalid user name.</span> -->
+        <span ng-show="signupform.userName.$error.required">User name is required.</span>
       </span>
       </p>
 
       <p>
       <input type="mobileNo" name="mobileNo" id="mobileNo" placeholder="Mobile No"  ng-model="mobileNo" required>
       <span style="color:red" ng-show="signupform.mobileNo.$dirty && signupform.mobileNo.$invalid">
-      <span ng-show="signupform.mobileNo.$error.required">Mobile No is required.</span>
-      <!-- <span ng-show="signupform.mobileNo.$error.mobileNo">Invalid email address.</span> -->
+        <span ng-show="signupform.mobileNo.$error.required">Mobile No is required.</span>
       </span>
       </p>
 
       <p>
       <input type="email" name="emailid" id="email" placeholder="Email"  ng-model="emailid" required>
       <span style="color:red" ng-show="signupform.emailid.$dirty && signupform.emailid.$invalid">
-      <span ng-show="signupform.emailid.$error.required">Email-id is required.</span>
-      <span ng-show="signupform.emailid.$error.email">Invalid email address.</span>
+        <span ng-show="signupform.emailid.$error.required">Email-id is required.</span>
+        <span ng-show="signupform.emailid.$error.email">Invalid email address.</span>
       </span>
       </p>
 
       <p>
       <input type="password" name="password" id="password" placeholder="Password"  ng-model="password" required>
       <span style="color:red" ng-show="signupform.password.$dirty && signupform.password.$invalid">
-      <span ng-show="signupform.password.$error.required">Password is required.</span>
-      <span ng-show="signupform.password.$error.password">Invalid email address.</span>
+        <span ng-show="signupform.password.$error.required">Password is required.</span>
+        <span ng-show="signupform.password.$error.password">Invalid email address.</span>
       </span>
       </p>
 
       <p>
-      <button id="signinBtn" ng-click ="signupbtn()"signupbtn ng-disabled="signupform.userName.$dirty && signupform.userName.$invalid ||
-      signupform.mobileNo.$dirty && signupform.mobileNo.$invalid ||
-      signupform.emailid.$dirty && signupform.emailid.$invalid ||
-      signupform.password.$dirty && signupform.password.$invalid">Signup</button>
+        <button id="signinBtn" ng-click ="signupbtn()"signupbtn ng-disabled="signupform.userName.$dirty && signupform.userName.$invalid ||
+          signupform.mobileNo.$dirty && signupform.mobileNo.$invalid ||
+          signupform.emailid.$dirty && signupform.emailid.$invalid ||
+          signupform.password.$dirty && signupform.password.$invalid">Signup</button>
       </p>
 
       <p class="message">Not registered? <a href="#login">Already have account?</a></p>

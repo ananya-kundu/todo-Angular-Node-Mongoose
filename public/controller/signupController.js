@@ -3,7 +3,7 @@
 // });
 
 
-app.controller('signupController', function($scope,$state,$location,signupservice) {
+app.controller('signupController', function($scope,$state,$location,mykeepService) {
   console.log("signup page");
   $scope.message = ' I am a signup page.';
 
@@ -19,9 +19,9 @@ app.controller('signupController', function($scope,$state,$location,signupservic
       email: emailid,
       password: password
     }
-
+    var url= "http://localhost:8081/signup";
     console.log(userObj);
-    var signupObj = signupservice.app(userObj);
+    var signupObj = mykeepService.app(url,userObj);
     signupObj.then(function(data) {
       if(data.data.status == true){
         $state.go('login');
@@ -34,13 +34,4 @@ app.controller('signupController', function($scope,$state,$location,signupservic
     })
   }
 
-});
-app.service('signupservice', function($http) {
-  this.app = function(userObj) {
-    return $http({
-      url: "http://localhost:8081/signup",
-      method: "POST",
-      data: userObj
-    });
-  }
 });

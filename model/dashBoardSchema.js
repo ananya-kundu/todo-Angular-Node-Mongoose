@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 var msg = Schema({
   userid: {
     // ref:"user",
-    // type: ObjectId
+    // type: ObjectId,
     type: String
   },
   title1: {
@@ -40,7 +40,6 @@ var msg = Schema({
 });
 
 
-
 msg.pre('save', function(next) {
   var currentDate = new Date();
   this.updated_at = currentDate;
@@ -50,15 +49,17 @@ msg.pre('save', function(next) {
 });
 
 msg.statics.saveMsgData = function(reqData, cb) {
+  console.log("i'm inside save method");
   var userMsgSchemaObj = new userMsgSchema(reqData);
-  // console.log(userMsgSchemaObj);
   userMsgSchemaObj.save(cb);
-}
+};
+
 msg.statics.getMsgData = function(userid, cb) {
-  // this.find({},cb);
-  console.log("userid...........", userid);
-  this.find(userid, cb);
-}
+
+  console.log("userid.....in get......", userid);
+  this.find({userid:userid}, cb);
+};
+
 msg.statics.deleteCardsData = function(userid, cb) {
   console.log("userid delete...", userid);
   console.log(userid);
@@ -66,9 +67,9 @@ msg.statics.deleteCardsData = function(userid, cb) {
   this.remove({
     _id: userid
   }, cb);
-}
+};
+
 msg.statics.updateData = function(userid,req, cb) {
-  // console.log("userid updated...", userid);
   this.update({
     _id: userid
   }, {
@@ -77,13 +78,14 @@ msg.statics.updateData = function(userid,req, cb) {
       content: req.content
     }
   }, cb);
-}
+};
 
 msg.statics.popupCardsData = function(userid, cb) {
   this.find({
     _id: userid
   }, cb);
-}
+};
+
 msg.statics.remainderData = function(userid,req,cb) {
   this.update({
     _id: userid
@@ -92,7 +94,7 @@ msg.statics.remainderData = function(userid,req,cb) {
     reminder: req.reminder
     }
   }, cb);
-  }
+};
 
   msg.statics.deleteReminderData = function(userid, cb) {
     console.log("reminder delete...");
@@ -103,7 +105,8 @@ msg.statics.remainderData = function(userid,req,cb) {
       reminder: ""
       }
     }, cb);
-    }
+  };
+
     msg.statics.changeColor = function(userid,req,cb) {
       this.update({
         _id: userid
@@ -112,7 +115,7 @@ msg.statics.remainderData = function(userid,req,cb) {
         color: req.color
         }
       }, cb);
-      }
+    };
 
 var userMsgSchema = mongoose.model('userMsgSchema', msg);
 

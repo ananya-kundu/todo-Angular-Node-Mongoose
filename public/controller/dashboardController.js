@@ -1,4 +1,4 @@
-app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,savemsgcardService,getmsgcardService,deletecardService,updatemsgcardService,reminderService,reminderDeleteService,changeColorService) {
+app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,mykeepService) {
   console.log("ghsjh");
   console.log($scope);
 
@@ -46,26 +46,12 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
       "color" :"#a7ffeb",
       "path" : "../images/moonaqua.png"
     }
-
-
-
   ]
 
 
-  $scope.changeColor = function(color,cardsid){
-    // colorArr = ["#3498db","#f1c40f","#1abc9c","#95a5a6","#9b59b6"];
-    // console.log("hohihui");
-    // var newColor = colorArr[colorindex];
-    changeColorService.app(color,cardsid).then(function(data){
-      $scope.getmsgcard();
-    }).catch(function(error){
-      console.log(error);
-    });
-  }
-
-
   $scope.getmsgcard = function() {
-    var obj = getmsgcardService.app();
+    var url = "http://localhost:8081/pinup";
+    var obj = mykeepService.app(url);
     obj.then(function(data) {
       if(data.data.status == true){
         var arrNote = [];
@@ -106,7 +92,10 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     if (title==""&& note=="" || title==undefined && note==undefined || title==null && note==null){
       return;
     }
-    var obj = savemsgcardService.app(object);
+
+    var url = "http://localhost:8081/createcards";
+
+    var obj = mykeepService.app(url,object);
     obj.then(function(data) {
       $scope.getmsgcard();
       // console.log(data.data.status);
@@ -151,7 +140,9 @@ if(localStorage.getItem("view") == "grid"){
 
 
   $scope.deletecards = function(cardsid) {
-   deletecardService.app(cardsid).then(function(data){
+      var url = "http://localhost:8081/deletemsgcard/" + cardsid + "";
+      // var  aa="delete";
+   mykeepService.app(url).then(function(data){
       console.log("inside del");
       $scope.getmsgcard();
     }).catch(function(error){
@@ -169,6 +160,7 @@ if(localStorage.getItem("view") == "grid"){
         this.content = datanote.content;
         this.created_at = datanote.created_at;
         this.updated_at = datanote.updated_at;
+        this.color = datanote.color;
 
 
         this.updateCard = function(){
@@ -179,25 +171,25 @@ if(localStorage.getItem("view") == "grid"){
             updated_at : this.updated_at
           }
           console.log(updateNote);
-var obj = updatemsgcardService.app(updateNote,this.id);
-obj.then(function(data){
-  console.log("updated");
-  if(data.data.status == true){
-    $scope.getmsgcard();
-  }else{
-    console.log("not updated");
-  }
-}).catch(function(error){
-  console.log(error);
-})
-
+          var url ="http://localhost:8081/updatemsgcards/" + this.id + "";
+          var obj = mykeepService.app(url,updateNote);
+          obj.then(function(data){
+              console.log("updated");
+              if(data.data.status == true){
+                  $scope.getmsgcard();
+                }else{
+                  console.log("not updated");
+                }
+          }).catch(function(error){
+                  console.log(error);
+              })
         };
-this.cancel = function(){
-  console.log("updation cancelled");
-  $uibModalInstance.dismiss('cancel');
-};
-},
-controllerAs : "$ctrl"
+        this.cancel = function(){
+            console.log("updation cancelled");
+            $uibModalInstance.dismiss('cancel');
+          };
+      },
+      controllerAs : "$ctrl"
 });
 
 modalInstance.result.catch(function(error){
@@ -211,7 +203,6 @@ modalInstance.result.catch(function(error){
 
 
   $scope.createReminder = function(cardsid,day) {
-          // console.log(day);
           console.log(cardsid);
           $scope.day = day;
           var remDate = new Date();
@@ -235,18 +226,15 @@ modalInstance.result.catch(function(error){
 
               nextweek.setDate(nextweek.getDate() + 7);
               $scope.day = new Date(nextweek);
-
-              // this.updateReminder(remDate, t_id);
           }
           else {
             console.log("else");
-              // this.updateRemilonder(day, t_id);
           }
           var remDay = {
               reminder : $scope.day
           }
-          // var obj = reminderService.app(updateNote,this.id);
-          var obj = reminderService.app(cardsid,remDay );
+          var url = "http://localhost:8081/reminder/" + cardsid + "";
+          var obj = mykeepService.app(url,remDay );
 
           obj.then(function(data){
             if(data.data.status == true){
@@ -261,7 +249,8 @@ modalInstance.result.catch(function(error){
 
       };
       $scope.deleteReminder = function(cardsid) {
-        reminderDeleteService.app(cardsid).then(function(data){
+        var url = "http://localhost:8081/reminderdelete/" + cardsid + "";
+        mykeepService.app(url).then(function(data){
             console.log(data);
             $scope.getmsgcard();
 
@@ -271,159 +260,41 @@ modalInstance.result.catch(function(error){
         })
          };
 
-$scope.cardCopy = function(notedata){
 
-var obj = savemsgcardService.app(notedata);
+$scope.cardCopy = function(notedata){
+var url = "http://localhost:8081/createcards";
+
+// console.log("SAdSADSAd");
+var obj = mykeepService.app(url,notedata);
 obj.then(function(data) {
   $scope.getmsgcard();
-  // console.log(data.data.status);
 }).catch(function(error) {
     console.log("error1");
-});
-// $scope.getmsgcard();
+  });
 }
 
-});
 
-
-app.service('savemsgcardService', function($http) {
-  this.app = function(object) {
-    return $http({
-      url: "http://localhost:8081/createcards",
-      method: "POST",
-      data: object
-    });
-  }
-});
-app.service('getmsgcardService', function($http) {
-  this.app = function() {
-    return $http({
-      url: "http://localhost:8081/pinup",
-      method: "GET",
-      // data: object
-    });
-  }
-});
-app.service('deletecardService', function($http) {
-  this.app = function(cardsid) {
-    return $http({
-      url: "http://localhost:8081/deletemsgcard/" + cardsid + "",
-      method: "DELETE",
-    });
-  }
-});
-app.service('updatemsgcardService', function($http) {
-  this.app = function(data,cardsid) {
-    return $http({
-      url: "http://localhost:8081/updatemsgcards/" + cardsid + "",
-      method: "POST",
-      data : data
-    });
-  }
-});
-app.service('reminderService', function($http) {
-  this.app = function(cardsid,data) {
-    console.log("i'm reminder service");
-    return $http({
-      url: "http://localhost:8081/reminder/" + cardsid + "",
-      method: "POST",
-      data : data
-    });
-  }
-});
-app.service('reminderDeleteService', function($http) {
-  this.app = function(cardsid) {
-    return $http({
-      url: "http://localhost:8081/reminderdelete/" + cardsid + "",
-      method: "DELETE",
-    });
-  }
-});
-
-app.service('changeColorService', function($http) {
-  this.app = function(color,cardsid) {
-    var colorObj = {
-      color : color
+  $scope.changeColor = function(color,cardsid){
+    var color_data={
+      color:color
     }
-    console.log("i'm changecolor service");
-    return $http({
-      url: "http://localhost:8081/color/" + cardsid + "",
-      method: "POST",
-      data : colorObj
+    var url = "http://localhost:8081/color/" + cardsid + "";
+    mykeepService.app(url,color_data).then(function(data){
+      $scope.getmsgcard();
+    }).catch(function(error){
+      console.log(error);
     });
   }
+
+
+  $scope.logOut = function(){
+    var url = "http://localhost:8081/logout";
+    mykeepService.app(url).then(function(data){
+
+    }).catch(function(error){
+      console.log(error);
+    });
+  }
+
+
 });
-
-
-
-
-// $scope.createReminder = function(day, _id) {
-//         console.log(day);
-//         console.log(t_id);
-//         var remDate = new Date();
-//         if (day == "today") {
-//             remDate.setHours(20, 0, 0);
-//             // console.log(remDate);
-//             this.updateReminder(remDate, t_id);
-//         } else if (day == "tomorrow") {
-//             remDate.setDate(remDate.getDate() + 1);
-//             remDate.setHours(8, 0, 0);
-//             // console.log(remDate);
-//             this.updateReminder(remDate, t_id);
-//         } else if (day == "nextweek") {
-//             remDate.setDate(remDate.getDate() + 7);
-//             // console.log(remDate);
-//             this.updateReminder(remDate, t_id);
-//         } else {
-//             // console.log(remDate);
-//             // console.log(day);
-//             this.updateReminder(day, t_id);
-//         }
-//     };
-
-//
-//     // update reminder
-//     $scope.updateReminder = function(remDate, t_id) {
-//         console.log(t_id);
-//         console.log(remDate);
-//         $scope.reminder = {
-//             reminder: remDate
-//         };
-//         //post call for update reminder
-//         $http.post('/todo/updateTodo/' + t_id, $scope.reminder, {
-//                 headers: {
-//                     "x-access-token": $auth.getToken
-//                 }
-//             })
-//             .then(function(data) {
-//                 $scope.todo = data.data;
-//                 toastr.success('Reminder updated successfully');
-//                 //console.log(data);
-//             })
-//             .catch(function(data) {
-//                 console.log('Error: ' + data);
-//             });
-//     };
-//
-//
-//     //  delete reminder
-//     $scope.deleteReminder = function(t_id) {
-//         // console.log(t_id);
-//         $scope.reminder = {
-//             reminder: ""
-//         };
-//         //post call for delete reminder
-//         $http.post('/todo/updateTodo/' + t_id, $scope.reminder, {
-//                 headers: {
-//                     "x-access-token": $auth.getToken
-//                 }
-//             })
-//             .then(function(data) {
-//                 $scope.todo = data.data;
-//                 toastr.success('Reminder deleted successfully');
-//                 //console.log(data);
-//             })
-//             .catch(function(data) {
-//                 console.log('Error: ' + data);
-//             });
-//     };

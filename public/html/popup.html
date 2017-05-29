@@ -1,15 +1,32 @@
 <!-- for pop-up -->
-<div class="modal-header">
+<div style="background-color:{{$ctrl.color}}">
+<div class="modal-header" >
   <h3 class="modal-title" newcontenteditable contenteditable="true" ng-model="$ctrl.title1" style="outline: none;">Title</h3>
 </div>
-<div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content" style="outline: none;"><span><b></b></span>{{title}} Hi..</div>
-<div class="modal-footer">
+<div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content" style="outline: none;"><span><b></b></span>{{title}}</div>
 
-  <div newcontenteditable contenteditable="true" ng-model="$ctrl.updated_at" style="outline: none;"> {{$ctrl.date | date :'HH:MM'}}</div>
-  <!-- <button class="btn btn-warning" type="button" ng-click="$ctrl.updateCard();$ctrl.cancel()">Done</button> -->
-  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.updateCard();$ctrl.cancel()">DONE</button>
-  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.cancel()">CANCEL</button>
+
+
+<div class="modal-footer" style="height:10px;font-size:12px;color:grey;">
+<div style="float:right;">Edited on:
+  <div newcontenteditable contenteditable="true" ng-model="$ctrl.updated_at" style="outline: none;display:inline;"></div>
+      <div style="">{{$ctrl.date | date :'HH:MM'}}</div>
+  </div>
 </div>
+
+<div class="modal-footer">
+  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.updateCard();$ctrl.cancel()" style="background-color: transparent;">DONE</button>
+  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.cancel()" style="background-color: transparent;">CANCEL</button>
+</div>
+
+</div>
+
+
+
+
+
+
+
 
 <!-- <form name="popup">
     <div class="modal-demo">

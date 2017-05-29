@@ -7,7 +7,7 @@ var dashboard = require('../model/dashBoardSchema.js');
 //
 // var validator = require('express-validator');
 // 	router.use(validator());
-  router.get('/', function(req,res){
+  router.post('/', function(req,res){
     console.log("req"+req);
       var userid = req.decoded.id;
     dashboard.getMsgData(userid,function(err,result){

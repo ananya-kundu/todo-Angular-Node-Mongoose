@@ -1,6 +1,7 @@
 
 body{
   background-color: #e8e8e8;;
+  /*background-image: url('../images/bck.jpg');*/
 }
 .hide
 {
@@ -87,7 +88,8 @@ body{
     height: 44px;
     padding: 12px 15px 15px 15px;
     box-sizing: border-box;
-    box-shadow: 0 0px 0px rgba(0,0,0,0), 0 -5px 21px rgba(0,0,0,0.22), 0 1px 5px 0 rgba(0,0,0,.12);;
+    /*box-shadow: 0 0px 0px rgba(0,0,0,0), 0 -5px 21px rgba(0,0,0,0.22), 0 1px 5px 0 rgba(0,0,0,.12);;*/
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 
     overflow: hidden;
     position: relative;
@@ -102,11 +104,10 @@ body{
 }
 
 
-.row {
-    /*margin-right: -15px;
-    margin-left: -15px;*/
+/*.row {
+
     margin-top: 0%;
-}
+}*/
 
 #notes
 {
@@ -411,7 +412,8 @@ ul{
     padding: 24px;
     background-color: white;
     /*border :1px solid black;*/
-    box-shadow: 0 2px 110px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    /*box-shadow: 5px 5px 7px rgba(33,33,33,.7);*/
+    box-shadow: 0 5px 7px rgba(33,33,33,.7), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 #listview{
     display: none;
@@ -439,6 +441,9 @@ ul{
 
     color: rgba(0,0,0,.54);
 }
+.gridviewnew{
+  margin-top:30px;
+}
 
 #mainMsgBox{
     /*margin:2px;*/
@@ -448,6 +453,9 @@ ul{
 }
 #delete:hover{
     color: teal;
+}
+#saveReminder:hover{
+  colo:red;
 }
 #makeCopy:hover{
   color:teal;
@@ -526,8 +534,9 @@ a {
   display: block;
 }
 /*grid view card style*/
-#preid
+.preid
 {
+
   background-color: rgba(232, 232, 232, 0.19);
   background-color: white;
     position: relative;
@@ -536,7 +545,7 @@ a {
     overflow: hidden;
     /*margin-left: 12%;*/
     box-sizing: border-box;
-    width: 104%;
+    width: 100%;
     margin: 4px 4px 4px -4px;
     padding: 0;
     -webkit-transition-timing-function: ease-in;
@@ -548,46 +557,62 @@ a {
 
     -webkit-border-radius: 2px;
             border-radius: 2px;
-    box-shadow: 0 0px 0px rgba(0,0,0,0), 0 -5px 21px rgba(0,0,0,0.22), 0 1px 5px 0 rgba(0,0,0,.12);;
+            box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+
+    /*box-shadow: 0 0px 0px rgba(0,0,0,0), 0 -5px 21px rgba(0,0,0,0.22), 0 1px 5px 0 rgba(0,0,0,.12);*/
 
 }
 
 /*grid and listview card style after hover*/
 .cardhover::after {
-  /*background-color: rgba(232, 232, 232, 0.19);;*/
   position: absolute;
   top: 0;
   left: 0;
-  /*width: 100%;*/
-  /*height: 100%;*/
   transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  box-shadow:  0 2px 17px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2);
-  /*box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);*/
+  /*box-shadow:  0 2px 17px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2);*/
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+
   content: '';
   opacity: 0;
   z-index: -1;
 }
 .cardhover:hover, .preid:focus {
-  /*transform: scale(1) rotate(90deg);*/
-  transform: scale3d(1.006, 1.006, 1);
+  /*transform: scale3d(1.006, 1.006, 1);*/
+  transform: scale3d(1.020, 1.020, 1);
+  position:relative;
+  /*-o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);*/
+  /*top:2px;*/
+
 }
 .cardhover:hover::after, .preid:focus::after {
   opacity: 1;
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
 }
+
+
 #removecircle:hover{
   color :black;
 }
 
 /*list view card style*/
-#preid1{
+.preid1{
    background-color: white;
-   box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+   box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+
+   /*box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);*/
     position: relative;
     display: inline-block;
     overflow: hidden;
     /*margin-left: 12%;*/
     box-sizing: border-box;
-    /*width: 108%;*/
+    width: 108%;
     /*margin: 4px;*/
     margin-top: 8px;
     margin-bottom: 6px;
@@ -676,6 +701,44 @@ color:teal;
 #listgly:hover{
     color:white;
 }
+#caret:hover{
+  color:white;
+}
+
+.circular--square {
+  font-size:10px;
+   text-align: center;
+   position: relative;
+   width: 100px;
+   height: 100px;
+   overflow: hidden;
+   border-radius: 50%;
+   margin-left: 15px;
+   top: 0px;
+    border:3px solid black;
+    background-color:#333;
+    color:black;
+    padding: 0px;
+    font-size: 55px;
+}
+.circular--square1 {
+  background-color:grey;
+  color:black;
+  padding:0px
+  font-size:16px;
+   position: relative;
+   width: 30px;
+   height: 30px;
+   overflow: hidden;
+   border-radius: 50%;
+   /*border:3px solid grey;*/
+   border:3px solid #333;
+   /*background-color:grey;*/
+
+
+}
+
+
 
 /*#query:hover{
   background-color: transparent;
@@ -781,4 +844,35 @@ color:teal;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
     overflow-x: visible;
 overflow-y: visible;
+}*/
+/*ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}
+ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
 }*/

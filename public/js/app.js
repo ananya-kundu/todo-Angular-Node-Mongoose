@@ -1,6 +1,6 @@
 
 
-var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap']);
+var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.bootstrap.datetimepicker']);
     // configure our routes
 // ,'ui.bootstrap'
     app.config(function($stateProvider,$urlRouterProvider) {

@@ -1,4 +1,4 @@
-app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,mykeepService) {
+app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,mykeepService) {
   console.log("ghsjh");
   console.log($scope);
 
@@ -6,13 +6,12 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   $scope.nextweek = "nextweek";
   $scope.today = "today";
 
-
-
   $scope.mainNote=true;
   $scope.takeclick=function(){
     $scope.mainNote=false;
     $scope.dummyNote=true;
   }
+
   $scope.color = [
     {
       "color" :"#fff",
@@ -47,8 +46,24 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
       "path" : "../images/moonaqua.png"
     }
   ]
+  $scope.image = function() {
+    var url = "http://localhost:8081/readuserprofile";
+    console.log();
+    var obj = mykeepService.app(url);
+    mykeepService.app(url).then(function(data){
+      console.log(data.data.userinfo);
+      $scope.userinfo = data.data.userinfo ;
+       console.log("inside image");
+
+     }).catch(function(error){
+       console.log(error);
+     })
+
+  };
+$scope.image();
 
 
+// controller for get card
   $scope.getmsgcard = function() {
     var url = "http://localhost:8081/pinup";
     var obj = mykeepService.app(url);
@@ -71,7 +86,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     });
   }
   $scope.getmsgcard();
-
+  // controller for create card
   $scope.savemsgcard = function() {
     $scope.mainNote=true;
     $scope.dummyNote=false;
@@ -106,8 +121,12 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   }
   $scope.gridview = function() {
     console.log("gridview");
-    $scope.list = false;
-    $scope.grid = true;
+    // $scope.list = false;
+    // $scope.grid = true;
+    $scope.gridlist="gridviewnew";
+    $scope.innote = "col-xs-12 col-sm-4 col-md-4 col-lg-3 drag";
+    $scope.showpreid="preid cardhover";
+    // col-lg-4 col-md-6 col-sm-6 col-xs-12 cardhover";
     $scope.gridstyle = {
       'display':'none'
     }
@@ -119,9 +138,11 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
 
   $scope.listview = function() {
     console.log("listview");
-
-    $scope.list = true;
-    $scope.grid = false;
+    // $scope.list = true;
+    // $scope.grid = false;
+    $scope.gridlist="gridviewnew";
+    $scope.innote = "col-sm-12 col-lg-10 col-md-12 col-xs-11 drag";
+    $scope.showpreid="preid1 cardhover";
     $scope.liststyle = {
       'display':'none'
     }
@@ -130,26 +151,25 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     }
     localStorage.setItem("view","list");
   }
-if(localStorage.getItem("view") == "grid"){
-  console.log("grid");
-  $scope.gridview();
-}else{
-  console.log("list");
-  $scope.listview();
-}
+  if(localStorage.getItem("view") == "grid"){
+    console.log("grid");
+    $scope.gridview();
+  }else{
+    console.log("list");
+    $scope.listview();
+  }
 
-
+// controller for delete card
   $scope.deletecards = function(cardsid) {
       var url = "http://localhost:8081/deletemsgcard/" + cardsid + "";
-      // var  aa="delete";
    mykeepService.app(url).then(function(data){
       console.log("inside del");
       $scope.getmsgcard();
     }).catch(function(error){
       console.log(error);
     })
-
   }
+
   $scope.popup = function(datanote){
     var modalInstance = $uibModal.open({
       templateUrl : "../html/popup.html",
@@ -161,7 +181,6 @@ if(localStorage.getItem("view") == "grid"){
         this.created_at = datanote.created_at;
         this.updated_at = datanote.updated_at;
         this.color = datanote.color;
-
 
         this.updateCard = function(){
           console.log("inside updation");
@@ -184,22 +203,22 @@ if(localStorage.getItem("view") == "grid"){
                   console.log(error);
               })
         };
+
         this.cancel = function(){
             console.log("updation cancelled");
             $uibModalInstance.dismiss('cancel');
           };
       },
       controllerAs : "$ctrl"
-});
-
-modalInstance.result.catch(function(error){
-  console.log("error",error);
-}).then(function(data){
-  if(data){
-    console.log(data);
-  }
-});
-}
+    });
+    modalInstance.result.catch(function(error){
+      console.log("error",error);
+    }).then(function(data){
+        if(data){
+            console.log(data);
+          }
+        });
+    }
 
 
   $scope.createReminder = function(cardsid,day) {
@@ -228,7 +247,7 @@ modalInstance.result.catch(function(error){
               $scope.day = new Date(nextweek);
           }
           else {
-            console.log("else");
+            $scope.day = new Date(day);
           }
           var remDay = {
               reminder : $scope.day

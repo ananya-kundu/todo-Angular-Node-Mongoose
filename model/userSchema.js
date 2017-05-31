@@ -70,7 +70,7 @@ userData.statics.checkLoginData = function(loginData, cb) {
 //
   userData.statics.getUserProfile = function(userid, cb) {
     var ref = this ;
-    this.find(userid,cb);
+    this.findById(userid,cb);
 }
   //model creation
 var userData = mongoose.model('userRegisterSchema', userData);

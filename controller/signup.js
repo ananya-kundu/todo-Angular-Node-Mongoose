@@ -1,15 +1,12 @@
 var express = require('express'),
  router = express.Router();
-
 var signup = require('../model/userSchema.js');
 // var connDb = require("../config/config");
 var connDb1 = require("../config");
-
 var validator = require('express-validator');
 	router.use(validator());
 
   router.post('/signup', function(req,res){
-
     try {
       // console.log(connDb1.validationSchema.signup);
       req.check(connDb1.validationSchema.signup);

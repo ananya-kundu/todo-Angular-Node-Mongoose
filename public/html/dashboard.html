@@ -16,9 +16,7 @@
               <span class="icon-bar"></span>
             </button>
       </div>
-      <!-- <div>
 
-      </div> -->
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true" style="margin-left:2%;"></span> </a></li>
@@ -30,7 +28,91 @@
               </span>
             </p>
           </li>
-           <li><a href="#"><span class="glyphicon glyphicon-off" id="logOutId" ng-click="logOut()" aria-hidden="true" style="margin-left:2%;"></span> </a></li>
+
+
+       <li class="dropdown" >
+             <a class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">
+               <b><span class="glyphicon glyphicon-user" id="caret" ></b>
+               <span class="caret" id="caret"></span></a>
+             <ul id="login-dp" class="dropdown-menu">
+               <li>
+                 <div class="row">
+                   <div class="col-md-12">
+
+                     <div class="social-buttons" id="acbuttons">
+                       <a href="#" class="btn btn-fb"><span class="glyphicon glyphicon-user" id="account">MyAccount</span></a>
+                       <a href="#" class="btn btn-tw" id="logOutId" ng-click="logOut()" aria-hidden="true" >
+                         <span class="glyphicon glyphicon-off" style="color:black;">Sign out</span>
+                       </a>
+                     </div>
+
+                   </div>
+                 </div>
+               </li>
+             </ul>
+         </li>
+
+         <li class="dropdown" >
+              <a class="dropdown-toggle" data-toggle="dropdown" >
+                <img id="menu" class="circular--square1" src="" style="padding-left: 5px; align-self: center;" alt="{{userinfo.userName.charAt(0) | uppercase}}">
+              </a>
+                <div  class="dropdown-menu" style="width:329px;padding-left: 25px;padding-top: 9px;height: 242px; margin-left:-320;margin-right:20%;background: #E8E8E8;">
+                 <div class="profile1 row">
+                    <img class="circular--square col-sm-6"  src="" alt="{{userinfo.userName.charAt(0) | uppercase}}"/></span>
+                    <span style="margin-left:20px;">
+                      <span>Name :{{userinfo.userName}}</span><br>
+                      <span style="margin-left:50px;">Email :{{userinfo.email}}</span>
+                    </span>
+                 </div>
+                 <div class="profile2">
+                    <span style="position: absolute; padding: 14px 0px 0px 32px; font-size: 1.8em; font-weight: bold;">WORK IN PROGRESS
+                    </span> <span style="position: absolute; padding: 50px 0px 0px 32px; font-size: 1.2em;">BYE..</span>
+                    <div class="profile3">
+                    </div>
+                 </div>
+                 <hr>
+                   <div class="social-buttons" id="acbuttons" style="margin-left:6%;background: #E8E8E8;">
+                     <a href="#" class="btn btn-fb" style="background: #E8E8E8;border: 1px solid #c6c6c6;">
+                       <span class="glyphicon glyphicon-user" id="account" style="color:teal;">AddAccount</span></a>
+                     <a><span style="margin-left:20%"></span></a>
+                     <a href="#" class="btn btn-tw" style="background: #E8E8E8;border: 1px solid #c6c6c6;" id="logOutId" ng-click="logOut()" aria-hidden="true" >
+                       <span class="glyphicon glyphicon-off"  style="color:teal;">Sign out</span>
+                     </a>
+                   </div>
+              </div>
+           </li>
+
+           <!-- <li class="dropdown" >
+             <a class="dropdown-toggle" data-toggle="dropdown" >
+             <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                   <div id="Profileicondesign">{{user.userName.charAt(0) | uppercase}}
+
+                   </div>
+                </a>
+                 <div style="margin-top: -13px;width: 284px;height: 167px;margin-right: 18px;" class="dropdown-menu">
+                     <div  class="row profilepicture">
+                       <div class="col-sm-6" style="padding-left: 26px;padding-top: 9px;">
+                       <img src="../image/inspirational-thought-wallpaper-20.jpg" >
+                       </div>
+                       <div class="col-sm-6" style="padding-top: 20px;padding-left: inherit;font-family: sans-serif;">
+                         <span>
+                       <span style="text-transform: capitalize;font-weight: 800;">{{user.userName }}</span>
+                       {{user.userEmail}}</span>
+                       </div>
+                    </div>
+                       <div style="padding: 3px;">
+                          <button class="btn btn-default btn-lg" style="float: right;" type="button" value="signout" data-ng-click="logout()">Sign out
+                          </button>
+                       </div>
+                    </div>
+              </li> -->
+
+
+
+
+
+
+
         </ul>
         <form class="navbar-form navbar-right">
           <div class="input-group" id="inputid" style="padding-right:3%;background-color:black;">
@@ -43,6 +125,8 @@
       </div>
     </div>
   </nav>
+
+
 
   <div id="wrapper" class="toggled">
     <div class="container-fluid">
@@ -116,29 +200,30 @@
           </div>
 
           <div class="col-md-3 col-lg-3 col-sm-3"></div>
-
         </div>
 
-        <div ng-show="grid">
+        <!-- <div ng-show="grid"> -->
           <!-- style="border:2px solid green;" -->
-          <div class="row" id="notes">
+          <div class="row" ng-class="gridlist" style="margin-top:34px;">
             <div class="col-sm-2 col-md-2 col-lg-2"> </div>
-            <div class="col-sm-8 col-md-8 col-lg-8">
+            <div class="col-sm-10 col-md-10 col-lg-10">
 
-            <div class="col-sm-4" id="innotegrid" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search" >
+            <div  ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search" testpackery >
 
-              <div id="preid" style="background-color:{{x.color}}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 cardhover">
-                <div style="padding:2%;">
-                <div id="divtitle" style="margin-left:2%;">
-                  <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i></div>
-                <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
+                <div ng-class="showpreid" style="background-color:{{x.color}}">
+                  <div style="padding:2%;">
+                    <div id="divtitle" style="margin-left:2%;">
+                      <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
+                    </div>
+                    <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
 
-                   <div id="footer" >
-                     <span ng-show="icons">
-                       <i aria-hidden="true">
-                      <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-                            <a href uib-dropdown-toggle>
-                                <i id='reminder' uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-hand-pointer-o fa-lg"></i>
+                    <div id="footer" >
+                        <span ng-show="icons">
+
+                          <i aria-hidden="true">
+                            <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
+                              <a href uib-dropdown-toggle>
+                                  <i id='reminder' uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-hand-pointer-o fa-lg"></i>
                               </a>
                               <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                                 <li id="fulldrop">
@@ -146,34 +231,44 @@
                                         <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
                                         <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
                                         <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
-                                  </li>
-                                </ul>
-                          </span>
-                          <i>
+                                        <b id="drop" style="margin-left:18px;">Pick Date and Time:</b>
+                                        <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
+                                                  <div class="input-group" style="width:126px;margin-left:18px;">
+                                                    <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
+                                                          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                    </div>
+                                                    <a ng-click="createReminder(x._id,toDo.remainder)" ><span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
+                                              </a>
 
+                                              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                 <datetimepicker data-ng-model="toDo.remainder" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+                                              </ul>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </span>
+                                <i>
 
                           <i style="margin-left:8px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-                          <i aria-hidden="true">
+
+                        <i aria-hidden="true">
                           <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
                                 <a href uib-dropdown-toggle>
-                                  <img id='reminder1'  style="width:7%;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
-                                    <!-- <i id='reminder' style="width:1%;" class="fa fa-paint-brush fa-lg" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i> -->
-                                  </a>
-                                  <div uib-dropdown-menu aria-labelledby="simple-dropdown">
-                                            <a id="normal" ng-repeat = "y in color" style="font-size:10px;">
-                                              <img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)">
-                                            </a>
-                                    </div>
-                              </span>
-                            </i>
+                                  <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                                </a>
+                                <div uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                    <a id="normal" ng-repeat = "y in color" style="font-size:10px;">
+                                          <img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)">
+                                      </a>
+                                  </div>
+                            </span>
+                          </i>
 
-                   <!-- <i style="margin-left:10px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-                   <i style="margin-left:px" class="fa fa-paint-brush fa-lg" style="font-size:24px" aria-hidden="true"></i> -->
-                   <!-- <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i> -->
-                   <i style="margin-left:8px">
+                   <i style="margin-left:6px">
                       <span uib-dropdown on-toggle dropdown-append-to-body="true" >
                             <a href uib-dropdown-toggle>
-                                <i id='more' uib-popover="More"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
+                                <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
                             </a>
                             <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                                   <li id="fulldrop">
@@ -183,111 +278,26 @@
                               </ul>
                         </span>
                       </i>
-                    </span>
-                    </div>
 
-                        <div ng-if="x.reminder" id="remindercss">
-                          <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
+                  </span>
+              </div>
+
+                <div ng-if="x.reminder" id="remindercss">
+                      <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
                             <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
-                        </span>
-                        <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
-                        </div>
+                      </span>
+                      <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
+                </div>
 
               </div>
-            </div>
-            </div>
-            </div>
-            <div class="col-sm-2 col-md-2 col-lg-2">
-            </div>
             </div>
           </div>
         </div>
 
-        <div ng-show="list">
-          <div class="row" id="noteslist">
-            <!-- <div class="col-sm-3" style="border:3px solid orange;"></div> -->
-            <div id="innotelist" class="row" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search">
-              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-              </div>
-              <div id="preid1" style="background-color:{{x.color}}" class="col-lg-8 col-md-8 col-sm-8 col-xs-10 cardhover">
-                <div id="divtitle" style="margin-left:1%;"><i id="titlecss"  ng-click="popup(x)" ng-bind-html = "x.title1"></i></div>
-                <div id="noteinner" ng-click="popup(x)" ng-bind-html = "x.content"></div>
-
-
-
-                <div id="footer" >
-                  <span ng-show="icons">
-
-                   <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-                         <a href uib-dropdown-toggle>
-                             <i id='reminder' style="width:1%;background-color:transparent;" class="fa fa-hand-pointer-o fa-lg" uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i>
-                           </a>
-                           <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-                             <li id="fulldrop">
-                                     <a id="normal" style="font-size:16px">Reminder:</a>
-                                     <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
-                                     <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
-                                     <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
-                               </li>
-                             </ul>
-                       </span>
-
-
-                <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-
-                <i aria-hidden="true">
-                <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-                      <a href uib-dropdown-toggle>
-                          <img id='reminder'  style="width:2%;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
-                        </a>
-                        <div uib-dropdown-menu aria-labelledby="simple-dropdown">
-                                  <a id="normal" ng-repeat = "y in color" style="font-size:16px"><img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)"></a>
-                          </div>
-                    </span>
-                  </i>
-
-
-                <!-- <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i> -->
-
-                <i style="margin-left:6px" aria-hidden="true">
-                   <span uib-dropdown on-toggle dropdown-append-to-body="true" >
-                         <a href uib-dropdown-toggle>
-                             <i id='more' uib-popover="More"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
-                         </a>
-                         <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-                               <li id="fulldrop">
-                                   <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
-                                   <a href="#">Make a copy</a>
-                               </li>
-                           </ul>
-                     </span>
-                      </i>
-                   </span>
-
-                 </div>
-
-                     <div ng-if="x.reminder" id="remindercss">
-                       <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
-                         <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
-                     </span>
-                     <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
-                     </div>
-
-                <!-- <div id="del"><a id="delete" ng-click = "deletecards(x._id)" >delete</a></div> -->
-              </div>
-              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-              </div>
-            </div>
-              <!-- <div class="col-sm-3" style="border:3px solid orange;"></div> -->
-          </div>
-        </div>
-      </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"> </div>
     </div>
-  <!-- </div> -->
+  </div>
 
-  <!-- </div>
-  </div> -->
-  <!-- /#wrapper -->
 </body>
 
 <script>
@@ -316,3 +326,104 @@
 </script>
 
 </html>
+
+
+
+
+
+<!--
+
+
+        <div ng-show="list">
+          <div class="row" id="noteslist">
+            <div id="innotelist" class="row" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
+              </div>
+              <div id="preid1" style="background-color:{{x.color}}" class="col-lg-8 col-md-8 col-sm-8 col-xs-10 cardhover">
+                <div id="divtitle" style="margin-left:1%;"><i id="titlecss"  ng-click="popup(x)" ng-bind-html = "x.title1"></i></div>
+                <div id="noteinner" ng-click="popup(x)" ng-bind-html = "x.content"></div>
+
+
+
+                <div id="footer" >
+                  <span ng-show="icons">
+
+                   <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
+                         <a href uib-dropdown-toggle>
+                             <i id='reminder' style="width:1%;background-color:transparent;" class="fa fa-hand-pointer-o fa-lg" uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i>
+                           </a>
+                           <ul uib-dropdown-menu aria-labelledby="simple-dropdown" style="width:100px;position:absolute;">
+                             <li id="fulldrop">
+                                     <a id="normal" style="font-size:16px">Reminder:</a>
+                                     <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
+                                     <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
+                                     <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
+                                     <b id="drop" style="margin-left:18px;">Pick Date and Time:</b>
+                                    <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
+                                        <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
+                                              <div class="input-group" style="width:126px;margin-left:18px;">
+                                                <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
+                                                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                  </div>
+                                                  <a ng-click="createReminder(x._id,toDo.remainder)" >
+                                                    <span id="saveReminder" style="margin-left:50px;color:teal;">Save</span>
+                                                  </a>
+                                          </a>
+
+                                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                             <datetimepicker data-ng-model="toDo.remainder" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+                                          </ul>
+                                      </div>
+                                  </li>
+                             </ul>
+                       </span>
+
+
+
+                <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
+
+                <i aria-hidden="true">
+                <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
+                      <a href uib-dropdown-toggle>
+                          <img id='reminder'  style="width:2%;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                        </a>
+                        <div uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                  <a id="normal" ng-repeat = "y in color" style="font-size:16px"><img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)"></a>
+                          </div>
+                    </span>
+                  </i>
+
+
+                <i style="margin-left:6px" aria-hidden="true">
+                   <span uib-dropdown on-toggle dropdown-append-to-body="true" >
+                         <a href uib-dropdown-toggle>
+                             <i id='more' uib-popover="More"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
+                         </a>
+                         <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                               <li id="fulldrop">
+                                   <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
+                                   <a href="#">Make a copy</a>
+                               </li>
+                           </ul>
+                     </span>
+                      </i>
+                   </span>
+
+                 </div>
+
+                     <div ng-if="x.reminder" id="remindercss">
+                       <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
+                         <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
+                     </span>
+                     <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
+                     </div>
+
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ -->

@@ -52,66 +52,46 @@
              </ul>
          </li>
 
-         <li class="dropdown" >
-              <a class="dropdown-toggle" data-toggle="dropdown" >
-                <img id="menu" class="circular--square1" src="" style="padding-left: 5px; align-self: center;" alt="{{userinfo.userName.charAt(0) | uppercase}}">
-              </a>
-                <div  class="dropdown-menu" style="width:329px;padding-left: 25px;padding-top: 9px;height: 242px; margin-left:-320;margin-right:20%;background: #E8E8E8;">
-                 <div class="profile1 row">
-                    <img class="circular--square col-sm-6"  src="" alt="{{userinfo.userName.charAt(0) | uppercase}}"/></span>
-                    <span style="margin-left:20px;">
-                      <span>Name :{{userinfo.userName}}</span><br>
-                      <span style="margin-left:50px;">Email :{{userinfo.email}}</span>
-                    </span>
-                 </div>
-                 <div class="profile2">
-                    <span style="position: absolute; padding: 14px 0px 0px 32px; font-size: 1.8em; font-weight: bold;">WORK IN PROGRESS
-                    </span> <span style="position: absolute; padding: 50px 0px 0px 32px; font-size: 1.2em;">BYE..</span>
-                    <div class="profile3">
-                    </div>
-                 </div>
-                 <hr>
-                   <div class="social-buttons" id="acbuttons" style="margin-left:6%;background: #E8E8E8;">
-                     <a href="#" class="btn btn-fb" style="background: #E8E8E8;border: 1px solid #c6c6c6;">
-                       <span class="glyphicon glyphicon-user" id="account" style="color:teal;">AddAccount</span></a>
-                     <a><span style="margin-left:20%"></span></a>
-                     <a href="#" class="btn btn-tw" style="background: #E8E8E8;border: 1px solid #c6c6c6;" id="logOutId" ng-click="logOut()" aria-hidden="true" >
-                       <span class="glyphicon glyphicon-off"  style="color:teal;">Sign out</span>
-                     </a>
-                   </div>
-              </div>
-           </li>
 
-           <!-- <li class="dropdown" >
-             <a class="dropdown-toggle" data-toggle="dropdown" >
-             <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                   <div id="Profileicondesign">{{user.userName.charAt(0) | uppercase}}
+           <li ng-controller="profileImageController" class="dropdown" >
+                  <a class="dropdown-toggle" data-toggle="dropdown" >
+                    <img id="menu" class="circular--square1" src="{{img}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="padding-left: 5px; align-self: center;"/>
+                  </a>
+                    <div  class="dropdown-menu" style="width:329px;padding-left: 25px;padding-top: 9px;height: 242px; margin-left:-320;margin-right:20%;background: #E8E8E8;">
 
-                   </div>
-                </a>
-                 <div style="margin-top: -13px;width: 284px;height: 167px;margin-right: 18px;" class="dropdown-menu">
-                     <div  class="row profilepicture">
-                       <div class="col-sm-6" style="padding-left: 26px;padding-top: 9px;">
-                       <img src="../image/inspirational-thought-wallpaper-20.jpg" >
+
+                     <div class="profile1 row">
+                        <img class="circular--square col-sm-6"  src="{{img}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"/></span>
+                        <a ng-click="changeProfileImage()">change pic</a>
+                        <!-- <span>Select an image file: <input type="file" id="fileInput" /></span>
+                        <span class="cropArea">
+                          <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+                        </span>
+                        <span>Cropped Image:</span>
+                        <span><img ng-src="{{myCroppedImage}}" /></span> -->
+
+                        <span style="margin-left:20px;margin-top:16px;">
+                          <span style="margin-left:8px;"><b>Name :</b>{{userinfo.userName}}</span><br>
+                          <span style="margin-left:28px;"><b>Email :</b>{{userinfo.email}}</span>
+                        </span>
+                     </div>
+
+                     <div class="profile2">
+                        <span style="position: absolute; padding: 14px 0px 0px 32px; font-size: 1.8em; font-weight: bold;">WORK IN PROGRESS
+                        </span> <span style="position: absolute; padding: 50px 0px 0px 32px; font-size: 1.2em;"></span>
+                        <div class="profile3">
+                        </div>
+                     </div>
+                     <hr>
+                       <div class="social-buttons" id="acbuttons" style="margin-left:6%;background: #E8E8E8;">
+
+                         <a><span style="margin-left:25%"></span></a>
+                         <a href="#" class="btn btn-tw" style="background: #E8E8E8;border: 1px solid #c6c6c6;" id="logOutId" ng-click="logOut()" aria-hidden="true" >
+                           <span class="glyphicon glyphicon-off"  style="color:teal;">Sign out</span>
+                         </a>
                        </div>
-                       <div class="col-sm-6" style="padding-top: 20px;padding-left: inherit;font-family: sans-serif;">
-                         <span>
-                       <span style="text-transform: capitalize;font-weight: 800;">{{user.userName }}</span>
-                       {{user.userEmail}}</span>
-                       </div>
-                    </div>
-                       <div style="padding: 3px;">
-                          <button class="btn btn-default btn-lg" style="float: right;" type="button" value="signout" data-ng-click="logout()">Sign out
-                          </button>
-                       </div>
-                    </div>
-              </li> -->
-
-
-
-
-
-
+                  </div>
+               </li>
 
         </ul>
         <form class="navbar-form navbar-right">
@@ -208,11 +188,12 @@
             <div class="col-sm-2 col-md-2 col-lg-2"> </div>
             <div class="col-sm-10 col-md-10 col-lg-10">
 
-            <div  ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search" testpackery >
+            <div  ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery >
 
                 <div ng-class="showpreid" style="background-color:{{x.color}}">
                   <div style="padding:2%;">
-                    <div id="divtitle" style="margin-left:2%;">
+                    <span class="glyphicon glyphicon-pushpin" ng-show="icons" style="float:right"></span>
+                    <div id="divtitle" style="margin-left:2%;"  >
                       <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
                     </div>
                     <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
@@ -264,6 +245,11 @@
                                   </div>
                             </span>
                           </i>
+
+                          <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
+                            <img id='reminder1'  style="width:14px;height:35%" src="../images/archive.png" uib-popover="Archive"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                          </i>
+
 
                    <i style="margin-left:6px">
                       <span uib-dropdown on-toggle dropdown-append-to-body="true" >

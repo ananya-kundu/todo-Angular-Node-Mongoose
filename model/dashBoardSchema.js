@@ -33,6 +33,12 @@ var msg = Schema({
     },
     color :{
       type: String
+    },
+    archive :{
+      type: Boolean
+    },
+    pinup :{
+      type: Boolean
     }
 
 }, {
@@ -116,6 +122,37 @@ msg.statics.remainderData = function(userid,req,cb) {
         }
       }, cb);
     };
+
+    msg.statics.archive = function(userid,cb) {
+      this.update({
+        _id: userid
+      }, {
+        $set: {
+        archive: true
+        }
+      }, cb);
+    };
+
+    msg.statics.pinup = function(userid,cb) {
+      this.update({
+        _id: userid
+      }, {
+        $set: {
+        pinup: true
+        }
+      }, cb);
+    };
+
+    msg.statics.unpin = function(userid,cb) {
+      this.update({
+        _id: userid
+      }, {
+        $set: {
+        pinup: false
+        }
+      }, cb);
+    };
+
 
 var userMsgSchema = mongoose.model('userMsgSchema', msg);
 

@@ -29,7 +29,10 @@ body{
     background-color: black;
 }
 
-
+.nav>li>a>img {
+  margin-top: -7px;
+    max-width: none;
+}
 /*.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
     color: #fff;
     background-color: #080808;

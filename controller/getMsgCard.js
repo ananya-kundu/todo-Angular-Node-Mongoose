@@ -3,13 +3,16 @@ var app = express(),
  router = express.Router();
 
 var dashboard = require('../model/dashBoardSchema.js');
-
-  router.post('/:id', function(req,res){
+// var connDb1 = require("../config");
+//
+// var validator = require('express-validator');
+// 	router.use(validator());
+  router.post('/', function(req,res){
     console.log("req"+req);
-      var userid = req.params.id;
-    dashboard.pinup(userid,function(err,result){
+      var userid = req.decoded.id;
+    dashboard.getMsgData(userid,function(err,result){
       if(!err){
-        console.log("i'm pinup");
+        console.log("i'm getmsg");
           res.send({"status":true,"message": result});
       }
       else {

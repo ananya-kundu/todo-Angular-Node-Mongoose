@@ -60,12 +60,25 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
      })
 
   };
-$scope.image();
+  $scope.image();
+
+$scope.changeProfileImage = function() {
+  var modalInstance = $uibModal.open({
+    templateUrl : "../html/profileImage.html",
+    controller : "profileImageController",
+    resolve:{
+    }
+  });
+    modalInstance.result.catch(function(error){
+          console.log("error",error);
+        });
+
+};
 
 
 // controller for get card
   $scope.getmsgcard = function() {
-    var url = "http://localhost:8081/pinup";
+    var url = "http://localhost:8081/getMsgCard";
     var obj = mykeepService.app(url);
     obj.then(function(data) {
       if(data.data.status == true){
@@ -314,6 +327,11 @@ obj.then(function(data) {
       console.log(error);
     });
   }
+
+
+
+
+
 
 
 });

@@ -11,7 +11,7 @@ router.use(require('./logout'));
 router.use("/readuserprofile",auth,require("./userprofile"));
 router.use("/createcards",auth,require("./createcards"));
 
-router.use("/getMsgCard",auth,require("./getMsgCard"));
+router.use("/getmsgcard",auth,require("./getmsgcard"));
 router.use("/deletemsgcard",auth,require("./deletemsgcard"));
 router.use("/popupcard",auth,require("./popupcard"));
 router.use("/updatemsgcards",auth,require("./updatemsgcards"));

@@ -137,7 +137,7 @@ $scope.changeProfileImage = function() {
     // $scope.list = false;
     // $scope.grid = true;
     $scope.gridlist="gridviewnew";
-    $scope.innote = "col-xs-12 col-sm-4 col-md-4 col-lg-3 drag";
+    $scope.innote = "col-xs-12 col-sm-6 col-md-4 col-lg-3 drag gridcss";
     $scope.showpreid="preid cardhover";
     // col-lg-4 col-md-6 col-sm-6 col-xs-12 cardhover";
     $scope.gridstyle = {
@@ -154,7 +154,7 @@ $scope.changeProfileImage = function() {
     // $scope.list = true;
     // $scope.grid = false;
     $scope.gridlist="gridviewnew";
-    $scope.innote = "col-sm-12 col-lg-10 col-md-12 col-xs-11 drag";
+    $scope.innote = "col-sm-12 col-lg-10 col-md-12 col-xs-11 drag listcss";
     $scope.showpreid="preid1 cardhover";
     $scope.liststyle = {
       'display':'none'
@@ -317,6 +317,29 @@ obj.then(function(data) {
       console.log(error);
     });
   }
+
+
+
+    $scope.pinup = function(cardsid){  
+      var url = "http://localhost:8081/pinup/" + cardsid + "";
+      mykeepService.app(url).then(function(data){
+        $scope.getmsgcard();
+      }).catch(function(error){
+        console.log(error);
+      });
+    }
+
+    $scope.archive = function(cardsid){
+      var url = "http://localhost:8081/archive/" + cardsid + "";
+      mykeepService.app(url).then(function(data){
+        $scope.getmsgcard();
+      }).catch(function(error){
+        console.log(error);
+      });
+    }
+
+
+
 
 
   $scope.logOut = function(){

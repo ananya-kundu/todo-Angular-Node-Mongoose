@@ -63,13 +63,6 @@
                      <div class="profile1 row">
                         <img class="circular--square col-sm-6"  src="{{img}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"/></span>
                         <a ng-click="changeProfileImage()">change pic</a>
-                        <!-- <span>Select an image file: <input type="file" id="fileInput" /></span>
-                        <span class="cropArea">
-                          <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
-                        </span>
-                        <span>Cropped Image:</span>
-                        <span><img ng-src="{{myCroppedImage}}" /></span> -->
-
                         <span style="margin-left:20px;margin-top:16px;">
                           <span style="margin-left:8px;"><b>Name :</b>{{userinfo.userName}}</span><br>
                           <span style="margin-left:28px;"><b>Email :</b>{{userinfo.email}}</span>
@@ -188,11 +181,11 @@
             <div class="col-sm-2 col-md-2 col-lg-2"> </div>
             <div class="col-sm-10 col-md-10 col-lg-10">
 
-            <div  ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery >
+            <div id="innote" ng-if="!x.archive" ng-if="!x.pinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery >
 
                 <div ng-class="showpreid" style="background-color:{{x.color}}">
                   <div style="padding:2%;">
-                    <span class="glyphicon glyphicon-pushpin" ng-show="icons" style="float:right"></span>
+                    <span class="glyphicon glyphicon-pushpin" ng-click="pinup(x._id)" ng-show="icons" style="float:right;"></span>
                     <div id="divtitle" style="margin-left:2%;"  >
                       <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
                     </div>
@@ -247,7 +240,7 @@
                           </i>
 
                           <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
-                            <img id='reminder1'  style="width:14px;height:35%" src="../images/archive.png" uib-popover="Archive"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                            <img id='reminder1'  ng-click="archive(x._id)" style="width:14px;height:35%" src="../images/archive.png" uib-popover="Archive"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
                           </i>
 
 

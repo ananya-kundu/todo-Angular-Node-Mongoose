@@ -450,8 +450,19 @@ ul{
 }
 .gridviewnew{
   margin-top:30px;
+  /*width:260px;*/
+}
+.gridcss{
+  width :260px;
+  display:block;
+  transition-property: opacity,transform;
 }
 
+/*.listcss{
+    width: 600px;
+    display:block;
+    transition-property: opacity,transform;
+}*/
 #mainMsgBox{
     /*margin:2px;*/
     /*margin-left: -50px;*/
@@ -543,7 +554,7 @@ a {
 /*grid view card style*/
 .preid
 {
-  width:240px;
+  width:260px;
   background-color: rgba(232, 232, 232, 0.19);
   background-color: white;
     position: relative;
@@ -684,17 +695,18 @@ color:teal;
   letter-spacing: 0.5px;
 }
 
-#innotegrid{
+/*#innotegrid{
   display:block;
   transition-property: opacity,transform;
-}
-#innotelist{
-/*margin-left:3%;*/
-/*width:80%;*/
+}*/
+/*#innote{
+  width: 260px;
+}*/
+/*#innotelist{
   display:block;
   transition-property:
   opacity,transform;
-}
+}*/
 
 #logOutId:hover{
   color:white;
@@ -728,13 +740,13 @@ color:teal;
    top: 0px;
     border:3px solid black;
     background-color:#a94442;
-    color:black;
+    color:white;
     padding: 8px;
     font-size: 55px;
 }
 .circular--square1 {
   background-color:#a94442;
-  color:black;
+  color:white;
   padding:2px;
   font-size:16px;
    position: relative;

@@ -133,12 +133,12 @@ msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
     };
 
-    msg.statics.pinup = function(userid,cb) {
+    msg.statics.pinup = function(userid,req,cb) {
       this.update({
         _id: userid
       }, {
         $set: {
-        pinup: true
+        pinup: req.value
         }
       }, cb);
     };
@@ -148,7 +148,7 @@ msg.statics.remainderData = function(userid,req,cb) {
         _id: userid
       }, {
         $set: {
-        pinup: false
+        pinup: req.value
         }
       }, cb);
     };

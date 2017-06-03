@@ -1,0 +1,99 @@
+<div class="row" ng-class="gridlist" style="margin-top:34px;">
+  <div class="col-sm-2 col-md-2 col-lg-2"> </div>
+  <div class="col-sm-10 col-md-10 col-lg-10">
+
+<div id="others">Others</div>
+  <div>
+  <div id="innote" ng-if="!x.archive && !x.pinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery >
+
+      <div ng-class="showpreid" style="background-color:{{x.color}}">
+        <div style="padding:2%;">
+          <span class="glyphicon glyphicon-pushpin" ng-click="pinup(x._id,'true')" ng-show="icons" style="float:right;"></span>
+          <div id="divtitle" style="margin-left:2%;"  >
+            <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
+          </div>
+          <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
+
+          <div id="footer" >
+              <span ng-show="icons">
+
+                <i aria-hidden="true">
+                  <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
+                    <a href uib-dropdown-toggle>
+                        <i id='reminder' uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-hand-pointer-o fa-lg"></i>
+                    </a>
+                    <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                      <li id="fulldrop">
+                              <a id="normal" style="font-size:16px">Reminder:</a>
+                              <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
+                              <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
+                              <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
+                              <b id="drop" style="margin-left:18px;">Pick Date and Time:</b>
+                              <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
+                                  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
+                                        <div class="input-group" style="width:126px;margin-left:18px;">
+                                          <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                          </div>
+                                          <a ng-click="createReminder(x._id,toDo.remainder)" ><span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                       <datetimepicker data-ng-model="toDo.remainder" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+                                    </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </span>
+                      <i>
+
+                <i style="margin-left:8px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
+
+              <i aria-hidden="true">
+                <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
+                      <a href uib-dropdown-toggle>
+                        <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                      </a>
+                      <div uib-dropdown-menu aria-labelledby="simple-dropdown">
+                          <a id="normal" ng-repeat = "y in color" style="font-size:10px;">
+                                <img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)">
+                            </a>
+                        </div>
+                  </span>
+                </i>
+
+                <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
+                  <img id='reminder1'  ng-click="archive(x._id)" style="width:14px;height:35%" src="../images/archive.png" uib-popover="Archive"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                </i>
+
+
+         <i style="margin-left:6px">
+            <span uib-dropdown on-toggle dropdown-append-to-body="true" >
+                  <a href uib-dropdown-toggle>
+                      <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
+                  </a>
+                  <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li id="fulldrop">
+                            <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
+                            <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
+                        </li>
+                    </ul>
+              </span>
+            </i>
+
+        </span>
+    </div>
+
+      <div ng-if="x.reminder" id="remindercss">
+            <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
+                  <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
+            </span>
+            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

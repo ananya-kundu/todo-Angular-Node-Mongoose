@@ -7,7 +7,7 @@ var dashboard = require('../model/dashBoardSchema.js');
   router.post('/:id', function(req,res){
     console.log("req"+req);
       var userid = req.params.id;
-    dashboard.pinup(userid,function(err,result){
+    dashboard.pinup(userid,req.body,function(err,result){
       if(!err){
         console.log("i'm pinup");
           res.send({"status":true,"message": result});

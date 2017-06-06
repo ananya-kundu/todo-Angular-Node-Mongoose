@@ -36,6 +36,22 @@ var userData = Schema({
     minlength: 4,
     maxlength: 100
   },
+  // fb: {
+  //     id: String,
+  //     access_token: String,
+  //     userName: String,
+  //     mobileNo: Number,
+  //     email: String,
+  //     profile: String
+  // },
+  // google: {
+  //   id: String,
+  //   access_token: String,
+  //   userName: String,
+  //   mobileNo: Number,
+  //   email: String,
+  //   profile: String
+  // }
 
 }, {collection: "userRegisterSchema"});
 
@@ -72,6 +88,35 @@ userData.statics.checkLoginData = function(loginData, cb) {
     var ref = this ;
     this.findById(userid,cb);
 }
+
+// userData.virtual('userid').get(function() {
+//     return this._id.toHexString();
+// });
+// userData.set('toJSON', {
+//     virtuals: true,
+//     transform: function(doc, ret, options) {
+//         ret.userid = ret._id;
+//
+//         if(ret.fb||ret.google||ret.local)
+//         if (ret.fb && ret.fb.profile) {
+//             ret.fb.profile = JSON.parse(ret.fb.profile);
+//         }
+//         else
+//         if (ret.google && ret.google.profile) {
+//             ret.google.profile = JSON.parse(ret.google.profile);
+//         }
+//         else
+//         if (ret.local && ret.local.profile) {
+//             ret.local.profile = JSON.parse(ret.local.profile);
+//         }
+//         delete ret._id;
+//         return ret;
+//     }
+// });
+
+
+
+
   //model creation
 var userData = mongoose.model('userRegisterSchema', userData);
 module.exports = userData;

@@ -5,6 +5,7 @@ app.controller('loginController', function($scope,$location,$state,mykeepService
   var checkUser = mykeepService.app(url);
   checkUser.then(function(data) {
     if(data.data.status == true){
+      console.log(data);
       // $location.path('/dashboard');
       $state.go('dashboard');
     }else{

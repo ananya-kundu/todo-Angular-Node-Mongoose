@@ -41,6 +41,8 @@ var msg = Schema({
       type: Boolean
     }
 
+
+
 }, {
   collection: "userMsgSchema"
 });

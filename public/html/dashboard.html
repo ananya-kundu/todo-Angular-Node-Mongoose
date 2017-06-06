@@ -55,17 +55,17 @@
 
            <li ng-controller="profileImageController" class="dropdown" >
                   <a class="dropdown-toggle" data-toggle="dropdown" >
-                    <img id="menu" class="circular--square1" src="{{img}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="padding-left: 5px; align-self: center;"/>
+                    <img id="menu" class="circular--square1" src="{{img}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
                   </a>
                     <div  class="dropdown-menu" id="logoutdropdown">
 
 
                      <div class="profile1 row">
-                        <img class="circular--square col-sm-6"  src="{{img}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"/></span>
+                        <img class="circular--square col-sm-6"  src="{{img}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"  style="padding-left: -2px;align-self: center;"/></span>
                         <a ng-click="changeProfileImage()" style="margin-left:26px;margin-top:16px;color:teal">change Profile Image</a><br/>
                         <span style="margin-left:20px;margin-top:16px;">
-                          <span style="margin-left:8px;"><b>Name :</b>{{userinfo.userName}}</span><br>
-                          <span style="margin-left:28px;"><b>Email :</b>{{userinfo.email}}</span>
+                          <span style="margin-left:-2px;"><b>Name :</b>{{userinfo.userName}}</span><br>
+                          <span style="margin-left:18px;"><b>Email :</b>{{userinfo.email}}</span>
                         </span>
                      </div>
 
@@ -129,7 +129,7 @@
             <a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Statistic</a>
           </li>
           <li>
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
             <font color="#337AB7"> ADMINISTRATION</font>
           </li>
           <li>

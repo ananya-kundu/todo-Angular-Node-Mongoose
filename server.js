@@ -4,8 +4,8 @@ var express = require('express'),
 var connection = require ('./config/config.js');
 var cors = require('cors');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true ,limit:'20MB'}));
+app.use(bodyParser.json({limit:'20MB'}));
 app.use(express.static('./public'));
 app.use(cors());
 app.use(require('./controller'));

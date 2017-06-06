@@ -21,6 +21,8 @@ router.use("/color",auth,require("./color"));
 router.use("/archive",auth,require("./archive"));
 router.use("/pinup",auth,require("./pinup"));
 router.use("/unpin",auth,require("./unpin"));
+router.use("/uploadprofileimage",auth,require("./uploadprofileimage"));
+
 
 
 

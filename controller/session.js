@@ -3,6 +3,7 @@ var express = require('express'),
 
 router.post('/session',function(req,res){
 console.log("ananya session",req.session);
+// console.log("I m response in session",res);
 if (req.headers.cookie) {
 	res.send({"status":true,"message":"user exist","session":true})
 } else {

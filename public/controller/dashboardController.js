@@ -52,7 +52,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     var obj = mykeepService.app(url);
     mykeepService.app(url).then(function(data){
       console.log(data.data.userinfo);
-      $scope.userinfo = data.data.userinfo ;
+      $rootScope.userinfo = data.data.userinfo ;
        console.log("inside image");
 
      }).catch(function(error){
@@ -135,7 +135,7 @@ $scope.changeProfileImage = function() {
   $scope.gridview = function() {
     console.log("gridview");
     $scope.gridlist="gridviewnew";
-    $scope.innote = "col-xs-12 col-sm-6 col-md-4 col-lg-3 drag gridcss";
+    $scope.innote = "col-xs-12 col-sm-12 col-md-6 col-lg-3 drag gridcss";
     $scope.showpreid="preid cardhover";
     // col-lg-4 col-md-6 col-sm-6 col-xs-12 cardhover";
     $scope.gridstyle = {

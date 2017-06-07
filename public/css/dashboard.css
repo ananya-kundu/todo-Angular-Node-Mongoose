@@ -1,6 +1,6 @@
 
 body{
-  background-color: #e8e8e8;;
+  background-color: #e8e8e8;
   /*background-image: url('../images/bck.jpg');*/
 }
 .cropArea {
@@ -21,6 +21,7 @@ body{
 
 
 #keepClass{
+
     font-family: 'Product Sans',Arial,sans-serif; /*iNTEGRATE THE FONT INTO YOUR CSS*/
     /*margin-top: 10px;*/
     font-size: 22px;
@@ -33,6 +34,7 @@ body{
     vertical-align: middle;
     color: teal;
     outline: none;
+    text-rendering: optimizeLegibility;
 }
 #keepClass:hover{
   color:white;
@@ -522,7 +524,8 @@ a {
     color: #eee;
     border-color: transparent;
     border-radius: 0;
-    background-color: #313146;
+    background-color:rgba(0, 0, 0, 0)
+    /*background-color: #313146;*/
     box-shadow: 0 0;
 }
 .btn-block
@@ -548,7 +551,7 @@ a {
 
     display: inline-block;
 
-    color: grey;
+    color: #767676;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -722,6 +725,10 @@ color:teal;
 }
 #query{
   outline: none;
+  background-color: #ddd;
+}
+#inputid :focus{
+  background-color: white;
 }
 #gridgly:hover{
     color:white;
@@ -751,7 +758,7 @@ color:teal;
    margin-right: 20px;
    top: 0px;
     border:0.5px solid black;
-    background-color:#E57248;
+    background-color:teal;
     color:white;
     padding: 0px;
     font-size: 55px;
@@ -764,15 +771,17 @@ color:teal;
   text-align: center;
   overflow: hidden;
   /*background-color:#7d0000;*/
-  background-color: #fb4a2a;
+  background-color: teal;
   border-radius: 50%;
   color:white;
   padding:0px;
   /*cursor: default;*/
   font-size: 13px;
    position: relative;
+   /*width: 44px;
+   height: 30px;*/
    width: 44px;
-   height: 30px;
+   height: 38px;
    overflow: hidden;
    border-radius: 50%;
    border:0.5px solid #333;
@@ -796,8 +805,6 @@ color:teal;
 #pinned,#others{
 /*margin:2px 0px 12px 12px;*/
 margin:22px 16px ;
-
-/*font-weight: bold;*/
 color: rgba(0,0,0,.54);
 font-family: 'Roboto',arial,sans-serif;
   font-size: 14px;
@@ -806,7 +813,9 @@ font-family: 'Roboto',arial,sans-serif;
 
 }
 
-
+#imgpath:hover {
+  background-border:1px solid blue;
+}
 
 
 /*#query:hover{

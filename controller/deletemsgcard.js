@@ -6,10 +6,7 @@ router.post('/:userid', function(req, res) {
     try {
 console.log("delete");
             var deleteddata =req.params.userid;
-                // userid:req.decoded.id,
 
-
-            // console.log("idddd",deleteddata);
             todocards.deleteCardsData(deleteddata,function(err, result) {
               if (!err) {
                 res.send({"status": true,"message": result});

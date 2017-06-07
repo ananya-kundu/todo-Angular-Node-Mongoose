@@ -37,7 +37,14 @@ var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.b
             console.log("in dashboard");
           }
       })
-
+      .state('archive',{
+          url:'/archive',
+          templateUrl:'html/dashboard.html',
+          controller:'archiveController',
+          onEnter:function(){
+            console.log("in archive");
+          }
+      })
         $urlRouterProvider.otherwise("/login");
     });
 

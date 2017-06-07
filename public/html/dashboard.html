@@ -1,13 +1,14 @@
 
-<body ng-controller="dashboardController">
+<body >
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(6,6,6,1);" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-style="archivenav" style="background-color: rgba(6,6,6,1);" role="navigation">
     <div class="container-fluid" >
         <div class="navbar-header">
-          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;"><span class="glyphicon glyphicon-list tglid" id="tglid" aria-hidden="true"></span></a>
+          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" style="display:inline-block;">
+            <span class="glyphicon glyphicon-list tglid" ng-style="archivegly" id="tglid" aria-hidden="true"></span></a>
 
-          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
-              <span id="keepClass">My Keep </span>
+          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" >
+              <span id="keepClass" ng-style="archivebrand">My Keep </span>
           </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -19,49 +20,27 @@
 
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true" style="margin-left:2%;"></span> </a></li>
+          <li><a><span class="glyphicon glyphicon-refresh" id="textColor" aria-hidden="true" style="margin-left:2%;"  ng-style="archivegly"></span> </a></li>
           <li>
             <p class="navbar-text" id="textColor">
               <span class="list-style-buttons" id="textColor">
-                  <a id="gridview1"><span class="glyphicon glyphicon-th" id="gridgly" ng-style="gridstyle" style="margin-left:4%;" ng-click="gridview()"></a>
-                  <a id="listview1"><span class="glyphicon glyphicon-align-justify" id="listgly" ng-style="liststyle" style="display:none;margin-left:5%;" ng-click="listview()" ></a></span></span>
-              </span>
+                 <a id="gridview1"><span class="glyphicon glyphicon-th" id="gridgly" ng-style="gridstyle" style="margin-left:4%;" ng-click="gridview()"></a>
+                 <a id="listview1"><span class="glyphicon glyphicon-align-justify" id="listgly" ng-style="liststyle" style="display:none;margin-left:5%;" ng-click="listview()" ></a></span></span>
+             </span>
             </p>
           </li>
 
 
-       <li class="dropdown" >
-             <a class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">
-               <b><span class="glyphicon glyphicon-user" id="caret" ></b>
-               <span class="caret" id="caret"></span></a>
-             <ul id="login-dp" class="dropdown-menu">
-               <li>
-                 <div class="row">
-                   <div class="col-md-12">
-
-                     <div class="social-buttons" id="acbuttons">
-                       <a href="#" class="btn btn-fb"><span class="glyphicon glyphicon-user" id="account">MyAccount</span></a>
-                       <a href="#" class="btn btn-tw" id="logOutId" ng-click="logOut()" aria-hidden="true" >
-                         <span class="glyphicon glyphicon-off" style="color:black;">Sign out</span>
-                       </a>
-                     </div>
-
-                   </div>
-                 </div>
-               </li>
-             </ul>
-         </li>
-
 
            <li ng-controller="profileImageController" class="dropdown" >
                   <a class="dropdown-toggle" data-toggle="dropdown" >
-                    <img id="menu" class="circular--square1" src="{{img}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
+                    <img id="menu" class="circular--square1"  ng-src="{{userinfo.profileImage}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
                   </a>
                     <div  class="dropdown-menu" id="logoutdropdown">
 
 
                      <div class="profile1 row">
-                        <img class="circular--square col-sm-6"  src="{{img}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"  style="padding-left: -2px;align-self: center;"/></span>
+                        <img class="circular--square col-sm-6"  ng-src="{{userinfo.profileImage}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"  style="padding-left: -2px;align-self: center;"/></span>
                         <a ng-click="changeProfileImage()" style="margin-left:26px;margin-top:16px;color:teal">change Profile Image</a><br/>
                         <span style="margin-left:20px;margin-top:16px;">
                           <span style="margin-left:-2px;"><b>Name :</b>{{userinfo.userName}}</span><br>
@@ -88,8 +67,8 @@
 
         </ul>
         <form class="navbar-form navbar-right">
-          <div class="input-group" id="inputid" style="padding-right:3%;background-color:black;">
-            <input type="text" class="form-control" ng-model="search" placeholder="Search..." id="query" name="search" value="" />
+          <div class="input-group" id="inputid" ng-style="archivesearch" style="padding-right:3%;background-color:black;">
+            <input type="text" class="form-control" ng-model="search" placeholder="Search..." id="query" ng-style="archivequery" name="search" value="" />
             <div class="input-group-btn">
               <button type="submit" class="btn btn-default btn-block" type="submit"><span class="glyphicon glyphicon-search"></span></button>
             </div>
@@ -104,7 +83,7 @@
   <div id="wrapper" class="toggled">
     <div class="container-fluid">
       <!-- Sidebar -->
-      <div id="sidebar-wrapper" style="margin-top:-19px">
+      <div id="sidebar-wrapper" ng-style="archivesidebar" style="margin-top:-19px">
         <ul class="sidebar-nav">
           <li class="sidebar-brand"><br> </li>
           <li class="sidebar-brand">
@@ -112,15 +91,21 @@
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile
             </a>
           </li>
+
           <li>
-            <a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+            <a href="#"><span class="glyphicon glyphicon-home"  aria-hidden="true"></span> Home</a>
           </li>
+
           <li>
             <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
           </li>
+
           <li>
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <font color="#337AB7"> STATISTICS</font>
+            <a href="#archive">
+              <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" ui-sref="archive" ng-click ="archive()">
+              </span> Archive</a>
+            <!-- <span class="glyphicon glyphicon-search" aria-hidden="true" ui-sref="archive" ng-click ="archive()" ></span>
+            <font color="#337AB7"> Archive</font> -->
           </li>
           <li>
             <a href="#"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Reports</a>
@@ -145,7 +130,7 @@
       <!-- for cards -->
       <div id="page-content-wrapper" >
         <!-- <div class="container" style = "border:1px solid black"> -->
-        <div class="row" id="msgDivId">
+        <div ng-show = "archivenote" class="row" id="msgDivId">
           <div class="col-md-3 col-lg-3 col-sm-3"></div>
 
             <div class="col-md-6 col-lg-6 col-sm-6">
@@ -177,9 +162,10 @@
 
         <!-- <div ng-show="grid"> -->
           <!-- style="border:2px solid green;" -->
-          <div ng-include="'./html/pinup.html'"></div>
+          <div ng-show = "archivenote" ng-include="'./html/pinup.html'"></div>
 
-          <div ng-include="'./html/gridlistview.html'"></div>
+          <div ng-show = "archivenote" ng-include="'./html/gridlistview.html'"></div>
+          <div ng-show = "!archivenote" ng-include="'./html/archive.html'"></div>
 
         <div class="col-sm-2 col-md-2 col-lg-2"> </div>
     </div>
@@ -314,3 +300,24 @@
       </div>
     </div>
  -->
+ <!-- <li class="dropdown" >
+       <a class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">
+         <b><span class="glyphicon glyphicon-user"   ng-style="archivegly" id="caret" ></b>
+         <span class="caret" id="caret"  ng-style="archivegly"></span></a>
+       <ul id="login-dp" class="dropdown-menu">
+         <li>
+           <div class="row">
+             <div class="col-md-12">
+
+               <div class="social-buttons" id="acbuttons">
+                 <a href="#" class="btn btn-fb"><span class="glyphicon glyphicon-user" id="account">MyAccount</span></a>
+                 <a href="#" class="btn btn-tw" id="logOutId" ng-click="logOut()" aria-hidden="true" >
+                   <span class="glyphicon glyphicon-off" style="color:black;">Sign out</span>
+                 </a>
+               </div>
+
+             </div>
+           </div>
+         </li>
+       </ul>
+   </li> -->

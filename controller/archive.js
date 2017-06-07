@@ -7,7 +7,7 @@ var dashboard = require('../model/dashBoardSchema.js');
   router.post('/:id', function(req,res){
     console.log("req"+req);
       var userid = req.params.id;
-    dashboard.archive(userid,function(err,result){
+    dashboard.archive(userid,req.body,function(err,result){
       if(!err){
         console.log("i'm archive");
           res.send({"status":true,"message": result});
@@ -18,5 +18,4 @@ var dashboard = require('../model/dashBoardSchema.js');
 
   });
 });
-
- module.exports = router;
+module.exports = router;

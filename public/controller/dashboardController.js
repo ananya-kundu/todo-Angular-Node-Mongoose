@@ -6,6 +6,8 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   $scope.nextweek = "nextweek";
   $scope.today = "today";
 
+  $scope.archivenote = true;
+  // console.log('dashboard',);
   $scope.mainNote=true;
   $scope.takeclick=function(){
     $scope.mainNote=false;
@@ -53,6 +55,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     mykeepService.app(url).then(function(data){
       console.log(data.data.userinfo);
       $rootScope.userinfo = data.data.userinfo ;
+      // $rootScope.
        console.log("inside image");
 
      }).catch(function(error){
@@ -318,12 +321,14 @@ obj.then(function(data) {
 
 
 
-    $scope.pinup = function(cardsid,data){
+    $scope.pinup = function(cardsid,pin,archive){
       // var value = "true";
       var url = "http://localhost:8081/pinup/" + cardsid + "";
       var object = {
-        value : data
+        pin: pin,
+        archive:archive
       }
+      console.log("pinned",object);
       mykeepService.app(url,object).then(function(data){
         $scope.getmsgcard();
       }).catch(function(error){
@@ -335,9 +340,13 @@ obj.then(function(data) {
 
 
 
-    $scope.archive = function(cardsid){
+    $scope.archive = function(cardsid,archive,pin){
       var url = "http://localhost:8081/archive/" + cardsid + "";
-      mykeepService.app(url).then(function(data){
+      var object = {
+        pin: pin,
+        archive:archive
+      }
+      mykeepService.app(url,object).then(function(data){
         $scope.getmsgcard();
       }).catch(function(error){
         console.log(error);

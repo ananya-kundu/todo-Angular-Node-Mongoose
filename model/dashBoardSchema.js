@@ -125,35 +125,49 @@ msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
     };
 
-    msg.statics.archive = function(userid,cb) {
+    msg.statics.archive = function(userid,req,cb) {
       this.update({
         _id: userid
       }, {
         $set: {
-        archive: true
+        archive: req.archive,
+        pin: req.pin
         }
       }, cb);
     };
+
+    // msg.statics.unarchive = function(userid,cb) {
+    //   this.update({
+    //     _id: userid
+    //   }, {
+    //     $set: {
+    //     archive: false
+    //     }
+    //   }, cb);
+    // };
 
     msg.statics.pinup = function(userid,req,cb) {
+      console.log(req,"hjgjkhgjhgjhkghjghj");
       this.update({
         _id: userid
       }, {
         $set: {
-        pinup: req.value
+          pin: req.pin,
+          archive: req.archive
+
         }
       }, cb);
     };
 
-    msg.statics.unpin = function(userid,cb) {
-      this.update({
-        _id: userid
-      }, {
-        $set: {
-        pinup: req.value
-        }
-      }, cb);
-    };
+    // msg.statics.unpin = function(userid,cb) {
+    //   this.update({
+    //     _id: userid
+    //   }, {
+    //     $set: {
+    //     pinup: req.value
+    //     }
+    //   }, cb);
+    // };
 
 
 var userMsgSchema = mongoose.model('userMsgSchema', msg);

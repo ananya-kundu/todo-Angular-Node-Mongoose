@@ -36,6 +36,9 @@ var userData = Schema({
     minlength: 4,
     maxlength: 100
   },
+  profileImage : {
+    type: String
+  }
   // fb: {
   //     id: String,
   //     access_token: String,
@@ -78,6 +81,18 @@ userData.statics.saveUserData = function(reqData, cb) {
   });
 }
 
+userData.statics.uploadProfileImage = function(req,url, cb) {
+  this.update({
+    userName: req.name
+  }, {
+    $set: {
+      profileImage: url
+      // content: req.content
+    }
+  }, cb);
+};
+
+
 userData.statics.checkLoginData = function(loginData, cb) {
     this.findOne({email: loginData.email }, cb);
     //  this.find({d_no:req._id},cb);
@@ -94,23 +109,23 @@ userData.statics.checkLoginData = function(loginData, cb) {
 // });
 // userData.set('toJSON', {
 //     virtuals: true,
-//     transform: function(doc, ret, options) {
-//         ret.userid = ret._id;
+//     transform: function(doc, return1, options) {
+//         return1.userid = ret._id;
 //
-//         if(ret.fb||ret.google||ret.local)
-//         if (ret.fb && ret.fb.profile) {
-//             ret.fb.profile = JSON.parse(ret.fb.profile);
+//         if(return1.fb||return1.google||return1.local)
+//         if (return1.fb && return1.fb.profile) {
+//             return1.fb.profile = JSON.parse(return1.fb.profile);
 //         }
 //         else
-//         if (ret.google && ret.google.profile) {
-//             ret.google.profile = JSON.parse(ret.google.profile);
+//         if (return1.google && return1.google.profile) {
+//             return1.google.profile = JSON.parse(return1.google.profile);
 //         }
 //         else
-//         if (ret.local && ret.local.profile) {
-//             ret.local.profile = JSON.parse(ret.local.profile);
+//         if (return1.local && return1.local.profile) {
+//             return1.local.profile = JSON.parse(return1.local.profile);
 //         }
-//         delete ret._id;
-//         return ret;
+//         delete return1._id;
+//         return return1;
 //     }
 // });
 

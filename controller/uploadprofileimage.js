@@ -3,7 +3,7 @@ var app = express(),
  router = express.Router();
  var fs = require("fs");
 
-var dashboard = require('../model/userSchema.js');
+var userProfilePic = require('../model/userSchema.js');
 
   router.post('/', function(req,res){
     console.log("req",req);
@@ -21,6 +21,23 @@ var dashboard = require('../model/userSchema.js');
               }
 
           });
-});
+          var url = "profileImages/"+image+".png";
+
+          // router.post('/:userid', function(req, res) {
+              // try {
+          console.log("upload image");
+                      // var imageddata =req.params.userid;
+                      userProfilePic.uploadProfileImage(req.body,url,function(err, result) {
+                        if (!err) {
+                          res.send({"status": true,"message": result});
+                        } else {
+                          res.send({"status": false,"message": err});
+                        }
+                      });
+              // } catch (e) {
+              //     res.send({"status": false,"message": "server error"});
+              // }
+          });
+
 
  module.exports = router;

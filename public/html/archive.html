@@ -8,7 +8,7 @@
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
-          <span  class="glyphicon glyphicon-pushpin" ng-click="pinup(x._id,'true','false')" ng-show="icons" style="float:right;color:#767676;"></span>
+          <span  class="glyphicon glyphicon-pushpin" ng-click="pinup(x._id,'true','false')" ng-show="icons" style="float:right;color:#767676;" uib-tooltip="Pin archived note"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
           <div id="divtitle" style="margin-left:2%;"  >
             <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
           </div>
@@ -20,7 +20,7 @@
                 <i aria-hidden="true">
                   <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
                     <a href uib-dropdown-toggle>
-                        <i id='reminder' uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-hand-pointer-o fa-lg"></i>
+                        <i id='reminder' uib-tooltip="Remind me"  tooltip-placement="bottom" tooltip-append-to-body="true" class="fa fa-hand-pointer-o fa-lg"></i>
                     </a>
                     <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                       <li id="fulldrop">
@@ -52,7 +52,7 @@
               <i aria-hidden="true">
                 <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
                       <a href uib-dropdown-toggle>
-                        <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                        <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" uib-tooltip="change color"  tooltip-placement="bottom" tooltip-append-to-body="true"/>
                       </a>
                       <div uib-dropdown-menu aria-labelledby="simple-dropdown">
                           <a id="normal" ng-repeat = "y in color" style="font-size:10px;">
@@ -63,14 +63,14 @@
                 </i>
 
                 <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
-                  <img id='reminder1'  ng-click="archive(x._id,'false','false')" style="width:18px;height:18px" src="../images/unarchive.svg" uib-popover="UnArchive"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
+                  <img id='reminder1'  ng-click="archive(x._id,'false','false')" style="width:18px;height:18px" src="../images/unarchive.svg" uib-tooltip="Unarchive"  tooltip-placement="bottom" tooltip-append-to-body="true"/>
                 </i>
 
 
          <i style="margin-left:6px">
             <span uib-dropdown on-toggle dropdown-append-to-body="true" >
                   <a href uib-dropdown-toggle>
-                      <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
+                      <i id='more'  style="width:16px;height:35%;margin-top:2%" class="fa fa-ellipsis-v" uib-tooltip="More"  tooltip-placement="bottom" tooltip-append-to-body="true"></i>
                   </a>
                   <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li id="fulldrop">
@@ -88,7 +88,7 @@
             <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
                   <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
             </span>
-            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
+            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;" uib-tooltip="Delete reminder"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
       </div>
 
     </div>

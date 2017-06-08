@@ -68,6 +68,7 @@ userData.statics.encrypt = function encrypt(text) {
 //save user data at signup
 userData.statics.saveUserData = function(reqData, cb) {
   var ref = this ;
+  
   this.findOne({ email: reqData.email }, function(err, exist) {
     if (exist) {
       cb(null,false);

@@ -131,7 +131,7 @@ msg.statics.remainderData = function(userid,req,cb) {
       }, {
         $set: {
         archive: req.archive,
-        pin: req.pin
+        pinup: req.pin
         }
       }, cb);
     };
@@ -152,7 +152,8 @@ msg.statics.remainderData = function(userid,req,cb) {
         _id: userid
       }, {
         $set: {
-          pin: req.pin,
+          //  pinup: req.value
+          pinup: req.pin,
           archive: req.archive
 
         }

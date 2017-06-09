@@ -1,4 +1,4 @@
-app.controller('profileImageController', function($scope,$rootScope,mykeepService) {
+app.controller('profileImageController', function($scope,$rootScope,mykeepService,$uibModalInstance) {
   $scope.myImage='';
   $scope.myCroppedImage='';
 
@@ -12,7 +12,13 @@ app.controller('profileImageController', function($scope,$rootScope,mykeepServic
     };
     reader.readAsDataURL(file);
   };
+
+
+$scope.profileImage=function(){
   angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
+}
+
+
 
  $scope.saveProfileImage = function(img){
    $rootScope.img = img;

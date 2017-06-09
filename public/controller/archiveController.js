@@ -8,10 +8,14 @@ app.controller('archiveController', ['$scope', '$controller', function($scope, $
   $scope.archivegly = {'color':'white'};
   $scope.liststyle = {'color':'white'};
   $scope.gridstyle = {'color':'white'};
-  $scope.archivebrand = {'color':'white'};
+  $scope.archivebrand = {'color':'white','font-size':'x-large'};
+  $scope.archiverefresh = {'fill':'white'};
+
   $scope. archivesearch = {'background-color':"rgb(96, 125, 139)"};
   $scope. archivequery = {'background-color':"rgba(122, 146, 158,1)",'color':'white'};
-    $scope. archivequerybtn = {'background-color':"rgba(122, 146, 158,1)"};
+  $scope. archivequerybtn = {'background-color':"rgba(122, 146, 158,1)"};
+  // $scope.archive=true;
+  // $scope.mykeep=true;
   // $scope. archivequery = {'background-color':"rgba(0.232,232,0.04);"};
 
 

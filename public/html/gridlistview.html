@@ -1,10 +1,10 @@
 <div class="row" ng-class="gridlist" style="margin-top:34px;">
-  <div class="col-sm-2 col-md-2 col-lg-2"> </div>
-  <div class="col-sm-10 col-xs-12 col-md-10 col-lg-10">
+  <!-- <div class="col-sm-2 col-md-2 col-lg-2"> </div>
+  <div class="col-sm-10 col-xs-12 col-md-10 col-lg-10"> -->
 
 <div id="others">Others</div>
   <div>
-  <div id="innote" ng-if="!x.archive && !x.pinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" >
+  <div id="innote" ng-if="!x.archive && !x.pinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery>
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
@@ -97,8 +97,10 @@
 </div>
 </div>
 </div>
-</div>
+<!-- </div> -->
 <!-- <span class="glyphicon glyphicon-link" ng-click="pinup(x._id,'true')" ng-show="icons" style="float:top-right;"></span> -->
+
+
 
 
 

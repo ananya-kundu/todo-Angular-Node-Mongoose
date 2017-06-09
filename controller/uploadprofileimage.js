@@ -6,10 +6,10 @@ var app = express(),
 var userProfilePic = require('../model/userSchema.js');
 
   router.post('/', function(req,res){
-    console.log("req",req);
+    // console.log("req",req);
       var base64Data = req.body.myCroppedImage.replace(/^data:image\/png.base64,/g,"");
         var image = req.body.name;
-      var check = fs.writeFile("public/profileImages/"+image+".png",base64Data, {
+        var check = fs.writeFile("public/profileImages/"+image+".png",base64Data, {
           encoding: 'base64'
         },function(err){
             if(!err){
@@ -17,27 +17,21 @@ var userProfilePic = require('../model/userSchema.js');
                 res.send({"status":true,"message": "result"});
               }
             else {
-                res.send({"status": false,"msg": err});
+              var url = "profileImages/"+image+".png";
+              userProfilePic.uploadProfileImage(req.body,url,function(err, result) {
+                if (!err) {
+                  res.send({"status": true,"message": result});
+                } else {
+                  console.log("lower else");
+                  res.send({"status": false,"message": err});
+                }
+              });
               }
+          });
 
           });
-          var url = "profileImages/"+image+".png";
 
-          // router.post('/:userid', function(req, res) {
-              // try {
-          console.log("upload image");
-                      // var imageddata =req.params.userid;
-                      userProfilePic.uploadProfileImage(req.body,url,function(err, result) {
-                        if (!err) {
-                          res.send({"status": true,"message": result});
-                        } else {
-                          res.send({"status": false,"message": err});
-                        }
-                      });
-              // } catch (e) {
-              //     res.send({"status": false,"message": "server error"});
-              // }
-          });
+
 
 
  module.exports = router;

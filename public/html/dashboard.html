@@ -1,5 +1,5 @@
 
-<body >
+<body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top" ng-style="archivenav" style="background-color: rgba(6,6,6,1);" role="navigation">
     <div class="container-fluid" >
@@ -10,13 +10,8 @@
           </span></a>
 
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" >
-              <span id="keepClass" ng-style="archivebrand" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">My Keep  </span>
-
-
-               <!-- <div class="input-group" id="search">
-                 <input ng-model="q" ng-style="searchColor" type="text" placeholder="Search" id="query" name="search" value="">
-               </div> -->
-
+            <span id="archivebrand" ng-show="!archivenote" ng-style="archivebrand" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true">Archive</a>
+              <span id="keepClass"  ng-show="archivenote" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">My Keep  </span>
           </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -33,12 +28,12 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
           <a  id="refresh" uib-tooltip="Refresh" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="refresh()" >
-                    <svg id="refreshicon" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="grey">
+                    <svg id="refreshicon" ng-style="archiverefresh" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="grey">
                      <path d="m9 13.5c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5c1.24 0 2.36 0.52 3.17 1.33l-2.17 2.17h5v-5l-1.76 1.76c-1.09-1.08-2.58-1.76-4.24-1.76-3.31 0-5.99 2.69-5.99 6s2.68 6 5.99 6c2.97 0 5.43-2.16 5.9-5h-1.52c-0.46 2-2.24 3.5-4.38 3.5z"/>
                     </svg>
 
                   </a>
-                  <li>
+                </li>
 
 
           <!-- <li><a>
@@ -66,7 +61,7 @@
 
 
 
-           <li ng-controller="profileImageController" class="dropdown" >
+           <li class="dropdown" >
                   <a class="dropdown-toggle" data-toggle="dropdown"  uib-tooltip="MyAccount" tooltip-placement="bottom" tooltip-append-to-body="true" >
                     <img id="menu" class="circular--square1"  ng-src="{{userinfo.profileImage}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
                   </a>
@@ -101,31 +96,17 @@
 
         </ul>
         <form class="navbar-form navbar-left">
-          <div class="input-group" id="inputid" ng-style="archivesearch" style="padding-right:3%;background-color:rgba(6,6,6,1);">
+          <div class="input-group" id="inputid" ng-style="archivesearch" style="padding-right:3%;background-color:rgba(6,6,6,1);" uib-tooltip="Refresh" tooltip-placement="bottom" tooltip-append-to-body="true">
             <input type="text" class="form-control" ng-model="search" placeholder="Search..." id="query" ng-style="archivequery" name="search" value="" />
-            <div class="input-group-btn">
-
-              <!-- <button type="submit" class="btn btn-default btn-block" type="submit"style="corsor:pointer;height:40px;" ng-style="archivequerybtn" uib-tooltip="Search"  tooltip-placement="bottom" tooltip-append-to-body="true">
-
-                <span class="glyphicon glyphicon-search"></span>
-              </button> -->
             </div>
-          </div>
-          <!-- <div class="input-group" id="inputid" ng-style="archivesearch">
-            <input ng-model="q" ng-style="searchColor" type="text" placeholder="Search" id="query" name="search" value="">
-          </div> -->
         </form>
-
-
-
+</div>
         <!-- <div id="header-search" class="clr">
 				<form method="get" id="searchform" class="searchform att-searchform" action="https://wdexplorer.com/" role="search">
 
 					<button type="submit" class="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
 				</form>
 			</div> -->
-
-
 
       </div>
     </div>
@@ -146,7 +127,7 @@
           </li>
 
           <li>
-            <a href="#"><span class="glyphicon glyphicon-home"  aria-hidden="true"></span> Notes</a>
+            <a ui-sref="dashboard"><span class="glyphicon glyphicon-home"  aria-hidden="true"></span> Notes</a>
           </li>
 
           <li>
@@ -154,7 +135,7 @@
           </li>
 
           <li>
-            <a href="#archive">
+            <a ui-sref="archive">
               <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" ui-sref="archive" ng-click ="archive()">
               </span> Archive</a>
             <!-- <span class="glyphicon glyphicon-search" aria-hidden="true" ui-sref="archive" ng-click ="archive()" ></span>
@@ -204,7 +185,6 @@
                      <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
                      <i style="margin-left:16px" class="fa fa-paint-brush fa-lg" style="font-size:22px" aria-hidden="true"></i>
                      <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
-                 <!-- <i style="margin-left:16px" class="fa fa-ellipsis-v" aria-hidden="true"></i> -->
                       <button class="btn btn-warning" type="button" id="done" ng-click="savemsgcard()">DONE</button>
                 </p>
              </div>
@@ -212,18 +192,23 @@
 
           <div class="col-md-3 col-lg-3 col-sm-3"></div>
         </div>
-
+        <div class="row">
+          <div class="col-sm-2 col-md-2 col-lg-2">
+          </div>
+          <div class="col-sm-8 col-md-8 col-lg-8">
         <!-- <div ng-show="grid"> -->
           <!-- style="border:2px solid green;" -->
+
           <div ng-show = "archivenote" ng-include="'./html/pinup.html'"></div>
 
           <div ng-show = "archivenote" ng-include="'./html/gridlistview.html'"></div>
           <div ng-show = "!archivenote" ng-include="'./html/archive.html'"></div>
-
-        <div class="col-sm-2 col-md-2 col-lg-2"> </div>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"></div>
     </div>
   </div>
-
+  </div>
+</div>
 </body>
 
 <script>

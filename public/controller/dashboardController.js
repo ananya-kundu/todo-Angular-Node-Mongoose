@@ -1,6 +1,8 @@
 app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,mykeepService) {
   console.log("ghsjh");
   console.log($scope);
+  // $scope.archive=false;
+  // $scope.mykeep=false;
 
   $scope.tomorrow ="tomorrow";
   $scope.nextweek = "nextweek";
@@ -75,7 +77,10 @@ $scope.changeProfileImage = function() {
     modalInstance.result.catch(function(error){
           console.log("error",error);
         });
-
+        this.cancel = function(){
+            console.log("updation cancelled");
+            $uibModalInstance.dismiss('cancel');
+          };
 };
 
 
@@ -155,7 +160,7 @@ $scope.changeProfileImage = function() {
     // $scope.list = true;
     // $scope.grid = false;
     $scope.gridlist="gridviewnew";
-    $scope.innote = "col-sm-12 col-lg-9 col-md-10 col-xs-11 drag listcss";
+    $scope.innote = "col-sm-12 col-lg-12 col-md-12 col-xs-12 drag listcss";
     $scope.showpreid="preid1 cardhover";
     $scope.liststyle = {
       'display':'none'
@@ -295,14 +300,12 @@ $scope.changeProfileImage = function() {
 
 
 $scope.cardCopy = function(notedata){
-var url = "http://localhost:8081/createcards";
-
-// console.log("SAdSADSAd");
-var obj = mykeepService.app(url,notedata);
-obj.then(function(data) {
-  $scope.getmsgcard();
-}).catch(function(error) {
-    console.log("error1");
+  var url = "http://localhost:8081/createcards";
+  var obj = mykeepService.app(url,notedata);
+  obj.then(function(data) {
+      $scope.getmsgcard();
+    }).catch(function(error) {
+        console.log("error1");
   });
 }
 
@@ -318,7 +321,6 @@ obj.then(function(data) {
       console.log(error);
     });
   }
-
 
 
     $scope.pinup = function(cardsid,pin,archive){
@@ -337,9 +339,6 @@ obj.then(function(data) {
     }
 
 
-
-
-
     $scope.archive = function(cardsid,archive,pin){
       var url = "http://localhost:8081/archive/" + cardsid + "";
       var object = {
@@ -352,9 +351,6 @@ obj.then(function(data) {
         console.log(error);
       });
     }
-
-
-
 
 
   $scope.logOut = function(){

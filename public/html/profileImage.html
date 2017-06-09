@@ -1,15 +1,15 @@
 
 <!-- <div style="margin-top:-5%;"> -->
-<div ng-controller="profileImageController" >
-
+<div>
 
   <div>Select an image file: <input type="file" id="fileInput" /></div>
   <div class="cropArea">
-    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+    <img-crop image="myImage" ng-init="profileimage()" result-image="myCroppedImage"></img-crop>
   </div>
   <!-- <div>Cropped Image:</div>
   <div><img ng-src="{{myCroppedImage}}" /></div> -->
 
-  <button style="margin-left:40%;"><a ng-click=saveProfileImage(myCroppedImage)>save</a>
+  <button style="margin-left:40%;"><a ng-click=saveProfileImage(myCroppedImage)>save</a></button>
+      <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.cancel()" style="background-color: transparent;">CANCEL</button>
 </div>
 <!-- </div> -->

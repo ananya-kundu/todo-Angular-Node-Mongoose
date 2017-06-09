@@ -1,7 +1,3 @@
-// app.controller('signupController', function($scope) {
-//     $scope.message = 'Contact us! ';
-// });
-
 
 app.controller('signupController', function($scope,$state,$location,mykeepService) {
   console.log("signup page");

@@ -1,7 +1,7 @@
 app.controller('loginController', function($scope,$location,$state,mykeepService) {
   console.log("cfdsfsdf");
-  $scope.message = ' I am a login page.';
-    var url="http://localhost:8081/session";
+  // $scope.message = ' I am a login page.';
+  var url="http://localhost:8081/session";
   var checkUser = mykeepService.app(url);
   checkUser.then(function(data) {
     if(data.data.status == true){

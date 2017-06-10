@@ -6,6 +6,6 @@ app.controller('logoutController', function($scope, $state, $auth) {
     $auth.logout()
         .then(function() {
             $state.go('login');
-            console.log('User logout');
+            // console.log('User logout');
         });
 });

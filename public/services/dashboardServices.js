@@ -1,14 +1,29 @@
+
+
 app.service('mykeepService', function($http) {
   this.app = function(url,data) {
-
-    console.log("i'm service");
+    // console.log("i'm service");
     return $http({
-      url: url,
-      method: "POST",
-      data : data
+        url: url,
+        method: "POST",
+        data : data
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.service('loginservice', function($http) {
 //   this.app = function(userLogin) {

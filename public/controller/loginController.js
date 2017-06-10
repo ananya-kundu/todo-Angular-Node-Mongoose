@@ -1,12 +1,10 @@
 app.controller('loginController', function($scope,$location,$state,mykeepService) {
-  console.log("cfdsfsdf");
-  // $scope.message = ' I am a login page.';
+  // console.log("loginController");
   var url="http://localhost:8081/session";
   var checkUser = mykeepService.app(url);
   checkUser.then(function(data) {
     if(data.data.status == true){
-      console.log(data);
-      // $location.path('/dashboard');
+      // console.log(data);
       $state.go('dashboard');
     }else{
         // $location.path('/login');
@@ -14,7 +12,7 @@ app.controller('loginController', function($scope,$location,$state,mykeepService
     }
     // console.log(data);
   }).catch(function(error) {
-    console.log(error);
+        console.log(error);
   })
 
 
@@ -38,21 +36,10 @@ app.controller('loginController', function($scope,$location,$state,mykeepService
           // $location.path('/login');
           $state.go('login');
       }
-      console.log(data);
+      // console.log(data);
     }).catch(function(error) {
       console.log(error);
     })
   }
 
 });
-
-
-// app.service('loginservice', function($http) {
-//   this.app = function() {
-//     return $http({
-//       url: "http://localhost:8081/session",
-//       method: "POST",
-//       data: userLogin
-//     });
-//   }
-// });

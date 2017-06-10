@@ -9,9 +9,9 @@ router.use(function(req, res, next) {
  var token = req.headers['x-access-token'] || req.headers.cookie ;
  // console.log( req.headers.cookie);
  token = token.substr(7);
- console.log( req.headers.cookie);
+ // console.log( req.headers.cookie);
  if (token) {
-   console.log(token);
+  //  console.log(token);
    jwt.verify(token, secretKey.secret, function(err, decoded) {
      if (err) {
        res.send({"status": false,"message": "Failed to authenticate token."});

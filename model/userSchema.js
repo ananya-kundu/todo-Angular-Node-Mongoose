@@ -6,7 +6,7 @@ var validators = require("mongoose-validators");
 var  crypto = require('crypto');
 var jwt    = require('jsonwebtoken');
 var secretKey = require('../config/config.js');
-// app.set('superSecret', secret);
+
 var Schema = mongoose.Schema;
 
 
@@ -22,7 +22,6 @@ var userData = Schema({
     type: Number,
     required: true,
     min : 10
-    // max : 10
   },
   email: {
     type: String,
@@ -65,10 +64,10 @@ userData.statics.encrypt = function encrypt(text) {
   crypted += cipher.final('hex');
   return crypted;
 }
+
 //save user data at signup
 userData.statics.saveUserData = function(reqData, cb) {
   var ref = this ;
-  
   this.findOne({ email: reqData.email }, function(err, exist) {
     if (exist) {
       cb(null,false);
@@ -88,22 +87,25 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
   }, {
     $set: {
       profileImage: url
-      // content: req.content
     }
   }, cb);
 };
 
-
 userData.statics.checkLoginData = function(loginData, cb) {
     this.findOne({email: loginData.email }, cb);
-    //  this.find({d_no:req._id},cb);
-  }
+}
 
-//
+
   userData.statics.getUserProfile = function(userid, cb) {
     var ref = this ;
     this.findById(userid,cb);
 }
+
+  //model creation
+var userData = mongoose.model('userRegisterSchema', userData);
+module.exports = userData;
+
+
 
 // userData.virtual('userid').get(function() {
 //     return this._id.toHexString();
@@ -129,10 +131,3 @@ userData.statics.checkLoginData = function(loginData, cb) {
 //         return return1;
 //     }
 // });
-
-
-
-
-  //model creation
-var userData = mongoose.model('userRegisterSchema', userData);
-module.exports = userData;

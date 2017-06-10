@@ -6,10 +6,9 @@ router.post('/:id', function(req, res) {
     try {
         console.log("reminder delete");
           var deleteddata =req.params.id;
-                // userid:req.decoded.id,
 
-            todocards.deleteReminderData(deleteddata,function(err, result) {
-                console.log(deleteddata);
+          todocards.deleteReminderData(deleteddata,function(err, result) {
+                // console.log(deleteddata);
               if (!err) {
                 res.send({"status": true,"message": result});
               } else {

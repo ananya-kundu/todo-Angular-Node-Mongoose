@@ -15,27 +15,21 @@ body{
     display: inline-block;
 }
 
-/*margin-top: 10px;*/
-/*margin-top: -3px;*/
-/*margin-top: -3px;*/
 #keepClass{
     font-family: 'Product Sans',Arial,sans-serif; /*iNTEGRATE THE FONT INTO YOUR CSS*/
      font-size: 24px;
      font-weight: 400;
-    /*font-weight: 200px;*/
-    /*text-align: center;*/
-    /*text-shadow: 0 1px 1px #fff;*/
-     /*color: #d54d7b;*/
      margin-left: -25px;
-    position: relative;
-    display: inline-block;
-    padding: 8px;
-    vertical-align: middle;
-    vertical-align: middle;
-    color: teal;
-    outline: none;
-    text-rendering: optimizeLegibility;
+     position: relative;
+     display: inline-block;
+     padding: 8px;
+     vertical-align: middle;
+     vertical-align: middle;
+     color: teal;
+     outline: none;
+     text-rendering: optimizeLegibility;  /*font-weight: 200px;*/   /*text-align: center;*/   /*text-shadow: 0 1px 1px #fff;*/  /*color: #d54d7b;*/
 }
+
 #keepClass:hover{
   color:white;
 }
@@ -108,6 +102,7 @@ body{
     margin-top: 20px ;
     /*margin-left:40px;*/
 }
+
 #noteslist{
   margin-top: 3px;
 }
@@ -116,16 +111,13 @@ body{
 {
     min-height: 100%;
     margin: 8px;
-
     word-wrap: break-word;
-
     border: none;
     background-color: white;
     box-shadow: 5px 5px 5px #888;
 }
 
-.note-inner
-{
+.note-inner{
     position: relative;
     min-height: 100%;
     word-wrap: break-word;
@@ -161,17 +153,13 @@ body{
     border: none;
     outline: none;
 }
+
 #content
 {
-  font-family: 'Roboto Slab','Times New Roman',serif;
-    /*font-family: 'Roboto',arial,sans-serif;*/
+  font-family: 'Roboto Slab','Times New Roman',serif;   /*font-family: 'Roboto',arial,sans-serif;*/
     font-size: 14px;
-    line-height: 19px;
-    /*min-height: 46px;*/
-
-    padding: 12px 15px 15px 15px;
-    /*background-color: rgba(204, 204, 204, 0.28);*/
-    /*height: auto;*/
+    line-height: 19px; /*min-height: 46px;*/
+    padding: 12px 15px 15px 15px;   /*background-color: rgba(204, 204, 204, 0.28);*/  /*height: auto;*/
     border: none;
     outline: none;
 }
@@ -180,7 +168,6 @@ body{
 {
     border: 1px solid;
 }
-
 
 .glyphicon glyphicon-user{
     position: fixed;
@@ -200,9 +187,9 @@ body{
     color: white;
     background: #222;
 }
+
 #sidebar-wrapper{
-    width: 200px;
-    /*background-color: rgb(51,51,51);*/
+    width: 200px;   /*background-color: rgb(51,51,51);*/
     background-color: rgba(6,6,6,1);
 }
 
@@ -214,7 +201,6 @@ body{
     padding: 20px;
 }
 
-
 #wrapper.toggled #page-content-wrapper{
     position: relative;
     margin-right: 0;
@@ -222,14 +208,13 @@ body{
 #userMsgBox{
     margin-top: 70px;
     padding: 24px;
-    background-color: white;
-    /*border :1px solid black;*/
-    /*box-shadow: 5px 5px 7px rgba(33,33,33,.7);*/
+    background-color: white; /*border :1px solid black;*/  /*box-shadow: 5px 5px 7px rgba(33,33,33,.7);*/
     box-shadow: 0 5px 7px rgba(33,33,33,.7), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
+
+
 #listview{
     display: none;
-
     align-content: center;
 }
 
@@ -240,6 +225,7 @@ body{
     pointer-events: none;
     color: rgba(0,0,0,.54);
 }
+
 .todocontent{
     position: absolute;
     z-index: 0;
@@ -248,9 +234,6 @@ body{
     color: rgba(0,0,0,.54);
 }
 
-/*#gridgly,#listgly{
-  display:none;
-}*/
 .gridviewnew{
   margin-top:30px;
   /*width:260px;*/
@@ -454,9 +437,7 @@ a {
 }
 
 #remindercss{
-  padding: 2px 4px 3px 4px;
-  /*margin-left: 4px;*/
-  /*font-size: 12px;*/
+  padding: 2px 4px 3px 4px; /*margin-left: 4px;*/  /*font-size: 12px;*/
   color : rgba(128, 128, 128, 0.51);
   border-top: 0.5px dashed;
   height :26px;
@@ -492,9 +473,9 @@ color:teal;
 }
 
 #inputid :focus{
-  background-color: white;
-  /*box-shadow: -9px 2px 12px grey;*/
+  background-color: white;  /*box-shadow: -9px 2px 12px grey;*/
 }
+
 #logOutId:hover{
   color:white;
 }
@@ -511,9 +492,7 @@ color:teal;
     transform: scale3d(1.5, 1.5, 1);
 
 }
-/*#refreshicon{
-  fill : white;
-}*/
+
 #refreshicon:hover{
     cursor: pointer;
     fill: white; /*fill used for svg color change*/
@@ -521,61 +500,60 @@ color:teal;
 
 }
 
-/*.gridstyle:hover{
-  color:green;
-}*/
-
 
 .circular--square {
       background-size: 96px 96px;
-  overflow: hidden;
-  font-size:10px;
-   text-align: center;
-   position: relative;
-   width: 111px;
-   height: 111px;
-   /*overflow: hidden;*/
-   border-radius: 50%;
-   margin-left: 15px;
-   margin-right: 20px;
-   top: 0px;
-    border:0.5px solid black;
-    background-color:teal;
-    color:white;
-    padding: 0px;
-    font-size: 55px;
-
+      overflow: hidden;
+      font-size:10px;
+      text-align: center;
+      position: relative;
+      width: 111px;
+      height: 111px;
+      /*overflow: hidden;*/
+      border-radius: 50%;
+      margin-left: 15px;
+      margin-right: 20px;
+      top: 0px;
+      border:0.5px solid black;
+      background-color:teal;
+      color:white;
+      padding: 0px;
+      font-size: 55px;
 }
+
 .circular--square:hover{
       cursor: pointer;
-  transform: scale3d(1.060, 1.060, 1);
+      transform: scale3d(1.060, 1.060, 1);
 }
+
 .circular--square1 {
   text-align: center;
   overflow: hidden;
-  /*background-color:#7d0000;*/
   background-color: teal;
   border-radius: 50%;
   color:white;
   padding:0px;
-  /*cursor: default;*/
   font-size: 13px;
    position: relative;
-   /*width: 44px;
-   height: 30px;*/
    width: 44px;
    height: 38px;
    overflow: hidden;
    border-radius: 50%;
    border:0.5px solid #333;
    /*border:0px;*/
+   /*background-color:#7d0000;*/
+     /*cursor: default;*/
+     /*width: 44px;
+     height: 30px;*/
 }
+
 .circular--square1:hover{
-  border: 3px solid teal;
+      border: 3px solid teal;
       cursor: pointer;
-  transform: scale3d(1.2, 1.2, 2);
-  /*transform: rotate(180deg);*/
+      transform: scale3d(1.2, 1.2, 2);
+      /*transform: rotate(180deg);*/
 }
+
 #logoutdropdown{
   width:335px;
   padding-left: 25px;
@@ -587,7 +565,7 @@ color:teal;
   box-shadow: 0px 5px 7px rgba(33,33,33,.7);
 }
 
-#pinned,#others{
+#pinned,#others,#reminderdiv{
 /*margin:2px 0px 12px 12px;*/
   margin:22px 16px ;
   color: rgba(0,0,0,.54);
@@ -595,12 +573,13 @@ color:teal;
   font-size: 14px;
   font-weight: 700;
   visibility: visible;
-
 }
 
 #imgpath:hover {
   background-border:1px solid blue;
 }
+
+
 @media (min-width: 320px)
 {
     #wrapper
@@ -650,15 +629,16 @@ color:teal;
     }
 }
 
-.center-block {
+
+/*.center-block {
     float: none;
     margin-left: auto;
     margin-right: auto;
-}
+}*/
 
 
 
-
+/*
 .gb_ke button {
     background: none;
     border: none;
@@ -669,8 +649,16 @@ color:teal;
 }
 .gb_De {
     float: left;
-}
+}*/
 
+
+
+
+
+
+/*#gridgly,#listgly{
+  display:none;
+}*/
 /*.input-group .icon-addon .form-control {
     border-radius: 0;
 }

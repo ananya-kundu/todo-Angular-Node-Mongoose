@@ -5,14 +5,14 @@ var app = express(),
 var dashboard = require('../model/dashBoardSchema.js');
 
   router.post('/:id', function(req,res){
-    console.log("req"+req);
+      console.log("req"+req);
       var userid = req.params.id;
-    dashboard.remainderData(userid,req.body,function(err,result){
+
+      dashboard.remainderData(userid,req.body,function(err,result){
       if(!err){
-        console.log("i'm reminder");
+          // console.log("i'm reminder");
           res.send({"status":true,"message": result});
-      }
-      else {
+      }else {
           res.send({"status": false,"msg": err});
       }
 

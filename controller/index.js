@@ -1,7 +1,7 @@
 var express = require('express'),
-	router = express.Router();
+		router = express.Router();
 var auth=require("./authenticate");
-console.log("I'm in index.js");
+// console.log("I'm in index.js");
 
 router.use(require("./session"));
 router.use(require('./signup'));
@@ -19,12 +19,8 @@ router.use("/reminder",auth,require("./reminder"));
 router.use("/reminderdelete",auth,require("./reminderdelete"));
 router.use("/color",auth,require("./color"));
 router.use("/archive",auth,require("./archive"));
-// router.use("/unarchive",auth,require("./unarchive"));
-
 router.use("/pinup",auth,require("./pinup"));
 router.use("/uploadprofileimage",auth,require("./uploadprofileimage"));
-
-
 
 
 module.exports = router;

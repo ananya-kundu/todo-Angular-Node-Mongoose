@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var todocards = require('../model/dashBoardSchema.js');
 router.post('/:userid', function(req, res) {
     try {
-console.log("delete");
-            var deleteddata =req.params.userid;
+        // console.log("delete");
+        var deleteddata =req.params.userid;
 
-            todocards.deleteCardsData(deleteddata,function(err, result) {
+        todocards.deleteCardsData(deleteddata,function(err, result) {
               if (!err) {
                 res.send({"status": true,"message": result});
               } else {

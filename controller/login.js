@@ -3,14 +3,14 @@ var express = require('express'),
   router = express.Router(),
   login = require('../model/userSchema');
 var app = express();
-  app.use(cookieParser());
+
+app.use(cookieParser());
 
 var connDb = require("../config/config");
 var connDb1 = require("../config/index");
 
 var jwt = require('jsonwebtoken');
 router.post('/login', function(req, res) {
-
       try {
         req.check(connDb1.validationSchema.login);
         req.getValidationResult().then(function(isValid) {

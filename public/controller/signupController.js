@@ -1,7 +1,7 @@
 
 app.controller('signupController', function($scope,$state,$location,mykeepService) {
-  console.log("signup page");
-  $scope.message = ' I am a signup page.';
+  // console.log("signup page");
+  // $scope.message = ' I am a signup page.';
 
   $scope.signupbtn = function() {
     var userName = $scope.userName;
@@ -16,17 +16,18 @@ app.controller('signupController', function($scope,$state,$location,mykeepServic
       password: password
     }
     var url= "http://localhost:8081/signup";
-    console.log(userObj);
+    // console.log(userObj);
     var signupObj = mykeepService.app(url,userObj);
+
     signupObj.then(function(data) {
       if(data.data.status == true){
         $state.go('login');
       }else{
           $state.go('signup');
       }
-      console.log(data);
+      // console.log(data);
     }).catch(function(error) {
-      console.log(error);
+          console.log(error);
     })
   }
 

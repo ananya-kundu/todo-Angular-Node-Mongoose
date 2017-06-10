@@ -2,7 +2,6 @@
 
 var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.bootstrap.datetimepicker','ngImgCrop']);
     // configure our routes
-// ,'ui.bootstrap'
     app.config(function($stateProvider,$urlRouterProvider) {
 
       $stateProvider.state('home',{
@@ -43,6 +42,14 @@ var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.b
           controller:'archiveController',
           onEnter:function(){
             console.log("in archive");
+          }
+      })
+      .state('reminder',{
+          url:'/reminder',
+          templateUrl:'html/dashboard.html',
+          controller:'reminderController',
+          onEnter:function(){
+            console.log("in reminder");
           }
       })
         $urlRouterProvider.otherwise("/login");

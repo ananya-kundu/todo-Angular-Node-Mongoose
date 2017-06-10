@@ -11,7 +11,9 @@
 
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" >
             <span id="archivebrand" ng-show="!archivenote" ng-style="archivebrand" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true">Archive</a>
-              <span id="keepClass"  ng-show="archivenote" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">My Keep  </span>
+              <span id="reminderbrand" ng-show="!remindernote" ng-style="reminderbrand" uib-tooltip="Reminders"  tooltip-placement="bottom" tooltip-append-to-body="true">Reminders</a>
+
+              <span id="keepClass"  ng-show="archivenote && remindernote" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">My Keep  </span>
           </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -130,10 +132,13 @@
             <a ui-sref="dashboard"><span class="glyphicon glyphicon-home"  aria-hidden="true"></span> Notes</a>
           </li>
 
+          <!-- <li>
+            <a href="reminder"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Reminders</a>
+          </li> -->
           <li>
-            <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+            <a ui-sref="reminder">
+              <span class="glyphicon glyphicon-hand-up" aria-hidden="true" ui-sref="reminder" ng-click ="remainderData()"></span> Reminders</a>
           </li>
-
           <li>
             <a ui-sref="archive">
               <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" ui-sref="archive" ng-click ="archive()">
@@ -199,10 +204,11 @@
         <!-- <div ng-show="grid"> -->
           <!-- style="border:2px solid green;" -->
 
-          <div ng-show = "archivenote" ng-include="'./html/pinup.html'"></div>
+          <div ng-show = "archivenote && remindernote" ng-include="'./html/pinup.html'"></div>
 
-          <div ng-show = "archivenote" ng-include="'./html/gridlistview.html'"></div>
+          <div ng-show = "archivenote && remindernote" ng-include="'./html/gridlistview.html'"></div>
           <div ng-show = "!archivenote" ng-include="'./html/archive.html'"></div>
+          <div ng-show = "!remindernote" ng-include="'./html/reminder.html'"></div>
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2"></div>
     </div>

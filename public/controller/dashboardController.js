@@ -14,7 +14,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     $scope.mainNote=false;
     $scope.dummyNote=true;
   }
-
+console.log($scope.remindernote);
   $scope.color = [
     {
       "color" :"#fff",

@@ -2,6 +2,7 @@ app.controller('reminderController', ['$scope', '$controller', function($scope, 
   $controller('dashboardController', {$scope: $scope}),
   //inside scope you the controllerOne scope will available
   $scope.remindernote = false;
+  console.log("sdfsd" ,$scope.remindernote);
 
   $scope.archivesidebar = {'background':"transparent"};
   $scope.archivenav = {'background-color':"rgb(96, 125, 139)"};

@@ -1,8 +1,10 @@
+
+
 var express = require('express');
 var app = express(),
  router = express.Router();
  var fs = require("fs");
-
+var winston = require('winston');
 var userProfilePic = require('../model/userSchema.js');
 
   router.post('/', function(req,res){
@@ -13,16 +15,17 @@ var userProfilePic = require('../model/userSchema.js');
           encoding: 'base64'
         },function(err){
             if(!err){
-                // console.log("i'm upload image");
+
                 res.send({"status":true,"message": "result"});
               }//if closing
             else {
                 var url = "profileImages/"+image+".png";
                 userProfilePic.uploadProfileImage(req.body,url,function(err, result) {
                       if (!err) {
+                          winston.info('User profile image suceesfully uploaded');
                           res.send({"status": true,"message": result});
                         } else {
-                          // console.log("lower else");
+                            winston.error('User profile image not uploaded');
                             res.send({"status": false,"message": err});
                           }
                         });

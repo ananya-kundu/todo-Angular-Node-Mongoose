@@ -4,6 +4,25 @@ var express = require('express'),
 var connection = require ('./config/config.js');
 var morgan = require ('morgan');
 var cors = require('cors');
+var winston = require('winston');
+
+
+winston.configure({
+    transports: [
+        new (winston.transports.File)({
+                name  : "info-file",
+                filename : 'infofile.log',
+                level :'info'
+              }),
+        new (winston.transports.File)({
+                name  : "error-file",
+                filename : 'error.log',
+                level :'error'
+        })
+    ]
+});
+
+// winston.info("welcome to winstone file");
 
 app.use(bodyParser.urlencoded({ extended: true ,limit:'40MB'}));
 app.use(bodyParser.json({limit:'40MB'}));

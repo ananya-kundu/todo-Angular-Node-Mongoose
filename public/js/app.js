@@ -56,7 +56,9 @@ var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.b
     });
 
 
-
+    // require('./directives/yep-nope.controller');
+    // require('./services/github-status.service');
+    // require('./controllers/dashboard.controller');
 
   // var app = angular.module('myApp', ['ngRouter','ngSanitize']);
   //     // configure our routes

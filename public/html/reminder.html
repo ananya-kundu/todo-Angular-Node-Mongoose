@@ -1,5 +1,5 @@
 <div class="row" ng-class="gridlist" style="margin-top:34px;">
-  
+
 <div id="reminderdiv" >Reminders</div>
 <div style="margin:22px 16px;" ></div>
 <div>
@@ -7,11 +7,13 @@
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
-          <span  class="glyphicon glyphicon-pushpin" ng-if = "x.pinup" uib-tooltip="Unpin note" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="pinup(x._id,'false','false')" style="float:right;color:#4285f4;"></span>
-          <span  class="glyphicon glyphicon-pushpin" ng-if = "!x.pinup" ng-click="pinup(x._id,'true','false')" ng-show="icons" style="float:right;color:#767676;" uib-tooltip="Pin archived note"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
-          <div id="divtitle" style="margin-left:2%;"  >
+          <span  class="glyphicon glyphicon-pushpin" ng-if = "x.isPinup" uib-tooltip="Unpin note" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="pinup(x._id,'false','false')" style="float:right;color:#4285f4;"></span>
+          <span  class="glyphicon glyphicon-pushpin" ng-if = "!x.isPinup" ng-click="pinup(x._id,'true','false')" ng-show="icons" style="float:right;color:#767676;" uib-tooltip="Pin archived note"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
+          <!-- <div id="divtitle" style="margin-left:2%;"  >
             <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
-          </div>
+          </div> -->
+          <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1"  ></div>
+
           <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
 
           <div id="footer" >
@@ -63,8 +65,8 @@
                 </i>
 
                 <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
-                  <img id='reminder1' ng-if="!x.archive" ng-click="archive(x._id,'true')" style="width:14px;height:35%" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
-                  <img id='reminder1'  ng-if="x.archive" ng-click="archive(x._id,'false')" style="width:18px;height:18px" src="../images/unarchive.svg" uib-tooltip="Unarchive"  tooltip-placement="bottom" tooltip-append-to-body="true"/>
+                  <img id='reminder1' ng-if="!x.isArchive" ng-click="archive(x._id,'true')" style="width:14px;height:35%" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
+                  <img id='reminder1'  ng-if="x.isArchive" ng-click="archive(x._id,'false')" style="width:18px;height:18px" src="../images/unarchive.svg" uib-tooltip="Unarchive"  tooltip-placement="bottom" tooltip-append-to-body="true"/>
 
                 </i>
 

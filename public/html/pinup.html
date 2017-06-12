@@ -2,16 +2,17 @@
 
 <div id="pinned" >Pinned</div>
 <div>
-  <div id="innote" ng-if="!x.archive && x.pinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" >
+  <div id="innote" ng-if="!x.isArchive && x.isPinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" >
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
           <span class="dropup" >
           <span  class="glyphicon glyphicon-pushpin" uib-tooltip="Unpin note" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="pinup(x._id,'false','false')" style="float:right;color:#4285f4;"></span>
         </span>
-          <div id="divtitle" style="margin-left:2%;"  >
-            <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
-          </div>
+          <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1" ></div>
+          <!-- <div id="divtitle" style="margin-left:2%;"  >
+            <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i> -->
+
           <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
 
           <div id="footer" >

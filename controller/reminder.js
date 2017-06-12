@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express(),
- router = express.Router();
+    router = express.Router();
+var winston = require('winston');
 
 var dashboard = require('../model/dashBoardSchema.js');
 
@@ -10,9 +11,10 @@ var dashboard = require('../model/dashBoardSchema.js');
 
       dashboard.remainderData(userid,req.body,function(err,result){
       if(!err){
-          // console.log("i'm reminder");
+          winston.info('Reminder created');
           res.send({"status":true,"message": result});
       }else {
+          winston.error('Reminder not created');
           res.send({"status": false,"msg": err});
       }
 

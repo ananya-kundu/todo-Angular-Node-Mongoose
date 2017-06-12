@@ -462,7 +462,7 @@ a {
     height:40px;
 }
 
-#titlecss{
+.titlecss{
 font-size:16px;font-family: times, Times New Roman, times-roman, georgia, serif;
 letter-spacing: 1px;
 font-weight: bold;

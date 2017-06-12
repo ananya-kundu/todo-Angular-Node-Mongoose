@@ -4,14 +4,14 @@
 
 <div id="others">Others</div>
   <div>
-  <div id="innote" ng-if="!x.archive && !x.pinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery>
+  <div id="innote" ng-if="!x.isArchive && !x.isPinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery>
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
             <span class="glyphicon glyphicon-pushpin" ng-click="pinup(x._id,'true','false')" ng-show="icons" style="float:right;" uib-tooltip="Pin note"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
-          <div id="divtitle" style="margin-left:2%;"  >
-            <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i>
-          </div>
+          <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1"  ></div>
+            <!-- <i id="titlecss" ></i> -->
+
           <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
 
           <div id="footer" >

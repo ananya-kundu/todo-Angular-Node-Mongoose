@@ -39,7 +39,7 @@ console.log($scope.remindernote);
     {
       "color" :"#cfd8dc",
       "path" : "../images/moongrey.png",
-      "tooltip" :"Grey",
+      "tooltip" :"Gray",
     },
     {
       "color" :"#80f8ff",
@@ -192,6 +192,14 @@ $scope.getmsgcard = function() {
                 console.log(error);
               })
   }
+
+
+
+$scope.refresh = function(){
+$route.getmsgcard();
+}
+
+
 
   $scope.popup = function(datanote){
       var modalInstance = $uibModal.open({

@@ -6,17 +6,19 @@ var app = express();
 
 app.use(cookieParser());
 
+var winston = require('winston');
 var connDb = require("../config/config");
 var connDb1 = require("../config/index");
 
 var jwt = require('jsonwebtoken');
+
 router.post('/login', function(req, res) {
       try {
         req.check(connDb1.validationSchema.login);
         req.getValidationResult().then(function(isValid) {
             try {
               if (!isValid.isEmpty()) {
-                // console.log("error");
+                // winston.info('Validation Unsuccessfulls.Login Unsuccessfull');
                 var errors = request.validationErrors();
                 throw errors[0].msg
               }
@@ -29,44 +31,43 @@ router.post('/login', function(req, res) {
                     var encryptLoginPassword = login.encrypt(loginPassword);
 
                     if (newLoginPassword == encryptLoginPassword) {
-                      // console.log(user._id);
-                      var token = jwt.sign({ id: user._id }, connDb.secret, {
-                        // expiresIn: 864000
-                          expiresIn: 60*60*24
-                      });
-                      res.cookie("cookie",token);
-                      res.send({
-                        "status": true,
-                        "message": "valid password...login Successfull",
-                        "token": token
-                      });
-
-
+                        var token = jwt.sign({ id: user._id }, connDb.secret, {
+                            // expiresIn: 864000
+                            expiresIn: 60*60*24
+                          });
+                            res.cookie("cookie",token);
+                            winston.info('Login Successfull');
+                            res.send({
+                                "status": true,
+                                "message": "valid password...login Successfull",
+                                "token": token
+                              });
                     } else {
-                      res.send({
-                        "status": false,
-                        "message": "wrong password"
-                      });
+                            winston.error('Login UnSuccessfull');
+                            res.send({
+                                "status": false,
+                                "message": "wrong password"
+                              });
                     }
                   } else {
-                    res.send({
-                      "status": false,
-                      "message": "email does not exists"
-                    });
+                        res.send({
+                            "status": false,
+                            "message": "email does not exists"
+                          });
                   }
                 } else {
-                  res.send({
-                    "status": false,
-                    "message": "email errors"
-                  });
-                }
+                    res.send({
+                            "status": false,
+                            "message": "email errors"
+                    });
+                  }
               });
             } catch (e) {
-              res.send({
-                "status": false,
-                "message": "Validation error. "
-              });
-            }
+                  res.send({
+                      "status": false,
+                      "message": "Validation error. "
+                  });
+              }
           });
         }
         catch (e) {

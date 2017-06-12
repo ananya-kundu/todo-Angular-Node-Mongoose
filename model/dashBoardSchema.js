@@ -28,10 +28,10 @@ var Msg = Schema({
   color :{
       type: String
   },
-  archive :{
+  isArchive :{
       type: Boolean
   },
-  pinup :{
+  isPinup :{
       type: Boolean
   }
 }, {
@@ -119,8 +119,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
         _id: userid
       }, {
         $set: {
-        archive: req.archive,
-        pinup: req.pin
+        isArchive: req.archive,
+        isPinup: req.pin
         }
       }, cb);
     };
@@ -132,8 +132,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, {
         $set: {
           //  pinup: req.value
-          pinup: req.pin,
-          archive: req.archive
+          isPinup: req.pin,
+          isArchive: req.archive
 
         }
       }, cb);

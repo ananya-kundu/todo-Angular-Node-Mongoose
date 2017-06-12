@@ -1,18 +1,20 @@
 var express = require('express');
 var app = express(),
- router = express.Router();
+    router = express.Router();
+var winston = require('winston');
 
 var dashboard = require('../model/dashBoardSchema.js');
 
   router.post('/:id', function(req,res){
     // console.log("req"+req);
       var userid = req.params.id;
-    dashboard.changeColor(userid,req.body,function(err,result){
+      dashboard.changeColor(userid,req.body,function(err,result){
       if(!err){
-        // console.log("i'm change color");
+          winston.info('Color changed');
           res.send({"status":true,"message": result});
       }
       else {
+          winston.error('Color not changed');
           res.send({"status": false,"msg": err});
       }
 

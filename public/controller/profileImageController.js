@@ -20,7 +20,7 @@ app.controller('profileImageController', function($scope,$rootScope,mykeepServic
 
         $scope.saveProfileImage = function(img){
               $rootScope.img = img;
-              //  console.log( $rootScope.userinfo.userName);
+               console.log( $rootScope.userinfo);
               var profileimgObj = {
                   myImage :   $scope.myImage,
                   myCroppedImage : $scope.myCroppedImage,

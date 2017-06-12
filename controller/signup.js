@@ -1,9 +1,10 @@
 var express = require('express'),
- router = express.Router();
+    router = express.Router();
 var signup = require('../model/userSchema.js');
 var connDb1 = require("../config");
+var winston = require('winston');
 var validator = require('express-validator');
-	router.use(validator());
+router.use(validator());
 
   router.post('/signup', function(req,res){
     try {
@@ -18,27 +19,30 @@ var validator = require('express-validator');
             }
 
             try{
-              // console.log("inside signup");
+
                var userData = req.body;
               //  console.log("I am user data",userData);
 
                signup.saveUserData(userData,function(err,result){
                  if(!err){
                    if(!result){
-                      res.send({"status":true,"message": "already exists.."});
-                    }else{
-                      res.send({"status":true,"message": "Registration Successfull"});
-                    }
+                          res.send({"status":true,"message": "already exists.."});
+                        }else{
+                            res.send({"status":true,"message": "Registration Successfull"});
+                          }
+                    winston.info('Signup successfull');
+
                   }else {
+                    winston.error('Signup not successfull');
                         if (err == undefined) {
                             res.send({"status": false,"msg": "data is not saved"});
                         } else {
                           res.send({"status":false,"message": "validation error"});
                         }
+
                       }
                   });
                 }catch (e) {
-                  // console.log(e);
                   res.send({"status": false,"message": "server error"});
                 }
 

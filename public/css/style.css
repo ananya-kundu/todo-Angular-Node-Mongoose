@@ -140,7 +140,7 @@ ul{
 .sidebar-nav li a:hover
 {
     text-decoration: none;
-    color: #fff;
+    color: teal;
     background: rgba(255, 255, 255, .2);
 }
 
@@ -235,6 +235,19 @@ ul{
         border-top:0 none;
     }
 }
+/*#xy {
+    background: url(./images/header-bg1.jpg) repeat-y #ee7052;
+    /*min-height: 82px;*/
+/*}*/
+
+/*@media(max-width:600px){
+  .sidebar-nav{
+    background-color: white;
+  }
+}*/
+
+
+
 
 /*.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
     color: #fff;

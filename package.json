@@ -1,7 +1,6 @@
 {
   "name": "mongoproject",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -19,11 +18,24 @@
     "morgan": "^1.8.1",
     "packery": "^2.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "angular": "^1.6.4",
+    "webpack": "^2.6.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "ananya",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ananya-kundu/todo-Angular-Node-Mongoose.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ananya-kundu/todo-Angular-Node-Mongoose/issues"
+  },
+  "homepage": "https://github.com/ananya-kundu/todo-Angular-Node-Mongoose#readme",
+  "description": ""
 }

@@ -18,35 +18,43 @@ console.log($scope.remindernote);
   $scope.color = [
     {
       "color" :"#fff",
-      "path" : "../images/moonwhite.png"
+      "path" : "../images/moonwhite.png",
+      "tooltip" :"White",
     },
     {
       "color" :"#ff8a80",
-      "path" : "../images/moonred.png"
+      "path" : "../images/moonred.png",
+      "tooltip" :"Red",
     },
     {
       "color" :"#ffd180",
-      "path" : "../images/moonyellow.png"
+      "path" : "../images/moonyellow.png",
+      "tooltip" :"Orange",
     },
     {
       "color" :"#ffff8d",
-      "path" : "../images/moonlyellow.png"
+      "path" : "../images/moonlyellow.png",
+      "tooltip" :"Yellow",
     },
     {
       "color" :"#cfd8dc",
-      "path" : "../images/moongrey.png"
+      "path" : "../images/moongrey.png",
+      "tooltip" :"Grey",
     },
     {
       "color" :"#80f8ff",
-      "path" : "../images/moonblue.png"
+      "path" : "../images/moonblue.png",
+      "tooltip" :"Blue",
     },
     {
       "color" :"#ccff90",
-      "path" : "../images/moongreen.png"
+      "path" : "../images/moongreen.png",
+      "tooltip" :"Green",
     },
     {
       "color" :"#a7ffeb",
-      "path" : "../images/moonaqua.png"
+      "path" : "../images/moonaqua.png",
+      "tooltip" :"Teal",
     }
   ]
 

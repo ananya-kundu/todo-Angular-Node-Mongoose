@@ -1,4 +1,5 @@
 <div class="row" ng-class="gridlist" style="margin-top:34px;">
+  
 <div id="reminderdiv" >Reminders</div>
 <div style="margin:22px 16px;" ></div>
 <div>
@@ -54,7 +55,7 @@
                         <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" uib-tooltip="change color"  tooltip-placement="bottom" tooltip-append-to-body="true"/>
                       </a>
                       <div uib-dropdown-menu aria-labelledby="simple-dropdown">
-                          <a id="normal" ng-repeat = "y in color" style="font-size:10px;">
+                          <a id="normal" ng-repeat = "y in color" style="font-size:10px;" uib-tooltip="{{y.tooltip}}" tooltip-placement="bottom" tooltip-append-to-body="true">
                                 <img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)">
                             </a>
                         </div>

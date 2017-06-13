@@ -1,7 +1,10 @@
 var mongoose = require("mongoose");
 var express = require('express');
+
+//set variable reffernce to mongoose schema
 var Schema = mongoose.Schema;
 
+//create the schema for dashboard(cards)
 var Msg = Schema({
   userid: {
     type: String
@@ -38,7 +41,7 @@ var Msg = Schema({
   collection: "userMsgSchema"
 });
 
-
+//hooks-here 'pre' is Serial middleware are executed one after another, when each middleware calls next
 Msg.pre('save', function(next) {
     var currentDate = new Date();
     this.updated_at = currentDate;
@@ -46,6 +49,7 @@ Msg.pre('save', function(next) {
         this.created_at = currentDate;
       next();
 });
+
 
 Msg.statics.saveMsgData = function(reqData, cb) {
   // console.log("i'm inside save method");
@@ -82,6 +86,7 @@ Msg.statics.popupCardsData = function(userid, cb) {
     _id: userid
   }, cb);
 };
+
 
 Msg.statics.remainderData = function(userid,req,cb) {
     this.update({

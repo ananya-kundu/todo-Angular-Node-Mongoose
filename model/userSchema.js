@@ -6,10 +6,10 @@ var validators = require("mongoose-validators");
 var  crypto = require('crypto');
 var jwt    = require('jsonwebtoken');
 var secretKey = require('../config/config.js');
-
+//set variable reffernce to mongoose schema
 var Schema = mongoose.Schema;
 
-
+//create the schema for user
 var userData = Schema({
   userName: {
     type: String,
@@ -81,6 +81,7 @@ userData.statics.saveUserData = function(reqData, cb) {
   });
 }
 
+//upload the profile image
 userData.statics.uploadProfileImage = function(req,url, cb) {
   this.update({
     userName: req.name
@@ -91,17 +92,18 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
   }, cb);
 };
 
+//check login data
 userData.statics.checkLoginData = function(loginData, cb) {
     this.findOne({email: loginData.email }, cb);
 }
 
-
+//get user profile
   userData.statics.getUserProfile = function(userid, cb) {
     var ref = this ;
     this.findById(userid,cb);
 }
 
-  //model creation
+//model creation
 var userData = mongoose.model('userRegisterSchema', userData);
 module.exports = userData;
 

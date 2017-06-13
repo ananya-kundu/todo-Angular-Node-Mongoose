@@ -104,14 +104,7 @@
             <input type="text" class="form-control" ng-model="search" placeholder="Search..." id="query" ng-style="archivequery" name="search" value="" />
             </div>
         </form>
-</div>
-        <!-- <div id="header-search" class="clr">
-				<form method="get" id="searchform" class="searchform att-searchform" action="https://wdexplorer.com/" role="search">
-
-					<button type="submit" class="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
-				</form>
-			</div> -->
-
+      </div>
       </div>
     </div>
   </nav>
@@ -238,6 +231,11 @@
     $("#wrapper").toggleClass("toggled");
   });
 
+
+  $("#wrapper").click(function() {
+    $("#glyList").css("margin-left", "0px");
+    // $("#userMsgBox").show();
+  });
   // $(document).ready(function(){
   //     $('[data-toggle="tooltip"]').tooltip();
   // });
@@ -247,16 +245,19 @@
   //   $("#dummyTitle").hide();
   //   $("#userMsgBox").show();
   // });
-  $("#wrapper").click(function() {
-    $("#glyList").css("margin-left", "0px");
-    // $("#userMsgBox").show();
-  });
+
 
 </script>
 
 </html>
 
 
+<!-- <div id="header-search" class="clr">
+<form method="get" id="searchform" class="searchform att-searchform" action="https://wdexplorer.com/" role="search">
+
+  <button type="submit" class="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+</form>
+</div> -->
 
 <!-- <div class="gb_qc gb_Cd gb_Nd gb_Bd gb_Id">
   <div class="gb_ee gb_Ed"></div>

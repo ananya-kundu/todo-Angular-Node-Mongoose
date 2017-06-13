@@ -4,6 +4,7 @@ var app = express(),
 var winston = require('winston');
 var dashboard = require('../model/dashBoardSchema.js');
 
+/* POST call to get todo */
   router.post('/', function(req,res){
       var userid = req.decoded.id;
 

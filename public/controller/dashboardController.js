@@ -1,6 +1,8 @@
+/**
+ * home controller
+ */
+
 app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,mykeepService) {
-  // console.log("dashboardController");
-  // console.log($scope);
 
   $scope.tomorrow ="tomorrow";
   $scope.nextweek = "nextweek";
@@ -15,6 +17,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     $scope.dummyNote=true;
   }
 console.log($scope.remindernote);
+
   $scope.color = [
     {
       "color" :"#fff",
@@ -90,6 +93,11 @@ $scope.changeProfileImage = function() {
 };
 
 
+/**
+   * @function Todo - get all cards
+   * @param {String} cards - contain cards
+   * @return - success status return the todos else error message
+   */
 // controller for get card
 $scope.getmsgcard = function() {
     var url = "http://localhost:8081/getMsgCard";
@@ -121,8 +129,6 @@ $scope.getmsgcard = function() {
       $scope.title=null;
       $scope.note=null;
 
-      // console.log("title",title);
-      // console.log("note",note);
       var object = {
             title1: title,
             content: note
@@ -132,7 +138,7 @@ $scope.getmsgcard = function() {
           return;
         }
 
-      var url = "http://localhost:8081/createcards";
+      var url = "http://localhost:8081/createCards";
 
       var obj = mykeepService.app(url,object);
       obj.then(function(data) {
@@ -182,9 +188,15 @@ $scope.getmsgcard = function() {
     $scope.listview();
   }
 
+
+  /**
+       * @function deleteCards - delete cards
+       * @param {String} cards - contain cards
+       * @return - success status return  else error message
+       */
 // controller for delete card
   $scope.deletecards = function(cardsid) {
-      var url = "http://localhost:8081/deletemsgcard/" + cardsid + "";
+      var url = "http://localhost:8081/deleteMsgCard/" + cardsid + "";
       mykeepService.app(url).then(function(data){
             // console.log("inside del");
             $scope.getmsgcard();
@@ -193,12 +205,17 @@ $scope.getmsgcard = function() {
               })
   }
 
-
-
 $scope.refresh = function(){
 $route.getmsgcard();
 }
 
+
+
+
+/**
+     * @function popup - create popup modal
+     * @param {String} cards - contain cards detail
+     */
 
 
   $scope.popup = function(datanote){
@@ -221,7 +238,7 @@ $route.getmsgcard();
                             updated_at : this.updated_at
                           }
                           // console.log(updateNote);
-                        var url ="http://localhost:8081/updatemsgcards/" + this.id + "";
+                        var url ="http://localhost:8081/updateMsgCards/" + this.id + "";
                         var obj = mykeepService.app(url,updateNote);
 
                         obj.then(function(data){
@@ -253,6 +270,11 @@ $route.getmsgcard();
         });
     }//popup close
 
+
+    /**
+         * @function createreminder - create reminder
+         * @param {String} remDate - contain reminder date
+         */
 
   $scope.createReminder = function(cardsid,day) {
           // console.log(cardsid);
@@ -297,10 +319,13 @@ $route.getmsgcard();
                               })
       };
 
-
+      /**
+           * @function deleteReminder - delete reminder
+           * @param {String} remDate - contain reminder date
+           */
 
       $scope.deleteReminder = function(cardsid) {
-              var url = "http://localhost:8081/reminderdelete/" + cardsid + "";
+              var url = "http://localhost:8081/reminderDelete/" + cardsid + "";
               mykeepService.app(url).then(function(data){
                 // console.log(data);
                 $scope.getmsgcard();
@@ -310,8 +335,12 @@ $route.getmsgcard();
       };
 
 
+      /**
+           * @function cardCopy - copy the card
+           * @param {String} cards - contain card details
+           */
       $scope.cardCopy = function(notedata){
-            var url = "http://localhost:8081/createcards";
+            var url = "http://localhost:8081/createCards";
             var obj = mykeepService.app(url,notedata);
             obj.then(function(data) {
                 $scope.getmsgcard();
@@ -320,7 +349,10 @@ $route.getmsgcard();
                 });
       }
 
-
+      /**
+           * @function changeColor - contain color
+           * @param {String} color_data - contain color data
+           */
   $scope.changeColor = function(color,cardsid){
         var color_data={
               color:color
@@ -333,9 +365,12 @@ $route.getmsgcard();
                       });
   }
 
-
+  /**
+       * @function pinup - contain cards
+       * @param {String} cards - contain object of cards(pin and archive value contain)
+       */
   $scope.pinup = function(cardsid,pin,archive){
-      var url = "http://localhost:8081/pinup/" + cardsid + "";
+      var url = "http://localhost:8081/pinUp/" + cardsid + "";
       var object = {
         pin: pin,
         archive:archive
@@ -348,7 +383,10 @@ $route.getmsgcard();
       });
     }
 
-
+    /**
+         * @function archive - contain cards
+         * @param {String} cards - contain object of cards(pin and archive value contain)
+         */
     $scope.archive = function(cardsid,archive,pin){
       var url = "http://localhost:8081/archive/" + cardsid + "";
       var object = {
@@ -362,9 +400,11 @@ $route.getmsgcard();
       });
     }
 
-
+    /**
+     * logout controller
+     */
   $scope.logOut = function(){
-    var url = "http://localhost:8081/logout";
+    var url = "http://localhost:8081/logOut";
     mykeepService.app(url).then(function(data){
 
     }).catch(function(error){

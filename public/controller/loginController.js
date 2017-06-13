@@ -1,10 +1,15 @@
+
+  // login Controller
 app.controller('loginController', function($scope,$location,$state,mykeepService) {
-  // console.log("loginController");
+
+  /**
+    * @param {String} user - user contain email and password
+    * @return - success home page else login
+    */
   var url="http://localhost:8081/session";
   var checkUser = mykeepService.app(url);
   checkUser.then(function(data) {
     if(data.data.status == true){
-      // console.log(data);
       $state.go('dashboard');
     }else{
         // $location.path('/login');
@@ -15,7 +20,11 @@ app.controller('loginController', function($scope,$location,$state,mykeepService
         console.log(error);
   })
 
-
+  /**
+    * @function login - access the data after login
+    * @param {String} user - user contain email and password
+    * @return - success login status else error message
+    */
   $scope.login = function() {
     var emailid = $scope.emailid;
     var password = $scope.password;
@@ -26,7 +35,7 @@ app.controller('loginController', function($scope,$location,$state,mykeepService
     }
 
     console.log(userLogin);
-    var url="http://localhost:8081/login";
+    var url="http://localhost:8081/logIn";
     var userNewObj = mykeepService.app(url,userLogin);
     userNewObj.then(function(data) {
       if(data.data.status == true){

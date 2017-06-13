@@ -3,11 +3,11 @@ var express = require('express'),
     profileinfo = require('../model/userSchema');
 var winston = require('winston');
 
+/* POST call to get profile is available  or not */
 router.post('/', function(req,res){
     var uid = req.decoded.id;
 
     profileinfo.getUserProfile(uid,function(err,result){
-    // console.log("i'm userprofile api",result);
       try {
         if(err)  {
             winston.error('User profile is not available');

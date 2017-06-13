@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var winston = require('winston');
 var dashboard = require('../model/dashBoardSchema.js');
 
-/* POST todos */
+/* POST call to create card */
 router.post('/', function(req, res) {
     try {
         var userid = req.decoded.id;

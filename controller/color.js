@@ -5,6 +5,7 @@ var winston = require('winston');
 
 var dashboard = require('../model/dashBoardSchema.js');
 
+/* POST call to change color of card */
   router.post('/:id', function(req,res){
     // console.log("req"+req);
       var userid = req.params.id;

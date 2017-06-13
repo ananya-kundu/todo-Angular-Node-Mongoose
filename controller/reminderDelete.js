@@ -2,20 +2,22 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var winston = require('winston');
+
 var todocards = require('../model/dashBoardSchema.js');
 
-router.post('/:userid', function(req, res) {
+/* POST call to delete reminder */
+router.post('/:id', function(req, res) {
     try {
-            var popupdata =req.params.userid;
-            // console.log("idddd",popupdata);
-            todocards.popupCardsData(popupdata,function(err, result) {
-              // console.log(popupdata);
+        console.log("reminder delete");
+          var deleteddata =req.params.id;
+
+          todocards.deleteReminderData(deleteddata,function(err, result) {
               if (!err) {
-                winston.info('Popup Successfully done');
+                winston.info('Reminder deleted successfully');
                 res.send({"status": true,"message": result});
               } else {
-                winston.error('Popup not Successfull');
-                res.send({"status": false,"message": err});
+                  winston.error('Reminder not deleted ');
+                  res.send({"status": false,"message": err});
               }
             });
     } catch (e) {

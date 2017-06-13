@@ -1,3 +1,11 @@
+
+/**
+  * archive Controller - it is archive page controller
+  * it controls changes of archivepage
+  * show cards if card is archived
+  */
+
+
 app.controller('archiveController', ['$scope', '$controller', function($scope, $controller){
   $controller('dashboardController', {$scope: $scope}),
   //inside scope you the controllerOne scope will available

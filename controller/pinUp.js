@@ -5,6 +5,7 @@ var winston = require('winston');
 
 var dashboard = require('../model/dashBoardSchema.js');
 
+/* POST call to pinup the cards */
   router.post('/:id', function(req,res){
       var userid = req.params.id;
       // console.log(req.body,"i'm pinup api");

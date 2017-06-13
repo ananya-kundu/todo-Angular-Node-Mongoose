@@ -1,3 +1,10 @@
+
+/**
+  * reminder Controller - it is remainder page controller
+  * it controls changes of reminderpage
+  * show cards if card contain reminder
+  */
+
 app.controller('reminderController', ['$scope', '$controller', function($scope, $controller){
   $controller('dashboardController', {$scope: $scope}),
   //inside scope you the controllerOne scope will available
@@ -18,5 +25,5 @@ app.controller('reminderController', ['$scope', '$controller', function($scope, 
   $scope. archivequerybtn = {'background-color':"rgba(122, 146, 158,1)"};
 
 
-  console.log("archive",$scope.archivenote);
+  // console.log("archive",$scope.archivenote);
 }]);

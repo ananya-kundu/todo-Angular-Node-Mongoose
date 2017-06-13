@@ -1,6 +1,7 @@
 var express = require('express'),
 	router = express.Router();
 
+/* POST call to get session */
 router.post('/session',function(req,res){
 				console.log("ananya session",req.session);
 				if (req.headers.cookie) {

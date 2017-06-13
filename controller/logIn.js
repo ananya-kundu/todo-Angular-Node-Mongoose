@@ -10,10 +10,12 @@ var winston = require('winston');
 var connDb = require("../config/config");
 var connDb1 = require("../config/index");
 
-var jwt = require('jsonwebtoken');
+var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
+/* POST call for login*/
 router.post('/login', function(req, res) {
       try {
+
         req.check(connDb1.validationSchema.login);
         req.getValidationResult().then(function(isValid) {
             try {
@@ -29,7 +31,7 @@ router.post('/login', function(req, res) {
                     var newLoginPassword = user.password;
 
                     var encryptLoginPassword = login.encrypt(loginPassword);
-
+                     // generate the token if the username and pasword is matched
                     if (newLoginPassword == encryptLoginPassword) {
                         var token = jwt.sign({ id: user._id }, connDb.secret, {
                             // expiresIn: 864000
@@ -37,6 +39,7 @@ router.post('/login', function(req, res) {
                           });
                             res.cookie("cookie",token);
                             winston.info('Login Successfull');
+                            //send the response to the caller with the access token and data
                             res.send({
                                 "status": true,
                                 "message": "valid password...login Successfull",

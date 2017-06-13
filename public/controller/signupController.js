@@ -1,7 +1,14 @@
 
+/**
+ * signup controller
+ */
+ /**
+ * @function signup - signup the user
+ * @param {String} user - user contain userName , mobileNo , emailid and password
+ * @return - success signup status else error message
+ */
+
 app.controller('signupController', function($scope,$state,$location,mykeepService) {
-  // console.log("signup page");
-  // $scope.message = ' I am a signup page.';
 
   $scope.signupbtn = function() {
     var userName = $scope.userName;
@@ -15,17 +22,21 @@ app.controller('signupController', function($scope,$state,$location,mykeepServic
       email: emailid,
       password: password
     }
-    var url= "http://localhost:8081/signup";
+    var url= "http://localhost:8081/signUp";
     // console.log(userObj);
     var signupObj = mykeepService.app(url,userObj);
 
     signupObj.then(function(data) {
       if(data.data.status == true){
+        alert("user register successfully");
         $state.go('login');
+        // console.log("Data successfully saved");
       }else{
+          alert("Inavlid data....fill the correct info");
           $state.go('signup');
+          // console.log("Inavlid data..PLz re-enter data");
       }
-      // console.log(data);
+
     }).catch(function(error) {
           console.log(error);
     })

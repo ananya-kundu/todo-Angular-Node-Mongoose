@@ -3,7 +3,6 @@
  var jwt = require('jsonwebtoken');
  var secretKey = require('../config/config.js');
  var winston = require('winston');
- // console.log("auth library....");
 
 router.use(function(req, res, next) {
       console.log("auth library....");

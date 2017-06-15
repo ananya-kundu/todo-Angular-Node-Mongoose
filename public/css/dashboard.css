@@ -1,10 +1,8 @@
 
-body{
+body  {
   background-color: #e8e8e8;
   /*background-image: url('../images/bck.jpg');*/
 }
-
-
 
 /*#watermark
 {
@@ -16,6 +14,7 @@ z-index:99;
 color:white;
 }*/
 
+/*it is used fir image cropping*/
 .cropArea {
   background: #E4E4E4;
   overflow: hidden;
@@ -23,12 +22,13 @@ color:white;
   height:350px;
 }
 
-.hide
-{
+/*nav-bar collapse hiding style*/
+.hide {
     display: inline-block;
 }
 
-#keepClass{
+/*keepClass is used for brand-name*/
+#keepClass  {
     font-family: 'Product Sans',Arial,sans-serif; /*iNTEGRATE THE FONT INTO YOUR CSS*/
      font-size: 24px;
      font-weight: 400;
@@ -44,51 +44,34 @@ color:white;
      text-rendering: optimizeLegibility;  /*font-weight: 200px;*/   /*text-align: center;*/   /*text-shadow: 0 1px 1px #fff;*/  /*color: #d54d7b;*/
 }
 
-#keepClass:hover{
+#keepClass:hover  {
   color:white;
 }
 
-#popupTitle:empty:before{
+/*popupTitle,popupContent is used for title and content of popup box*/
+#popupTitle:empty:before,#popupContent:empty:before {
     display: block;
     content: attr(placeholder);
 }
 
-#popupContent:empty:before
-{
-    display: block;
-    /*[contenteditable=true]:empty:before{*/
-    content: attr(placeholder);
-}
-
-#dummyTitle:empty:before{
+/*dummyTitle,title1 and content are used for dummy title,title and content of msg box. Its empty placeholder when user write something*/
+#dummyTitle:empty:before,#title1:empty:before,#content:empty:before {
     display: block;
     content: attr(placeholder);
 }
 
-#title1:empty:before
-{
-    display: block;
-
-    content: attr(placeholder);
-}
-::-webkit-div-placeholder
-{
+::-webkit-div-placeholder {
     color: red;
 }
 
-#content:empty:before
-{
-    display: block;
-    content: attr(placeholder);
-}
-
-#msgDivId
-{
+/*css for cards*/
+#msgDivId {
     width: 70%,
     background-color:rgba(204, 204, 204, .28);
 }
 
-#dummyTitle{
+/*it is used for dummy title,which shows in dashboard*/
+#dummyTitle {
     background-color: white;
     width: 120%;
     margin-top: 63px;
@@ -111,18 +94,16 @@ color:white;
 }
 
 
-#notes
-{
+#notes  {
     margin-top: 20px ;
     /*margin-left:40px;*/
 }
 
-#noteslist{
+#noteslist  {
   margin-top: 3px;
 }
 
-#noteMsg
-{
+#noteMsg  {
     min-height: 100%;
     margin: 8px;
     word-wrap: break-word;
@@ -131,14 +112,13 @@ color:white;
     box-shadow: 5px 5px 5px #888;
 }
 
-.note-inner{
+.note-inner {
     position: relative;
     min-height: 100%;
     word-wrap: break-word;
 }
 
-.insidecontent
-{
+.insidecontent  {
     min-height: 100%;
     margin: 8px;
     word-wrap: break-word;
@@ -147,18 +127,15 @@ color:white;
     /*background-color: rgba(204, 204, 204, 0.28);*/
 }
 
-.title
-{
+.title  {
     font-family: 'Roboto Slab','Times New Roman',serif;
     font-size: 18px;
-    /*background-color: rgba(204, 204, 204, 0.28);*/
     font-weight: bold;
     box-sizing: border-box;
     border: none;
 }
 
-#title1
-{
+#title1 {
     font-family: 'Roboto',arial,sans-serif;
     font-size: 17px;
     line-height: 19px;
@@ -168,8 +145,7 @@ color:white;
     outline: none;
 }
 
-#content
-{
+#content  {
   font-family: 'Roboto Slab','Times New Roman',serif;   /*font-family: 'Roboto',arial,sans-serif;*/
     font-size: 14px;
     line-height: 19px; /*min-height: 46px;*/
@@ -178,12 +154,12 @@ color:white;
     outline: none;
 }
 
-#newtemp1
-{
+#newtemp1 {
     border: 1px solid;
 }
 
-.glyphicon glyphicon-user{
+/*css for glyphicon glyphicon-user*/
+.glyphicon glyphicon-user {
     position: fixed;
     z-index: 1000;
     right: 0;
@@ -202,11 +178,12 @@ color:white;
     background: #222;
 }
 
+/*it is used fir sidebar wrapper*/
 #sidebar-wrapper{
     width: 200px;   /*background-color: rgb(51,51,51);*/
     background-color: rgba(6,6,6,1);
 }
-
+/*sidebar toggled css*/
 #wrapper.toggled #sidebar-wrapper{
     width: 0;
 }
@@ -219,6 +196,8 @@ color:white;
     position: relative;
     margin-right: 0;
 }
+
+/*css for title and content box */
 #userMsgBox{
     margin-top: 70px;
     padding: 24px;
@@ -231,6 +210,7 @@ color:white;
     display: none;
     align-content: center;
 }
+
 
 .todotittle{
     position: absolute;
@@ -262,17 +242,23 @@ color:white;
     width: 84%;
     margin-top: 30px;
 }
+/*hover effect for button*/
 #delete:hover,#makeCopy:hover{
     color: teal;
 }
+
+/*hover effect for button*/
 #saveReminder:hover{
   color:red;
 }
 
+/*hover effect for button*/
 #done:hover{
     color: red;
     background-color: rgba(232, 169, 165, 0.09);
 }
+
+/*css for done button*/
 #done{
     float: right;
     color: teal;
@@ -400,7 +386,7 @@ a {
   background:#ccf;
 }
 
-
+/*css for delete reminder*/
 #removecircle:hover{
   color :black;
 }
@@ -476,6 +462,7 @@ color:teal;
   letter-spacing: 0.5px;
 }
 
+/*css for search div*/
 #query{
   width:400px;
   height:40px;
@@ -485,11 +472,11 @@ color:teal;
   margin-left: 63px;
   /*box-shadow: -8px 4px 12px grey;*/
 }
-
+/*css for search,focus on mouse click*/
 #inputid :focus{
   background-color: white;  /*box-shadow: -9px 2px 12px grey;*/
 }
-
+/*hover effect of logOutId button*/
 #logOutId:hover{
   color:white;
 }
@@ -514,7 +501,7 @@ color:teal;
 
 }
 
-
+/*it is used for profile image of drop-down box*/
 .circular--square {
       background-size: 96px 96px;
       overflow: hidden;
@@ -525,7 +512,7 @@ color:teal;
       height: 111px;
       /*overflow: hidden;*/
       border-radius: 50%;
-      margin-left: 15px;
+      margin-left: 0px;
       margin-right: 20px;
       top: 0px;
       border:0.5px solid black;
@@ -540,6 +527,7 @@ color:teal;
       transform: scale3d(1.060, 1.060, 1);
 }
 
+/*it is used for profile image of navigation-bat*/
 .circular--square1 {
   text-align: center;
   overflow: hidden;

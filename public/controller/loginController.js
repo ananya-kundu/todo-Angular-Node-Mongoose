@@ -12,6 +12,7 @@ app.controller('loginController', function($scope,$location,$state,mykeepService
     if(data.data.status == true){
       $state.go('dashboard');
     }else{
+        // toastr.success('You have successfully signed in!');
         // $location.path('/login');
         $state.go('login');
     }

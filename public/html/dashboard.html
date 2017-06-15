@@ -72,13 +72,15 @@
                     <div  class="dropdown-menu" id="logoutdropdown">
 
 
-                     <div class="profile1 row" >
-                        <img class="circular--square col-sm-6"  ng-src="{{userinfo.profileImage}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"  uib-tooltip="Profile" tooltip-placement="bottom" tooltip-append-to-body="true" style="padding-left: -2px;align-self: center;cursor:pointer;"/></span>
+                     <div class="profile1 row" style="margin:2px;" >
+                        <div><img class="circular--square col-sm-6"  ng-src="{{userinfo.profileImage}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"  uib-tooltip="Profile" tooltip-placement="bottom" tooltip-append-to-body="true" style="padding-left: -2px;align-self: center;cursor:pointer;"/></span>
+                          <!-- <span class="gb_jb">Change</span> -->
+                        </div>
                         <a ng-click="changeProfileImage()" style="margin-left:26px;margin-top:16px;color:teal">change Profile Image</a><br/>
-                        <span style="margin-left:20px;margin-top:16px;">
-                          <span style="margin-left:-2px;"><b>Name :</b>{{userinfo.userName}}</span><br>
-                          <span style="margin-left:18px;"><b>Email :</b>{{userinfo.email}}</span>
-                        </span>
+                        <div style="margin:16px 20px 30px 128px;display:block;">
+                          <div style="font-weight: bold;margin: -4px 0 0 -2px;"><b>{{userinfo.userName}}</b></div>
+                          <div style="margin-left:18px;color: #666;display: block;margin: -4px 0 0 -2px;">{{userinfo.email}}</div>
+                        </div>
                      </div>
 
                      <div class="profile2">
@@ -236,9 +238,7 @@
     $("#glyList").css("margin-left", "0px");
     // $("#userMsgBox").show();
   });
-  // $(document).ready(function(){
-  //     $('[data-toggle="tooltip"]').tooltip();
-  // });
+  
   // <Msg box>
   // $("#userMsgBox").hide();
   // $("#mainMsgBox").click(function() {

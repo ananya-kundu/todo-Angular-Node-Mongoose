@@ -1,6 +1,6 @@
 var express = require('express');
-var app = express(),
-    router = express.Router();
+var app     = express(),
+    router  = express.Router();
 var winston = require('winston');
 
 var dashboard = require('../model/dashBoardSchema.js');

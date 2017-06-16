@@ -1,8 +1,8 @@
- var express = require('express');
- var  router = express.Router();
- var jwt = require('jsonwebtoken');
+ var express   = require('express');
+ var  router   = express.Router();
+ var jwt       = require('jsonwebtoken');
  var secretKey = require('../config/config.js');
- var winston = require('winston');
+ var winston   = require('winston');
 
 router.use(function(req, res, next) {
       console.log("auth library....");
@@ -10,7 +10,7 @@ router.use(function(req, res, next) {
       token = token.substr(7);
         // console.log( req.headers.cookie);
       if (token) {
-            jwt.verify(token, secretKey.secret, function(err, decoded) {
+            jwt.verify(token, secretKey.TOKEN_SECRET, function(err, decoded) {
               if (err) {
                   winston.error('Authentication Failed');
                   res.send({"status": false,"message": "Failed to authenticate token."});

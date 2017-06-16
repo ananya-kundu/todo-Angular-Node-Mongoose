@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var express = require('express');
 
-
 var validators = require("mongoose-validators");
 var  crypto = require('crypto');
 var jwt    = require('jsonwebtoken');
@@ -11,49 +10,40 @@ var Schema = mongoose.Schema;
 
 //create the schema for user
 var userData = Schema({
-  userName: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 50,
-    validate : validators.isAlpha()
+  local:{
+        userName: {
+          type: String,
+          // required: true,
+          minlength: 2,
+          maxlength: 50,
+          validate : validators.isAlpha()
+        },
+        mobileNo :{
+          type: Number,
+          // required: true,
+          min : 10
+        },
+        email: {
+          type: String,
+          // required: true,
+          unique: true,
+          validate : validators.isEmail()
+        },
+        password: {
+          type: String,
+          // required: true,
+          minlength: 4,
+          maxlength: 100
+        },
+        profileImage : {
+          type: String
+        }
   },
-  mobileNo :{
-    type: Number,
-    required: true,
-    min : 10
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    validate : validators.isEmail()
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 4,
-    maxlength: 100
-  },
-  profileImage : {
-    type: String
+  facebook:{
+        displayName: String,
+        picture: String,
+        facebook: String
   }
-  // fb: {
-  //     id: String,
-  //     access_token: String,
-  //     userName: String,
-  //     mobileNo: Number,
-  //     email: String,
-  //     profile: String
-  // },
-  // google: {
-  //   id: String,
-  //   access_token: String,
-  //   userName: String,
-  //   mobileNo: Number,
-  //   email: String,
-  //   profile: String
-  // }
 
 }, {collection: "userRegisterSchema"});
 
@@ -67,16 +57,22 @@ userData.statics.encrypt = function encrypt(text) {
 
 //save user data at signup
 userData.statics.saveUserData = function(reqData, cb) {
+  console.log("i'm reqdata",reqData);
   var ref = this ;
-  this.findOne({ email: reqData.email }, function(err, exist) {
+  this.findOne({ 'local.email': reqData.email }, function(err, exist) {
     if (exist) {
       cb(null,false);
     } else {
-        var userObj = new ref(reqData);
-        var encryptPassword = userData.encrypt(reqData.password);
-        userObj.password = encryptPassword;
-        // console.log(encryptPassword);
+      var encryptPassword = userData.encrypt(reqData.password);
+
+      var userObj = new userData({
+         'local.userName': reqData.userName,
+         'local.email': reqData.email,
+         'local.password': encryptPassword
+     });
+
         userObj.save(cb);
+
         }
   });
 }
@@ -84,52 +80,26 @@ userData.statics.saveUserData = function(reqData, cb) {
 //upload the profile image
 userData.statics.uploadProfileImage = function(req,url, cb) {
   this.update({
-    userName: req.name
+    'local.userName': req.name
   }, {
     $set: {
-      profileImage: url
+        'local.profileImage': url
     }
   }, cb);
 };
 
 //check login data
 userData.statics.checkLoginData = function(loginData, cb) {
-    this.findOne({email: loginData.email }, cb);
+    this.findOne({'local.email': loginData.email }, cb);
 }
 
 //get user profile
   userData.statics.getUserProfile = function(userid, cb) {
     var ref = this ;
+    console.log("model",userid);
     this.findById(userid,cb);
 }
 
 //model creation
 var userData = mongoose.model('userRegisterSchema', userData);
 module.exports = userData;
-
-
-
-// userData.virtual('userid').get(function() {
-//     return this._id.toHexString();
-// });
-// userData.set('toJSON', {
-//     virtuals: true,
-//     transform: function(doc, return1, options) {
-//         return1.userid = ret._id;
-//
-//         if(return1.fb||return1.google||return1.local)
-//         if (return1.fb && return1.fb.profile) {
-//             return1.fb.profile = JSON.parse(return1.fb.profile);
-//         }
-//         else
-//         if (return1.google && return1.google.profile) {
-//             return1.google.profile = JSON.parse(return1.google.profile);
-//         }
-//         else
-//         if (return1.local && return1.local.profile) {
-//             return1.local.profile = JSON.parse(return1.local.profile);
-//         }
-//         delete return1._id;
-//         return return1;
-//     }
-// });

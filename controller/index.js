@@ -20,6 +20,6 @@ router.use("/color",auth,require("./color"));
 router.use("/archive",auth,require("./archive"));
 router.use("/pinUp",auth,require("./pinUp"));
 router.use("/uploadProfileImage",auth,require("./uploadProfileImage"));
-// router.use("/popUpCard",auth,require("./popUpCard"));
+router.use("/auth/facebook",require("./facebook"));
 
 module.exports = router;

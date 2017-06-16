@@ -140,18 +140,28 @@ color:white;
     font-size: 17px;
     line-height: 19px;
     min-height: 46px;
-    padding: 12px 15px 15px 15px;
+    /*padding: 12px 15px 15px 15px;*/
     border: none;
     outline: none;
+    min-height: 43px;
+    padding: 10px 15px;
+    font-weight: bold;
 }
 
 #content  {
   font-family: 'Roboto Slab','Times New Roman',serif;   /*font-family: 'Roboto',arial,sans-serif;*/
-    font-size: 14px;
+    font-size: 19px;
     line-height: 19px; /*min-height: 46px;*/
     padding: 12px 15px 15px 15px;   /*background-color: rgba(204, 204, 204, 0.28);*/  /*height: auto;*/
     border: none;
     outline: none;
+    min-height: 46px;
+    /*font-family: 'Roboto Slab','Times New Roman',serif;*/
+    font-variant-ligatures: none;
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
 }
 
 #newtemp1 {
@@ -233,7 +243,7 @@ color:white;
   /*width:260px;*/
 }
 .gridcss{
-  width :260px;
+  width :270px;
   display:block;
   transition-property: opacity,transform;
 }
@@ -444,20 +454,34 @@ a {
 }
 
 #footer{
-    padding: 2px 4px 3px 4px;
+    padding: 3px 14px 6px 14px;
+
+    /*padding: 2px 4px 3px 4px;*/
     height:40px;
 }
 
 .titlecss{
-font-size:16px;font-family: times, Times New Roman, times-roman, georgia, serif;
-letter-spacing: 1px;
-font-weight: bold;
-color:teal;
+  font-size:17px;
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color:teal;
+  padding: 2px 14px 2px 10px;
+  /*font-size:17px;
+  font-family: times, Times New Roman, times-roman, georgia, serif;*/
+  /*letter-spacing: 1px;
+  font-weight: bold;
+  color:teal;*/
+  /*line-height: 23px;*/
+  /*min-height: 38px;*/
+  /*padding: 12px 15px 0 15px;*/
 }
 
 #noteinner{
-  font-size:16px;
-  padding: 3px 14px 2px 10px;
+  font-weight: 300;
+  line-height: 28px;
+  font-size:20px;
+  padding: 3px 14px 9px 14px;
   font-family: Gill Sans, Verdana;
   letter-spacing: 0.5px;
 }

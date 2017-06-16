@@ -9,10 +9,10 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
  var checkUser = mykeepService.app(url);
  checkUser.then(function(data) {
    if(data.data.status == true){
+    //  toastr.success('You have successfully signed in!');
      $state.go('dashboard');
    }else{
-       // toastr.success('You have successfully signed in!');
-       // $location.path('/login');
+      //  toastr.error(error.data.msg, error.status);
        $state.go('login');
    }
    // console.log(data);
@@ -52,10 +52,24 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
  }
 
  /*it is used for facebook login*/
-   $scope.authenticate = function(provider) {
-       $auth.authenticate(provider);
-     };
-
+ $scope.authenticate = function(provider) {
+     $auth.authenticate(provider)
+       .then(function() {
+        //  toastr.success('You have successfully signed in with ' + provider + '!');
+         $state.go('dashboard');
+       })
+       .catch(function(error) {
+         if (error.message) {
+           // Satellizer promise reject error.
+          //  toastr.error(error.message);
+         } else if (error.data) {
+           // HTTP response error from server
+          //  toastr.error(error.data.message, error.status);
+           toastr.error(error);
+         } else {
+         }
+       });
+   };
 
 
 });

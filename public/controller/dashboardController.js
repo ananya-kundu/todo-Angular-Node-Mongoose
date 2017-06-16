@@ -2,7 +2,7 @@
  * home controller
  */
 
-app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,mykeepService) {
+app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,$auth,mykeepService) {
 
   $scope.tomorrow ="tomorrow";
   $scope.nextweek = "nextweek";
@@ -410,6 +410,15 @@ $route.getmsgcard();
     }).catch(function(error){
       console.log(error);
     });
+
+    if (!$auth.isAuthenticated()) { return; }
+    $auth.logout()
+      .then(function() {
+        toastr.info('You have been logged out');
+        $location.path('/');
+      });
+
+
   }
 
 

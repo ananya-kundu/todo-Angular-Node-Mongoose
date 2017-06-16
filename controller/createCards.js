@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var winston = require('winston');
+var express   = require('express');
+var router    = express.Router();
+var mongoose  = require('mongoose');
+var winston   = require('winston');
 var dashboard = require('../model/dashBoardSchema.js');
 
 /* POST call to create card */

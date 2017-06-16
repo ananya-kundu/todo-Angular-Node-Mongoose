@@ -10,7 +10,7 @@ var winston = require('winston');
 var connDb = require("../config/config");
 var connDb1 = require("../config/index");
 
-var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+var jwt = require('jsonwebtoken'); // used to create, sign and verify tokens
 
 /* POST call for login*/
 router.post('/login', function(req, res) {
@@ -33,7 +33,7 @@ router.post('/login', function(req, res) {
                     var encryptLoginPassword = login.encrypt(loginPassword);
                      // generate the token if the username and pasword is matched
                     if (newLoginPassword == encryptLoginPassword) {
-                        var token = jwt.sign({ id: user._id }, connDb.secret, {
+                        var token = jwt.sign({ id: user._id }, connDb.TOKEN_SECRET, {
                             // expiresIn: 864000
                             expiresIn: 60*60*24
                           });

@@ -1,4 +1,13 @@
+/*
+ * User signup Data
+ * @path routes/api/signup.js
+ * @file signup.js
+ * @Scripted by Ananya Kundu
+ */
 
+/*
+ * Module dependencies
+ */
 var express = require('express'),
     router = express.Router();
 var signup = require('../model/userSchema.js');

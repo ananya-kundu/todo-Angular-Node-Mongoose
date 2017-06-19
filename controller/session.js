@@ -1,3 +1,13 @@
+/*
+ * Session
+ * @path routes/api/session.js
+ * @file session.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
 var express = require('express'),
 	router = express.Router();
 

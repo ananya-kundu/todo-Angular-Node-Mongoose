@@ -1,3 +1,13 @@
+/*
+ * User profile
+ * @path routes/api/userProfile.js
+ * @file userProfile.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
 var express = require('express'),
     router = express.Router(),
     profileinfo = require('../model/userSchema');

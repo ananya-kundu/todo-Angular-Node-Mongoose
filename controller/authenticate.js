@@ -1,3 +1,13 @@
+/*
+ * User authentication Data
+ * @path routes/api/authenticate.js
+ * @file authenticate.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
  var express   = require('express');
  var  router   = express.Router();
  var jwt       = require('jsonwebtoken');
@@ -10,12 +20,14 @@ router.use(function(req, res, next) {
       token = token.substr(7);
         // console.log( req.headers.cookie);
       if (token) {
+          console.log("token in auth",token);
             jwt.verify(token, secretKey.TOKEN_SECRET, function(err, decoded) {
               if (err) {
                   winston.error('Authentication Failed');
                   res.send({"status": false,"message": "Failed to authenticate token."});
                 } else {
                     req.decoded = decoded;
+                    // console.log("decoded:",req.decoded);
                     //  console.log( req.decoded.id+" my decoded id " );
                     next();
                   }

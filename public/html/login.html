@@ -13,8 +13,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#login"><span class="fa fa-shield" aria-hidden="true"></span> Login</a></li>
-                <li><a href="#signup"><span class="fa fa-comment" aria-hidden="true"></span> signup</a></li>
+                <li><a ui-sref="login"><span class="fa fa-shield" aria-hidden="true"></span> Login</a></li>
+                <li><a ui-sref="signup"><span class="fa fa-comment" aria-hidden="true"></span> signup</a></li>
               </ul>
           </div>
       </div>
@@ -53,9 +53,9 @@
       <button id="fetchUser" ng-click ="login()"   ng-disabled="loginform.emailid.$dirty && loginform.emailid.$invalid ||
       loginform.password.$dirty && loginform.password.$invalid">Login</button>
       </p>
-      <button ng-click="authenticate('facebook')" >Sign in with Facebook</button>
-      <!-- <button ng-click="authenticate('google')">Sign in with Google</button> -->
-      <p class="message">Not registered? <a href="#signup">Create an account</a></p>
+      <div style="margin-bottom:8px"><button ng-click="authenticate('facebook')" >Sign in with Facebook</button></div>
+      <div><button ng-click="authenticate('google')">Sign in with Google</button></div>
+      <p class="message">Not registered? <a ui-sref="signup">Create an account</a></p>
     </form>
   </div>
 </div>

@@ -67,19 +67,19 @@
 
            <li class="dropdown" >
                   <a class="dropdown-toggle" data-toggle="dropdown"  uib-tooltip="MyAccount" tooltip-placement="bottom" tooltip-append-to-body="true" >
-                    <img id="menu" class="circular--square1"  ng-src="{{userinfo.profileImage}}"  alt="{{userinfo.userName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
+                    <img id="menu" class="circular--square1"  ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
                   </a>
                     <div  class="dropdown-menu" id="logoutdropdown">
 
 
                      <div class="profile1 row" style="margin:2px;" >
-                        <div><img class="circular--square col-sm-6"  ng-src="{{userinfo.profileImage}}" alt="{{userinfo.userName.charAt(0) | uppercase}}"  uib-tooltip="Profile" tooltip-placement="bottom" tooltip-append-to-body="true" style="padding-left: -2px;align-self: center;cursor:pointer;"/></span>
+                        <div><img class="circular--square col-sm-6"  ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}"  uib-tooltip="Profile" tooltip-placement="bottom" tooltip-append-to-body="true" style="padding-left: -2px;align-self: center;cursor:pointer;"/></span>
                           <!-- <span class="gb_jb">Change</span> -->
                         </div>
                         <a ng-click="changeProfileImage()" style="margin-left:26px;margin-top:16px;color:teal">change Profile Image</a><br/>
                         <div style="margin:16px 20px 30px 128px;display:block;">
-                          <div style="font-weight: bold;margin: -4px 0 0 -2px;"><b>{{userinfo.userName}}</b></div>
-                          <div style="margin-left:18px;color: #666;display: block;margin: -4px 0 0 -2px;">{{userinfo.email}}</div>
+                          <div style="font-weight: bold;margin: -4px 0 0 -2px;"><b>{{userinfo.local.userName || userinfo.facebook.displayName || userinfo.google.displayName}}</b></div>
+                          <div style="margin-left:18px;color: #666;display: block;margin: -4px 0 0 -2px;">{{userinfo.local.email || userinfo.facebook.facebookEmail || userinfo.google.googleEmail}}</div>
                         </div>
                      </div>
 
@@ -157,10 +157,10 @@
           <li>
             <a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Statistic</a>
           </li>
-          <li>
+          <!-- <li>
             <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
             <font color="#337AB7"> ADMINISTRATION</font>
-          </li>
+          </li> -->
           <li>
             <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
           </li>
@@ -238,7 +238,7 @@
     $("#glyList").css("margin-left", "0px");
     // $("#userMsgBox").show();
   });
-  
+
   // <Msg box>
   // $("#userMsgBox").hide();
   // $("#mainMsgBox").click(function() {

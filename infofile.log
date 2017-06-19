@@ -1221,3 +1221,654 @@
 {"level":"error","message":"Signup Unsuccessfull","timestamp":"2017-06-16T13:34:29.299Z"}
 {"level":"error","message":"Signup Unsuccessfull","timestamp":"2017-06-16T13:36:34.266Z"}
 {"level":"info","message":"Signup successfull","timestamp":"2017-06-16T13:57:10.397Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:33:50.261Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:33:50.300Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:33:50.304Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:33:51.328Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:33:51.332Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:33:51.334Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:34:01.359Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:34:01.363Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:01.364Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:07.450Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T04:34:07.563Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:07.577Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T04:34:17.795Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:17.800Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:17.825Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T04:34:19.806Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:19.815Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T04:34:25.144Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:25.161Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:34:25.172Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:01.195Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:01.196Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:01.196Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:02.292Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:02.293Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:02.298Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:24.331Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:24.333Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:24.333Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:24.901Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:24.904Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:24.907Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:25.449Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:25.450Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:25.450Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:26.019Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:26.021Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:26.022Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:26.896Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:26.898Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:26.900Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:27.623Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T04:35:27.624Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T04:35:27.630Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:29:37.155Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:29:37.161Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:29:37.161Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T06:29:44.282Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:29:44.286Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:29:44.293Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:31:08.391Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:31:08.393Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:31:08.399Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:32:33.168Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:32:33.176Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:32:33.181Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:33:09.217Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:33:09.226Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:33:09.232Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:33:16.353Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:33:16.354Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:33:16.357Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:34:36.274Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:34:36.276Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:34:36.280Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:35:56.942Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:35:56.956Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:35:56.960Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:36:15.781Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:36:15.790Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:36:15.793Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:25.402Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:25.412Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:37:25.412Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:25.678Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:25.679Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:37:25.687Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:25.961Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:25.962Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:37:25.968Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:26.247Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:26.248Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:37:26.252Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:47.003Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:37:47.004Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:37:47.008Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:38:47.446Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:38:47.450Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:38:47.454Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:39:14.661Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:39:14.662Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:39:14.663Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:39:51.829Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:39:51.839Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:39:51.840Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:40:14.164Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:40:14.167Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:40:14.173Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:40:42.235Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:40:42.240Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:40:42.246Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:07.189Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:07.201Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:07.202Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:17.428Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:17.448Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:17.449Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:47.470Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:47.470Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:47.472Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:47.797Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:47.806Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:47.807Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:48.074Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:48.074Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:48.074Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:48.366Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:48.366Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:48.375Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:57.154Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:42:57.162Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:42:57.162Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.110Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.111Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:43:06.117Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.396Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.397Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:43:06.397Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.646Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.646Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:43:06.653Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.926Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:06.932Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:43:06.938Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:13.587Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:43:13.587Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:43:13.595Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:44:25.499Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:44:25.514Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:44:25.514Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:44:55.457Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:44:55.466Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:44:55.467Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:45:10.004Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:45:10.013Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:45:10.020Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:16.713Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:16.714Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:16.719Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:17.012Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:17.013Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:17.014Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:17.287Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:17.291Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:17.295Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:22.782Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:22.785Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:22.798Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:28.703Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:28.703Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:28.704Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:35.215Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:35.221Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:35.227Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:37.607Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:37.608Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:37.608Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:38.105Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:50:38.106Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:50:38.106Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:52:42.346Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:52:42.346Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:52:42.351Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:52:43.489Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:52:43.492Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:52:43.493Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:53:00.547Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:53:00.551Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:53:00.555Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:53:21.991Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:53:21.994Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:53:21.995Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:55:34.108Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:55:34.111Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:55:34.117Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:58:48.378Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T06:58:48.394Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:58:48.400Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T06:58:52.990Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:58:52.992Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T06:58:53.001Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:17.354Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:17.367Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:17.371Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T07:04:25.941Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:25.945Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:25.956Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T07:04:36.722Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:36.726Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:36.741Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T07:04:38.441Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:38.453Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:40.934Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:40.938Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:40.944Z"}
+{"level":"info","message":"Archived Successfully","timestamp":"2017-06-17T07:04:42.704Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:42.713Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:45.907Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:45.917Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:45.917Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T07:04:48.491Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:48.506Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:50.374Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:50.375Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:50.382Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:54.017Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:04:54.018Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:54.026Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T07:04:56.069Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:04:56.081Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:05:00.996Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:05:01.001Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:05:01.015Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:09:46.266Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:09:46.282Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:09:46.286Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:11:05.419Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:11:05.420Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:11:05.424Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:11:36.222Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:11:36.225Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:11:36.230Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:11:53.821Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:11:53.829Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:11:53.830Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:16.788Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:16.802Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:16.805Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:17.120Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:17.121Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:17.126Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:17.424Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:17.424Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:17.426Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:17.697Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:17.698Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:17.703Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:26.844Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:26.847Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:26.853Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:32.631Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:32.632Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:32.632Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:50.012Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:17:50.013Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:17:50.022Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:20:31.207Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:20:31.223Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:20:31.223Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:21:00.884Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:21:00.888Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:21:00.889Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:22:26.138Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:22:26.143Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:22:26.147Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:24:35.611Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:24:35.621Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:24:35.622Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:24:55.528Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:24:55.534Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:24:55.541Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:26:53.726Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:26:53.727Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:26:53.732Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:27:41.048Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:27:41.059Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:27:41.060Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:27:51.307Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:27:51.309Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:27:51.316Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:28:16.964Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:28:16.965Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:28:16.972Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:30:04.552Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:30:04.565Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:30:04.566Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:30:15.086Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:30:15.088Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:30:15.089Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:31:09.219Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:31:09.219Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:31:09.222Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:34:45.295Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:34:45.306Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:34:45.308Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:35:04.106Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:35:04.107Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:35:04.114Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:36:55.346Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:36:55.351Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:36:55.352Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:47:48.102Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:47:48.111Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:47:48.122Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T07:51:45.884Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:51:45.886Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:51:45.897Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T07:51:54.008Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:51:54.019Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:51:54.030Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T07:52:02.863Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:02.865Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:02.880Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T07:52:11.837Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:11.839Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:11.856Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T07:52:13.217Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:13.230Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:21.719Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:21.720Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:21.722Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T07:52:23.197Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:23.213Z"}
+{"level":"info","message":"Card Updated Succesfully","timestamp":"2017-06-17T07:52:27.003Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:27.023Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:28.832Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:28.834Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:28.834Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T07:52:31.721Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:31.738Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:35.559Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:35.567Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:35.568Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:37.674Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:37.684Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:37.685Z"}
+{"level":"info","message":"Archived Successfully","timestamp":"2017-06-17T07:52:40.753Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:40.765Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:43.199Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:43.203Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:43.212Z"}
+{"level":"info","message":"Archived Successfully","timestamp":"2017-06-17T07:52:45.537Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:45.550Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:47.536Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T07:52:47.537Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:47.537Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T07:52:49.614Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T07:52:49.621Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:06:22.219Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:06:22.225Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:06:22.225Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:06:27.570Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:06:27.575Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:06:27.593Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:09:55.048Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:09:55.054Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:09:55.074Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T09:10:08.498Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:10:08.510Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:10:12.907Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:10:12.915Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:10:12.916Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T09:10:28.765Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:10:28.780Z"}
+{"level":"info","message":"Signup successfull","timestamp":"2017-06-17T09:51:47.244Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:07.478Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:10.925Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:26.119Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:26.865Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:27.068Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:27.246Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:52:50.991Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:53:58.409Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-17T09:53:59.019Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:56:04.983Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:04.990Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:56:04.990Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:56:18.585Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:18.587Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:18.598Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:56:27.477Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:27.479Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:27.499Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:56:33.422Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:33.430Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:33.442Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:56:39.514Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:39.516Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:39.532Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:56:45.835Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:45.837Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:45.855Z"}
+{"level":"info","message":"Card Updated Succesfully","timestamp":"2017-06-17T09:56:49.718Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:49.734Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T09:56:51.070Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:51.083Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:56:53.174Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:56:53.174Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:53.181Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T09:56:56.956Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:56.973Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T09:56:59.436Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:56:59.461Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T09:57:01.844Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:01.859Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T09:57:04.651Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:04.665Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T09:57:07.370Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:07.388Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T09:57:10.865Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:10.882Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T09:57:14.378Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:14.390Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T09:57:18.348Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:18.377Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T09:57:27.609Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:27.611Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:27.627Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T09:57:33.219Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:33.236Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:57:37.207Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:57:37.213Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:37.217Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:57:46.756Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:57:46.760Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:46.767Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:57:53.110Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T09:57:53.115Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T09:57:53.118Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:02:46.373Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:02:46.386Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:02:46.396Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:02:57.944Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:02:57.953Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:02:57.960Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:03:18.523Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:03:18.527Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:03:18.533Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:04:48.851Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:04:48.864Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T10:04:57.754Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:04:57.777Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T10:05:01.240Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:01.262Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T10:05:07.681Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:07.706Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T10:05:11.337Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:11.360Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T10:05:26.495Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:26.519Z"}
+{"level":"info","message":"Archived Successfully","timestamp":"2017-06-17T10:05:35.669Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:35.693Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:05:44.785Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:44.790Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:44.803Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:05:55.255Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:05:55.276Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:06:16.089Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:06:16.113Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:22:34.148Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:22:34.153Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:22:34.178Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:22:40.057Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:22:40.083Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-17T10:22:52.137Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:22:52.165Z"}
+{"level":"info","message":"Archived Successfully","timestamp":"2017-06-17T10:22:55.130Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:22:55.152Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:22:58.856Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:22:58.858Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:22:58.864Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:11.926Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:11.927Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:11.939Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:15.673Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:15.689Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:17.129Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:17.145Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:18.857Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:18.873Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:20.816Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:20.833Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:23.989Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:24.001Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:25.575Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:25.585Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:27.965Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:27.966Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:27.976Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:30.296Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:30.308Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:32.799Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:32.803Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:32.805Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:23:35.214Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:35.224Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:36.994Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:23:37.001Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:23:37.002Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:24:47.574Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:24:47.575Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:24:47.587Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:24:54.375Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:24:54.377Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:24:54.395Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T10:24:56.179Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:24:56.188Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:25:10.352Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:25:10.362Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:25:30.090Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:25:30.097Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:25:30.107Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T10:25:40.456Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:25:40.464Z"}
+{"level":"info","message":"Card deleted Successfully","timestamp":"2017-06-17T10:44:58.074Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:44:58.082Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:45:00.086Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:00.095Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T10:45:02.095Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:02.103Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T10:45:04.881Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:04.891Z"}
+{"level":"info","message":"Archived Successfully","timestamp":"2017-06-17T10:45:08.411Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:08.440Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:10.652Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:10.652Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:10.655Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-17T10:45:24.577Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:24.587Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:26.417Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:26.422Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:26.423Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:45:31.041Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:31.052Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:33.482Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:33.484Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:33.485Z"}
+{"level":"info","message":"Reminder deleted successfully","timestamp":"2017-06-17T10:45:37.012Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:37.026Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:39.777Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:45:39.778Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:39.780Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:45:59.514Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:59.517Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:45:59.531Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:46:02.863Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:02.866Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:02.881Z"}
+{"level":"info","message":"Card Created Successfully","timestamp":"2017-06-17T10:46:06.329Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:06.337Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:06.346Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:46:09.760Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:09.773Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:46:14.665Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:14.683Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-17T10:46:19.522Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:19.540Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:46:52.465Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:46:52.472Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:46:52.476Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:47:32.645Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-17T10:47:32.649Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:47:32.659Z"}
+{"level":"info","message":"Card Updated Succesfully","timestamp":"2017-06-17T10:47:54.005Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-17T10:47:54.020Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:02:24.198Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T04:02:24.226Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T04:02:24.228Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:03:39.481Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:03:39.494Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:03:45.189Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:03:45.209Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:03:48.822Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:03:48.845Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:03:51.678Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:03:51.696Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:03:54.285Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:03:54.310Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:03:57.396Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:03:57.411Z"}
+{"level":"info","message":"Pinup Successfully done","timestamp":"2017-06-19T04:03:59.992Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:04:00.016Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T04:04:09.437Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T04:04:09.442Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:04:09.442Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T04:30:11.035Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:30:11.048Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T04:30:11.049Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:30:16.491Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:30:16.509Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T04:30:19.841Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T04:30:19.864Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T05:14:37.649Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T05:14:37.662Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T05:14:37.662Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T05:15:00.690Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T05:15:00.691Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T05:15:00.704Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T06:30:29.082Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T06:30:29.095Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T06:30:29.096Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T06:30:55.259Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T06:30:55.270Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T06:30:55.276Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-19T06:30:57.893Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T06:30:57.905Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T07:42:13.271Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T07:42:13.281Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T07:42:13.281Z"}
+{"level":"info","message":"Signup successfull","timestamp":"2017-06-19T07:47:59.391Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T08:02:05.279Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:05.287Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T08:02:05.291Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:15.781Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:15.803Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:21.575Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:21.593Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:24.943Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:24.963Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:27.737Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:27.756Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:32.473Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:32.490Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:35.775Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:35.789Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-06-19T08:02:39.031Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:39.049Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-19T08:02:42.889Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:42.906Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-19T08:02:44.670Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:44.690Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-19T08:02:47.936Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:47.955Z"}
+{"level":"info","message":"Reminder created","timestamp":"2017-06-19T08:02:51.750Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T08:02:51.775Z"}
+{"level":"info","message":"Signup successfull","timestamp":"2017-06-19T10:28:24.283Z"}
+{"level":"info","message":"Signup successfull","timestamp":"2017-06-19T10:29:05.105Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-19T11:02:57.847Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-19T11:02:59.117Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-19T11:03:40.874Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-19T11:03:51.330Z"}
+{"level":"info","message":"Signup successfull","timestamp":"2017-06-19T11:04:19.879Z"}
+{"level":"error","message":"Login UnSuccessfull","timestamp":"2017-06-19T11:04:44.016Z"}
+{"level":"info","message":"Login Successfull","timestamp":"2017-06-19T11:06:41.135Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T11:06:41.239Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T11:06:41.252Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T11:06:41.258Z"}
+{"level":"info","message":"Login Successfull","timestamp":"2017-06-19T11:07:22.775Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T11:07:22.839Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-06-19T11:07:22.848Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-06-19T11:07:22.849Z"}

@@ -1,3 +1,13 @@
+/*
+ * Card get or read
+ * @path routes/api/getMsgCards.js
+ * @file getMsgCards.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
 var express = require('express');
 var app = express(),
     router = express.Router();

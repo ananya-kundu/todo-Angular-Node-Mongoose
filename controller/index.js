@@ -21,5 +21,6 @@ router.use("/archive",auth,require("./archive"));
 router.use("/pinUp",auth,require("./pinUp"));
 router.use("/uploadProfileImage",auth,require("./uploadProfileImage"));
 router.use("/auth/facebook",require("./facebook"));
+router.use("/auth/google",require("./google"));
 
 module.exports = router;

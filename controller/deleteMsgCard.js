@@ -1,3 +1,13 @@
+/*
+ * Card deletion
+ * @path routes/api/deleteMsgCards.js
+ * @file deleteMsgCards.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');

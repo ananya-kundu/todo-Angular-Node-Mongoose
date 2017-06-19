@@ -54,5 +54,8 @@ var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.b
         $authProvider.facebook({
             clientId: '1643439169007876'
           });
+        $authProvider.google({
+              clientId: '60233756870-pcb147tb6egsmac0d1uju3sl0tupct43.apps.googleusercontent.com'
+            });
 
     });

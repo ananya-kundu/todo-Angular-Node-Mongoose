@@ -1,3 +1,13 @@
+/*
+ * User Schema
+ * @path model/user/UserSchema.js
+ * @file userSchema.js
+ */
+
+
+ /*
+  * Module dependencies
+  */
 var mongoose = require("mongoose");
 var express = require('express');
 
@@ -8,6 +18,11 @@ var secretKey = require('../config/config.js');
 //set variable reffernce to mongoose schema
 var Schema = mongoose.Schema;
 
+
+/**
+ * @schema UserSchema
+ * @description User details
+ */
 //create the schema for user
 var userData = Schema({
   local:{
@@ -26,7 +41,7 @@ var userData = Schema({
         email: {
           type: String,
           // required: true,
-          unique: true,
+          // unique: true,
           validate : validators.isEmail()
         },
         password: {
@@ -42,11 +57,26 @@ var userData = Schema({
   facebook:{
         displayName: String,
         picture: String,
-        facebook: String
+        facebook: String,
+        facebookEmail: String
+  },
+  google:{
+        displayName: String,
+        picture: String,
+        google: String,
+        googleEmail: String
   }
 
 }, {collection: "userRegisterSchema"});
 
+
+/**
+ * password encryption
+ *
+ * use crypto algorithm
+ * @return {cryted} password
+ * @api For User
+ */
 //password encryption at signup
 userData.statics.encrypt = function encrypt(text) {
   var cipher = crypto.createCipher(secretKey.algorithm,secretKey.password);
@@ -55,7 +85,14 @@ userData.statics.encrypt = function encrypt(text) {
   return crypted;
 }
 
-//save user data at signup
+
+/**
+ * Save User
+ *
+ * @return {Exist} already exist
+ * @return {User} user
+ * @api For User
+ */
 userData.statics.saveUserData = function(reqData, cb) {
   console.log("i'm reqdata",reqData);
   var ref = this ;
@@ -71,16 +108,23 @@ userData.statics.saveUserData = function(reqData, cb) {
          'local.password': encryptPassword
      });
 
-        userObj.save(cb);
+        userObj.save(cb); //save user data at signup
 
         }
   });
 }
 
-//upload the profile image
+/**
+ * uploadProfileImage User
+ *
+ * update image by username
+ * @api uploadProfileImage For User
+ */
+ //upload the profile image
 userData.statics.uploadProfileImage = function(req,url, cb) {
+
   this.update({
-    'local.userName': req.name
+    'local.userName': req.name //update image by username
   }, {
     $set: {
         'local.profileImage': url
@@ -88,11 +132,17 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
   }, cb);
 };
 
+
 //check login data
 userData.statics.checkLoginData = function(loginData, cb) {
+  console.log("inside",loginData);
     this.findOne({'local.email': loginData.email }, cb);
 }
 
+/**
+ * Find `User` by its id
+ * @api userProfile
+ */
 //get user profile
   userData.statics.getUserProfile = function(userid, cb) {
     var ref = this ;

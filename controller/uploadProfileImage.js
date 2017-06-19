@@ -1,4 +1,13 @@
+/*
+ * User upload image
+ * @path routes/api/uploadProfileImage.js
+ * @file uploadProfileImage.js
+ * @Scripted by Ananya Kundu
+ */
 
+/*
+ * Module dependencies
+ */
 var express = require('express');
 var app = express(),
     router = express.Router();
@@ -26,7 +35,7 @@ var userProfilePic = require('../model/userSchema.js');
 
           //image store into profileImage folder inside public with .png format
           var url = "profileImages/"+image+".png";
-          
+
           userProfilePic.uploadProfileImage(req.body,url,function(err, result) {
                 if (!err) {
                     winston.info('User profile image suceesfully uploaded');

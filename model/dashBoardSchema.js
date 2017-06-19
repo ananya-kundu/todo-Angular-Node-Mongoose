@@ -1,8 +1,21 @@
+/*
+ * Card Schema
+ * @path model/user/dashBoardSchema.js
+ * @file dashBoardSchema.js
+ */
+
+ /*
+  * Module dependencies
+  */
 var mongoose = require("mongoose");
 var express = require('express');
 
 //set variable reffernce to mongoose schema
 var Schema = mongoose.Schema;
+/**
+ * @schema dashBoardSchema
+ * @description Card details
+ */
 
 //create the schema for dashboard(cards)
 var Msg = Schema({
@@ -32,15 +45,21 @@ var Msg = Schema({
       type: String
   },
   isArchive :{
-      type: Boolean
+      type: Boolean,
+      default: false
   },
   isPinup :{
-      type: Boolean
+      type: Boolean,
+      default: false
   }
 }, {
   collection: "userMsgSchema"
 });
 
+/**
+ * edited date set for card
+ * @api For Card
+ */
 //hooks-here 'pre' is Serial middleware are executed one after another, when each middleware calls next
 Msg.pre('save', function(next) {
     var currentDate = new Date();
@@ -50,26 +69,49 @@ Msg.pre('save', function(next) {
       next();
 });
 
-
+/**
+ * Save Card
+ * @api For Card
+ */
 Msg.statics.saveMsgData = function(reqData, cb) {
   // console.log("i'm inside save method");
     var userMsgSchemaObj = new userMsgSchema(reqData);
     userMsgSchemaObj.save(cb);
 };
 
+/**
+ * get Card
+ *
+ * find by userid
+ * @api For Card
+ */
+
 Msg.statics.getMsgData = function(userid, cb) {
   // console.log("userid.....in get......", userid);
   this.find({userid:userid}, cb);
 };
 
+/**
+ * Delete Card
+ *
+ * delete by userid
+ * @api For Card
+ */
 Msg.statics.deleteCardsData = function(userid, cb) {
-  // console.log("userid delete...", userid);
   // this.findOne({_id:userid._id},cb);
     this.remove({
           _id: userid
         }, cb);
 };
 
+/**
+ * Update Card
+ *
+ * Update by userid
+ * set title and content
+ * return updated card
+ * @api For Card
+ */
 Msg.statics.updateData = function(userid,req, cb) {
   this.update({
     _id: userid
@@ -81,23 +123,48 @@ Msg.statics.updateData = function(userid,req, cb) {
     }, cb);
 };
 
+/**
+ * Popup Card
+ *
+ * find by userid
+ * @api For Card
+ */
 Msg.statics.popupCardsData = function(userid, cb) {
   this.find({
     _id: userid
   }, cb);
 };
 
-
+/**
+ * remainder set for Card
+ *
+ * Update by userid
+ * set reminder by date
+ * return reminder card
+ * @api For Card
+ */
 Msg.statics.remainderData = function(userid,req,cb) {
     this.update({
         _id: userid
       }, {
         $set: {
+          // reminder: req.reminder.sort('date')
           reminder: req.reminder
+
         }
       }, cb);
 };
 
+
+
+/**
+ * remainder delete for Card
+ *
+ * Update by userid
+ * delete reminder
+ * return after deletion of reminder
+ * @api For Card
+ */
   Msg.statics.deleteReminderData = function(userid, cb) {
     // console.log("reminder delete...");
     this.update({
@@ -109,6 +176,15 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
   };
 
+
+  /**
+   * changeColor for Card
+   *
+   * Update by userid
+   * set color
+   * return card with color
+   * @api For Card
+   */
   Msg.statics.changeColor = function(userid,req,cb) {
       this.update({
         _id: userid
@@ -119,6 +195,15 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
     };
 
+    /**
+     * archive for Card
+     *
+     * Update by userid
+     * if archive value true and pinup value true ||  archive value true and pinup value true ,then archived
+     * if archive value false and pinup value true  ,then unarchive  and pinned that card
+     * if archive value true and pinup value false ,then unarchived but unpinned that card
+     * @api For Card
+     */
     Msg.statics.archive = function(userid,req,cb) {
       this.update({
         _id: userid
@@ -130,6 +215,15 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
     };
 
+    /**
+     * pinup for Card
+     *
+     * Update by userid
+     * if pinup value true ,then pinned and pinup value true and archive value true|| pinup value true and archive value true,then pinned
+     * if pinup value true and  archive value false  ,then pinned  and unarchive   that card
+     * if pinup value false and archive value true  ,then unpinned  but unarchived that card
+     * @api For Card
+     */
     Msg.statics.pinup = function(userid,req,cb) {
       console.log(req,"hjgjkhgjhgjhkghjghj");
       this.update({
@@ -144,6 +238,7 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
     };
 
+//model creation
 var userMsgSchema = mongoose.model('userMsgSchema', Msg);
 
 module.exports = userMsgSchema;

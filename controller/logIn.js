@@ -1,3 +1,15 @@
+
+
+/*
+//  * User logIn Data
+//  * @path routes/api/logIn.js
+//  * @file logIn.js
+//  * @Scripted by Ananya Kundu
+//  */
+//
+// /*
+//  * Module dependencies
+//  */
 var cookieParser = require('cookie-parser');
 var express = require('express'),
   router = express.Router(),
@@ -15,20 +27,19 @@ var jwt = require('jsonwebtoken'); // used to create, sign and verify tokens
 /* POST call for login*/
 router.post('/login', function(req, res) {
       try {
-
         req.check(connDb1.validationSchema.login);
         req.getValidationResult().then(function(isValid) {
             try {
               if (!isValid.isEmpty()) {
                 // winston.info('Validation Unsuccessfulls.Login Unsuccessfull');
-                var errors = request.validationErrors();
+                var errors = req.validationErrors();
                 throw errors[0].msg
               }
               login.checkLoginData(req.body, function(err, user) {
                 if (!err) {
                   if (user != null) {
                     var loginPassword = req.body.password;
-                    var newLoginPassword = user.password;
+                    var newLoginPassword = user.local.password;
 
                     var encryptLoginPassword = login.encrypt(loginPassword);
                      // generate the token if the username and pasword is matched
@@ -66,6 +77,7 @@ router.post('/login', function(req, res) {
                   }
               });
             } catch (e) {
+              console.log(e);
                   res.send({
                       "status": false,
                       "message": "Validation error. "

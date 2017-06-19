@@ -1,3 +1,13 @@
+/*
+ * Card reminder
+ * @path routes/api/reminder.js
+ * @file reminder.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
 var express = require('express');
 var app = express(),
     router = express.Router();

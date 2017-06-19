@@ -1,3 +1,14 @@
+/*
+ * User logOut Data
+ * @path routes/api/logOut.js
+ * @file logOut.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
+
 var express = require('express'),
   router = express.Router();
 

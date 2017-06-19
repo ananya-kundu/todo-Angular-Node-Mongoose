@@ -1,3 +1,13 @@
+/*
+ * Card archive Data
+ * @path routes/api/archive.js
+ * @file archive.js
+ * @Scripted by Ananya Kundu
+ */
+
+/*
+ * Module dependencies
+ */
 var express = require('express');
 var app     = express(),
     router  = express.Router();

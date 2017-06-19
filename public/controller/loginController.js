@@ -8,7 +8,9 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
  var url="http://localhost:8081/session";
  var checkUser = mykeepService.app(url);
  checkUser.then(function(data) {
+    console.log("before data checking",data);
    if(data.data.status == true){
+     console.log("before dashboard");
     //  toastr.success('You have successfully signed in!');
      $state.go('dashboard');
    }else{
@@ -36,16 +38,15 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
 
    console.log(userLogin);
    var url="http://localhost:8081/logIn";
+   console.log("log url",url);
    var userNewObj = mykeepService.app(url,userLogin);
    userNewObj.then(function(data) {
+    //  console.log("logged data",data);
      if(data.data.status == true){
-       // $location.path('/dashboard');
        $state.go('dashboard');
      }else{
-         // $location.path('/login');
          $state.go('login');
      }
-     // console.log(data);
    }).catch(function(error) {
      console.log(error);
    })
@@ -65,7 +66,7 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
          } else if (error.data) {
            // HTTP response error from server
           //  toastr.error(error.data.message, error.status);
-           toastr.error(error);
+          //  toastr.error(error);
          } else {
          }
        });

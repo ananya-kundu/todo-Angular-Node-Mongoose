@@ -6,11 +6,11 @@ app.controller('profileImageController', function($scope,$rootScope,mykeepServic
         $scope.myCroppedImage='';
 
         var handleFileSelect=function(evt) {
-            var file=evt.currentTarget.files[0];
+            var file = evt.currentTarget.files[0];
             var reader = new FileReader();
             reader.onload = function (evt) {
                 $scope.$apply(function($scope){
-                    $scope.myImage=evt.target.result;
+                    $scope.myImage = evt.target.result;
               });
             };
             reader.readAsDataURL(file);
@@ -31,13 +31,15 @@ app.controller('profileImageController', function($scope,$rootScope,mykeepServic
               var profileimgObj = {
                   myImage :   $scope.myImage,
                   myCroppedImage : $scope.myCroppedImage,
-                  name : $rootScope.userinfo.userName
+                  name : $rootScope.userName
                 }
+                console.log("profile image",profileimgObj);
                 var url = "http://localhost:8081/uploadProfileImage";
 
                 var obj = mykeepService.app(url,profileimgObj);
                 obj.then(function(data) {
                     // console.log(data.data.status);
+                    
                   }).catch(function(error) {
                         console.log("error1");
                       });

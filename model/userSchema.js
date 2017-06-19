@@ -135,7 +135,7 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
 
 //check login data
 userData.statics.checkLoginData = function(loginData, cb) {
-  console.log("inside",loginData);
+  // console.log("inside",loginData);
     this.findOne({'local.email': loginData.email }, cb);
 }
 

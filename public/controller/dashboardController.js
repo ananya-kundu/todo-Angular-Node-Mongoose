@@ -63,13 +63,15 @@ console.log($scope.remindernote);
 
 
   $scope.image = function() {
-    var url = "http://localhost:8081/readuserprofile";
+    var url = "http://localhost:8081/userprofile";
     console.log();
     var obj = mykeepService.app(url);
     mykeepService.app(url).then(function(data){
-        console.log(data.data.userinfo);
+
         $rootScope.userinfo = data.data.userinfo ;
+        $rootScope.userName = data.data.userinfo.local.userName; //fetching userName by local schema
         // console.log("inside image");
+        console.log("user",$rootScope.userName);
      }).catch(function(error){
        console.log(error);
      })

@@ -8,7 +8,7 @@ router.use(require('./signUp'));
 router.use(require('./logIn'));
 router.use(require('./logOut'));
 
-router.use("/readuserprofile",auth,require("./userprofile"));
+router.use("/userprofile",auth,require("./userprofile"));
 router.use("/createCards",auth,require("./createCards"));
 
 router.use("/getMsgCard",auth,require("./getMsgCard"));

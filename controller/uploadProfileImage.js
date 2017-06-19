@@ -17,15 +17,17 @@ var userProfilePic = require('../model/userSchema.js');
 
 /* POST call to get profile image */
   router.post('/', function(req,res){
+    console.log("inside dp api");
       var base64Data = req.body.myCroppedImage.replace(/^data:image\/png.base64,/g,""); //its change to base64
         var image = req.body.name;
-
+        console.log("image",image);
         //Save with a buffer as content from a base64 image
     fs.writeFile("public/profileImages/"+image+".png",base64Data, {
           encoding: 'base64'
         },function(err){
+            // console.log("gghmjh",err);
             if(!err){
-                console.log(err);
+
                 // res.send({"status":true,"message": "result"});
               }//if closing
             else {

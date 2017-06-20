@@ -1,0 +1,40 @@
+
+<div class="row" ng-class="gridlist" style="margin-top:34px;">
+
+<div style="margin:22px 16px;" ></div>
+<div>
+  <div id="innote" ng-if="x.isDeleted" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index"  >
+
+      <div ng-class="showpreid" style="background-color:{{x.color}}">
+        <div style="padding:2%;">
+          <span  class="glyphicon glyphicon-pushpin" ng-click="pinup(x._id,'true','false')" ng-show="icons" style="float:right;color:#767676;" uib-tooltip="Pin archived note"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
+
+          <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1"  ></div>
+
+          <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
+
+          <div id="footer" >
+              <span ng-show="icons">
+
+                 <i style="margin-left:6px">
+                    <span uib-dropdown on-toggle dropdown-append-to-body="true" >
+                          <a href uib-dropdown-toggle>
+                              <i id='more'  style="width:16px;height:35%;margin-top:2%" class="fa fa-ellipsis-v" uib-tooltip="More"  tooltip-placement="bottom" tooltip-append-to-body="true"></i>
+                          </a>
+                          <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                <li id="fulldrop">
+                                    <a id="delete" ng-click = "deletecards(x._id,'delete')">Delete forever</a>
+                                    <a id="makeCopy" ng-click = "deletecards(x._id,'restore')">Restore</a>
+                                </li>
+                            </ul>
+                      </span>
+                    </i>
+
+                </span>
+              </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>

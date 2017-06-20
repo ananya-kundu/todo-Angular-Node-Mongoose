@@ -3,7 +3,7 @@
 <div id="reminderdiv" >Reminders</div>
 <div style="margin:22px 16px;" ></div>
 <div>
-  <div id="innote" ng-if="x.reminder" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index">
+  <div id="innote" ng-if="x.reminder && !x.isDeleted" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index">
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
@@ -78,7 +78,8 @@
                   </a>
                   <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li id="fulldrop">
-                            <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
+                            <!-- <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a> -->
+                            <a id="delete" ng-click = "deletecards(x._id,'trash')">Delete a note</a>
                             <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
                         </li>
                     </ul>

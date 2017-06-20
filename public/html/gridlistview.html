@@ -4,7 +4,7 @@
 
 <div id="others">Others</div>
   <div>
-  <div id="innote" ng-if="!x.isArchive && !x.isPinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery>
+  <div id="innote" ng-if="!x.isArchive && !x.isPinup && !x.isDeleted" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery>
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
@@ -46,14 +46,15 @@
                               </li>
                             </ul>
                           </span>
-                      <i>
+                      </i>
 
-                <i style="margin-left:8px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
+                <i id="collaborator" style="margin-left:8px;cursor:pointer;" class="fa fa-user-plus" style="font-size:36px;" aria-hidden="true"  ng-click="collaborator(x)" uib-tooltip="Collaborator"  tooltip-placement="bottom" tooltip-append-to-body="true">
+                 </i>
 
               <i aria-hidden="true">
                 <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
                       <a href uib-dropdown-toggle>
-                        <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" uib-tooltip="Change color"  tooltip-placement="bottom" tooltip-append-to-body="true" />
+                        <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" style="cursor:pointer;" uib-tooltip="Change color"  tooltip-placement="bottom" tooltip-append-to-body="true" />
                       </a>
                       <div uib-dropdown-menu aria-labelledby="simple-dropdown">
                           <a id="normal" ng-repeat = "y in color" style="font-size:10px;" uib-tooltip="{{y.tooltip}}" tooltip-placement="bottom" tooltip-append-to-body="true" >
@@ -63,19 +64,19 @@
                   </span>
                 </i>
 
-                <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
-                  <img id='reminder1'  ng-click="archive(x._id,'true','false')" style="width:14px;height:35%" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
+                <i style="margin-left:8px" style="font-size:36px;" aria-hidden="true">
+                  <img id='archive'  ng-click="archive(x._id,'true','false')" style="width:14px;height:35%;cursor:pointer;" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
                 </i>
 
 
          <i style="margin-left:6px">
             <span uib-dropdown on-toggle dropdown-append-to-body="true" >
                   <a href uib-dropdown-toggle>
-                      <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
+                      <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" uib-tooltip="More"  tooltip-placement="bottom" tooltip-append-to-body="true" class="fa fa-ellipsis-v"></i>
                   </a>
                   <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li id="fulldrop">
-                            <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
+                            <a id="delete" ng-click = "deletecards(x._id,'trash')">Delete a note</a>
                             <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
                         </li>
                     </ul>

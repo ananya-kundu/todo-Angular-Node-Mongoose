@@ -18,8 +18,9 @@ var todocards = require('../model/dashBoardSchema.js');
 router.post('/:userid', function(req, res) {
     try {
         var deleteddata =req.params.userid;
+        console.log("delet",req.body);
 
-        todocards.deleteCardsData(deleteddata,function(err, result) {
+        todocards.deleteCardsData(deleteddata,req.body,function(err, result) {
               if (!err) {
                 winston.info('Card deleted Successfully');
                 res.send({"status": true,"message": result});

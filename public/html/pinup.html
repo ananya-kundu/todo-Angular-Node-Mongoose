@@ -2,7 +2,7 @@
 
 <div id="pinned" >Pinned</div>
 <div>
-  <div id="innote" ng-if="!x.isArchive && x.isPinup" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" >
+  <div id="innote" ng-if="!x.isArchive && x.isPinup && !x.isDeleted" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" >
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
@@ -75,7 +75,9 @@
                   </a>
                   <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li id="fulldrop">
-                            <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
+                          <a id="delete" ng-click = "deletecards(x._id,'trash')">Delete a note</a>
+
+                            <!-- <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a> -->
                             <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
                         </li>
                     </ul>
@@ -126,7 +128,7 @@
                   </span>
             <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;" uib-tooltip="Delete reminder"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
       </div>
-      
+
     </div>
   </div>
 </div>

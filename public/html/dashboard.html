@@ -10,10 +10,10 @@
           </span></a>
 
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" >
-            <span id="archivebrand" ng-show="!archivenote" ng-style="archivebrand" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true">Archive</span>
-              <span id="reminderbrand" ng-show="!remindernote" ng-style="reminderbrand" uib-tooltip="Reminders"  tooltip-placement="bottom" tooltip-append-to-body="true">Reminders</span>
-
-              <span id="keepClass"  ng-show="archivenote && remindernote" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">My Keep  </span>
+            <!-- <span id="archivebrand" ng-show="!archivenote" ng-style="archivebrand" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true">Archive</span> -->
+              <!-- <span id="reminderbrand" ng-show="!remindernote" ng-style="reminderbrand" uib-tooltip="Reminders"  tooltip-placement="bottom" tooltip-append-to-body="true">Reminders</span> -->
+              <!-- <span id="trashbrand" ng-show="!trashnote" ng-style="trashbrand" uib-tooltip="Trash"  tooltip-placement="bottom" tooltip-append-to-body="true">Trash</span> -->
+              <span id="keepClass" ng-style="brandname" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">{{keep}}</span>
           </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -146,14 +146,33 @@
 
           <li>
             <a ui-sref="archive">
+              <!-- <svg width="20px" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" height="22px" style="margin-left:14px;">
+
+                <path d="m0 0h24v24h-24z" fill="none"></path>
+              <path d="m20.54 5.23l-1.39-1.68c-0.27-0.34-0.68-0.55-1.15-0.55h-12c-0.47 0-0.88 0.21-1.16 0.55l-1.38 1.68c-0.29 0.34-0.46 0.79-0.46 1.27v12.5c0 1.1 0.9 2 2 2h14c1.1 0 2-0.9 2-2v-12.5c0-0.48-0.17-0.93-0.46-1.27zm-8.54 12.27l-5.5-5.5h3.5v-2h4v2h3.5l-5.5 5.5zm-6.88-12.5l0.81-1h12l0.94 1h-13.75z" fill="grey"></path>
+
+            </svg> -->
               <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" ui-sref="archive" ng-click ="archive()">
               </span> Archive</a>
             <!-- <span class="glyphicon glyphicon-search" aria-hidden="true" ui-sref="archive" ng-click ="archive()" ></span>
             <font color="#337AB7"> Archive</font> -->
           </li>
+
+
+          <li>
+            <a ui-sref="trash" >
+              <svg width="24px" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" height="20px" style="margin-left:14px;margin-top:8px;">
+                <path d="m0 0h24v24h-24z" fill="none"></path>
+                <path d="m6 19c0 1.1 0.9 2 2 2h8c1.1 0 2-0.9 2-2v-12h-12v12zm13-15h-3.5l-1-1h-5l-1 1h-3.5v2h14v-2z" fill="grey"></path>
+              </svg>
+              <span aria-hidden="true" ui-sref="trash" ng-click ="deleteCardsData()"></span>Trash
+            </a>
+          </li>
+
           <li>
             <a href="#"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Reports</a>
           </li>
+
           <li>
             <a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Statistic</a>
           </li>
@@ -174,7 +193,7 @@
       <!-- for cards -->
       <div id="page-content-wrapper" >
         <!-- <div class="container" style = "border:1px solid black"> -->
-        <div ng-show = "archivenote" class="row" id="msgDivId">
+        <div ng-show = "activenote" class="row" id="msgDivId">
           <div class="col-md-3 col-lg-3 col-sm-3"></div>
 
             <div class="col-md-6 col-lg-6 col-sm-6">
@@ -209,10 +228,11 @@
         <!-- <div ng-show="grid"> -->
           <!-- style="border:2px solid green;" -->
 
-          <div ng-show = "archivenote && remindernote" ng-include="'./html/pinup.html'"></div>
-          <div ng-show = "archivenote && remindernote" ng-include="'./html/gridlistview.html'"></div>
-          <div ng-show = "!archivenote" ng-include="'./html/archive.html'"></div>
-          <div ng-show = "!remindernote" ng-include="'./html/reminder.html'"></div>
+          <div ng-show = "pinnote" ng-include="'./html/pinup.html'"></div>
+          <div ng-show = "normalnote" ng-include="'./html/gridlistview.html'"></div>
+          <div ng-show = "archivenote" ng-include="'./html/archive.html'"></div>
+          <div ng-show = "remindernote" ng-include="'./html/reminder.html'"></div>
+          <div ng-show = "trashnote" ng-include="'./html/trash.html'"></div>
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2"></div>
     </div>

@@ -50,7 +50,15 @@ var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.b
           onEnter:function(){
             console.log("in reminder");
           }
-      }),
+      })
+      .state('trash',{
+          url:'/trash',
+          templateUrl:'html/dashboard.html',
+          controller:'trashController',
+          onEnter:function(){
+            console.log("in trash");
+          }
+      })
         $authProvider.facebook({
             clientId: '1643439169007876'
           });

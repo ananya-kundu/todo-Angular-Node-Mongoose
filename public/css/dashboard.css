@@ -264,17 +264,23 @@ color:white;
 
 /*hover effect for button*/
 #done:hover{
-    color: red;
-    background-color: rgba(232, 169, 165, 0.09);
+    color: black;
+    background-color: rgba(0,0,0,.2);
+    cursor:pointer;
+    /*background-color: rgba(232, 169, 165, 0.09);*/
+    /*background-color: rgba(0, 0, 0, 0.25);*/
 }
 
 /*css for done button*/
 #done{
+    font-weight:700;
     float: right;
-    color: teal;
+    color: rgba(51, 51, 51, 0.8);
     border: none;
     outline: none;
-    background-color: white;
+    background-color: transparent;
+    padding: 5px 14px;
+    text-transform: uppercase;
 }
 
 .dropdown-toggle {
@@ -435,15 +441,12 @@ a {
   margin-top: 30%;
 }
 
-#reminder,#more{
+#reminder,#more,#collaborator,#archive{
   background-color: rgba(238, 238, 238, 0);
   margin-left:1%;
 }
-#reminder:hover,#more:hover{
+#reminder:hover,#more:hover,#collaborator:hover,#archive:hover{
   color:teal;
-}
-#reminder1:hover{
-  color:red;
 }
 
 #remindercss{

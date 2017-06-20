@@ -51,6 +51,10 @@ var Msg = Schema({
   isPinup :{
       type: Boolean,
       default: false
+  },
+  isDeleted:{
+    type: Boolean,
+    default: false
   }
 }, {
   collection: "userMsgSchema"
@@ -93,16 +97,41 @@ Msg.statics.getMsgData = function(userid, cb) {
 
 /**
  * Delete Card
- *
  * delete by userid
+ *  trash is used for going to trash,
+ *  restore is used to restore that card and delete is used for permanently delete
  * @api For Card
  */
-Msg.statics.deleteCardsData = function(userid, cb) {
-  // this.findOne({_id:userid._id},cb);
-    this.remove({
-          _id: userid
+Msg.statics.deleteCardsData = function(userid,req, cb) {
+  if(req.del == 'trash'){
+      this.update({
+            _id: userid
+        },{
+          $set:{
+          isDeleted:true
+          }
         }, cb);
+    }
+    else if(req.del == 'restore'){
+        this.update({
+            _id: userid
+          }, {
+            $unset: {
+                isDeleted: false,
+                reminder: false,
+                isPinup: false
+
+              }
+            }, cb);
+    }
+    else if(req.del == 'delete'){
+          this.remove({
+                _id: userid
+              }, cb);
+            }
+
 };
+
 
 /**
  * Update Card
@@ -134,6 +163,15 @@ Msg.statics.popupCardsData = function(userid, cb) {
     _id: userid
   }, cb);
 };
+
+
+Msg.statics.collaborator = function(email, cb) {
+  this.find({
+    email: email
+  }, cb);
+}
+
+
 
 /**
  * remainder set for Card
@@ -265,4 +303,10 @@ module.exports = userMsgSchema;
 //     pinup: req.value
 //     }
 //   }, cb);
+// };
+// Msg.statics.deleteCardsData = function(userid, cb) {
+//   // this.findOne({_id:userid._id},cb);
+//     this.remove({
+//           _id: userid
+//         }, cb);
 // };

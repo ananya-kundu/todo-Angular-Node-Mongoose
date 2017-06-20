@@ -25,13 +25,11 @@ var userProfilePic = require('../model/userSchema.js');
     fs.writeFile("public/profileImages/"+image+".png",base64Data, {
           encoding: 'base64'
         },function(err){
-            // console.log("gghmjh",err);
             if(!err){
-
-                // res.send({"status":true,"message": "result"});
+              winston.info('file created');
               }//if closing
             else {
-              console.log("file created");
+              console.log("file not created");
               }//else end
           });
 

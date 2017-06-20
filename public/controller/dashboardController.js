@@ -7,14 +7,19 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   $scope.tomorrow ="tomorrow";
   $scope.nextweek = "nextweek";
   $scope.today = "today";
+  $scope.pinnote=true;
+  $scope.normalnote=true;
+  $scope.activenote=true;
 
-  $scope.archivenote = true;
-  $scope.remindernote=true;
+  $scope.keep="My Keep";
+  // $scope.archivenote = true;
+  // $scope.remindernote = true;
+  // $scope.trashsnote = true;
   // console.log('dashboard',);
-  $scope.mainNote=true;
-  $scope.takeclick=function(){
-    $scope.mainNote=false;
-    $scope.dummyNote=true;
+  $scope.mainNote = true;
+  $scope.takeclick = function(){
+    $scope.mainNote = false;
+    $scope.dummyNote = true;
   }
 console.log($scope.remindernote);
 
@@ -197,10 +202,12 @@ $scope.getmsgcard = function() {
        * @return - success status return  else error message
        */
 // controller for delete card
-  $scope.deletecards = function(cardsid) {
+  $scope.deletecards = function(cardsid,del) {
+    var delObj = {
+      del: del
+    }
       var url = "http://localhost:8081/deleteMsgCard/" + cardsid + "";
-      mykeepService.app(url).then(function(data){
-            // console.log("inside del");
+      mykeepService.app(url,delObj).then(function(data){
             $scope.getmsgcard();
           }).catch(function(error){
                 console.log(error);
@@ -208,7 +215,7 @@ $scope.getmsgcard = function() {
   }
 
 $scope.refresh = function(){
-$route.getmsgcard();
+  $route.getmsgcard();
 }
 
 
@@ -271,6 +278,33 @@ $route.getmsgcard();
           }
         });
     }//popup close
+
+
+    /**
+         * @function collaborator - create collaborator modal
+         * @param {String} User - contain user
+         */
+
+    $scope.collaborator = function(datanote){
+
+        var modalInstance = $uibModal.open({
+                templateUrl : "../html/collaborator.html",
+
+                  controller : "collaboratorController",
+                  resolve:{
+                  }
+                });
+              modalInstance.result.catch(function(error){
+                    console.log("error",error);
+              });
+              this.cancel = function(){
+                    // console.log("updation cancelled");
+                    $uibModalInstance.dismiss('cancel');
+              };
+
+
+      }//
+
 
 
     /**

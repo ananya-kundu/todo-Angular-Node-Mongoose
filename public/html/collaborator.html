@@ -1,7 +1,8 @@
 <!-- for collaborator -->
 <div style="background-color:white">
 <div class="modal-header" >
-  <h3 class="modal-title"  style="outline: none;border-top:none;display:bold;">Collaborators</h3>
+  <h3 class="modal-title" id="collaboratorId">Collaborators</h3>
+    <!-- <div >{{email}}ghjgjhghj</div> -->
 </div>
 
 <!-- <div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content" style="outline: none;border-top:none;">
@@ -9,14 +10,29 @@
 </div> -->
 
 
-<div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content" style="outline: none;border-top:none;">
+<div class="modal-body"   style="outline: none;border-top:none;">
   <!-- <div><img id="menu" class="circular--square1"  ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
 </div> -->
-  <div>
-    <div ><b>{{userinfo.local.userName || userinfo.facebook.displayName || userinfo.google.displayName}}</b></div>
-    <div >{{userinfo.local.email || userinfo.facebook.facebookEmail || userinfo.google.googleEmail}}</div>
+  <div style="display:block;">
+    <span style="display:inline;float:left;">
+      <div><img id="menu" class="circular--squareCollaborator"  ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
+      </div>
+    </span>
 
+    <span style="display:inline;float:left;margin-left: 14px;" >
+      <div ><b>{{displayName}}</b> <span style="margin-left:5px;font-style:italic;font-size:14px;">(Owner)</span></div>
+      <div >{{email}}</div>
+    </span>
   </div>
+
+
+  <div style="display:block;">
+    <span style="display:inline;float:left;">abc</span>
+      <span style="display:inline;float:left;" >
+          <input style="flex: 1 0 auto;margin: 0 13px;width:100%" type="text" ng-model="findEmail" placeholder="Person or email to share with" aria-label="Person or email to share with" maxlength="320" role="combobox" aria-autocomplete="list">
+        </span>
+  </div>
+
 </div>
 
 <div class="modal-footer" style="height:14px;font-size:12px;color:grey;border-top:none">
@@ -27,7 +43,7 @@
 </div>
 
 <div class="modal-footer" style="border-top:none">
-  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.updateCard();$ctrl.cancel()" >Save</button>
+  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.colSave() ;$ctrl.cancel()" >Save</button>
   <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.cancel()" >Cancel</button>
 </div>
 

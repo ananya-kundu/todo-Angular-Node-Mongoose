@@ -20,6 +20,7 @@ color:white;
   overflow: hidden;
   width:500px;
   height:350px;
+  margin : 10px 10px 10px 36px;
 }
 
 /*nav-bar collapse hiding style*/
@@ -32,7 +33,7 @@ color:white;
     font-family: 'Product Sans',Arial,sans-serif; /*iNTEGRATE THE FONT INTO YOUR CSS*/
      font-size: 24px;
      font-weight: 400;
-     margin-left: -25px;
+     margin-left: -7px;
      margin-top: -7px;
      position: relative;
      display: inline-block;
@@ -582,6 +583,27 @@ a {
       transform: scale3d(1.2, 1.2, 2);
       /*transform: rotate(180deg);*/
 }
+
+.circular--squareCollaborator{
+  text-align: center;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 50%;
+  color:white;
+  padding:0px;
+  font-size: 13px;
+   position: relative;
+   width: 44px;
+   height: 38px;
+   overflow: hidden;
+   border-radius: 50%;
+   border:0.5px solid #fff;
+}
+.circular--squareCollaborator:hover {
+    border: 1px solid black;
+
+}
+
 
 #logoutdropdown{
   width:335px;

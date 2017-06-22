@@ -21,7 +21,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
     $scope.mainNote = false;
     $scope.dummyNote = true;
   }
-console.log($scope.remindernote);
+// console.log($scope.remindernote);
 
   $scope.color = [
     {
@@ -129,19 +129,19 @@ $scope.getmsgcard = function() {
   $scope.getmsgcard();
   // controller for create card
   $scope.savemsgcard = function() {
-      $scope.mainNote=true;
-      $scope.dummyNote=false;
+      $scope.mainNote = true;
+      $scope.dummyNote = false;
       var title = $scope.title;
       var note = $scope.note;
-      $scope.title=null;
-      $scope.note=null;
+      $scope.title = null;
+      $scope.note = null;
 
       var object = {
             title1: title,
             content: note
           }
 
-      if (title==""&& note=="" || title==undefined && note==undefined || title==null && note==null){
+      if (title == "" && note == "" || title == undefined && note == undefined || title == null && note == null){
           return;
         }
 
@@ -285,25 +285,53 @@ $scope.refresh = function(){
          * @param {String} User - contain user
          */
 
-    $scope.collaborator = function(datanote){
+    $scope.collaborator = function(x){
+      object = {
+          id: x.userid,
+          col: 'collaborator'
+        }
+        // console.log(updateNote);
+     var url="http://localhost:8081/logIn";
+      var obj = mykeepService.app(url,object);
+      console.log("url nd obj passed",obj);
+      obj.then(function(data){
+          console.log("uyuioyuiyuioiopui",data.data.message);
+            $rootScope.displayName = data.data.message.displayName;
+          $rootScope.email = data.data.message.googleEmail;
+          console.log("cghjhjh",$scope.email);
+          console.log("cghjhjh",$scope.displayName);
 
-        var modalInstance = $uibModal.open({
-                templateUrl : "../html/collaborator.html",
 
-                  controller : "collaboratorController",
-                  resolve:{
-                  }
-                });
-              modalInstance.result.catch(function(error){
-                    console.log("error",error);
+          var modalInstance = $uibModal.open({
+                  templateUrl : "../html/collaborator.html",
+                  controller : function($uibModalInstance){
+                        var $ctrl = this;
+
+                        this.colSave = function(){
+                            // console.log("inside updation");
+
+                        };
+
+                        this.cancel = function(){
+                            // console.log("updation cancelled");
+                            $uibModalInstance.dismiss('cancel');
+                          };
+                },
+                controllerAs : "$ctrl"
               });
-              this.cancel = function(){
-                    // console.log("updation cancelled");
-                    $uibModalInstance.dismiss('cancel');
-              };
+            // }
+      }).catch(function(error){
+              console.log(error);
+        })
+
+      };
 
 
-      }//
+
+      // console.log("in function cols",x);
+      //
+      //   var modalInstance = $uibModal.open({
+      //           tem
 
 
 

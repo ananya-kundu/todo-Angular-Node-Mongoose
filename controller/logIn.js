@@ -25,71 +25,92 @@ var jwt = require('jsonwebtoken'); // used to create, sign and verify tokens
 
 /* POST call for login*/
 router.post('/login', function(req, res) {
-      try {
-        req.check(connDb1.validationSchema.login);
-        req.getValidationResult().then(function(isValid) {
-            try {
-              if (!isValid.isEmpty()) {
-                // winston.info('Validation Unsuccessfulls.Login Unsuccessfull');
-                var errors = req.validationErrors();
-                throw errors[0].msg
-              }
-              login.checkLoginData(req.body, function(err, user) {
-                if (!err) {
-                  if (user != null) {
-                    var loginPassword = req.body.password;
-                    var newLoginPassword = user.local.password;
+  // console.log("login apiiii");
+  if(req.body.col == 'collaborator')
+  {
+      login.collaborator(req.body,function(err,user){
 
-                    var encryptLoginPassword = login.encrypt(loginPassword);
-                     // generate the token if the username and pasword is matched
-                    if (newLoginPassword == encryptLoginPassword) {
-                        var token = jwt.sign({ id: user._id }, connDb.TOKEN_SECRET, {
-                            // expiresIn: 864000
-                            expiresIn: 60*60*24
-                          });
-                            res.cookie("cookie",token);
-                            winston.info('Login Successfull');
-                            //send the response to the caller with the access token and data
-                            res.send({
-                                "status": true,
-                                "message": "valid password...login Successfull",
-                                "token": token
-                              });
-                    } else {
-                            winston.error('Login UnSuccessfull');
-                            res.send({
-                                "status": false,
-                                "message": "wrong password"
-                              });
-                    }
+        if(!err){
+            winston.info('collaborator added');
+            console.log("within login collaborator if successfull",user.google.googleEmail);
+            res.send({"status":true,"message": user.google});
+        }else {
+            winston.error('collaborator not created');
+            console.log("within login col if error");
+            res.send({"status": false,"msg": err});
+        }
+      })
+  }
+  else{
+    try {
+      req.check(connDb1.validationSchema.login);
+      req.getValidationResult().then(function(isValid) {
+          try {
+            if (!isValid.isEmpty()) {
+              // winston.info('Validation Unsuccessfulls.Login Unsuccessfull');
+              var errors = req.validationErrors();
+              throw errors[0].msg
+            }
+            login.checkLoginData(req.body, function(err, user) {
+              if (!err) {
+                if (user != null) {
+                  var loginPassword = req.body.password;
+                  var newLoginPassword = user.local.password;
+
+                  var encryptLoginPassword = login.encrypt(loginPassword);
+                   // generate the token if the username and pasword is matched
+                  if (newLoginPassword == encryptLoginPassword) {
+                      var token = jwt.sign({ id: user._id }, connDb.TOKEN_SECRET, {
+                          // expiresIn: 864000
+                          expiresIn: 60*60*24
+                        });
+                          res.cookie("cookie",token);
+                          winston.info('Login Successfull');
+                          //send the response to the caller with the access token and data
+                          res.send({
+                              "status": true,
+                              "message": "valid password...login Successfull",
+                              "token": token
+                            });
                   } else {
-                        res.send({
-                            "status": false,
-                            "message": "email does not exists"
-                          });
+                          winston.error('Login UnSuccessfull');
+                          res.send({
+                              "status": false,
+                              "message": "wrong password"
+                            });
                   }
                 } else {
-                    res.send({
-                            "status": false,
-                            "message": "email errors"
-                    });
-                  }
-              });
-            } catch (e) {
-              console.log(e);
+                      res.send({
+                          "status": false,
+                          "message": "email does not exists"
+                        });
+                }
+              } else {
                   res.send({
-                      "status": false,
-                      "message": "Validation error. "
+                          "status": false,
+                          "message": "email errors"
                   });
-              }
-          });
-        }
-        catch (e) {
-          res.send({
-            "status": false,
-            "message": "server error"
-          });
-        }
+                }
+            });
+          } catch (e) {
+            console.log(e);
+                res.send({
+                    "status": false,
+                    "message": "Validation error. "
+                });
+            }
+        });
+      }
+      catch (e) {
+        res.send({
+          "status": false,
+          "message": "server error"
+        });
+      }
+
+
+  }
+
       });
 
     module.exports = router;

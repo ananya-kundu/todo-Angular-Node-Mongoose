@@ -237,6 +237,23 @@ ul{
         border-top:0 none;
     }
 }
+
+#collaboratorId {
+    /*border-bottom: 1px solid rgba(0,0,0,0.15);*/
+    font-size: 20px;
+    font-weight: 700;
+    height: 25px;
+    padding: 0 0 10px 0;
+    color: rgba(0,0,0,.87);
+    direction: ltr;
+    font-family: 'Roboto',arial,sans-serif;
+    outline: none;
+    border-top:none;
+}
+
+
+
+
 /*#xy {
     background: url(./images/header-bg1.jpg) repeat-y #ee7052;
     /*min-height: 82px;*/

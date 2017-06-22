@@ -150,6 +150,20 @@ userData.statics.checkLoginData = function(loginData, cb) {
     this.findById(userid,cb);
 }
 
+/**
+ * Find `User` by its id
+ * @api collaborator
+ */
+
+userData.statics.collaborator = function(req, cb) {
+  this.findOne({_id:req.id},cb);
+}
+
+
+userData.statics.findCollaborator = function(req, cb) {
+  this.findOne({'google.googleEmail': req.email },cb);
+}
+
 //model creation
 var userData = mongoose.model('userRegisterSchema', userData);
 module.exports = userData;

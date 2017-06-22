@@ -1,27 +1,21 @@
-app.controller('collaboratorController', function($scope,$uibModalInstance,mykeepService) {
-  // $scope.updated_title=object.title;
-  // $scope.updated_note=object.note;
-  // $scope.updated_date=object.updated;
-  // $scope.updated_color=object.bgcolor;
-  // $scope.id=object.id;
-
+app.controller('collaboratorController', function($scope,$uibModalInstance,obj,mykeepService) {
+  console.log("i'm col controller");
+  console.log("col control",obj);
 
   // console.log("contr",object);
-$scope.update = function (id) {
-console.log(id);
-console.log("title",$scope.updated_title);
+$scope.colSave = function () {
+console.log("col controller",id);
+var url="/logIn" ;
 
-    var updated_data={
-      title:$scope.updated_title,
-      take_note:$scope.updated_note,
-      _id:id
-
+    var collaboratorObj={
+      id: x.userid,
+      col: "collaborator"
     }
-   var url="/updateDatacard/" + id + "";
+  //  var url="/updateDatacard/" + id + "";
 
-    var obj = todo_service.App(url,updated_data,id);
+    var obj = mykeepService.app(url,collaboratorObj);
     obj.then(function(data) {
-      $scope.get_data();
+    console.log("fghjhjkjk",data);
 
 
     }).catch(function(error) {

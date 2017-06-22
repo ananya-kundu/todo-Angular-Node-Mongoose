@@ -39,7 +39,8 @@ app.controller('profileImageController', function($scope,$rootScope,mykeepServic
                 var obj = mykeepService.app(url,profileimgObj);
                 obj.then(function(data) {
                     // console.log(data.data.status);
-                    
+                  // mykeepService.app('')
+                  $uibModalInstance.dismiss('close');
                   }).catch(function(error) {
                         console.log("error1");
                       });

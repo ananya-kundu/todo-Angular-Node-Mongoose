@@ -84,7 +84,7 @@ router.post('/', function(req, res) {
             var token = createJWT(existingUser);
             res.cookie("cookie",token);
 
-            return res.send({ token: token });
+              return res.send({ token: token });
           }
           var user = new User();
           console.log("FGASDGHASGdAS ",profile);

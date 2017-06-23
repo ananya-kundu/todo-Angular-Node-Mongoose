@@ -22,31 +22,26 @@ var Schema = mongoose.Schema;
 /**
  * @schema UserSchema
  * @description User details
+ * create the schema for user
  */
-//create the schema for user
 var userData = Schema({
   local:{
         userName: {
           type: String,
-          // required: true,
           minlength: 2,
           maxlength: 50,
           validate : validators.isAlpha()
         },
         mobileNo :{
           type: Number,
-          // required: true,
           min : 10
         },
         email: {
           type: String,
-          // required: true,
-          // unique: true,
           validate : validators.isEmail()
         },
         password: {
           type: String,
-          // required: true,
           minlength: 4,
           maxlength: 100
         },
@@ -135,9 +130,9 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
 
 //check login data
 userData.statics.checkLoginData = function(loginData, cb) {
-  // console.log("inside",loginData);
     this.findOne({'local.email': loginData.email }, cb);
 }
+
 
 /**
  * Find `User` by its id
@@ -150,9 +145,10 @@ userData.statics.checkLoginData = function(loginData, cb) {
     this.findById(userid,cb);
 }
 
+
 /**
  * Find `User` by its id
- * @api collaborator
+ * @api logIn
  */
 
 userData.statics.collaborator = function(req, cb) {
@@ -161,8 +157,15 @@ userData.statics.collaborator = function(req, cb) {
 
 
 userData.statics.findCollaborator = function(req, cb) {
-  this.findOne({'google.googleEmail': req.email },cb);
+   this.find({userid:req.id}, cb);
 }
+
+
+
+userData.statics.shareNoteCollaborator = function(req, cb) {
+    this.findOne({$or:[{'local.email': req.emailid },{'google.googleEmail': req.emailid}]}, cb);
+}
+
 
 //model creation
 var userData = mongoose.model('userRegisterSchema', userData);

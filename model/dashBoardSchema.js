@@ -84,6 +84,41 @@ Msg.statics.saveMsgData = function(reqData, cb) {
 };
 
 /**
+ * collaborator --finfd by email id--called in logIn.js,if 'collaborator' String is get
+ * @api For Card
+ */
+Msg.statics.collaborator = function(email, cb) {
+  this.find({
+    email: email
+  }, cb);
+}
+
+/**
+ * shareCardData for collaborator--it share the same card of selected card
+ * @api For Card
+ */
+
+Msg.statics.shareCardData = function(reqData, cb) {
+  var userObj = new this({
+    userid  : reqData.id,
+    title1 : reqData.title,
+    content : reqData.content,
+    color : reqData.color,
+    reminder : reqData.reminder,
+    isPinup : reqData.isPinup,
+    isDeleted: reqData.isDeleted
+  });
+  userObj.save().then(function(result){
+    console.log("result",result);
+  }).catch(function(err){
+    console.log("error",err);
+  });
+};
+
+
+
+
+/**
  * get Card
  *
  * find by userid
@@ -165,11 +200,6 @@ Msg.statics.popupCardsData = function(userid, cb) {
 };
 
 
-Msg.statics.collaborator = function(email, cb) {
-  this.find({
-    email: email
-  }, cb);
-}
 
 
 

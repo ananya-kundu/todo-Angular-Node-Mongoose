@@ -67,6 +67,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   ]
 
 
+
   $scope.image = function() {
     var url = "http://localhost:8081/userprofile";
     console.log();
@@ -251,7 +252,6 @@ $scope.refresh = function(){
                         var obj = mykeepService.app(url,updateNote);
 
                         obj.then(function(data){
-                            // console.log("updated");
                             if(data.data.status == true){
                                   $scope.getmsgcard();
                                 }else{
@@ -281,57 +281,109 @@ $scope.refresh = function(){
 
 
     /**
-         * @function collaborator - create collaborator modal
+         * @function collaborator - create,find collaborator and send card to the collaborator
          * @param {String} User - contain user
          */
-
-    $scope.collaborator = function(x){
+$scope.collaboratorList = [];          //make a collaborator list
+  var homecnt = this;                   //it is define for access this outside collaborator function
+    $scope.collaborator = function(x){            //to add collaborator,x is card
       object = {
           id: x.userid,
           col: 'collaborator'
         }
-        // console.log(updateNote);
-     var url="http://localhost:8081/logIn";
+     var url = "http://localhost:8081/logIn";       //logIn api call
       var obj = mykeepService.app(url,object);
       console.log("url nd obj passed",obj);
       obj.then(function(data){
-          console.log("uyuioyuiyuioiopui",data.data.message);
-            $rootScope.displayName = data.data.message.displayName;
-          $rootScope.email = data.data.message.googleEmail;
-          console.log("cghjhjh",$scope.email);
-          console.log("cghjhjh",$scope.displayName);
+          console.log("data-message::",data.data.message);
+            $rootScope.displayName = data.data.message.displayName;      //fetch owner display name
+            $rootScope.email = data.data.message.googleEmail;           //fetch owner email(fetch only gmail's email)
+            console.log("email::",$scope.email);
+            console.log("displayName::",$scope.displayName);
 
 
-          var modalInstance = $uibModal.open({
-                  templateUrl : "../html/collaborator.html",
-                  controller : function($uibModalInstance){
+          var modalInstance = $uibModal.open({                     //cal modalInstance
+                  templateUrl : "../html/collaborator.html",      //vollaborator.html call
+                  controller : function($uibModalInstance,$scope){
                         var $ctrl = this;
+                        this.colHit=function(demo){       //cilHit call on save button clicked,demo is passed emailid which i want to send card
+                              var url = "/shareNote";     //call shareNote api
+                              var shareObj = {
+                                emailid : demo  //this is receiver emailid
+                              }
 
-                        this.colSave = function(){
-                            // console.log("inside updation");
+                              var obj = mykeepService.app(url,shareObj);
+                              obj.then(function(data){
+                                    console.log("id col res",data.data.result._id);
+                                    $rootScope.collabData = data.data.result._id;       //user id-which i send the card--it is in data.data.result._id;which is stored in collabData.
+                                    // var url="/createcards";
+                                    var object =    //create one object of selected card
+                                    {
+                                          id:$rootScope.collabData,
+                                          title:x.title1,
+                                          content:x.content,
+                                          color:x.color,
+                                          reminder : x.reminder,
+                                          isPinup : x.isPinup,
+                                          isDeleted: x.isDeleted,
+                                          share:"share"
+                                      }
+                                    // console.log("colabdata",object);
+                                    var url="/createCards";                          //call createcard api for sharing card
+                                    var obj = mykeepService.app(url,object);         //pass the url and object of card
+                                    obj.then(function(data){
+                                        console.log("data saved in another id",data);
+                                      }).catch(function(error) {
+                                              console.log("err");
+                                            })
+                                });
+                          collab(demo); //call collab;collab function have receiver userid and selected cardid;which is send by demo--'demo' contain Owner mailid
+                        }
+                        this.findCollab = function() {                        //it is use for find receiver--findcollab call onclicking on text box
+                            var url = "/findCollaborator";                     //findCollaborator api call
+                            var obj = mykeepService.app(url);
+                            obj.then(function(data) {
+                              var colListArray=data.data.userinfo.map(function (mapData) {      //find the list of all emailid,which is present in database
+                                if (mapData.local) {
+                                 return mapData.local.email;
+                               }else {
+                                 if (mapData.facebook) {
+                                   return mapData.facebook.facebookEmail;
+                                 }else {
+                                   if (mapData.google) {
+                                     return mapData.google.googleEmail;
+                                   }
+                                 }
+                               }
+                              });
+                              colListArray=colListArray.filter(function (filterData) {            //filter the data if undefined and null oe empty
+                                return filterData!==undefined || filterData!==null || filterData!==""
+                              });
+                                  $scope.collaboratorList = colListArray;   //give list of all email
+                                  // console.log("find colllll",colListArray);
+                          // console.log("find colllll",data.data.userinfo[0].local.email);
+                            }).catch(function(error) {
+                                    console.log("err");
+                                  })
 
+                        //  $uibModalInstance.dismiss('done');
+                        }
+                        this.cancel = function(){
+                            $uibModalInstance.dismiss('cancel');
                         };
 
-                        this.cancel = function(){
-                            // console.log("updation cancelled");
-                            $uibModalInstance.dismiss('cancel');
-                          };
-                },
-                controllerAs : "$ctrl"
+                        var collab = function(data){                        //colaab function contain data--which have selected card id and email of receiver i.e. which I want to send that card
+                          console.log("cardId",x.userid,"email",data);
+                        }
+                    },
+                    controllerAs : "$ctrl"
               });
-            // }
       }).catch(function(error){
               console.log(error);
         })
-
       };
 
 
-
-      // console.log("in function cols",x);
-      //
-      //   var modalInstance = $uibModal.open({
-      //           tem
 
 
 

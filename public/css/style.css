@@ -49,12 +49,6 @@
 }
 
 
-
-/*#wrapper.toggled
-{*/
-    /*padding-left: 170px;*/
-/*}*/
-
 .navbar-inverse
 {
     border-color: #eee;
@@ -200,25 +194,7 @@ ul{
     margin-bottom: 10px;
 }
 
-.btn-fb{
-    color: #fff;
-    background-color:#3b5998;
-}
 
-.btn-fb:hover{
-    color: #fff;
-    background-color:#496ebc
-}
-
-.btn-tw{
-    color: #fff;
-    background-color:#55acee;
-}
-
-.btn-tw:hover{
-    color: #fff;
-    background-color:#59b5fa;
-}
 
 .container-fluid {
   padding-right: 1%;
@@ -238,20 +214,92 @@ ul{
     }
 }
 
-#collaboratorId {
-    /*border-bottom: 1px solid rgba(0,0,0,0.15);*/
-    font-size: 20px;
-    font-weight: 700;
-    height: 25px;
-    padding: 0 0 10px 0;
-    color: rgba(0,0,0,.87);
-    direction: ltr;
-    font-family: 'Roboto',arial,sans-serif;
-    outline: none;
-    border-top:none;
+.btn-block
+{
+    position: relative;
+    color: #fff;
+    border-color: rgba(182, 189, 182, 0);
+    /*border-collapse: separate;*/
+    border-radius: 6px;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    /*background-color: #403232;*/
+}
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*.btn-block {
+
+}*/
+.btn-social>:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    line-height: 34px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
 }
 
+/*.waves-effect {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+}
 
+#fbBtn:hover{
+  color:red;
+}*/
+
+
+/*.counter {
+    position: absolute;
+    margin-left: -23px;
+    margin-top: -1px;
+    background-color: red;
+    color: #fff;
+    padding: 1px 7px;
+    font-size: 11px;
+    z-index: 2;
+    border-radius: 10rem;
+}*/
+/*.btn-facebook:hover {
+    color: #fff;
+    background-color: rgba(59, 89, 152, 0.83);;
+    border-color: rgba(0,0,0,0.2);
+}*/
+
+/*.btn-facebook{
+    color: #fff;
+    background-color:#3b5998;
+    white-space: nowrap;
+    border-color: rgba(0,0,0,0.2);
+}*/
+
+
+
+/*.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}*/
+
+#googleBtn:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
 
 
 /*#xy {

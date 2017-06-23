@@ -1,6 +1,5 @@
 
 <body>
-
   <nav class="navbar navbar-inverse navbar-fixed-top" ng-style="archivenav" style="background-color: rgba(6,6,6,1);" role="navigation">
     <div class="container-fluid" >
         <div class="navbar-header">
@@ -10,42 +9,28 @@
           </span></a>
 
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle" >
-            <!-- <span id="archivebrand" ng-show="!archivenote" ng-style="archivebrand" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true">Archive</span> -->
-              <!-- <span id="reminderbrand" ng-show="!remindernote" ng-style="reminderbrand" uib-tooltip="Reminders"  tooltip-placement="bottom" tooltip-append-to-body="true">Reminders</span> -->
-              <!-- <span id="trashbrand" ng-show="!trashnote" ng-style="trashbrand" uib-tooltip="Trash"  tooltip-placement="bottom" tooltip-append-to-body="true">Trash</span> -->
               <span id="keepClass" ng-style="brandname" uib-tooltip="My keep"  tooltip-placement="bottom" tooltip-append-to-body="true">{{keep}}</span>
           </a>
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+          </button>
       </div>
 
       <!-- <div><img id="watermark" src="../images/logo4.png"></div> -->
 
-
-
-
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-          <a  id="refresh" uib-tooltip="Refresh" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="refresh()" >
+              <a  id="refresh" uib-tooltip="Refresh" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="refresh()" >
                     <svg id="refreshicon" ng-style="archiverefresh" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="grey">
-                     <path d="m9 13.5c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5c1.24 0 2.36 0.52 3.17 1.33l-2.17 2.17h5v-5l-1.76 1.76c-1.09-1.08-2.58-1.76-4.24-1.76-3.31 0-5.99 2.69-5.99 6s2.68 6 5.99 6c2.97 0 5.43-2.16 5.9-5h-1.52c-0.46 2-2.24 3.5-4.38 3.5z"/>
+                        <path d="m9 13.5c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5c1.24 0 2.36 0.52 3.17 1.33l-2.17 2.17h5v-5l-1.76 1.76c-1.09-1.08-2.58-1.76-4.24-1.76-3.31 0-5.99 2.69-5.99 6s2.68 6 5.99 6c2.97 0 5.43-2.16 5.9-5h-1.52c-0.46 2-2.24 3.5-4.38 3.5z"/>
                     </svg>
-
-                  </a>
-                </li>
-
-
-          <!-- <li><a>
-              <span uib-tooltip="Refresh" tooltip-placement="bottom" tooltip-append-to-body="true">
-            <span class="glyphicon glyphicon-refresh" id="refreshicon" aria-hidden="true" style="margin-left:2%;margin-top:3px;"  ng-style="archivegly">
-            </span>
-            </span> </a></li> -->
-
+                </a>
+          </li>
 
           <li>
             <p class="navbar-text" id="textColor">
@@ -101,12 +86,14 @@
                </li>
 
         </ul>
-        <form class="navbar-form navbar-left">
-          <div class="input-group" id="inputid" ng-style="archivesearch" style="padding-right:3%;background-color:rgba(6,6,6,1);" uib-tooltip="Search" tooltip-placement="bottom" tooltip-append-to-body="true">
-            <input type="text" class="form-control" ng-model="search" placeholder="Search..." id="query" ng-style="archivequery" name="search" value="" />
-            </div>
-        </form>
-      </div>
+
+            <form class="navbar-form navbar-left">
+              <div class="input-group" id="inputid" ng-style="archivesearch" style="padding-right:3%;background-color:rgba(6,6,6,1);" uib-tooltip="Search" tooltip-placement="bottom" tooltip-append-to-body="true">
+                <input type="text" class="form-control" ng-model="search" placeholder="Search..." id="query" ng-style="archivequery" name="search" value="" />
+                </div>
+            </form>
+
+        </div>
       </div>
     </div>
   </nav>
@@ -120,25 +107,20 @@
         <ul class="sidebar-nav" >
           <li class="sidebar-brand"><br> </li>
           <li class="sidebar-brand">
-            <a href="#" class="navbar-brand" style="margin-top:8px;">
+            <!-- <a href="#" class="navbar-brand" style="margin-top:8px;">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile
-            </a>
+            </a> -->
           </li>
 
           <li>
             <a ui-sref="dashboard"><span class="glyphicon glyphicon-home"  aria-hidden="true"></span> Notes</a>
           </li>
 
-          <!-- <li>
-            <a ui-sref="reminder">
-              <span class="glyphicon glyphicon-hand-up" aria-hidden="true" ui-sref="reminder" ng-click ="remainderData()"></span> Reminders</a>
-          </li> -->
-
           <li>
             <a ui-sref="reminder" >
               <svg width="20px" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" height="20px" style="margin-left:14px;">
-                <path d="m0 0h24v24h-24z" fill="none"></path>
-                <path d="m20.78 13.16l-6.05-3.02c-0.23-0.09-0.47-0.14-0.73-0.14h-1v-2h1.75c1.66 0 3-1.34 3-3s-1.34-3-3-3c-0.75 0-1.14 0.22-1.75 0.75v-0.75c0-1.1-0.9-2-2-2s-2 0.9-2 2v0.75c-0.61-0.53-1-0.75-1.75-0.75-1.66 0-3 1.34-3 3s1.34 3 3 3h1.75v8.31l-4.57-0.95c-0.1-0.02-0.21-0.03-0.32-0.03-0.41 0-0.79 0.17-1.06 0.44l-1.05 1.06 6.59 6.59c0.36 0.36 0.86 0.58 1.41 0.58h9.06c1 0 1.77-0.74 1.92-1.7l1-7.03c0.01-0.09 0.02-0.18 0.02-0.27 0-0.83-0.5-1.54-1.22-1.84zm-11.53-6.16h-2c-1.1 0-2-0.9-2-2s0.9-2 2-2 2 0.9 2 2v2zm3.5-2c0-1.1 0.9-2 2-2s2 0.9 2 2-0.9 2-2 2h-2v-2z" fill="grey" > </path>
+                  <path d="m0 0h24v24h-24z" fill="none"></path>
+                  <path d="m20.78 13.16l-6.05-3.02c-0.23-0.09-0.47-0.14-0.73-0.14h-1v-2h1.75c1.66 0 3-1.34 3-3s-1.34-3-3-3c-0.75 0-1.14 0.22-1.75 0.75v-0.75c0-1.1-0.9-2-2-2s-2 0.9-2 2v0.75c-0.61-0.53-1-0.75-1.75-0.75-1.66 0-3 1.34-3 3s1.34 3 3 3h1.75v8.31l-4.57-0.95c-0.1-0.02-0.21-0.03-0.32-0.03-0.41 0-0.79 0.17-1.06 0.44l-1.05 1.06 6.59 6.59c0.36 0.36 0.86 0.58 1.41 0.58h9.06c1 0 1.77-0.74 1.92-1.7l1-7.03c0.01-0.09 0.02-0.18 0.02-0.27 0-0.83-0.5-1.54-1.22-1.84zm-11.53-6.16h-2c-1.1 0-2-0.9-2-2s0.9-2 2-2 2 0.9 2 2v2zm3.5-2c0-1.1 0.9-2 2-2s2 0.9 2 2-0.9 2-2 2h-2v-2z" fill="grey" > </path>
               </svg>
               <span aria-hidden="true" ui-sref="reminder" ng-click ="remainderData()"></span>Reminders
             </a>
@@ -146,16 +128,8 @@
 
           <li>
             <a ui-sref="archive">
-              <!-- <svg width="20px" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" height="22px" style="margin-left:14px;">
-
-                <path d="m0 0h24v24h-24z" fill="none"></path>
-              <path d="m20.54 5.23l-1.39-1.68c-0.27-0.34-0.68-0.55-1.15-0.55h-12c-0.47 0-0.88 0.21-1.16 0.55l-1.38 1.68c-0.29 0.34-0.46 0.79-0.46 1.27v12.5c0 1.1 0.9 2 2 2h14c1.1 0 2-0.9 2-2v-12.5c0-0.48-0.17-0.93-0.46-1.27zm-8.54 12.27l-5.5-5.5h3.5v-2h4v2h3.5l-5.5 5.5zm-6.88-12.5l0.81-1h12l0.94 1h-13.75z" fill="grey"></path>
-
-            </svg> -->
-              <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" ui-sref="archive" ng-click ="archive()">
-              </span> Archive</a>
-            <!-- <span class="glyphicon glyphicon-search" aria-hidden="true" ui-sref="archive" ng-click ="archive()" ></span>
-            <font color="#337AB7"> Archive</font> -->
+              <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" ui-sref="archive" ng-click ="archive()"></span> Archive
+            </a>
           </li>
 
 
@@ -192,53 +166,48 @@
 
       <!-- for cards -->
       <div id="page-content-wrapper" >
-        <!-- <div class="container" style = "border:1px solid black"> -->
+
         <div ng-show = "activenote" class="row" id="msgDivId">
-          <div class="col-md-3 col-lg-3 col-sm-3"></div>
+            <div class="col-md-3 col-lg-3 col-sm-3"></div>
 
-            <div class="col-md-6 col-lg-6 col-sm-6">
+              <div class="col-md-6 col-lg-6 col-sm-6">
 
-              <div id="mainMsgBox">
-                <div id="title" ng-show="mainNote" ng-click="takeclick()">
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12" type="text" id="dummyTitle" ng-click="mainNote = !mainNote" placeholder="Take a note.." ></div>
+                <div id="mainMsgBox">
+                  <div id="title" ng-show="mainNote" ng-click="takeclick()">
+                      <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12" type="text" id="dummyTitle" ng-click="mainNote = !mainNote" placeholder="Take a note.." ></div>
+                  </div>
                 </div>
-              </div>
 
-              <div id="userMsgBox" ng-show="dummyNote" class="toggled">
-                <div id="title1" newcontenteditable contenteditable="true" ng-model="title" class="userGivenTitle" placeholder="Title" size="50" style="border:none;outline:none;"></div>
-                <div id="content" newcontenteditable contenteditable="true" ng-model="note" placeholder="Take a Note.." size="50" style="border:none;outline:none;"></div>
+                <div id="userMsgBox" ng-show="dummyNote" class="toggled">
+                  <div id="title1" newcontenteditable contenteditable="true" ng-model="title" class="userGivenTitle" placeholder="Title" size="50" style="border:none;outline:none;"></div>
+                  <div id="content" newcontenteditable contenteditable="true" ng-model="note" placeholder="Take a Note.." size="50" style="border:none;outline:none;"></div>
 
-                <!-- <div class="btn-group" uib-dropdown is-open="status.isopen"> -->
-                <p id="writeMsg">
-                    <!-- <i style="margin-left:16px" class="fa fa-hand-pointer-o fa-lg" aria-hidden="true" style="font-size:22px"></i>
-                     <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-                     <i style="margin-left:16px" class="fa fa-paint-brush fa-lg" style="font-size:22px" aria-hidden="true"></i>
-                     <i style="margin-left:16px" class="fa fa-picture-o fa-lg" aria-hidden="true"></i> -->
-                      <button class="btn btn-warning" type="button" id="done" ng-click="savemsgcard()">DONE</button>
-                </p>
-             </div>
-          </div>
+                  <p id="writeMsg">
+                        <button class="btn btn-warning" type="button" id="done" ng-click="savemsgcard()">DONE</button>
+                  </p>
+               </div>
 
-          <div class="col-md-3 col-lg-3 col-sm-3"></div>
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-sm-3"></div>
         </div>
-        <div class="row">
-          <div class="col-sm-2 col-md-2 col-lg-2">
-          </div>
-          <div class="col-sm-8 col-md-8 col-lg-8">
+
+          <div class="row">
+              <div class="col-sm-2 col-md-2 col-lg-2"></div>
+              <div class="col-sm-8 col-md-8 col-lg-8">
         <!-- <div ng-show="grid"> -->
           <!-- style="border:2px solid green;" -->
-
-          <div ng-show = "pinnote" ng-include="'./html/pinup.html'"></div>
-          <div ng-show = "normalnote" ng-include="'./html/gridlistview.html'"></div>
-          <div ng-show = "archivenote" ng-include="'./html/archive.html'"></div>
-          <div ng-show = "remindernote" ng-include="'./html/reminder.html'"></div>
-          <div ng-show = "trashnote" ng-include="'./html/trash.html'"></div>
+                      <div ng-show = "pinnote" ng-include="'./html/pinup.html'"></div>
+                      <div ng-show = "normalnote" ng-include="'./html/gridlistview.html'"></div>
+                      <div ng-show = "archivenote" ng-include="'./html/archive.html'"></div>
+                      <div ng-show = "remindernote" ng-include="'./html/reminder.html'"></div>
+                      <div ng-show = "trashnote" ng-include="'./html/trash.html'"></div>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2"></div>
+          </div>
         </div>
-        <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      </div>
     </div>
-  </div>
-  </div>
-</div>
 </body>
 
 <script>
@@ -259,215 +228,13 @@
     // $("#userMsgBox").show();
   });
 
-  // <Msg box>
-  // $("#userMsgBox").hide();
-  // $("#mainMsgBox").click(function() {
-  //   $("#dummyTitle").hide();
-  //   $("#userMsgBox").show();
-  // });
-
 
 </script>
 
 </html>
 
 
-<!-- <div id="header-search" class="clr">
-<form method="get" id="searchform" class="searchform att-searchform" action="https://wdexplorer.com/" role="search">
 
-  <button type="submit" class="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
-</form>
-</div> -->
-
-<!-- <div class="gb_qc gb_Cd gb_Nd gb_Bd gb_Id">
-  <div class="gb_ee gb_Ed"></div>
-  <div class="gb_zd"> -->
-    <!-- <form class="gb_ke" aria-expanded="false" style=""width:100px;height:20px;" method="get">
-      <button class="gb_Pe" aria-label="Clear search" type="button" style="visibility: hidden;width:100px;height:15px;">
-        <svg height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-          <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
-      </button>
-      <button class="gb_De" aria-label="Search" role="button">
-        <svg height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-          </path>
-          <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg
-        ></button>
-        <button class="gb_Oe" aria-label="Close search" type="button">
-          <svg height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg" style="color:red;">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
-          </svg>
-        </button>
-        <div class="gb_Te">
-          <input class="gb_Be" aria-label="Search" autocomplete="off" placeholder="Search" value="" name="q" role="combobox" type="text">
-        </div>
-      </form>
-    </div>
-    <div class="gb_fe gb_Ed">
-      <div class="Q0hgme-Yygnk-m5SR9c gb_ge gb_xb to915-xJ5Hnf">
-        <div class="Yygnk-m5SR9c-Bz112c"></div>
-        <div class="Q0hgme-n5T17d-woLtV CZjX4e" style="display: none;">
-          <div class="aZ2wEe-pbTTYe v3pZbf">
-            <div class="LkdAo-e9ayKc LK5yu">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="pehrl-TpMipd">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="LkdAo-e9ayKc qwU8Me">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-          </div>
-          <div class="aZ2wEe-pbTTYe oq6NAc">
-            <div class="LkdAo-e9ayKc LK5yu">
-              <div class="LkdAo hj4D6d">
-              </div>
-            </div>
-            <div class="pehrl-TpMipd">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="LkdAo-e9ayKc qwU8Me">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-          </div>
-          <div class="aZ2wEe-pbTTYe gS7Ybc">
-            <div class="LkdAo-e9ayKc LK5yu">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="pehrl-TpMipd">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="LkdAo-e9ayKc qwU8Me">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-          </div>
-          <div class="aZ2wEe-pbTTYe nllRtd">
-            <div class="LkdAo-e9ayKc LK5yu">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="pehrl-TpMipd">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-            <div class="LkdAo-e9ayKc qwU8Me">
-              <div class="LkdAo hj4D6d"></div>
-            </div>
-          </div>
-        </div>
-        <div role="button" class="Q0hgme-LgbsSe Q0hgme-Bz112c-LgbsSe qrlFte VIpgJd-LgbsSe Bz112c-LgbsSe-to915-xJ5Hnf" tabindex="0" aria-label="Refresh" style="user-select: none;">
-        </div>
-      </div>
-      <div role="button" class="Q0hgme-LgbsSe Q0hgme-Bz112c-LgbsSe VIpgJd-LgbsSe gb_ge gb_xb neVct-SX9D7d-ornU0b UU3Zxb-LgbsSe Bz112c-LgbsSe-to915-xJ5Hnf" tabindex="0" aria-label="List View" style="user-select: none;">
-      </div> -->
-    <!-- </div>
-  </div> -->
-
-
-
-
-
-
-
-
-<!--
-
-
-        <div ng-show="list">
-          <div class="row" id="noteslist">
-            <div id="innotelist" class="row" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search">
-              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-              </div>
-              <div id="preid1" style="background-color:{{x.color}}" class="col-lg-8 col-md-8 col-sm-8 col-xs-10 cardhover">
-                <div id="divtitle" style="margin-left:1%;"><i id="titlecss"  ng-click="popup(x)" ng-bind-html = "x.title1"></i></div>
-                <div id="noteinner" ng-click="popup(x)" ng-bind-html = "x.content"></div>
-
-
-
-                <div id="footer" >
-                  <span ng-show="icons">
-
-                   <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-                         <a href uib-dropdown-toggle>
-                             <i id='reminder' style="width:1%;background-color:transparent;" class="fa fa-hand-pointer-o fa-lg" uib-popover="Remind me"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" ></i>
-                           </a>
-                           <ul uib-dropdown-menu aria-labelledby="simple-dropdown" style="width:100px;position:absolute;">
-                             <li id="fulldrop">
-                                     <a id="normal" style="font-size:16px">Reminder:</a>
-                                     <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
-                                     <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
-                                     <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
-                                     <b id="drop" style="margin-left:18px;">Pick Date and Time:</b>
-                                    <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
-                                        <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
-                                              <div class="input-group" style="width:126px;margin-left:18px;">
-                                                <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
-                                                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                                  </div>
-                                                  <a ng-click="createReminder(x._id,toDo.remainder)" >
-                                                    <span id="saveReminder" style="margin-left:50px;color:teal;">Save</span>
-                                                  </a>
-                                          </a>
-
-                                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                             <datetimepicker data-ng-model="toDo.remainder" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
-                                          </ul>
-                                      </div>
-                                  </li>
-                             </ul>
-                       </span>
-
-
-
-                <i style="margin-left:16px" class="fa fa-user-plus" style="font-size:36px" aria-hidden="true"> </i>
-
-                <i aria-hidden="true">
-                <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-                      <a href uib-dropdown-toggle>
-                          <img id='reminder'  style="width:2%;height:35%" src="../images/color.png" uib-popover="Change color"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" />
-                        </a>
-                        <div uib-dropdown-menu aria-labelledby="simple-dropdown">
-                                  <a id="normal" ng-repeat = "y in color" style="font-size:16px"><img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)"></a>
-                          </div>
-                    </span>
-                  </i>
-
-
-                <i style="margin-left:6px" aria-hidden="true">
-                   <span uib-dropdown on-toggle dropdown-append-to-body="true" >
-                         <a href uib-dropdown-toggle>
-                             <i id='more' uib-popover="More"  popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter'" class="fa fa-ellipsis-v"></i>
-                         </a>
-                         <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-                               <li id="fulldrop">
-                                   <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a>
-                                   <a href="#">Make a copy</a>
-                               </li>
-                           </ul>
-                     </span>
-                      </i>
-                   </span>
-
-                 </div>
-
-                     <div ng-if="x.reminder" id="remindercss">
-                       <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
-                         <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
-                     </span>
-                     <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;"></span>
-                     </div>
-
-              </div>
-              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
- -->
  <!-- <li class="dropdown" >
        <a class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">
          <b><span class="glyphicon glyphicon-user"   ng-style="archivegly" id="caret" ></b>
@@ -489,3 +256,14 @@
          </li>
        </ul>
    </li> -->
+   <!-- // <Msg box>
+   // $("#userMsgBox").hide();
+   // $("#mainMsgBox").click(function() {
+   //   $("#dummyTitle").hide();
+   //   $("#userMsgBox").show();
+   // }); -->
+   <!-- <li><a>
+       <span uib-tooltip="Refresh" tooltip-placement="bottom" tooltip-append-to-body="true">
+     <span class="glyphicon glyphicon-refresh" id="refreshicon" aria-hidden="true" style="margin-left:2%;margin-top:3px;"  ng-style="archivegly">
+     </span>
+     </span> </a></li> -->

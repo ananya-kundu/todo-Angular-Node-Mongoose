@@ -2,49 +2,98 @@
 <div style="background-color:white">
 <div class="modal-header" >
   <h3 class="modal-title" id="collaboratorId">Collaborators</h3>
-    <!-- <div >{{email}}ghjgjhghj</div> -->
 </div>
 
-<!-- <div class="modal-body" newcontenteditable contenteditable="true" ng-model="$ctrl.content" style="outline: none;border-top:none;">
-  <span><b></b></span>{{title}}
-</div> -->
+<div><img  id="collabImage" ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/></div>
+<div style="display: inline-block;margin-left: 90px;margin-top: 5px;vertical-align: middle;font-size: 17px;">
+			<div style="font-weight: bold;margin-top: -57px;">{{displayName}}
+				<div style="display: inline-block; font-weight: normal;"><i>(Owner)</i></div>
+			</div>
+				<div style="color:rgba(0,0,0,0.61);">{{email}}</div>
+</div>
 
 
-<div class="modal-body"   style="outline: none;border-top:none;">
-  <!-- <div><img id="menu" class="circular--square1"  ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
-</div> -->
-  <div style="display:block;">
-    <span style="display:inline;float:left;">
-      <div><img id="menu" class="circular--squareCollaborator"  ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
-      </div>
-    </span>
-
-    <span style="display:inline;float:left;margin-left: 14px;" >
-      <div ><b>{{displayName}}</b> <span style="margin-left:5px;font-style:italic;font-size:14px;">(Owner)</span></div>
-      <div >{{email}}</div>
-    </span>
+  <div>
+    <img  id="collabImage" src="../images/addIcon.png" style="border:0.5px solid grey"alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}" style="align-self: center;font-weight: bold;"/>
   </div>
 
+  <div style="display: inline-block;margin-left: 90px;margin-top: 5px;vertical-align: middle;font-size: 17px;">
+  			<div style="font-weight: bold;margin-top: -57px;">
+            <input type="text" ng-click="$ctrl.findCollab()" ng-model="findEmail" id="colbFindcss" placeholder="Person or email to share with" aria-label="Person or email to share with" maxlength="320" role="combobox" aria-autocomplete="list">
 
-  <div style="display:block;">
-    <span style="display:inline;float:left;">abc</span>
-      <span style="display:inline;float:left;" >
-          <input style="flex: 1 0 auto;margin: 0 13px;width:100%" type="text" ng-model="findEmail" placeholder="Person or email to share with" aria-label="Person or email to share with" maxlength="320" role="combobox" aria-autocomplete="list">
-        </span>
-  </div>
+            <ul class="example-animate-container">
+                <li class="animate-repeat" ng-repeat="x in collaboratorList | filter:findEmail as results">
+                  <span ng-bind="x"></span>
+                </li>
+                <li class="animate-repeat" ng-if="results.length === 0" >{{x}}
+                    <strong> Email-id Not found..</strong>
+                </li>
+              </ul>
+        </div>
+  				<div style="color:rgba(0,0,0,0.61);"></div>
+    </div>
 
-</div>
-
-<div class="modal-footer" style="height:14px;font-size:12px;color:grey;border-top:none">
-<!-- <div style="float:right;">Edited on:
-  <div newcontenteditable contenteditable="true" ng-model="$ctrl.updated_at" style="outline: none;display:inline;"></div>
-      <div style="">{{$ctrl.date | date :'HH:MM'}}</div>
-  </div> -->
-</div>
+<div class="modal-footer" style="height:14px;font-size:12px;color:grey;border-top:none"></div>
 
 <div class="modal-footer" style="border-top:none">
-  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.colSave() ;$ctrl.cancel()" >Save</button>
+  <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.colHit(findEmail) ;$ctrl.cancel();" >Save</button>
   <button class="btn btn-warning" type="button" id="done" ng-click="$ctrl.cancel()" >Cancel</button>
 </div>
 
-</div>
+<!-- </div> -->
+
+<!-- <span class="wpcf7-form-control-wrap your-recipient">
+  <div class="select-wrapper wpcf7-form-control wpcf7-select">
+    <span class="caret">▼</span>
+    <input type="text" class="select-dropdown" readonly="true" data-activates="select-options-f3066c53-1a26-f513-7152-6a59e6775383" value="Sales and licenses">
+      <ul id="select-options-f3066c53-1a26-f513-7152-6a59e6775383" class="dropdown-content select-dropdown" style="width: 400px; position: absolute; top: 0px; left: 0px; opacity: 1; display: none;">
+        <li class="">
+          <span class="filtrable">Support and technical questions</span>
+        </li>
+        <li class="">
+          <span class="filtrable">Sales and licenses</span>
+        </li>
+        <li class="active">
+          <span class="filtrable">Accounts and billing</span>
+        </li>
+        <li class="">
+          <span class="filtrable">Feedback</span>
+        </li>
+        <li class="">
+          <span class="filtrable">General questions</span>
+        </li>
+      </ul>
+      <select name="your-recipient" class="wpcf7-form-control wpcf7-select initialized" aria-invalid="false">
+        <option value="Support and technical questions">Support and technical questions</option>
+        <option value="Sales and licenses">Sales and licenses</option>
+        <option value="Accounts and billing">Accounts and billing</option>
+        <option value="Feedback">Feedback</option>
+        <option value="General questions">General questions</option>
+      </select>
+    </div>
+  </span> -->
+
+
+<!-- <div style="background-color:white;">
+<div class="modal-header" style="margin-bottom:15px;" >  <h3 class="modal-title" id="collaboratorId">Collaborators</h3></div>
+	<div style="border:1px solid;border-radius: 50%;width: 45px;height: 45px; padding-left: 11px;font-size: 33px;display: inline-block;margin-left: 35px" ng-src="{{userinfo.local.profileImage || userinfo.facebook.picture || userinfo.google.picture}}" alt="{{userinfo.local.userName.charAt(0) ||userinfo.facebook.displayName.charAt(0) || userinfo.google.displayName.charAt(0) | uppercase}}"></div>
+
+		<div style="display: inline-block;margin-left: 30px;margin-top: 5px;vertical-align: middle;font-size: 17px;">
+			<div style="font-weight: bold;margin-top: -20px;">{{$ctrlCollab.name}}
+				<div style="display: inline-block; font-weight: normal;"><i>(Owner)</i></div>
+			</div>
+				<div >{{$ctrlCollab.email}}</div>
+		</div>
+
+		<div style="border-radius: 50%;width: 45px;height: 45px; border: 1px solid;margin-top: 15px;margin-left: 35px;padding-left: 8px;padding-top: 8px;margin-bottom: 30px;">
+			<img src="images/Collaborator.png" height="25px" width="25px" style="display: inline-block;">
+			<input data-ng-model="$ctrlCollab.sharedWith" type="text" placeholder="email to share with" style="margin-left: 70px;height: 38px;border: none;outline: none;margin-top: -30px;font-size: 17px;">
+		</div>
+
+
+		<div style="height: 50px; background-color: #cccccc;">
+
+			<div data-ng-click="$ctrlCollab.save()" style="display: inline-block; float: right;margin-top: 10px;margin-right: 40px;padding:5px; font-weight: bold; cursor: pointer;background-color: silver;">SAVE</div>
+			<div data-ng-click="$ctrlCollab.cancel()" style="display: inline-block; float: right;margin-top: 10px;margin-right: 40px;padding:5px; font-weight: bold; cursor: pointer;background-color: silver;">CANCEL</div>
+
+		</div> -->

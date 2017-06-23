@@ -1,7 +1,7 @@
 /*
- * Find collaborator
- * @path routes/api/collaborator.js
- * @file collaborator.js
+ * findCollaborator -- it is used for add a new collaborator
+ * @path routes/api/findCollaborator.js
+ * @file findCollaborator.js
  * @Scripted by Ananya Kundu
  */
 
@@ -13,18 +13,18 @@ var express = require('express'),
     profileinfo = require('../model/userSchema');
 var winston = require('winston');
 
-/* POST call to get profile is available  or not */
+/* POST call to get find collaborator emailid(receiver) */
 router.post('/', function(req,res){
     var uid = req.decoded.id;
 
     profileinfo.findCollaborator(uid,function(err,result){
       try {
         if(err)  {
-            winston.error('User profile is not available');
+            winston.error('Receiver mailid is found');
             res.send({ "status": true, "message": "user profile is not available"});
           }
         else {
-            winston.info('User profile is available');
+            winston.info('Receiver is available');
             res.send({"status": false,"message": "user profile available","userinfo":result});
           }
         }

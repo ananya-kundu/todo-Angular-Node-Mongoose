@@ -22,5 +22,7 @@ router.use("/pinUp",auth,require("./pinUp"));
 router.use("/uploadProfileImage",auth,require("./uploadProfileImage"));
 router.use("/auth/facebook",require("./facebook"));
 router.use("/auth/google",require("./google"));
+router.use("/shareNote",auth,require("./shareNote"));
+router.use("/findCollaborator",auth,require("./findCollaborator"));
 
 module.exports = router;

@@ -57,6 +57,11 @@
   text-decoration: none;
 }
 
+
+/*#fbBtn:hover{
+    color: white;
+    background-color:#496ebc;
+}*/
 /*body {*/
   /*background: rgb(232, 134, 0);
   background: -webkit-linear-gradient(right, rgba(232, 134, 0, 0.39), rgba(194, 168, 111, 0.05));

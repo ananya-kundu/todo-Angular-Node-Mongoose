@@ -25,18 +25,18 @@ var jwt = require('jsonwebtoken'); // used to create, sign and verify tokens
 
 /* POST call for login*/
 router.post('/login', function(req, res) {
-  // console.log("login apiiii");
+  //if req.body get string collaborator then if condintion checking done otherwise else execute and login done
   if(req.body.col == 'collaborator')
   {
       login.collaborator(req.body,function(err,user){
 
         if(!err){
             winston.info('collaborator added');
-            console.log("within login collaborator if successfull",user.google.googleEmail);
+            // console.log("within login collaborator if successfull",user.google.googleEmail);
             res.send({"status":true,"message": user.google});
         }else {
             winston.error('collaborator not created');
-            console.log("within login col if error");
+            // console.log("within login col if error");
             res.send({"status": false,"msg": err});
         }
       })

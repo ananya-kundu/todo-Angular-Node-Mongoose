@@ -47,7 +47,6 @@ router.post('/login', function(req, res) {
       req.getValidationResult().then(function(isValid) {
           try {
             if (!isValid.isEmpty()) {
-              // winston.info('Validation Unsuccessfulls.Login Unsuccessfull');
               var errors = req.validationErrors();
               throw errors[0].msg
             }
@@ -102,9 +101,11 @@ router.post('/login', function(req, res) {
         });
       }
       catch (e) {
+        console.log("error",e);
+        winston.systemError('Server error on Login');
         res.send({
           "status": false,
-          "message": "server error"
+          "message": "Server error"
         });
       }
 

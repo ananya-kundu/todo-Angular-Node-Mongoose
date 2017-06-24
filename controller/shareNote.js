@@ -20,6 +20,7 @@ router.post('/', function(req, res) {
               }
             });
     } catch (e) {
+      winston.systemError('Server error on share note for collaborator');
         res.send({
             "status": false,
             "message": "server error"

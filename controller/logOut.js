@@ -14,10 +14,19 @@ var express = require('express'),
 
 /* POST call for logout */
 router.post('/logout', function(req, res) {
-  res.clearCookie('cookie');
-  res.send({
-    "status": false,
-    "message": "logged out"
-  });
+  try {
+    res.clearCookie('cookie');
+    res.send({
+      "status": false,
+      "message": "logged out"
+    });
+  } catch (e) {
+    winston.systemError('Server error on logout');
+      res.send({
+          "status": false,
+          "message": "Error"
+      });
+  }
 });
+
 module.exports = router;

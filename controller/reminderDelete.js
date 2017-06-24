@@ -31,6 +31,7 @@ router.post('/:id', function(req, res) {
               }
             });
     } catch (e) {
+      winston.systemError('Server error on delete reminder');
         res.send({"status": false,"message": "server error"});
     }
 });

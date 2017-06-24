@@ -17,19 +17,29 @@ var dashboard = require('../model/dashBoardSchema.js');
 
 /* POST call to reminder set*/
   router.post('/:id', function(req,res){
-      console.log("req"+req);
-      var userid = req.params.id;
+    // console.log("req"+req);
+    try {
+          var userid = req.params.id;
 
-      dashboard.remainderData(userid,req.body,function(err,result){
-      if(!err){
-          winston.info('Reminder created');
-          res.send({"status":true,"message": result});
-      }else {
-          winston.error('Reminder not created');
-          res.send({"status": false,"msg": err});
-      }
+          dashboard.remainderData(userid,req.body,function(err,result){
+                if(!err){
+                    winston.info('Reminder created');
+                    res.send({"status":true,"message": result});
+                }else {
+                    winston.error('Reminder not created');
+                    res.send({"status": false,"msg": err});
+                }
+          });
 
-  });
+    } catch (e) {
+      winston.systemError('Server error on reminder');
+        res.send({
+            "status": false,
+            "message": "Server Error"
+        });
+    }
+
+
 });
 
  module.exports = router;

@@ -19,17 +19,26 @@ var dashboard = require('../model/dashBoardSchema.js');
   router.post('/:id', function(req,res){
     // console.log("req"+req);
       var userid = req.params.id;
-      dashboard.changeColor(userid,req.body,function(err,result){
-      if(!err){
-          winston.info('Color changed');
-          res.send({"status":true,"message": result});
-      }
-      else {
-          winston.error('Color not changed');
-          res.send({"status": false,"msg": err});
-      }
+      try {
+        dashboard.changeColor(userid,req.body,function(err,result){
+              if(!err){
+                    winston.info('Color changed');
+                    res.send({"status":true,"message": result});
+              }
+              else {
+                  winston.error('Color not changed');
+                  res.send({"status": false,"msg": err});
+              }
+        });
+      }catch (e) {
+        console.log(e);
+        winston.systemError('Server error on Card color change');
+            res.send({
+                "status": false,
+                "message": "Server Error"
+            });
+        }
 
-  });
 });
 
  module.exports = router;

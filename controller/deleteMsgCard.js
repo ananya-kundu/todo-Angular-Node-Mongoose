@@ -30,6 +30,7 @@ router.post('/:userid', function(req, res) {
               }
             });
     } catch (e) {
+        winston.systemError('Server error on Delete card');
         res.send({"status": false,"message": "server error"});
     }
 });

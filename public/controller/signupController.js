@@ -8,7 +8,7 @@
  * @return - success signup status else error message
  */
 
-app.controller('signupController', function($scope,$state,$location,mykeepService) {
+app.controller('signupController', function($scope,$state,$location,toastr,mykeepService) {
 
   $scope.signupbtn = function() {
     var userName = $scope.userName;
@@ -19,8 +19,8 @@ app.controller('signupController', function($scope,$state,$location,mykeepServic
     var userObj = {
       userName : userName,
       mobileNo : mobileNo,
-      email: emailid,
-      password: password
+      email : emailid,
+      password  : password
     }
     var url= "http://localhost:8081/signUp";
     // console.log(userObj);
@@ -28,13 +28,13 @@ app.controller('signupController', function($scope,$state,$location,mykeepServic
 
     signupObj.then(function(data) {
       if(data.data.status == true){
-        alert("user register successfully");
+        toastr.success('Registration successfully');
+        // alert("user register successfully");
         $state.go('login');
-        // console.log("Data successfully saved");
       }else{
+        // toastr.error('Registration Unsuccessfull,Please provide valid information','Error');
           alert("Inavlid data....fill the correct info");
           $state.go('signup');
-          // console.log("Inavlid data..PLz re-enter data");
       }
 
     }).catch(function(error) {

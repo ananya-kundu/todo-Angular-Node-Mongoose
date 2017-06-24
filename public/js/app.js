@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.bootstrap.datetimepicker','ngImgCrop','satellizer']);
+var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.bootstrap.datetimepicker','ngImgCrop','satellizer','toastr']);
     // configure our routes
     app.config(function($stateProvider,$urlRouterProvider,$authProvider) {
         $urlRouterProvider.otherwise("/login");

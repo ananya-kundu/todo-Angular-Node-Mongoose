@@ -19,43 +19,43 @@ var Schema = mongoose.Schema;
 
 //create the schema for dashboard(cards)
 var Msg = Schema({
-  userid: {
-    type: String
-  },
-  title1: {
-    type: String,
-    minlength: 0
-  },
-  content: {
-    type: String,
-    minlength: 0
-  },
-  created_at: {
-      type: Date,
-      default: Date.now
-  },
-  updated_at: {
-      type: Date,
-      default: Date.now
-  },
-  reminder :{
-      type: Date
-  },
-  color :{
-      type: String
-  },
-  isArchive :{
-      type: Boolean,
-      default: false
-  },
-  isPinup :{
-      type: Boolean,
-      default: false
-  },
-  isDeleted:{
-    type: Boolean,
-    default: false
-  }
+      userid: {
+        type: String
+      },
+      title1: {
+        type: String,
+        minlength: 0
+      },
+      content: {
+        type: String,
+        minlength: 0
+      },
+      created_at: {
+          type: Date,
+          default: Date.now
+      },
+      updated_at: {
+          type: Date,
+          default: Date.now
+      },
+      reminder :{
+          type: Date
+      },
+      color :{
+          type: String
+      },
+      isArchive :{
+          type: Boolean,
+          default: false
+      },
+      isPinup :{
+          type: Boolean,
+          default: false
+      },
+      isDeleted:{
+        type: Boolean,
+        default: false
+      }
 }, {
   collection: "userMsgSchema"
 });
@@ -78,7 +78,6 @@ Msg.pre('save', function(next) {
  * @api For Card
  */
 Msg.statics.saveMsgData = function(reqData, cb) {
-  // console.log("i'm inside save method");
     var userMsgSchemaObj = new userMsgSchema(reqData);
     userMsgSchemaObj.save(cb);
 };
@@ -126,7 +125,6 @@ Msg.statics.shareCardData = function(reqData, cb) {
  */
 
 Msg.statics.getMsgData = function(userid, cb) {
-  // console.log("userid.....in get......", userid);
   this.find({userid:userid}, cb);
 };
 
@@ -234,7 +232,6 @@ Msg.statics.remainderData = function(userid,req,cb) {
  * @api For Card
  */
   Msg.statics.deleteReminderData = function(userid, cb) {
-    // console.log("reminder delete...");
     this.update({
       _id: userid
     }, {

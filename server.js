@@ -18,6 +18,11 @@ winston.configure({
                 name  : "error-file",
                 filename : 'error.log',
                 level :'error'
+        }),
+        new (winston.transports.File)({
+                name  : "system-error-file",
+                filename : 'systemError.log',
+                level :'systemError'
         })
     ]
 });

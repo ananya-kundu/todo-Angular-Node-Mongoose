@@ -63,7 +63,8 @@ try {
 }
       });
     } catch (e) {
-      console.log(e);
+          winston.systemError('Server error on Signup');
+          console.log(e);
           res.send({"status": false,"msg":"server error"});
       }
   });

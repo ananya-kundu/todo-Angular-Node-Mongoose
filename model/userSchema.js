@@ -155,12 +155,20 @@ userData.statics.collaborator = function(req, cb) {
   this.findOne({_id:req.id},cb);
 }
 
+/**
+ * Find `User` by its id
+ * @api findCollaborator
+ */
 
 userData.statics.findCollaborator = function(req, cb) {
    this.find({userid:req.id}, cb);
 }
 
 
+/**
+ * Find `User` by its id (local emailid or googl emailid)
+ * @api findCollaborator
+ */
 
 userData.statics.shareNoteCollaborator = function(req, cb) {
     this.findOne({$or:[{'local.email': req.emailid },{'google.googleEmail': req.emailid}]}, cb);

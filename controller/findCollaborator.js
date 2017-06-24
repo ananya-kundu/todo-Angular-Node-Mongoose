@@ -15,22 +15,31 @@ var winston = require('winston');
 
 /* POST call to get find collaborator emailid(receiver) */
 router.post('/', function(req,res){
-    var uid = req.decoded.id;
+  try{
+        var uid = req.decoded.id;
 
-    profileinfo.findCollaborator(uid,function(err,result){
-      try {
-        if(err)  {
-            winston.error('Receiver mailid is found');
-            res.send({ "status": true, "message": "user profile is not available"});
-          }
-        else {
-            winston.info('Receiver is available');
-            res.send({"status": false,"message": "user profile available","userinfo":result});
-          }
-        }
-        catch (e){
-            res.send({"status": false,"message": "server error"});
-          }
-        });
+        profileinfo.findCollaborator(uid,function(err,result){
+          try {
+            if(err)  {
+                winston.error('Receiver mailid is found');
+                res.send({ "status": true, "message": "user profile is not available"});
+              }
+            else {
+                winston.info('Receiver is available');
+                res.send({"status": false,"message": "user profile available","userinfo":result});
+              }
+            }
+            catch (e){
+                res.send({"status": false,"message": "server error"});
+              }
+            });
+      }catch (e) {
+        winston.systemError('Server error on find receiver emailid for collaborator');
+          res.send({
+              "status": false,
+              "message": "Server Error"
+          });
+      }
+
 });
 module.exports = router;

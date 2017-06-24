@@ -1,5 +1,5 @@
 // login Controller
-app.controller('loginController', function($scope,$location,$state,$auth,mykeepService) {
+app.controller('loginController', function($scope,$location,$state,$auth,toastr,mykeepService) {
 
  /**
    * @param {String} user - user contain email and password
@@ -7,6 +7,7 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
    */
  var url="http://localhost:8081/session";
  var checkUser = mykeepService.app(url);
+ 
  checkUser.then(function(data) {
     console.log("before data checking",data);
     if(data.data.status == true){
@@ -56,16 +57,17 @@ app.controller('loginController', function($scope,$location,$state,$auth,mykeepS
  $scope.authenticate = function(provider) {
      $auth.authenticate(provider)
        .then(function() {
-        //  toastr.success('You have successfully signed in with ' + provider + '!');
+        //  toastr.error('You have successfully signed in with ');
+         toastr.success('You have successfully logged-in with ' + provider + '!');
          $state.go('dashboard');
        })
        .catch(function(error) {
          if (error.message) {
            // Satellizer promise reject error.
-          //  toastr.error(error.message);
+           toastr.error(error.message);
          } else if (error.data) {
            // HTTP response error from server
-          //  toastr.error(error.data.message, error.status);
+           toastr.error(error.data.message, error.status);
           //  toastr.error(error);
          } else {
          }

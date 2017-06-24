@@ -2,7 +2,7 @@
  * home controller
  */
 
-app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,$auth,mykeepService) {
+app.controller('dashboardController', function($scope,$state,$uibModal,$rootScope,$timeout,$auth,toastr,mykeepService) {
 
   $scope.tomorrow ="tomorrow";
   $scope.nextweek = "nextweek";
@@ -12,16 +12,11 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   $scope.activenote=true;
 
   $scope.keep="My Keep";
-  // $scope.archivenote = true;
-  // $scope.remindernote = true;
-  // $scope.trashsnote = true;
-  // console.log('dashboard',);
   $scope.mainNote = true;
   $scope.takeclick = function(){
     $scope.mainNote = false;
     $scope.dummyNote = true;
   }
-// console.log($scope.remindernote);
 
   $scope.color = [
     {
@@ -151,6 +146,7 @@ $scope.getmsgcard = function() {
       var obj = mykeepService.app(url,object);
       obj.then(function(data) {
           $scope.getmsgcard();
+          toastr.success('Note Created','Successful');
           // console.log(data.data.status);
         }).catch(function(error) {
             console.log("error1");
@@ -210,6 +206,8 @@ $scope.getmsgcard = function() {
       var url = "http://localhost:8081/deleteMsgCard/" + cardsid + "";
       mykeepService.app(url,delObj).then(function(data){
             $scope.getmsgcard();
+            toastr.error('Note Trashed');
+
           }).catch(function(error){
                 console.log(error);
               })
@@ -219,6 +217,38 @@ $scope.refresh = function(){
   $route.getmsgcard();
 }
 
+//this is used for sharing card in facebook
+$scope.facebookshare = function(x){
+    console.log("facebook share")
+    FB.init({
+      appId : '1643439169007876',
+      status: true,
+      xfbml : true
+    });
+    console.log("ananya");
+     FB.ui({
+             method: 'share_open_graph',
+             action_type: 'og.shares',
+             action_properties: JSON.stringify({
+                 object : {
+                    // your url to share
+                    'og:title': x.title1,
+                    'og:content': x.content
+                    /*'og:image': 'http://example.com/link/to/your/image.jpg'*/
+                 }
+             })
+             },
+             // callback
+             function(response) {
+             if (response && !response.error_message) {
+                 // then get post content
+                 alert('successfully posted. Status id : '+response.post_id);
+             } else {
+                 alert('Something went error.');
+             }
+         });
+
+  };
 
 
 
@@ -314,6 +344,7 @@ $scope.collaboratorList = [];          //make a collaborator list
 
                               var obj = mykeepService.app(url,shareObj);
                               obj.then(function(data){
+                                    toastr.info('Note send','Successful');
                                     console.log("id col res",data.data.result._id);
                                     $rootScope.collabData = data.data.result._id;       //user id-which i send the card--it is in data.data.result._id;which is stored in collabData.
                                     // var url="/createcards";
@@ -332,6 +363,7 @@ $scope.collaboratorList = [];          //make a collaborator list
                                     var url="/createCards";                          //call createcard api for sharing card
                                     var obj = mykeepService.app(url,object);         //pass the url and object of card
                                     obj.then(function(data){
+                                        // toastr.success('Note send','Successful');
                                         console.log("data saved in another id",data);
                                       }).catch(function(error) {
                                               console.log("err");
@@ -356,8 +388,8 @@ $scope.collaboratorList = [];          //make a collaborator list
                                  }
                                }
                               });
-                              colListArray=colListArray.filter(function (filterData) {            //filter the data if undefined and null oe empty
-                                return filterData!==undefined || filterData!==null || filterData!==""
+                              colListArray = colListArray.filter(function (filterData) {            //filter the data if undefined and null oe empty
+                                return filterData !== undefined || filterData !== null || filterData !== ""
                               });
                                   $scope.collaboratorList = colListArray;   //give list of all email
                                   // console.log("find colllll",colListArray);
@@ -425,7 +457,8 @@ $scope.collaboratorList = [];          //make a collaborator list
 
                   obj.then(function(data){
                       if(data.data.status == true){
-                            // console.log("updated");
+                        toastr.success('Reminder Created','Successful');
+
                             $scope.getmsgcard();
                           }else{
                             console.log("not updated");
@@ -443,7 +476,8 @@ $scope.collaboratorList = [];          //make a collaborator list
       $scope.deleteReminder = function(cardsid) {
               var url = "http://localhost:8081/reminderDelete/" + cardsid + "";
               mykeepService.app(url).then(function(data){
-                // console.log(data);
+                toastr.info('Reminder Deleted','Successful');
+
                 $scope.getmsgcard();
         }).catch(function (error) {
               console.log(error);
@@ -459,6 +493,7 @@ $scope.collaboratorList = [];          //make a collaborator list
             var url = "http://localhost:8081/createCards";
             var obj = mykeepService.app(url,notedata);
             obj.then(function(data) {
+              toastr.info('Card copied');
                 $scope.getmsgcard();
               }).catch(function(error) {
                   // console.log("error1");
@@ -475,6 +510,8 @@ $scope.collaboratorList = [];          //make a collaborator list
             }
             var url = "http://localhost:8081/color/" + cardsid + "";
             mykeepService.app(url,color_data).then(function(data){
+              toastr.success('Color Changed','Successful');
+
                   $scope.getmsgcard();
                 }).catch(function(error){
                         console.log(error);
@@ -488,11 +525,12 @@ $scope.collaboratorList = [];          //make a collaborator list
   $scope.pinup = function(cardsid,pin,archive){
       var url = "http://localhost:8081/pinUp/" + cardsid + "";
       var object = {
-        pin: pin,
-        archive:archive
+        pin : pin,
+        archive : archive
       }
       console.log("pinned",object);
       mykeepService.app(url,object).then(function(data){
+        // toastr.info('Note Pinned','Successful');
         $scope.getmsgcard();
       }).catch(function(error){
         console.log(error);
@@ -506,8 +544,8 @@ $scope.collaboratorList = [];          //make a collaborator list
     $scope.archive = function(cardsid,archive,pin){
       var url = "http://localhost:8081/archive/" + cardsid + "";
       var object = {
-        pin: pin,
-        archive:archive
+        pin : pin,
+        archive : archive
       }
       mykeepService.app(url,object).then(function(data){
         $scope.getmsgcard();
@@ -515,6 +553,13 @@ $scope.collaboratorList = [];          //make a collaborator list
         console.log(error);
       });
     }
+
+
+
+
+
+
+
 
     /**
      * logout controller
@@ -530,11 +575,9 @@ $scope.collaboratorList = [];          //make a collaborator list
     if (!$auth.isAuthenticated()) { return; }
     $auth.logout()
       .then(function() {
-        // toastr.info('You have been logged out');
+        toastr.info('You have been logged out');
         $state.go('/');
       });
-
-
   }
 
 

@@ -85,7 +85,7 @@ Msg.pre('save', function(next) {
  * @param -reqData is details of Note and userid also
  */
 Msg.statics.saveMsgData = function(reqData, cb) {
-  console.log("req data:",reqData);
+  // console.log("req data:",reqData);
     var userMsgSchemaObj = new userMsgSchema(reqData);
     userMsgSchemaObj.save(cb);
     var activityLog = new activityList({
@@ -98,7 +98,7 @@ Msg.statics.saveMsgData = function(reqData, cb) {
 
 /**
  * collaborator --finfd by email id--called in logIn.js,if 'collaborator' String is get
- * @api For Card
+ * @api For Card (api-logIn)
  */
 Msg.statics.collaborator = function(email, cb) {
   this.find({
@@ -108,7 +108,7 @@ Msg.statics.collaborator = function(email, cb) {
 
 /**
  * shareCardData for collaborator--it share the same card of selected card
- * @api For Card
+ * @api For createCards
  */
 
 Msg.statics.shareCardData = function(reqData, cb) {

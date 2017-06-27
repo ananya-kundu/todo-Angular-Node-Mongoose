@@ -1,7 +1,7 @@
 
 /*
 //  * User logIn Data
-//  * @path routes/api/logIn.js
+//  * @path controller/logIn.js
 //  * @file logIn.js
 //  * @Scripted by Ananya Kundu
 //  */
@@ -61,7 +61,7 @@ router.post('/login', function(req, res) {
                   if (newLoginPassword == encryptLoginPassword) {
                       var token = jwt.sign({ id: user._id }, connDb.TOKEN_SECRET, {
                           // expiresIn: 864000
-                          expiresIn: 60*60*24
+                          expiresIn: 60*60*24      //in seconds
                         });
                           res.cookie("cookie",token);
                           winston.info('Login Successfull');

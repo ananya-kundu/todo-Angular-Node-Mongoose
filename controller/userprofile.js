@@ -1,6 +1,6 @@
 /*
  * User profile
- * @path routes/api/userProfile.js
+ * @path collaborator/userProfile.js
  * @file userProfile.js
  * @Scripted by Ananya Kundu
  */

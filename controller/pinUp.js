@@ -1,6 +1,6 @@
 /*
  * Card pinned or unpinned
- * @path routes/api/pinUp.js
+ * @path controller/pinUp.js
  * @file pinUp.js
  * @Scripted by Ananya Kundu
  */
@@ -35,7 +35,7 @@ var dashboard = require('../model/dashBoardSchema.js');
       winston.systemError('Server error on pinup');
         res.send({
             "status": false,
-            "message": "Error"
+            "message": e
         });
     }
 });

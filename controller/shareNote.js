@@ -1,4 +1,13 @@
+/*
+ * Session
+ * @path controller/shareNote.js
+ * @file shareNote.js
+ * @Scripted by Ananya Kundu
+ */
 
+/*
+ * Module dependencies
+ */
 var express   = require('express');
 var router    = express.Router();
 var mongoose  = require('mongoose');
@@ -8,7 +17,7 @@ var dashboard = require('../model/userSchema.js');
 /* POST call to create card */
 router.post('/', function(req, res) {
     try {
-            console.log(req.body);
+            console.log("jhgahsdhashg",req.body);
             dashboard.shareNoteCollaborator(req.body,function(err, result) {
               console.log("result",result);
               if (!err) {

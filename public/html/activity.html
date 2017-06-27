@@ -1,0 +1,29 @@
+<!-- <div class="row" style="margin-top:34px;">
+
+
+  <div>
+      <div id="innote" ng-repeat="x in activityDisplay" >
+        <div ng-bind-html="x.message"></div>
+
+
+      </div>
+  </div>
+</div> -->
+
+<div style="margin-top:150px;">
+
+<div class="addActivity row" >
+    <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 activityloglist" ng-repeat="x in activityDisplay" >
+
+            <div class="row">
+                <div class="col-md-12 loggercontent">{{x.message}}  </div>
+              <div>
+                <span style="float:right;margin-right:20px;margin-bottom:10px;">{{x.created_at | date :'MMMM,dd  HH:mm'}}</span>
+
+              </div>
+            </div>
+
+    </div>
+
+</div>
+</div>

@@ -1,6 +1,6 @@
 /*
  * Card reminder
- * @path routes/api/reminder.js
+ * @path controller/reminder.js
  * @file reminder.js
  * @Scripted by Ananya Kundu
  */

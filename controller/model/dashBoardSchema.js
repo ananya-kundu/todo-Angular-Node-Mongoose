@@ -57,10 +57,6 @@ var Msg = Schema({
       isDeleted:{
         type: Boolean,
         default: false
-      },
-      shareNote:{
-        type:String,
-        default:null
       }
 }, {
   collection: "userMsgSchema"
@@ -112,35 +108,22 @@ Msg.statics.collaborator = function(email, cb) {
  */
 
 Msg.statics.shareCardData = function(reqData, cb) {
-  console.log("share asdassafasfsaf",reqData);
-  this.findById({_id:reqData.data._id},function(err,result){
-    console.log("error",err,"result",result);
-    if(result){
-      result.shareNote=reqData.id;
-      result.save(cb);
-    }
-
-    // .then(function(result){
-    //   console.log("result",result);
-    // }).catch(function(err){
-    //   console.log("error",err);
-    // });
+  console.log("share",reqData);
+  var userObj = new this({
+    userid  : reqData.id,
+    title1 : reqData.title,
+    content : reqData.content,
+    color : reqData.color,
+    reminder : reqData.reminder,
+    isPinup : reqData.isPinup,
+    isDeleted: reqData.isDeleted
   });
-  // var userObj = new this({
-  //   userid  : reqData.id,
-  //   title1 : reqData.title,
-  //   content : reqData.content,
-  //   color : reqData.color,
-  //   reminder : reqData.reminder,
-  //   isPinup : reqData.isPinup,
-  //   isDeleted: reqData.isDeleted
-  // });
-  // console.log("share note obj:",userObj);
-  // userObj.save().then(function(result){
-  //   console.log("result",result);
-  // }).catch(function(err){
-  //   console.log("error",err);
-  // });
+  console.log("share note obj:",userObj);
+  userObj.save().then(function(result){
+    console.log("result",result);
+  }).catch(function(err){
+    console.log("error",err);
+  });
   // var activityLog = new activityList({
   //   userid : reqData.userid,
   //   message : "Note Shared"
@@ -160,7 +143,7 @@ Msg.statics.shareCardData = function(reqData, cb) {
  */
 
 Msg.statics.getMsgData = function(userid, cb) {
-  this.find({$or:[{userid:userid},{shareNote:userid}]}, cb);
+  this.find({userid:userid}, cb);
 };
 
 /**

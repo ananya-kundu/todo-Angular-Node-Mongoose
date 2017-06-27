@@ -1,6 +1,6 @@
 /*
  * findCollaborator -- it is used for add a new collaborator
- * @path routes/api/findCollaborator.js
+ * @path controller/findCollaborator.js
  * @file findCollaborator.js
  * @Scripted by Ananya Kundu
  */

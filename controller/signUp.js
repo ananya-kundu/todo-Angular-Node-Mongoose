@@ -1,6 +1,6 @@
 /*
  * User signup Data
- * @path routes/api/signup.js
+ * @path collaborator/signup.js
  * @file signup.js
  * @Scripted by Ananya Kundu
  */

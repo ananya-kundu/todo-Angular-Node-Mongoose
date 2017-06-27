@@ -59,6 +59,14 @@ var app = angular.module('myApp', ['ui.router','ngSanitize','ui.bootstrap','ui.b
             console.log("in trash");
           }
       })
+      .state('activity',{
+          url:'/activity',
+          templateUrl:'html/dashboard.html',
+          controller:'activityController',
+          onEnter:function(){
+            console.log("in activity");
+          }
+      })
         $authProvider.facebook({
             clientId: '1643439169007876'
           });

@@ -143,12 +143,12 @@
             </a>
           </li>
 
-          <li>
-            <a href="#"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Reports</a>
-          </li>
+          <!-- <li>
+            <a ui-sref="activity"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Activity Log</a>
+          </li> -->
 
           <li>
-            <a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Statistic</a>
+            <a ui-sref="activity"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Activity Log</a>
           </li>
           <!-- <li>
             <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
@@ -202,6 +202,7 @@
                       <div ng-show = "archivenote" ng-include="'./html/archive.html'"></div>
                       <div ng-show = "remindernote" ng-include="'./html/reminder.html'"></div>
                       <div ng-show = "trashnote" ng-include="'./html/trash.html'"></div>
+                      <div ng-show = "activitynote" ng-include="'./html/activity.html'"></div>
               </div>
               <div class="col-sm-2 col-md-2 col-lg-2"></div>
           </div>

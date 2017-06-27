@@ -10,6 +10,7 @@ app.controller('dashboardController', function($scope,$state,$uibModal,$rootScop
   $scope.pinnote=true;
   $scope.normalnote=true;
   $scope.activenote=true;
+  $scope.activitynote = false;
 
   $scope.keep="My Keep";
   $scope.mainNote = true;
@@ -199,19 +200,39 @@ $scope.getmsgcard = function() {
        * @return - success status return  else error message
        */
 // controller for delete card
-  $scope.deletecards = function(cardsid,del) {
+$scope.deletecards = function(x,del) {
     var delObj = {
-      del: del
+      del: del,
+      userid: x.userid
     }
-      var url = "http://localhost:8081/deleteMsgCard/" + cardsid + "";
+      var url = "http://localhost:8081/deleteMsgCard/" + x._id + "";
       mykeepService.app(url,delObj).then(function(data){
             $scope.getmsgcard();
-            toastr.error('Note Trashed');
+            // toastr.error('Note Trashed');
 
           }).catch(function(error){
                 console.log(error);
               })
   }
+
+
+
+  //
+  // $scope.deletecards = function(x,del) {
+  //   var delObj = {
+  //     del: del,
+  //     userid:x.userid
+  //
+  //   }
+  //     var url = "http://localhost:8081/deleteMsgCard/" + x._id + "";
+  //     mykeepService.app(url,delObj).then(function(data){
+  //           $scope.getmsgcard();
+  //           toastr.error('Note Trashed');
+  //
+  //         }).catch(function(error){
+  //               console.log(error);
+  //             })
+  // }
 
 $scope.refresh = function(){
   $route.getmsgcard();
@@ -275,8 +296,11 @@ $scope.facebookshare = function(x){
                         updateNote = {
                             title1 : this.title1,
                             content : this.content,
-                            updated_at : this.updated_at
+                            updated_at : this.updated_at,
+                            userid : datanote.userid
+
                           }
+                          console.log("updateNote:",updateNote);
                           // console.log(updateNote);
                         var url ="http://localhost:8081/updateMsgCards/" + this.id + "";
                         var obj = mykeepService.app(url,updateNote);
@@ -351,12 +375,7 @@ $scope.collaboratorList = [];          //make a collaborator list
                                     var object =    //create one object of selected card
                                     {
                                           id:$rootScope.collabData,
-                                          title:x.title1,
-                                          content:x.content,
-                                          color:x.color,
-                                          reminder : x.reminder,
-                                          isPinup : x.isPinup,
-                                          isDeleted: x.isDeleted,
+                                          data:x,
                                           share:"share"
                                       }
                                     // console.log("colabdata",object);
@@ -424,7 +443,7 @@ $scope.collaboratorList = [];          //make a collaborator list
          * @param {String} remDate - contain reminder date
          */
 
-  $scope.createReminder = function(cardsid,day) {
+  $scope.createReminder = function(x,day) {
           // console.log(cardsid);
           $scope.day = day;
           var remDate = new Date();
@@ -450,9 +469,10 @@ $scope.collaboratorList = [];          //make a collaborator list
                   }
 
                   var remDay = {
-                      reminder : $scope.day
+                      reminder : $scope.day,
+                      userid: x.userid
                     }
-                  var url = "http://localhost:8081/reminder/" + cardsid + "";
+                  var url = "http://localhost:8081/reminder/" + x._id + "";
                   var obj = mykeepService.app(url,remDay );
 
                   obj.then(function(data){
@@ -473,9 +493,12 @@ $scope.collaboratorList = [];          //make a collaborator list
            * @param {String} remDate - contain reminder date
            */
 
-      $scope.deleteReminder = function(cardsid) {
-              var url = "http://localhost:8081/reminderDelete/" + cardsid + "";
-              mykeepService.app(url).then(function(data){
+      $scope.deleteReminder = function(x) {
+              var url = "http://localhost:8081/reminderDelete/" + x._id + "";
+              var delRemObj = {
+                userid : x.userid
+              }
+              mykeepService.app(url,delRemObj).then(function(data){
                 toastr.info('Reminder Deleted','Successful');
 
                 $scope.getmsgcard();
@@ -489,10 +512,12 @@ $scope.collaboratorList = [];          //make a collaborator list
            * @function cardCopy - copy the card
            * @param {String} cards - contain card details
            */
-      $scope.cardCopy = function(notedata){
+      $scope.cardCopy = function(x){
             var url = "http://localhost:8081/createCards";
-            var obj = mykeepService.app(url,notedata);
-            obj.then(function(data) {
+            var copyObj = {
+              userid : x.userid
+            }
+            mykeepService.app(url,copyObj).then(function(data) {
               toastr.info('Card copied');
                 $scope.getmsgcard();
               }).catch(function(error) {
@@ -504,12 +529,13 @@ $scope.collaboratorList = [];          //make a collaborator list
            * @function changeColor - contain color
            * @param {String} color_data - contain color data
            */
-  $scope.changeColor = function(color,cardsid){
-        var color_data={
-              color:color
+  $scope.changeColor = function(color,x){
+        var colorData={
+              color:color,
+              userid : x.userid
             }
-            var url = "http://localhost:8081/color/" + cardsid + "";
-            mykeepService.app(url,color_data).then(function(data){
+            var url = "http://localhost:8081/color/" + x._id + "";
+            mykeepService.app(url,colorData).then(function(data){
               toastr.success('Color Changed','Successful');
 
                   $scope.getmsgcard();
@@ -522,11 +548,12 @@ $scope.collaboratorList = [];          //make a collaborator list
        * @function pinup - contain cards
        * @param {String} cards - contain object of cards(pin and archive value contain)
        */
-  $scope.pinup = function(cardsid,pin,archive){
-      var url = "http://localhost:8081/pinUp/" + cardsid + "";
+  $scope.pinup = function(x,pin,archive){
+      var url = "http://localhost:8081/pinUp/" + x._id + "";
       var object = {
         pin : pin,
-        archive : archive
+        archive : archive,
+        userid : x.userid
       }
       console.log("pinned",object);
       mykeepService.app(url,object).then(function(data){
@@ -541,11 +568,12 @@ $scope.collaboratorList = [];          //make a collaborator list
          * @function archive - contain cards
          * @param {String} cards - contain object of cards(pin and archive value contain)
          */
-    $scope.archive = function(cardsid,archive,pin){
-      var url = "http://localhost:8081/archive/" + cardsid + "";
+    $scope.archive = function(x,archive,pin){
+      var url = "http://localhost:8081/archive/" + x._id + "";
       var object = {
         pin : pin,
-        archive : archive
+        archive : archive,
+        userid : x.userid
       }
       mykeepService.app(url,object).then(function(data){
         $scope.getmsgcard();

@@ -1,6 +1,6 @@
 /*
  * Card reminder delete
- * @path routes/api/reminderDelete.js
+ * @path controller/reminderDelete.js
  * @file reminderDelete.js
  * @Scripted by Ananya Kundu
  */
@@ -21,7 +21,7 @@ router.post('/:id', function(req, res) {
         console.log("reminder delete");
           var deleteddata =req.params.id;
 
-          todocards.deleteReminderData(deleteddata,function(err, result) {
+          todocards.deleteReminderData(deleteddata,req.body,function(err, result) {
               if (!err) {
                 winston.info('Reminder deleted successfully');
                 res.send({"status": true,"message": result});

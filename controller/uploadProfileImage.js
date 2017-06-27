@@ -1,6 +1,6 @@
 /*
  * User upload image
- * @path routes/api/uploadProfileImage.js
+ * @path collaborator/uploadProfileImage.js
  * @file uploadProfileImage.js
  * @Scripted by Ananya Kundu
  */

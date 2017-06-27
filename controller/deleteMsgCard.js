@@ -1,6 +1,6 @@
 /*
  * Card deletion
- * @path routes/api/deleteMsgCards.js
+ * @path controller/deleteMsgCards.js
  * @file deleteMsgCards.js
  * @Scripted by Ananya Kundu
  */

@@ -1,6 +1,6 @@
 /*
  * User logOut Data
- * @path routes/api/logOut.js
+ * @path controller/logOut.js
  * @file logOut.js
  * @Scripted by Ananya Kundu
  */

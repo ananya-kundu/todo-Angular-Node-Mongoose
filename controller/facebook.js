@@ -1,6 +1,6 @@
 /*
  * User login by facebook
- * @path routes/api/facebook.js
+ * @path controller/facebook.js
  * @file facebook.js
  * @Scripted by Ananya Kundu
  */

@@ -1,6 +1,6 @@
 /*
- * Card archive Data
- * @path routes/api/archive.js
+ * Card archive and unarchive Data
+ * @path controller/archive.js
  * @file archive.js
  * @Scripted by Ananya Kundu
  */

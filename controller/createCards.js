@@ -1,6 +1,6 @@
 /*
  * Card creation
- * @path routes/api/createCards.js
+ * @path api--controller/createCards.js
  * @file createCards.js
  * @Scripted by Ananya Kundu
  */

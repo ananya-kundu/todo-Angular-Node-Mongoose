@@ -7,7 +7,7 @@
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
           <span class="dropup" >
-          <span  class="glyphicon glyphicon-pushpin" uib-tooltip="Unpin note" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="pinup(x._id,'false','false')" style="float:right;color:#4285f4;"></span>
+          <span  class="glyphicon glyphicon-pushpin" uib-tooltip="Unpin note" tooltip-placement="bottom" tooltip-append-to-body="true" ng-click="pinup(x,'false','false')" style="float:right;color:#4285f4;"></span>
         </span>
           <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1" ></div>
           <!-- <div id="divtitle" style="margin-left:2%;"  >
@@ -26,9 +26,9 @@
                     <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                       <li id="fulldrop">
                               <a id="normal" style="font-size:16px">Reminder:</a>
-                              <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
-                              <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
-                              <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
+                              <a id="drop" ng-click=createReminder(x,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
+                              <a id="drop" ng-click=createReminder(x,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
+                              <a id="drop" ng-click=createReminder(x,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
                               <b id="drop" style="margin-left:18px;">Pick Date and Time:</b>
                               <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
                                   <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
@@ -36,7 +36,7 @@
                                           <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                           </div>
-                                          <a ng-click="createReminder(x._id,toDo.remainder)" ><span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
+                                          <a ng-click="createReminder(x,toDo.remainder)" ><span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -50,7 +50,7 @@
 
                         <i id="collaborator" style="margin-left:8px;cursor:pointer;" class="fa fa-user-plus" style="font-size:36px;" aria-hidden="true"  ng-click="collaborator(x);" uib-tooltip="Collaborator"  tooltip-placement="bottom" tooltip-append-to-body="true">
                          </i>
-              
+
 
               <i aria-hidden="true">
                 <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
@@ -59,14 +59,14 @@
                       </a>
                       <div uib-dropdown-menu aria-labelledby="simple-dropdown">
                           <a id="normal" ng-repeat = "y in color" style="font-size:10px;" uib-tooltip="{{y.tooltip}}" tooltip-placement="bottom" tooltip-append-to-body="true">
-                                <img ng-src="{{y.path}}" ng-click="changeColor(y.color,x._id)">
+                                <img ng-src="{{y.path}}" ng-click="changeColor(y.color,x)">
                             </a>
                         </div>
                   </span>
                 </i>
 
                 <i style="margin-left:8px" style="font-size:36px" aria-hidden="true">
-                  <img id='reminder1'  ng-click="archive(x._id,'true','false')" style="width:14px;height:35%" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
+                  <img id='reminder1'  ng-click="archive(x,'true','false')" style="width:14px;height:35%" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
                 </i>
 
 
@@ -77,7 +77,7 @@
                   </a>
                   <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li id="fulldrop">
-                          <a id="delete" ng-click = "deletecards(x._id,'trash')">Delete a note</a>
+                          <a id="delete" ng-click = "deletecards(x,'trash')">Delete a note</a>
 
                             <!-- <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a> -->
                             <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
@@ -107,9 +107,9 @@
             <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
               <li id="fulldrop">
                       <a id="normal" style="font-size:16px">Reminder:</a>
-                      <a id="drop" ng-click=createReminder(x._id,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
-                      <a id="drop" ng-click=createReminder(x._id,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
-                      <a id="drop" ng-click=createReminder(x._id,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
+                      <a id="drop" ng-click=createReminder(x,'today',20) href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
+                      <a id="drop" ng-click=createReminder(x,'tomorrow',8) href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
+                      <a id="drop" ng-click=createReminder(x,'nextweek',8) href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
                       <b id="drop" style="margin-left:18px;">Pick Date and Time:</b>
                       <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
                           <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
@@ -117,7 +117,7 @@
                                   <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                   </div>
-                                  <a ng-click="createReminder(x._id,toDo.remainder)" >
+                                  <a ng-click="createReminder(x,toDo.remainder)" >
                                     <span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
                             </a>
 
@@ -128,7 +128,7 @@
                       </li>
                     </ul>
                   </span>
-            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;" uib-tooltip="Delete reminder"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
+            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x)" style="font-size:14px;float:right;" uib-tooltip="Delete reminder"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
       </div>
 
     </div>

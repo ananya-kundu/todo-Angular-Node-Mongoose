@@ -1,6 +1,6 @@
 /*
  * Card color Data
- * @path routes/api/color.js
+ * @path controller/color.js
  * @file color.js
  * @Scripted by Ananya Kundu
  */

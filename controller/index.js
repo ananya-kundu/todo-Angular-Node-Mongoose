@@ -24,5 +24,7 @@ router.use("/auth/facebook",require("./facebook"));
 router.use("/auth/google",require("./google"));
 router.use("/shareNote",auth,require("./shareNote"));
 router.use("/findCollaborator",auth,require("./findCollaborator"));
+router.use("/activityLogger",auth,require("./activityLogger"));
+
 
 module.exports = router;

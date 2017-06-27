@@ -1,6 +1,6 @@
 /*
  * User authentication Data
- * @path routes/api/authenticate.js
+ * @path controller/authenticate.js
  * @file authenticate.js
  * @Scripted by Ananya Kundu
  */

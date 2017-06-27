@@ -1,6 +1,6 @@
 /*
  * User login by google
- * @path routes/api/google.js
+ * @path controller/google.js
  * @file google.js
  * @Scripted by Ananya Kundu
  */

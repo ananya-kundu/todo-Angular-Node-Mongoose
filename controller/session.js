@@ -1,6 +1,6 @@
 /*
  * Session
- * @path routes/api/session.js
+ * @path controller/session.js
  * @file session.js
  * @Scripted by Ananya Kundu
  */

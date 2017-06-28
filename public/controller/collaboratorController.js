@@ -1,8 +1,9 @@
 
 /**
   * collaborator Controller
-  * it controls changes of archivepage
+  * it find the collaborator owner address
   * show cards if card is archived
+  * collaboratorController is sub controller of dashboardController
   */
 
 app.controller('collaboratorController', function($scope,$uibModalInstance,obj,mykeepService) {
@@ -26,23 +27,3 @@ app.controller('collaboratorController', function($scope,$uibModalInstance,obj,m
       };
 
 });
-
-
-
-
-
-  // $scope.findCol = function (){
-  //   console.log("findcol call");
-  //   var url = "/findCollaborator";
-   //
-  //   var obj = mykeepService.app(url);
-  //   obj.then(function(data) {
-  //   console.log("find colllll",data);
-   //
-   //
-  //   }).catch(function(error) {
-  //       console.log("err");
-   //
-  //   })
-  //  $uibModalInstance.dismiss('Done');
-  // };

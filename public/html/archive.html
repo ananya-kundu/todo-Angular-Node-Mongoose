@@ -1,21 +1,18 @@
+<!-- archive html -->
 
 <div class="row" ng-class="gridlist" style="margin-top:34px;">
-  <!-- <div id="reminderdiv" >Archive</div> -->
-
 <div style="margin:22px 16px;" ></div>
-<div>
 
+<div>
   <div id="innote" ng-if="x.isArchive && !x.isDeleted" ng-class="innote" ng-mouseover="icons=true" ng-mouseleave="icons=false" ng-repeat="x in message | filter:search as results track by $index" testpackery >
 
       <div ng-class="showpreid" style="background-color:{{x.color}}">
         <div style="padding:2%;">
           <span  class="glyphicon glyphicon-pushpin" ng-click="pinup(x,'true','false')" ng-show="icons" style="float:right;color:#767676;" uib-tooltip="Pin archived note"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
-          <!-- <div id="divtitle" style="margin-left:2%;"  >
-            <i id="titlecss" ng-click="popup(x)" ng-bind-html = "x.title1"></i> -->
-          <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1"  ></div>
+            <div id="divtitle" class="titlecss" style="margin-left:2%;" ng-click="popup(x)" ng-bind-html = "x.title1"  ></div>
+            <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
 
-          <div id="noteinner" ng-click="popup(x)"  ng-bind-html = "x.content"></div>
-
+            <!-- icons -->
           <div id="footer" >
               <span ng-show="icons">
 
@@ -77,7 +74,6 @@
                   <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li id="fulldrop">
                           <a id="delete" ng-click = "deletecards(x,'trash')">Delete a note</a>
-
                             <!-- <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a> -->
                             <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
                         </li>
@@ -88,12 +84,7 @@
         </span>
     </div>
 
-      <!-- <div ng-if="x.reminder" id="remindercss">
-            <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
-                  <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
-            </span>
-            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x._id)" style="font-size:14px;float:right;" uib-tooltip="Delete reminder"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
-      </div> -->
+
       <div ng-if="x.reminder" id="remindercss">
         <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
           <a href uib-dropdown-toggle>

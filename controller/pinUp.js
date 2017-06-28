@@ -4,7 +4,7 @@
  * @file pinUp.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */
@@ -19,7 +19,7 @@ var dashboard = require('../model/dashBoardSchema.js');
   router.post('/:id', function(req,res){
     try {
       var userid = req.params.id;
-      // console.log(req.body,"i'm pinup api");
+
       dashboard.pinup(userid,req.body,function(err,result){
               if(!err){
                   winston.info('Pinup Successfully done');

@@ -1,8 +1,9 @@
 
 /**
-  * archive Controller - it is archive page controller
-  * it controls changes of archivepage
-  * show cards if card is archived
+  * activity Controller - it is activity page controller
+  * it controls changes of activities
+  * show activities
+  * activityController is sub controller of dashboardController
   */
 
 
@@ -13,8 +14,8 @@ app.controller('activityController', ['$scope', '$controller','mykeepService', f
   $scope.activitynote = true;
   $scope.pinnote=false;
   $scope.normalnote=false;
-  $scope.keep="Activity Log";
-
+  $scope.keep="Activity Log";               //activity brand name
+  //color change for activityController
   $scope.archivesidebar = {'background':"white"};
   $scope.archivenav = {'background-color':"rgb(99, 99, 99)"};
   $scope.archivegly = {'color':'white'};
@@ -32,7 +33,7 @@ app.controller('activityController', ['$scope', '$controller','mykeepService', f
 
   $scope.activity = function(){
     var url = "http://localhost:8081/activityLogger";
-    console.log("ffgfg");
+    // console.log("ffgfg");
    mykeepService.app(url).then(function(data){
      console.log(data.data.message);
      var activityArray =[];
@@ -47,5 +48,4 @@ app.controller('activityController', ['$scope', '$controller','mykeepService', f
 
   }
   $scope.activity();
-  // console.log("archive",$scope.archivenote);
 }]);

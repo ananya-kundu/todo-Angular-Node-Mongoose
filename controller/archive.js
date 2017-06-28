@@ -4,7 +4,7 @@
  * @file archive.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */

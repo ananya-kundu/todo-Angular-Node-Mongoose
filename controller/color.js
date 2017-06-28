@@ -4,6 +4,7 @@
  * @file color.js
  * @Scripted by Ananya Kundu
  */
+ 'use strict';
 
 /*
  * Module dependencies
@@ -17,7 +18,6 @@ var dashboard = require('../model/dashBoardSchema.js');
 
 /* POST call to change color of card */
   router.post('/:id', function(req,res){
-    // console.log("req"+req);
       var userid = req.params.id;
       try {
         dashboard.changeColor(userid,req.body,function(err,result){

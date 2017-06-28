@@ -1,4 +1,9 @@
 // login Controller
+/**
+  * login Controller
+  * it controls ogin
+  * if login is successfull,then go to home page
+  */
 app.controller('loginController', function($scope,$location,$state,$auth,toastr,mykeepService) {
 
  /**
@@ -7,7 +12,7 @@ app.controller('loginController', function($scope,$location,$state,$auth,toastr,
    */
  var url="http://localhost:8081/session";
  var checkUser = mykeepService.app(url);
- 
+
  checkUser.then(function(data) {
     console.log("before data checking",data);
     if(data.data.status == true){
@@ -28,7 +33,7 @@ app.controller('loginController', function($scope,$location,$state,$auth,toastr,
    * @param {String} user - user contain email and password
    * @return - success login status else error message
    */
- $scope.login = function() {
+ $scope.login = function() {                            //log() called in logIn.html
    var emailid = $scope.emailid;
    var password = $scope.password;
 

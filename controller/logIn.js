@@ -1,14 +1,15 @@
 
 /*
-//  * User logIn Data
-//  * @path controller/logIn.js
-//  * @file logIn.js
-//  * @Scripted by Ananya Kundu
-//  */
-//
-// /*
-//  * Module dependencies
-//  */
+  * User logIn Data
+  * @path controller/logIn.js
+  * @file logIn.js
+  * @Scripted by Ananya Kundu
+  */
+ 'use strict';
+
+ /*
+  * Module dependencies
+  */
 var cookieParser = require('cookie-parser');
 var express = require('express'),
   router = express.Router(),
@@ -21,11 +22,11 @@ var winston = require('winston');
 var connDb = require("../config/config");
 var connDb1 = require("../config/index");
 
-var jwt = require('jsonwebtoken'); // used to create, sign and verify tokens
+var jwt = require('jsonwebtoken');        // used to create, sign and verify tokens
 
 /* POST call for login*/
 router.post('/login', function(req, res) {
-  //if req.body get string collaborator then if condintion checking done otherwise else execute and login done
+  //if req.body get string 'collaborator' then if condintion checking done otherwise else execute and login done
   if(req.body.col == 'collaborator')
   {
       login.collaborator(req.body,function(err,user){

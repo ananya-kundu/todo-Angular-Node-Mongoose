@@ -85,7 +85,6 @@ Msg.pre('save', function(next) {
  * @param -reqData is details of Note and userid also
  */
 Msg.statics.saveMsgData = function(reqData, cb) {
-  // console.log("req data:",reqData);
     var userMsgSchemaObj = new userMsgSchema(reqData);
     userMsgSchemaObj.save(cb);
     var activityLog = new activityList({
@@ -99,8 +98,10 @@ Msg.statics.saveMsgData = function(reqData, cb) {
 /**
  * collaborator --finfd by email id--called in logIn.js,if 'collaborator' String is get
  * @api For Card (api-logIn)
+ * @param - email of owner
  */
 Msg.statics.collaborator = function(email, cb) {
+  console.log("col email::",email);
   this.find({
     email: email
   }, cb);
@@ -109,44 +110,18 @@ Msg.statics.collaborator = function(email, cb) {
 /**
  * shareCardData for collaborator--it share the same card of selected card
  * @api For createCards
+ * @param - reqData contain Owner userid,card details i.e. title,content etc..full card details.
  */
 
 Msg.statics.shareCardData = function(reqData, cb) {
-  console.log("share asdassafasfsaf",reqData);
-  this.findById({_id:reqData.data._id},function(err,result){
+  // console.log("share asdassafasfsaf",reqData);
+  this.findById({_id:reqData.data._id},function(err,result){    //here _id is note Id.
     console.log("error",err,"result",result);
     if(result){
       result.shareNote=reqData.id;
       result.save(cb);
     }
-
-    // .then(function(result){
-    //   console.log("result",result);
-    // }).catch(function(err){
-    //   console.log("error",err);
-    // });
   });
-  // var userObj = new this({
-  //   userid  : reqData.id,
-  //   title1 : reqData.title,
-  //   content : reqData.content,
-  //   color : reqData.color,
-  //   reminder : reqData.reminder,
-  //   isPinup : reqData.isPinup,
-  //   isDeleted: reqData.isDeleted
-  // });
-  // console.log("share note obj:",userObj);
-  // userObj.save().then(function(result){
-  //   console.log("result",result);
-  // }).catch(function(err){
-  //   console.log("error",err);
-  // });
-  // var activityLog = new activityList({
-  //   userid : reqData.userid,
-  //   message : "Note Shared"
-  //
-  // });
-  // activityLog.save();
 };
 
 
@@ -154,7 +129,6 @@ Msg.statics.shareCardData = function(reqData, cb) {
 
 /**
  * get Card
- *
  * find by userid
  * @api For Card
  */
@@ -166,9 +140,10 @@ Msg.statics.getMsgData = function(userid, cb) {
 /**
  * Delete Card
  * delete by userid
- *  trash is used for going to trash,
- *  restore is used to restore that card and delete is used for permanently delete
+ * trash is used for going to trash,
+ * restore is used to restore that card and delete is used for permanently delete
  * @api For Card
+ * @param -userid and req(its contain isDeleted true or false)
  */
 Msg.statics.deleteCardsData = function(userid,req, cb) {
   console.log("delete",userid);
@@ -408,36 +383,6 @@ Msg.statics.remainderData = function(userid,req,cb) {
     };
 
 //model creation
-var userMsgSchema = mongoose.model('userMsgSchema', Msg);
+var userMsgSchema = mongoose.model('userMsgSchema', Msg);      //model name --userMsgSchema
 
 module.exports = userMsgSchema;
-
-
-
-
-
-// msg.statics.unarchive = function(userid,cb) {
-//   this.update({
-//     _id: userid
-//   }, {
-//     $set: {
-//     archive: false
-//     }
-//   }, cb);
-// };
-
-// msg.statics.unpin = function(userid,cb) {
-//   this.update({
-//     _id: userid
-//   }, {
-//     $set: {
-//     pinup: req.value
-//     }
-//   }, cb);
-// };
-// Msg.statics.deleteCardsData = function(userid, cb) {
-//   // this.findOne({_id:userid._id},cb);
-//     this.remove({
-//           _id: userid
-//         }, cb);
-// };

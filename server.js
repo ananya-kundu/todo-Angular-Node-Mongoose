@@ -1,3 +1,15 @@
+
+/*
+ * server.js
+ * @path server.js
+ * @file server.js
+ * @Scripted by Ananya Kundu
+ */
+'use strict';
+/*
+ * Module dependencies
+ */
+
 var express = require('express'),
  	  app = express(),
 	  bodyParser = require('body-parser');
@@ -6,7 +18,7 @@ var morgan = require ('morgan');
 var cors = require('cors');
 var winston = require('winston');
 
-
+//configure winstone file for logger
 winston.configure({
     transports: [
         new (winston.transports.File)({
@@ -27,16 +39,19 @@ winston.configure({
     ]
 });
 
-// winston.info("welcome to winstone file");
-
+//image size limit maximum 40MB
 app.use(bodyParser.urlencoded({ extended: true ,limit:'40MB'}));
 app.use(bodyParser.json({limit:'40MB'}));
 
 app.use(morgan('dev'));
+
+//to access all the file of public folder
 app.use(express.static('./public'));
 app.use(cors());
 app.use(require('./controller'));
 
+
+//strating server with port number 8081
 var port = process.env.PORT || 8081;
 
 app.listen(port,function(){

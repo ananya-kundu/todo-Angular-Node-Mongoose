@@ -4,7 +4,7 @@
  * @file signup.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */

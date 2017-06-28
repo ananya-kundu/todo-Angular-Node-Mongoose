@@ -4,7 +4,7 @@
  * @file getMsgCards.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */
@@ -18,7 +18,6 @@ var dashboard = require('../model/dashBoardSchema.js');
   router.post('/', function(req,res){
     try{
             var userid = req.decoded.id;
-
             dashboard.getMsgData(userid,function(err,result){
                   if(!err){
                       winston.info('Card displayed');

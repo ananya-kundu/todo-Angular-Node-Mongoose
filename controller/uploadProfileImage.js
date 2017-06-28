@@ -4,7 +4,7 @@
  * @file uploadProfileImage.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */
@@ -18,8 +18,8 @@ var userProfilePic = require('../model/userSchema.js');
 /* POST call to get profile image */
 router.post('/', function(req,res){
   try {
-        var base64Data = req.body.myCroppedImage.replace(/^data:image\/png.base64,/g,""); //its change to base64
-        var image = req.body.name;
+        var base64Data = req.body.myCroppedImage.replace(/^data:image\/png.base64,/g,"");        //its change to base64
+        var image = req.body.name;                                          //fetch name from req.body
 
           //Save with a buffer as content from a base64 image
         fs.writeFile("public/profileImages/"+image+".png",base64Data, {
@@ -34,7 +34,7 @@ router.post('/', function(req,res){
         });
 
         //image store into profileImage folder inside public with .png format
-        var url = "profileImages/"+image+".png";
+        var url = "profileImages/"+image+".png";              //save image by username.png
 
         userProfilePic.uploadProfileImage(req.body,url,function(err, result) {
               if (!err) {

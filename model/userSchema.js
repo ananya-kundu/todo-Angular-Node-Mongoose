@@ -1,3 +1,5 @@
+
+
 /*
  * User Schema
  * @path model/UserSchema.js
@@ -127,7 +129,12 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
   }, cb);
 };
 
-
+/**
+ * ucheckLoginData
+ * check given email and password for login
+ * @api  login
+ * @param -- loginData contain email and password
+ */
 //check login data
 userData.statics.checkLoginData = function(loginData, cb) {
     this.findOne({'local.email': loginData.email }, cb);
@@ -168,6 +175,8 @@ userData.statics.findCollaborator = function(req, cb) {
 /**
  * Find `User` by its id (local emailid or googl emailid)
  * @api findCollaborator
+ * @param- req user details.
+ * @description - note share for collaborator. it is send to email id of local storage or google storage
  */
 
 userData.statics.shareNoteCollaborator = function(req, cb) {
@@ -176,5 +185,5 @@ userData.statics.shareNoteCollaborator = function(req, cb) {
 
 
 //model creation
-var userData = mongoose.model('userRegisterSchema', userData);
+var userData = mongoose.model('userRegisterSchema', userData);        //model name - userRegisterSchema
 module.exports = userData;

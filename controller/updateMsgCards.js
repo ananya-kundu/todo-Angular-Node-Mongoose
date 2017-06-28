@@ -4,7 +4,7 @@
  * @file updateMsgCards.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */
@@ -20,7 +20,6 @@ router.post('/:userid', function(req, res) {
         var updatedata =req.params.userid;
 
         todocards.updateData(updatedata,req.body,function(err, result) {
-          // console.log("");
               if (!err) {
                   winston.info('Card Updated Succesfully');
                   res.send({"status": true,"message": result});

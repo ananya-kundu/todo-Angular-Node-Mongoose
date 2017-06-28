@@ -9,16 +9,19 @@
   */
 var mongoose = require("mongoose");
 var express = require('express');
+
 //set variable reffernce to mongoose schema
 var Schema = mongoose.Schema;
-// var Activity = require('/')
+var ObjectId =Schema.Types.ObjectId;
+
 /**
  * @schema activitySchema
  * @description Activity details
  */
  var Activity = Schema({
        userid: {
-         type: String
+         type: ObjectId,                           //type is defined by ObjectId
+         ref: "UserRegisterSchema"               //userid -- foreign key of activitySchema and primary key of userRegisterSchema(Model Name)
        },
        activity:{
          type: String
@@ -43,12 +46,21 @@ var Schema = mongoose.Schema;
            next();
      });
 
+
+     /**
+      * getActivity
+      * find by userid
+      * @api For Activity(api --activityLogger)
+      * @param - userid(collaborator owner id)
+      */
+
      Activity.statics.getActivity = function(userid, cb) {
+       console.log("userid",userid);
        this.find({userid:userid}, cb);
      };
 
 
 
-     var activitySchema = mongoose.model('activitySchema', Activity);
+     var activitySchema = mongoose.model('activitySchema', Activity);         //creating model,model name --activitySchema
 
      module.exports = activitySchema;

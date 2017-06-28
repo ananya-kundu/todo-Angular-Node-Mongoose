@@ -4,7 +4,7 @@
  * @file createCards.js
  * @Scripted by Ananya Kundu
  */
-
+ 'use strict';
 /*
  * Module dependencies
  */

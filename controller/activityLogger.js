@@ -1,10 +1,10 @@
 /*
  * Card get or read
- * @path controller/getMsgCards.js
- * @file getMsgCards.js
+ * @path controller/activityLogger.js
+ * @file activityLogger.js
  * @Scripted by Ananya Kundu
  */
-
+'use strict';
 /*
  * Module dependencies
  */
@@ -24,11 +24,11 @@ var activity = require('../model/activitySchema.js');
             activity.getActivity(userid,function(err,result){
 
                   if(!err){
-                      winston.info('Card displayed');
+                      winston.info('Activity displayed');
                       res.send({"status":true,"message": result});
                   }
                   else {
-                      winston.error('Card display not possible');
+                      winston.error('Activity display not possible');
                       res.send({"status": false,"msg": err});
                   }
           });

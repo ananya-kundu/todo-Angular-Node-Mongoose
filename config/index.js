@@ -1,4 +1,8 @@
-
+/**
+ * @description Checks the system errors & returns true if system/programming errors
+ * @param {any} err type object/string
+ * @returns Boolean true/false
+ */
 var errors = {
   "validationSchema": {
     "signup": {

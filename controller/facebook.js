@@ -27,7 +27,7 @@ var connDb1 = require("../config/index");
 
 function createJWT(user) {
   return  token = jwt.sign({ id: user._id }, connDb.TOKEN_SECRET, {
-      expiresIn: 60*60*24
+      expiresIn: 60*60*24                                                             //in seconds
     });
 
 }
@@ -105,4 +105,4 @@ router.post('/', function(req, res) {
   });
 });
 
-    module.exports = router;
+  module.exports = router;

@@ -3,6 +3,7 @@
   * archive Controller - it is archive page controller
   * it controls changes of archivepage
   * show cards if card is archived
+  * trashController is sub controller of dashboardController
   */
 
 
@@ -15,6 +16,7 @@ app.controller('trashController', ['$scope', '$controller', function($scope, $co
   $scope.normalnote=false;
   $scope.keep="Trash";
 
+  //color change for reminderController
   $scope.archivesidebar = {'background':"white"};
   $scope.archivenav = {'background-color':"rgb(99, 99, 99)"};
   $scope.archivegly = {'color':'white'};

@@ -4,6 +4,7 @@
  * @file authenticate.js
  * @Scripted by Ananya Kundu
  */
+ 'use strict';
 
 /*
  * Module dependencies
@@ -17,7 +18,7 @@
 router.use(function(req, res, next) {
       console.log("auth library....");
       var token = req.headers['x-access-token'] || req.headers.cookie ;
-      token = token.substr(7);
+      token = token.substr(7);                //substr(7) bcz 7 counts key name i.e. cookie+space =7
         // console.log( req.headers.cookie);
       if (token) {
           console.log("token in auth",token);
@@ -27,8 +28,6 @@ router.use(function(req, res, next) {
                   res.send({"status": false,"message": "Failed to authenticate token."});
                 } else {
                     req.decoded = decoded;
-                    // console.log("decoded:",req.decoded);
-                    //  console.log( req.decoded.id+" my decoded id " );
                     next();
                   }
             });

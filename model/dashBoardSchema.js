@@ -85,11 +85,14 @@ Msg.pre('save', function(next) {
  * @param -reqData is details of Note and userid also
  */
 Msg.statics.saveMsgData = function(reqData, cb) {
+  console.log("reqdata",reqData);
+  
     var userMsgSchemaObj = new userMsgSchema(reqData);
     userMsgSchemaObj.save(cb);
     var activityLog = new activityList({
       userid : reqData.userid,
-      message : "New Note added"
+      message : "New Note Added",
+        title: reqData.title1
 
     });
     activityLog.save();
@@ -157,7 +160,8 @@ Msg.statics.deleteCardsData = function(userid,req, cb) {
         }, cb);
         var activityLog = new activityList({
           userid : req.userid,
-          message : "Note Trashed"
+          message : "Note Trashed",
+          title:req.title
 
         });
         activityLog.save();
@@ -175,7 +179,8 @@ Msg.statics.deleteCardsData = function(userid,req, cb) {
             }, cb);
             var activityLog = new activityList({
               userid : req.userid,
-              message : "Note Restored"
+              message : "Note Restored",
+                  title:req.title
 
             });
             activityLog.save();
@@ -186,7 +191,8 @@ Msg.statics.deleteCardsData = function(userid,req, cb) {
               }, cb);
               var activityLog = new activityList({
                 userid : req.userid,
-                message : "Note Deleted permanently"
+                message : "Note Deleted Permanently",
+                    title:req.title
 
               });
               activityLog.save();
@@ -215,7 +221,8 @@ Msg.statics.updateData = function(userid,req, cb) {
     }, cb);
     var activityLog = new activityList({
       userid : req.userid,
-      message : "Note updated "
+      message : "Note updated ",
+          title:req.title1
     });
     activityLog.save();
 };
@@ -256,7 +263,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
       var activityLog = new activityList({
         userid : req.userid,
-        message : "Reminder Added"
+        message : "Reminder Added",
+            title:req.title
 
       });
       activityLog.save();
@@ -283,7 +291,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
       var activityLog = new activityList({
         userid : req.userid,
-        message : "Reminder deleted"
+        message : "Reminder Deleted",
+            title:req.title
 
       });
       activityLog.save();
@@ -308,7 +317,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
       var activityLog = new activityList({
         userid : req.userid,
-        message : "color changed"
+        message : "color Changed",
+         title:req.title
 
       });
       activityLog.save();
@@ -341,7 +351,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
       var activityLog = new activityList({
         userid : req.userid,
-        message : message
+        message : message,
+            title:req.title
 
       });
       activityLog.save();
@@ -357,7 +368,7 @@ Msg.statics.remainderData = function(userid,req,cb) {
      * @api For Card
      */
     Msg.statics.pinup = function(userid,req,cb) {
-      console.log(req,"hjgjkhgjhgjhkghjghj");
+      // console.log(req,"hjgjkhgjhgjhkghjghj");
       if(req.pin == "true"){
         message = "Note Pinned"
       }
@@ -376,7 +387,8 @@ Msg.statics.remainderData = function(userid,req,cb) {
       }, cb);
       var activityLog = new activityList({
         userid : req.userid,
-        message : message
+        message : message,
+            title:req.title
 
       });
       activityLog.save();

@@ -4,7 +4,7 @@
  * @file deleteMsgCards.js
  * @Scripted by Ananya Kundu
  */
- 'use strict';
+'use strict';
 /*
  * Module dependencies
  */
@@ -16,22 +16,31 @@ var todocards = require('../model/dashBoardSchema.js');
 
 /* POST call to delete todo */
 router.post('/:userid', function(req, res) {
-    try {
-        var deleteddata =req.params.userid;
-        console.log("delet",req.body);
+  try {
+    var deleteddata = req.params.userid;
+    console.log("delet", req.body);
 
-        todocards.deleteCardsData(deleteddata,req.body,function(err, result) {
-              if (!err) {
-                winston.info('Card deleted Successfully');
-                res.send({"status": true,"message": result});
-              } else {
-                winston.error('Card not deleted ');
-                res.send({"status": false,"message": err});
-              }
-            });
-    } catch (e) {
-        winston.systemError('Server error on Delete card');
-        res.send({"status": false,"message": "server error"});
-    }
+    todocards.deleteCardsData(deleteddata, req.body, function(err, result) {
+      if (!err) {
+        winston.info('Card deleted Successfully');
+        res.send({
+          "status": true,
+          "message": result
+        });
+      } else {
+        winston.error('Card not deleted ');
+        res.send({
+          "status": false,
+          "message": err
+        });
+      }
+    });
+  } catch (e) {
+    winston.systemError('Server error on Delete card');
+    res.send({
+      "status": false,
+      "message": "server error"
+    });
+  }
 });
 module.exports = router;

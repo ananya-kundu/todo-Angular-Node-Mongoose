@@ -1,5 +1,3 @@
-
-
 /*
  * User Schema
  * @path model/UserSchema.js
@@ -7,15 +5,15 @@
  */
 
 
- /*
-  * Module dependencies
-  */
+/*
+ * Module dependencies
+ */
 var mongoose = require("mongoose");
 var express = require('express');
 
 var validators = require("mongoose-validators");
-var  crypto = require('crypto');
-var jwt    = require('jsonwebtoken');
+var crypto = require('crypto');
+var jwt = require('jsonwebtoken');
 var secretKey = require('../config/config.js');
 //set variable reffernce to mongoose schema
 var Schema = mongoose.Schema;
@@ -27,44 +25,46 @@ var Schema = mongoose.Schema;
  * create the schema for user
  */
 var userData = Schema({
-  local:{
-        userName: {
-          type: String,
-          minlength: 2,
-          maxlength: 50,
-          validate : validators.isAlpha()
-        },
-        mobileNo :{
-          type: Number,
-          min : 10
-        },
-        email: {
-          type: String,
-          validate : validators.isEmail()
-        },
-        password: {
-          type: String,
-          minlength: 4,
-          maxlength: 100
-        },
-        profileImage : {
-          type: String
-        }
+  local: {
+    userName: {
+      type: String,
+      minlength: 2,
+      maxlength: 50,
+      validate: validators.isAlpha()
+    },
+    mobileNo: {
+      type: Number,
+      min: 10
+    },
+    email: {
+      type: String,
+      validate: validators.isEmail()
+    },
+    password: {
+      type: String,
+      minlength: 4,
+      maxlength: 100
+    },
+    profileImage: {
+      type: String
+    }
   },
-  facebook:{
-        displayName: String,
-        picture: String,
-        facebook: String,
-        facebookEmail: String
+  facebook: {
+    displayName: String,
+    picture: String,
+    facebook: String,
+    facebookEmail: String
   },
-  google:{
-        displayName: String,
-        picture: String,
-        google: String,
-        googleEmail: String
+  google: {
+    displayName: String,
+    picture: String,
+    google: String,
+    googleEmail: String
   }
 
-}, {collection: "userRegisterSchema"});
+}, {
+  collection: "userRegisterSchema"
+});
 
 
 /**
@@ -76,7 +76,7 @@ var userData = Schema({
  */
 //password encryption at signup
 userData.statics.encrypt = function encrypt(text) {
-  var cipher = crypto.createCipher(secretKey.algorithm,secretKey.password);
+  var cipher = crypto.createCipher(secretKey.algorithm, secretKey.password);
   var crypted = cipher.update(text, 'utf8', 'hex');
   crypted += cipher.final('hex');
   return crypted;
@@ -91,23 +91,25 @@ userData.statics.encrypt = function encrypt(text) {
  * @api For User
  */
 userData.statics.saveUserData = function(reqData, cb) {
-  console.log("i'm reqdata",reqData);
-  var ref = this ;
-  this.findOne({ 'local.email': reqData.email }, function(err, exist) {
+  console.log("i'm reqdata", reqData);
+  var ref = this;
+  this.findOne({
+    'local.email': reqData.email
+  }, function(err, exist) {
     if (exist) {
-      cb(null,false);
+      cb(null, false);
     } else {
       var encryptPassword = userData.encrypt(reqData.password);
 
       var userObj = new userData({
-         'local.userName': reqData.userName,
-         'local.email': reqData.email,
-         'local.password': encryptPassword
-     });
+        'local.userName': reqData.userName,
+        'local.email': reqData.email,
+        'local.password': encryptPassword
+      });
 
-        userObj.save(cb); //save user data at signup
+      userObj.save(cb); //save user data at signup
 
-        }
+    }
   });
 }
 
@@ -117,14 +119,14 @@ userData.statics.saveUserData = function(reqData, cb) {
  * update image by username
  * @api uploadProfileImage For User
  */
- //upload the profile image
-userData.statics.uploadProfileImage = function(req,url, cb) {
+//upload the profile image
+userData.statics.uploadProfileImage = function(req, url, cb) {
 
   this.update({
     'local.userName': req.name //update image by username
   }, {
     $set: {
-        'local.profileImage': url
+      'local.profileImage': url
     }
   }, cb);
 };
@@ -137,7 +139,9 @@ userData.statics.uploadProfileImage = function(req,url, cb) {
  */
 //check login data
 userData.statics.checkLoginData = function(loginData, cb) {
-    this.findOne({'local.email': loginData.email }, cb);
+  this.findOne({
+    'local.email': loginData.email
+  }, cb);
 }
 
 
@@ -146,10 +150,10 @@ userData.statics.checkLoginData = function(loginData, cb) {
  * @api userProfile
  */
 //get user profile
-  userData.statics.getUserProfile = function(userid, cb) {
-    var ref = this ;
-    console.log("model",userid);
-    this.findById(userid,cb);
+userData.statics.getUserProfile = function(userid, cb) {
+  var ref = this;
+  console.log("model", userid);
+  this.findById(userid, cb);
 }
 
 
@@ -159,7 +163,9 @@ userData.statics.checkLoginData = function(loginData, cb) {
  */
 
 userData.statics.collaborator = function(req, cb) {
-  this.findOne({_id:req.id},cb);
+  this.findOne({
+    _id: req.id
+  }, cb);
 }
 
 /**
@@ -168,7 +174,9 @@ userData.statics.collaborator = function(req, cb) {
  */
 
 userData.statics.findCollaborator = function(req, cb) {
-   this.find({userid:req.id}, cb);
+  this.find({
+    userid: req.id
+  }, cb);
 }
 
 
@@ -180,10 +188,16 @@ userData.statics.findCollaborator = function(req, cb) {
  */
 
 userData.statics.shareNoteCollaborator = function(req, cb) {
-    this.findOne({$or:[{'local.email': req.emailid },{'google.googleEmail': req.emailid}]}, cb);
+  this.findOne({
+    $or: [{
+      'local.email': req.emailid
+    }, {
+      'google.googleEmail': req.emailid
+    }]
+  }, cb);
 }
 
 
 //model creation
-var userData = mongoose.model('userRegisterSchema', userData);        //model name - userRegisterSchema
+var userData = mongoose.model('userRegisterSchema', userData); //model name - userRegisterSchema
 module.exports = userData;

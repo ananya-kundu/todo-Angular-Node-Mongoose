@@ -20,6 +20,16 @@ var dashboard = require('../model/dashBoardSchema.js');
 router.post('/:id', function(req, res) {
   var userid = req.params.id;
   try {
+
+    /**
+     * dashboard - description
+     *
+     * @param  {string} userid       card id
+     * @param  {object} req.body     card object
+     * @param  {type} function(err Error
+     * @param  {type} result       card color change
+     * @return {type}              if error then error,otherwise Successful     
+     */
     dashboard.changeColor(userid, req.body, function(err, result) {
       if (!err) {
         winston.info('Color changed');

@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
         /**
          * dashboard - card save
          *
-         * @param  {type} data         description
+         * @param  {type} data         data contain title and content
          * @param  {type} function(err error
          * @param  {type} result       card details
          * @return {type}              if not error then card created otherwise card not created

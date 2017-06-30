@@ -730,6 +730,7 @@ a {
 
 @media (min-width: 768px)
 {
+
     #wrapper
     {
             padding-left: 170px;
@@ -757,7 +758,11 @@ a {
         display: none;
     }
 }
-
+@media(max-width:880px){
+  #inputid{
+    display:none
+  }
+}
 
 /*.center-block {
     float: none;

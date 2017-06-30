@@ -18,6 +18,14 @@ router.post('/', function(req, res) {
   try {
     var uid = req.decoded.id;
 
+    /**
+     * profileinfo - description
+     *
+     * @param  {string} uid         user id
+     * @param  {type} function(err error
+     * @param  {type} result       object having email     
+     * @return {type}              description
+     */
     profileinfo.findCollaborator(uid, function(err, result) {
       try {
         if (err) {

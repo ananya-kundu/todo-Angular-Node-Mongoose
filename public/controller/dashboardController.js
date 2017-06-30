@@ -222,7 +222,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
 
   //this is used for sharing card in facebook
   $scope.facebookshare = function(x) {
-    console.log("facebook share")
+    console.log("facebook share",x);
     FB.init({
       appId: '1643439169007876',
       status: true,

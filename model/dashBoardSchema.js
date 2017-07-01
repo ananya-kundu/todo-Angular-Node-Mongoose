@@ -4,9 +4,9 @@
  * @file dashBoardSchema.js
  */
 
- /*
-  * Module dependencies
-  */
+/*
+ * Module dependencies
+ */
 var mongoose = require("mongoose");
 var express = require('express');
 
@@ -21,47 +21,47 @@ var activityList = require('./activitySchema');
 
 //create the schema for dashboard(cards)
 var Msg = Schema({
-      userid: {
-        type: String
-      },
-      title1: {
-        type: String,
-        minlength: 0
-      },
-      content: {
-        type: String,
-        minlength: 0
-      },
-      created_at: {
-          type: Date,
-          default: Date.now
-      },
-      updated_at: {
-          type: Date,
-          default: Date.now
-      },
-      reminder :{
-          type: Date
-      },
-      color :{
-          type: String
-      },
-      isArchive :{
-          type: Boolean,
-          default: false
-      },
-      isPinup :{
-          type: Boolean,
-          default: false
-      },
-      isDeleted:{
-        type: Boolean,
-        default: false
-      },
-      shareNote:{
-        type:String,
-        default:null
-      }
+  userid: {
+    type: String
+  },
+  title1: {
+    type: String,
+    minlength: 0
+  },
+  content: {
+    type: String,
+    minlength: 0
+  },
+  created_at: {
+    type: Date,
+    default: Date.now
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now
+  },
+  reminder: {
+    type: Date
+  },
+  color: {
+    type: String
+  },
+  isArchive: {
+    type: Boolean,
+    default: false
+  },
+  isPinup: {
+    type: Boolean,
+    default: false
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false
+  },
+  shareNote: {
+    type: String,
+    default: null
+  }
 }, {
   collection: "userMsgSchema"
 });
@@ -72,11 +72,11 @@ var Msg = Schema({
  */
 //hooks-here 'pre' is Serial middleware are executed one after another, when each middleware calls next
 Msg.pre('save', function(next) {
-    var currentDate = new Date();
-    this.updated_at = currentDate;
-      if (!this.created_at)
-        this.created_at = currentDate;
-      next();
+  var currentDate = new Date();
+  this.updated_at = currentDate;
+  if (!this.created_at)
+    this.created_at = currentDate;
+  next();
 });
 
 /**
@@ -85,17 +85,17 @@ Msg.pre('save', function(next) {
  * @param -reqData is details of Note and userid also
  */
 Msg.statics.saveMsgData = function(reqData, cb) {
-  console.log("reqdata",reqData);
-  
-    var userMsgSchemaObj = new userMsgSchema(reqData);
-    userMsgSchemaObj.save(cb);
-    var activityLog = new activityList({
-      userid : reqData.userid,
-      message : "New Note Added",
-        title: reqData.title1
+  console.log("reqdata", reqData);
 
-    });
-    activityLog.save();
+  var userMsgSchemaObj = new userMsgSchema(reqData);
+  userMsgSchemaObj.save(cb);
+  var activityLog = new activityList({
+    userid: reqData.userid,
+    message: "New Note Added",
+    title: reqData.title1
+
+  });
+  activityLog.save();
 };
 
 /**
@@ -104,7 +104,7 @@ Msg.statics.saveMsgData = function(reqData, cb) {
  * @param - email of owner
  */
 Msg.statics.collaborator = function(email, cb) {
-  console.log("col email::",email);
+  console.log("col email::", email);
   this.find({
     email: email
   }, cb);
@@ -118,10 +118,12 @@ Msg.statics.collaborator = function(email, cb) {
 
 Msg.statics.shareCardData = function(reqData, cb) {
   // console.log("share asdassafasfsaf",reqData);
-  this.findById({_id:reqData.data._id},function(err,result){    //here _id is note Id.
-    console.log("error",err,"result",result);
-    if(result){
-      result.shareNote=reqData.id;
+  this.findById({
+    _id: reqData.data._id
+  }, function(err, result) { //here _id is note Id.
+    console.log("error", err, "result", result);
+    if (result) {
+      result.shareNote = reqData.id;
       result.save(cb);
     }
   });
@@ -137,7 +139,13 @@ Msg.statics.shareCardData = function(reqData, cb) {
  */
 
 Msg.statics.getMsgData = function(userid, cb) {
-  this.find({$or:[{userid:userid},{shareNote:userid}]}, cb);
+  this.find({
+    $or: [{
+      userid: userid
+    }, {
+      shareNote: userid
+    }]
+  }, cb);
 };
 
 /**
@@ -148,55 +156,53 @@ Msg.statics.getMsgData = function(userid, cb) {
  * @api For Card
  * @param -userid and req(its contain isDeleted true or false)
  */
-Msg.statics.deleteCardsData = function(userid,req, cb) {
-  console.log("delete",userid);
-  if(req.del == 'trash'){
-      this.update({
-            _id: userid
-        },{
-          $set:{
-          isDeleted: true
-          }
-        }, cb);
-        var activityLog = new activityList({
-          userid : req.userid,
-          message : "Note Trashed",
-          title:req.title
+Msg.statics.deleteCardsData = function(userid, req, cb) {
+  console.log("delete", userid);
+  if (req.del == 'trash') {
+    this.update({
+      _id: userid
+    }, {
+      $set: {
+        isDeleted: true
+      }
+    }, cb);
+    var activityLog = new activityList({
+      userid: req.userid,
+      message: "Note Trashed",
+      title: req.title
 
-        });
-        activityLog.save();
-    }
-    else if(req.del == 'restore'){
-        this.update({
-            _id: userid
-          }, {
-            $unset: {
-                isDeleted: false,
-                reminder: false,
-                isPinup: false
+    });
+    activityLog.save();
+  } else if (req.del == 'restore') {
+    this.update({
+      _id: userid
+    }, {
+      $unset: {
+        isDeleted: false,
+        reminder: false,
+        isPinup: false
 
-              }
-            }, cb);
-            var activityLog = new activityList({
-              userid : req.userid,
-              message : "Note Restored",
-                  title:req.title
+      }
+    }, cb);
+    var activityLog = new activityList({
+      userid: req.userid,
+      message: "Note Restored",
+      title: req.title
 
-            });
-            activityLog.save();
-    }
-    else if(req.del == 'delete'){
-          this.remove({
-                _id: userid
-              }, cb);
-              var activityLog = new activityList({
-                userid : req.userid,
-                message : "Note Deleted Permanently",
-                    title:req.title
+    });
+    activityLog.save();
+  } else if (req.del == 'delete') {
+    this.remove({
+      _id: userid
+    }, cb);
+    var activityLog = new activityList({
+      userid: req.userid,
+      message: "Note Deleted Permanently",
+      title: req.title
 
-              });
-              activityLog.save();
-            }
+    });
+    activityLog.save();
+  }
 
 };
 
@@ -209,22 +215,22 @@ Msg.statics.deleteCardsData = function(userid,req, cb) {
  * return updated card
  * @api For Card
  */
-Msg.statics.updateData = function(userid,req, cb) {
+Msg.statics.updateData = function(userid, req, cb) {
   console.log("jghjgjkgjklgglj");
   this.update({
     _id: userid
   }, {
-      $set: {
-        title1: req.title1,
-        content: req.content
-      }
-    }, cb);
-    var activityLog = new activityList({
-      userid : req.userid,
-      message : "Note updated ",
-          title:req.title1
-    });
-    activityLog.save();
+    $set: {
+      title1: req.title1,
+      content: req.content
+    }
+  }, cb);
+  var activityLog = new activityList({
+    userid: req.userid,
+    message: "Note updated ",
+    title: req.title1
+  });
+  activityLog.save();
 };
 
 /**
@@ -251,23 +257,23 @@ Msg.statics.popupCardsData = function(userid, cb) {
  * return reminder card
  * @api For Card
  */
-Msg.statics.remainderData = function(userid,req,cb) {
-    this.update({
-        _id: userid
-      }, {
-        $set: {
+Msg.statics.remainderData = function(userid, req, cb) {
+  this.update({
+    _id: userid
+  }, {
+    $set: {
 
-          reminder: req.reminder
+      reminder: req.reminder
 
-        }
-      }, cb);
-      var activityLog = new activityList({
-        userid : req.userid,
-        message : "Reminder Added",
-            title:req.title
+    }
+  }, cb);
+  var activityLog = new activityList({
+    userid: req.userid,
+    message: "Reminder Added",
+    title: req.title
 
-      });
-      activityLog.save();
+  });
+  activityLog.save();
 };
 
 
@@ -280,121 +286,119 @@ Msg.statics.remainderData = function(userid,req,cb) {
  * return after deletion of reminder
  * @api For Card
  */
-  Msg.statics.deleteReminderData = function(userid,req, cb) {
-    console.log("del rem",req);
-    this.update({
-      _id: userid
-    }, {
-        $unset: {
-          reminder: ""
-        }
-      }, cb);
-      var activityLog = new activityList({
-        userid : req.userid,
-        message : "Reminder Deleted",
-            title:req.title
+Msg.statics.deleteReminderData = function(userid, req, cb) {
+  console.log("del rem", req);
+  this.update({
+    _id: userid
+  }, {
+    $unset: {
+      reminder: ""
+    }
+  }, cb);
+  var activityLog = new activityList({
+    userid: req.userid,
+    message: "Reminder Deleted",
+    title: req.title
 
-      });
-      activityLog.save();
-  };
+  });
+  activityLog.save();
+};
 
 
-  /**
-   * changeColor for Card
-   *
-   * Update by userid
-   * set color
-   * return card with color
-   * @api For Card
-   */
-  Msg.statics.changeColor = function(userid,req,cb) {
-      this.update({
-        _id: userid
-      }, {
-        $set: {
-        color: req.color
-        }
-      }, cb);
-      var activityLog = new activityList({
-        userid : req.userid,
-        message : "color Changed",
-         title:req.title
+/**
+ * changeColor for Card
+ *
+ * Update by userid
+ * set color
+ * return card with color
+ * @api For Card
+ */
+Msg.statics.changeColor = function(userid, req, cb) {
+  this.update({
+    _id: userid
+  }, {
+    $set: {
+      color: req.color
+    }
+  }, cb);
+  var activityLog = new activityList({
+    userid: req.userid,
+    message: "color Changed",
+    title: req.title
 
-      });
-      activityLog.save();
-    };
+  });
+  activityLog.save();
+};
 
-    /**
-     * archive for Card
-     *
-     * Update by userid
-     * if archive value true and pinup value true ||  archive value true and pinup value false ,then archived
-     * if archive value false and pinup value true  ,then unarchive  and pinned that card
-     * if archive value true and pinup value false ,then unarchived but unpinned that card
-     * @api For Card
-     */
-    Msg.statics.archive = function(userid,req,cb) {
-      // if(req.archive == "true" && req.pin == "false" || req.archive == "true" && req.pin == "true" ){
-    if(req.archive == "true"){
-        message = "Note Archived"
-      }
-      else {
-        message = "Note Unarchived"
-      }
-      this.update({
-        _id: userid
-      }, {
-        $set: {
-            isArchive: req.archive,
-            isPinup: req.pin
-        }
-      }, cb);
-      var activityLog = new activityList({
-        userid : req.userid,
-        message : message,
-            title:req.title
+/**
+ * archive for Card
+ *
+ * Update by userid
+ * if archive value true and pinup value true ||  archive value true and pinup value false ,then archived
+ * if archive value false and pinup value true  ,then unarchive  and pinned that card
+ * if archive value true and pinup value false ,then unarchived but unpinned that card
+ * @api For Card
+ */
+Msg.statics.archive = function(userid, req, cb) {
+  // if(req.archive == "true" && req.pin == "false" || req.archive == "true" && req.pin == "true" ){
+  if (req.archive == "true") {
+    message = "Note Archived"
+  } else {
+    message = "Note Unarchived"
+  }
+  this.update({
+    _id: userid
+  }, {
+    $set: {
+      isArchive: req.archive,
+      isPinup: req.pin
+    }
+  }, cb);
+  var activityLog = new activityList({
+    userid: req.userid,
+    message: message,
+    title: req.title
 
-      });
-      activityLog.save();
-    };
+  });
+  activityLog.save();
+};
 
-    /**
-     * pinup for Card
-     *
-     * Update by userid
-     * if pinup value true ,then pinned and pinup value true and archive value true|| pinup value true and archive value true,then pinned
-     * if pinup value true and  archive value false  ,then pinned  and unarchive   that card
-     * if pinup value false and archive value true  ,then unpinned  but unarchived that card
-     * @api For Card
-     */
-    Msg.statics.pinup = function(userid,req,cb) {
-      // console.log(req,"hjgjkhgjhgjhkghjghj");
-      if(req.pin == "true"){
-        message = "Note Pinned"
-      }
-      else{
-        message = "Note Unpinned"
-      }
-      this.update({
-        _id: userid
-      }, {
-        $set: {
-          //  pinup: req.value
-          isPinup: req.pin,
-          isArchive: req.archive
+/**
+ * pinup for Card
+ *
+ * Update by userid
+ * if pinup value true ,then pinned and pinup value true and archive value true|| pinup value true and archive value true,then pinned
+ * if pinup value true and  archive value false  ,then pinned  and unarchive   that card
+ * if pinup value false and archive value true  ,then unpinned  but unarchived that card
+ * @api For Card
+ */
+Msg.statics.pinup = function(userid, req, cb) {
+  // console.log(req,"hjgjkhgjhgjhkghjghj");
+  if (req.pin == "true") {
+    message = "Note Pinned"
+  } else {
+    message = "Note Unpinned"
+  }
+  this.update({
+    _id: userid
+  }, {
+    $set: {
+      //  pinup: req.value
+      isPinup: req.pin,
+      isArchive: req.archive
 
-        }
-      }, cb);
-      var activityLog = new activityList({
-        userid : req.userid,
-        message : message,
-            title:req.title
+    }
+  }, cb);
+  var activityLog = new activityList({
+    userid: req.userid,
+    message: message,
+    title: req.title
 
-      });
-      activityLog.save();
-    };
+  });
+  activityLog.save();
+};
 
 //model creation
-var userMsgSchema = mongoose.model('userMsgSchema', Msg);      //model name --userMsgSchema
+var userMsgSchema = mongoose.model('userMsgSchema', Msg); //model name --userMsgSchema
 
 module.exports = userMsgSchema;

@@ -31,7 +31,7 @@ app.directive('testpackery', ['$rootScope', '$timeout',
     return {
       restrict: 'A',
       link: function(scope, element, attrs) {
-        console.log("link called on", element[0]);
+        // console.log("link called on", element[0]);
         if ($rootScope.packery === undefined || $rootScope.packery === null) {
           scope.element = element;
           $rootScope.packery = new Packery(element[0].parentElement, {

@@ -74,7 +74,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
       // console.log("inside image");
       console.log("user", $rootScope.userName);
     }).catch(function(error) {
-      console.log(error);
+      // console.log(error);
     })
   };
   $scope.image();

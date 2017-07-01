@@ -49,7 +49,7 @@ router.post('/', function(req, res) {
 
     // Retrieve profile information about the current user.
     request.get({ url: peopleApiUrl, headers: headers, json: true }, function(err, response, profile) {
-      if (profile.error) {
+      if (profile.err) {
         return res.status(500).send({message: profile.error.message});
       }
       //  Link user accounts.

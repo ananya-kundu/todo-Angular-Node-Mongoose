@@ -29,6 +29,15 @@ router.post('/login', function(req, res) {
   //if req.body get string 'collaborator' then if condintion checking done otherwise else execute and login done
   if(req.body.col == 'collaborator')
   {
+
+      /**
+       * collaborator
+       *
+       * @param  {type} req.body      user object
+       * @param  {type} function(err  error
+       * @param  {object} user         user details
+       * @return {type}              none
+       */
       login.collaborator(req.body,function(err,user){
 
         if(!err){
@@ -37,7 +46,6 @@ router.post('/login', function(req, res) {
             res.send({"status":true,"message": user.google});
         }else {
             winston.error('collaborator not created');
-            // console.log("within login col if error");
             res.send({"status": false,"msg": err});
         }
       })

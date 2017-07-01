@@ -13,6 +13,15 @@ var express = require('express'),
   router = express.Router();
 
 /* POST call for logout */
+
+/**
+ * logout
+ *
+ * @param  {type} '/logout'    description
+ * @param  {type} function(req request
+ * @param  {type} res          response
+ * @return {type}              none
+ */
 router.post('/logout', function(req, res) {
   try {
     res.clearCookie('cookie');

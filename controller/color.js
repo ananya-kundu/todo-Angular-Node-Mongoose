@@ -28,7 +28,7 @@ router.post('/:id', function(req, res) {
      * @param  {object} req.body     card object
      * @param  {type} function(err Error
      * @param  {type} result       card color change
-     * @return {type}              if error then error,otherwise Successful     
+     * @return {type}              none     
      */
     dashboard.changeColor(userid, req.body, function(err, result) {
       if (!err) {

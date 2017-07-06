@@ -35,6 +35,7 @@
   "unsafe-perm":true
 },
 "scripts": {
+  "preinstall":"npm install -g bower",
   "test": "echo \"Error: no test specified\" && exit 1",
   "start": "node server.js",
   "postinstall": "bower install --allow-root"

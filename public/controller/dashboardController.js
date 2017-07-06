@@ -1,3 +1,5 @@
+
+
 /**
  * home controller
  */
@@ -105,6 +107,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
     var url = "http://localhost:8081/getMsgCard";
     var obj = mykeepService.app(url);
     obj.then(function(data) {
+      console.log("data",data);
       if (data.data.status == true) {
         var arrNote = [];
         // console.log( data.data.message.length );
@@ -113,6 +116,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
         }
         // console.log(arrNote);
         $scope.message = arrNote;
+        console.log("gffghh",$scope.message);
       } else {
         console.log(data.data.message);
       }
@@ -590,7 +594,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
     $auth.logout()
       .then(function() {
         toastr.info('You have been logged out');
-        $state.go('/');
+        $state.go('/login');
       });
   }
 

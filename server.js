@@ -1,10 +1,10 @@
 
-/*
+/****
  * server.js
  * @path server.js
  * @file server.js
- * @Scripted by Ananya Kundu
- */
+ * @scripted by Ananya Kundu
+ ****/
 'use strict';
 /*
  * Module dependencies

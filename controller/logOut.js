@@ -25,6 +25,7 @@ var express = require('express'),
 router.post('/logout', function(req, res) {
   try {
     res.clearCookie('cookie');
+    req.headers.cookie = undefined;
     res.send({
       "status": false,
       "message": "logged out"

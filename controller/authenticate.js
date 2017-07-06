@@ -28,6 +28,7 @@ router.use(function(req, res, next) {
   console.log("auth library....");
   var token = req.headers['x-access-token'] || req.headers.cookie;
   token = token.substr(7);                         //substr(7) bcz 7 counts key name i.e. cookie+space =7
+  console.log(token);
   // console.log( req.headers.cookie);
   if (token) {
 

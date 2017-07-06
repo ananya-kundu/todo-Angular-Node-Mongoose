@@ -28,8 +28,8 @@
     "bower" : "^1.8.0"
   },
   "engines": {
-    "node": ">= 4.2.1",
-    "npm": ">= 3"
+    "node": ">= 6.0.0",
+    "npm": ">= 4"
   },
 "config": {
   "unsafe-perm":true

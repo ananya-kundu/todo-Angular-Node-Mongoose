@@ -4,6 +4,7 @@ var db = "mongodb://localhost/RegisterLoginDatabase";
 if (process.env.NODE_ENV === "production") {
   db = "mongodb://root:root@ds151062.mlab.com:51062/tododatabase"
 }
+console.log("d::",db);
 
 module.exports = {
   "secret": "ananya123",

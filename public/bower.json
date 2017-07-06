@@ -35,5 +35,8 @@
     "satellizer": "^0.15.5",
     "mui": "^0.9.16",
     "angular-bootstrap-datetimepicker": "^1.1.4"
-  }
+  },
+  "resolutions": {
+  "angular": "1.6.5"
+}
 }

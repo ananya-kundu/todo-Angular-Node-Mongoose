@@ -66,7 +66,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
 
 
   $scope.image = function() {
-    var url = "http://localhost:8081/userprofile";
+    var url = "/userprofile";
     console.log();
     var obj = mykeepService.app(url);
     mykeepService.app(url).then(function(data) {
@@ -104,7 +104,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    */
   // controller for get card
   $scope.getmsgcard = function() {
-    var url = "http://localhost:8081/getMsgCard";
+    var url = "/getMsgCard";
     var obj = mykeepService.app(url);
     obj.then(function(data) {
       console.log("data",data);
@@ -144,7 +144,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
       return;
     }
 
-    var url = "http://localhost:8081/createCards";
+    var url = "/createCards";
 
     var obj = mykeepService.app(url, object);
     obj.then(function(data) {
@@ -208,7 +208,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
       userid: x.userid,
       title: x.title1
     }
-    var url = "http://localhost:8081/deleteMsgCard/" + x._id + "";
+    var url = "/deleteMsgCard/" + x._id + "";
     mykeepService.app(url, delObj).then(function(data) {
       $scope.getmsgcard();
       // toastr.error('Note Trashed');
@@ -287,7 +287,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
           }
           console.log("updateNote:", updateNote);
           // console.log(updateNote);
-          var url = "http://localhost:8081/updateMsgCards/" + this.id + "";
+          var url = "/updateMsgCards/" + this.id + "";
           var obj = mykeepService.app(url, updateNote);
 
           obj.then(function(data) {
@@ -330,7 +330,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
       id: x.userid,
       col: 'collaborator'
     }
-    var url = "http://localhost:8081/logIn"; //logIn api call
+    var url = "/logIn"; //logIn api call
     var obj = mykeepService.app(url, object);
     console.log("url nd obj passed", obj);
     obj.then(function(data) {
@@ -454,7 +454,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
       userid: x.userid,
       title: x.title1
     }
-    var url = "http://localhost:8081/reminder/" + x._id + "";
+    var url = "/reminder/" + x._id + "";
     var obj = mykeepService.app(url, remDay);
 
     obj.then(function(data) {
@@ -477,7 +477,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    */
 
   $scope.deleteReminder = function(x) {
-    var url = "http://localhost:8081/reminderDelete/" + x._id + "";
+    var url = "/reminderDelete/" + x._id + "";
     var delRemObj = {
       userid: x.userid,
       title: x.title1
@@ -497,7 +497,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    * @param {String} cards - contain card details
    */
   $scope.cardCopy = function(x) {
-    var url = "http://localhost:8081/createCards";
+    var url = "/createCards";
     var copyObj = {
       userid: x.userid,
       title1: x.title1,
@@ -525,7 +525,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
       userid: x.userid,
       title: x.title1
     }
-    var url = "http://localhost:8081/color/" + x._id + "";
+    var url = "/color/" + x._id + "";
     mykeepService.app(url, colorData).then(function(data) {
       toastr.success('Color Changed', 'Successful');
 
@@ -541,7 +541,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    * @param {String} cards - contain object of cards(pin and archive value contain)
    */
   $scope.pinup = function(x, pin, archive) {
-    var url = "http://localhost:8081/pinUp/" + x._id + "";
+    var url = "/pinUp/" + x._id + "";
     var object = {
       pin: pin,
       archive: archive,
@@ -563,7 +563,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    * @param {String} cards - contain object of cards(pin and archive value contain)
    */
   $scope.archive = function(x, archive, pin) {
-    var url = "http://localhost:8081/archive/" + x._id + "";
+    var url = "/archive/" + x._id + "";
     var object = {
       pin: pin,
       archive: archive,
@@ -581,7 +581,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    * logout controller
    */
   $scope.logOut = function() {
-    var url = "http://localhost:8081/logOut";
+    var url = "/logOut";
     mykeepService.app(url).then(function(data) {
 
     }).catch(function(error) {

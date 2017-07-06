@@ -38,7 +38,7 @@ app.controller('profileImageController', function($scope,$rootScope,mykeepServic
                   name : $rootScope.userName
                 }
                 console.log("profile image",profileimgObj);
-                var url = "http://localhost:8081/uploadProfileImage";
+                var url = "/uploadProfileImage";
 
                 var obj = mykeepService.app(url,profileimgObj);
                 obj.then(function(data) {

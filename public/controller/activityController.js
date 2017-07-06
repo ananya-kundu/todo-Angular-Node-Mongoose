@@ -55,7 +55,7 @@ app.controller('activityController', ['$scope', '$controller', 'mykeepService', 
 
 
   $scope.activity = function() {
-    var url = "http://localhost:8081/activityLogger";
+    var url = "/activityLogger";
     // console.log("ffgfg");
     mykeepService.app(url).then(function(data) {
       console.log(data.data.message);

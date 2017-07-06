@@ -10,7 +10,7 @@ app.controller('loginController', function($scope,$location,$state,$auth,toastr,
    * @param {String} user - user contain email and password
    * @return - success home page else login
    */
- var url="http://localhost:8081/session";
+ var url="/session";
  var checkUser = mykeepService.app(url);
 
  checkUser.then(function(data) {
@@ -43,7 +43,7 @@ app.controller('loginController', function($scope,$location,$state,$auth,toastr,
    }
 
    console.log(userLogin);
-   var url="http://localhost:8081/logIn";
+   var url="/logIn";
    console.log("log url",url);
    var userNewObj = mykeepService.app(url,userLogin);
    userNewObj.then(function(data) {

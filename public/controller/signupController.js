@@ -22,7 +22,7 @@ app.controller('signupController', function($scope,$state,$location,toastr,mykee
       email : emailid,
       password  : password
     }
-    var url= "http://localhost:8081/signUp";
+    var url= "/signUp";
     // console.log(userObj);
     var signupObj = mykeepService.app(url,userObj);
 

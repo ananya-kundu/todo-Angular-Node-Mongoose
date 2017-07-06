@@ -19,7 +19,8 @@
     "mongoose-validators": "^0.1.0",
     "morgan": "^1.8.1",
     "packery": "^2.1.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "angular": "^1.6.4",
@@ -28,7 +29,7 @@
   "engines": {
     "node": ">= 4.2.1",
     "npm": ">= 3"
- },
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

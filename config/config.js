@@ -14,7 +14,7 @@ module.exports = {
   GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'qalNRtQj-ufh_alOL4oufwFx', //Secret key for google login
 
   "mongoconnection": function() {
-    mongoose.connect(db, function(err) {
+    mongoose.createConnection(db, function(err) {
       if (err) {
         console.error(err);
       }

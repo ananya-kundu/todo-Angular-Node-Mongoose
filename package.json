@@ -1,5 +1,5 @@
 {
-  "name": "mongoproject",
+  "name": "todo",
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
@@ -24,15 +24,16 @@
   },
   "devDependencies": {
     "angular": "^1.6.4",
-    "webpack": "^2.6.1"
+    "webpack": "^2.6.1",
+    "bower" : "^1.8.0"
   },
-  "engines": {
-    "node": ">= 4.2.1",
-    "npm": ">= 3"
+  "config": {
+    "unsafe-perm":true
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bower install --allow-root"
   },
   "author": "ananya",
   "license": "ISC",

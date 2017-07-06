@@ -27,14 +27,18 @@
     "webpack": "^2.6.1",
     "bower" : "^1.8.0"
   },
-  "config": {
-    "unsafe-perm":true
+  "engines": {
+    "node": ">= 4.2.1",
+    "npm": ">= 3"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "postinstall": "bower install --allow-root"
-  },
+"config": {
+  "unsafe-perm":true
+},
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node server.js",
+  "postinstall": "bower install --allow-root"
+},
   "author": "ananya",
   "license": "ISC",
   "repository": {

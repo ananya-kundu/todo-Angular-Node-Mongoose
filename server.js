@@ -52,7 +52,7 @@ app.use(require('./controller'));
 
 
 //strating server with port number 8081
-var port = process.env.NODE_PORT || 8081;
+var port = process.env.PORT || 8081;
 
 app.listen(port,function(){
       connection.mongoconnection();

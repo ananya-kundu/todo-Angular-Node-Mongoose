@@ -19,7 +19,7 @@ app.controller('collaboratorController', function($scope,$uibModalInstance,obj,m
 
           var obj = mykeepService.app(url,collaboratorObj);
           obj.then(function(data) {
-                console.log("fghjhjkjk",data);
+                // console.log("fghjhjkjk",data);
             }).catch(function(error) {
                     console.log("err");
                 })

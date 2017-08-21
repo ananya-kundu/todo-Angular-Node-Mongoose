@@ -130,8 +130,6 @@ Msg.statics.shareCardData = function(reqData, cb) {
 };
 
 
-
-
 /**
  * get Card
  * find by userid
@@ -262,9 +260,7 @@ Msg.statics.remainderData = function(userid, req, cb) {
     _id: userid
   }, {
     $set: {
-
       reminder: req.reminder
-
     }
   }, cb);
   var activityLog = new activityList({

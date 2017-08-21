@@ -1,0 +1,14 @@
+<i style="margin-left:6px">
+   <span uib-dropdown on-toggle dropdown-append-to-body="true" >
+         <a href uib-dropdown-toggle>
+             <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" uib-tooltip="More"  tooltip-placement="bottom" tooltip-append-to-body="true" class="fa fa-ellipsis-v"></i>
+         </a>
+         <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+               <li id="fulldrop">
+                 <!-- <a id="delete" ng-click = "deletecards(x._id)">Delete a note</a> -->
+                   <a id="delete" ng-click = "deletecards(x,'trash')">Delete a note</a>
+                   <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
+               </li>
+           </ul>
+     </span>
+   </i>

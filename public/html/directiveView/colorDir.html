@@ -1,0 +1,12 @@
+<i aria-hidden="true">
+  <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
+        <a href uib-dropdown-toggle>
+          <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" style="cursor:pointer;" uib-tooltip="Change color"  tooltip-placement="bottom" tooltip-append-to-body="true" />
+        </a>
+        <div uib-dropdown-menu aria-labelledby="simple-dropdown">
+            <a id="normal" ng-repeat = "y in color" style="font-size:10px;" uib-tooltip="{{y.tooltip}}" tooltip-placement="bottom" tooltip-append-to-body="true" >
+                  <img ng-src="{{y.path}}"  ng-click="changeColor(y.color,x)">
+              </a>
+          </div>
+    </span>
+  </i>

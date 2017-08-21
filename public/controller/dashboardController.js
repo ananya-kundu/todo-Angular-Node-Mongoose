@@ -72,7 +72,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
     mykeepService.app(url).then(function(data) {
 
       $rootScope.userinfo = data.data.userinfo;
-      $rootScope.userName = data.data.userinfo.local.userName; //fetching userName by local schema
+      $rootScope.userName = data.data.userinfo.local.userName;      //fetching userName by local schema
       // console.log("inside image");
       console.log("user", $rootScope.userName);
     }).catch(function(error) {
@@ -81,6 +81,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
   };
   $scope.image();
 
+  // Change profile image of ToDo Item Card
   $scope.changeProfileImage = function() {
     var modalInstance = $uibModal.open({
       templateUrl: "../html/profileImage.html",
@@ -116,9 +117,9 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
         }
         // console.log(arrNote);
         $scope.message = arrNote;
-        console.log("gffghh",$scope.message);
+        // console.log("gffghh",$scope.message);
       } else {
-        console.log(data.data.message);
+        // console.log(data.data.message);
       }
       $scope.message = arrNote;
     }).catch(function(error) {
@@ -493,9 +494,10 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
 
 
   /**
-   * @function cardCopy - copy the card
+   * @function cardCopy - Make a copy of existing card
    * @param {String} cards - contain card details
    */
+
   $scope.cardCopy = function(x) {
     var url = "/createCards";
     var copyObj = {
@@ -519,6 +521,7 @@ app.controller('dashboardController', function($scope, $state, $uibModal, $rootS
    * @function changeColor - contain color
    * @param {String} color_data - contain color data
    */
+  //  Change Color of ToDo Item Card
   $scope.changeColor = function(color, x) {
     var colorData = {
       color: color,

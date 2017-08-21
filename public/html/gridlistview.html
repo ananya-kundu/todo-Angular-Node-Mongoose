@@ -17,114 +17,31 @@
           <div id="footer" >
               <span ng-show="icons">
 
-                <i aria-hidden="true">
-                  <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-                    <a href uib-dropdown-toggle>
-                        <i id='reminder' uib-tooltip="Remind me"  tooltip-placement="bottom" tooltip-append-to-body="true" class="fa fa-hand-pointer-o fa-lg"></i>
-                    </a>
-                    <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-                      <li id="fulldrop">
-                              <a id="normal" style="font-size:16px">Reminder:</a>
-                              <a id="drop" ng-click="createReminder(x,'today',20)" href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
-                              <a id="drop" ng-click="createReminder(x, 'tomorrow',8)" href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
-                              <a id="drop" ng-click="createReminder(x, 'nextweek',8)" href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
-                              <b  style="margin-left:18px;">Pick Date and Time:</b>
-                              <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
-                                  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
-                                        <div class="input-group" style="width:126px;margin-left:18px;">
-                                          <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                          </div>
-                                          <a ng-click="createReminder(x,toDo.remainder)" >
-                                            <span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
-                                    </a>
+                <!-- reminder set directive -->
+                <reminder></reminder>
 
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                       <datetimepicker data-ng-model="toDo.remainder" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
-                                    </ul>
-                                </div>
-                              </li>
-                            </ul>
-                          </span>
-                      </i>
-
+                <!-- collaborator icon -->
                 <i id="collaborator" style="margin-left:8px;cursor:pointer;" class="fa fa-user-plus" style="font-size:36px;" aria-hidden="true"  ng-click="collaborator(x);" uib-tooltip="Collaborator"  tooltip-placement="bottom" tooltip-append-to-body="true">
                  </i>
 
-              <i aria-hidden="true">
-                <span  uib-dropdown on-toggle dropdown-append-to-body="true" style="margin-left:6px;">
-                      <a href uib-dropdown-toggle>
-                        <img id='reminder1'  style="width:14px;height:35%" src="../images/color.png" style="cursor:pointer;" uib-tooltip="Change color"  tooltip-placement="bottom" tooltip-append-to-body="true" />
-                      </a>
-                      <div uib-dropdown-menu aria-labelledby="simple-dropdown">
-                          <a id="normal" ng-repeat = "y in color" style="font-size:10px;" uib-tooltip="{{y.tooltip}}" tooltip-placement="bottom" tooltip-append-to-body="true" >
-                                <img ng-src="{{y.path}}"  ng-click="changeColor(y.color,x)">
-                            </a>
-                        </div>
-                  </span>
-                </i>
+                 <!-- color  directive -->
+                <color></color>
 
-                <i style="margin-left:8px" style="font-size:36px;" aria-hidden="true">
-                  <img id='archive'  ng-click="archive(x,'true','false')" style="width:14px;height:35%;cursor:pointer;" src="../images/archive.png" uib-tooltip="Archive"  tooltip-placement="bottom" tooltip-append-to-body="true" />
-                </i>
+                <!-- archive directive -->
+                <archive></archive>
 
-        <i style="margin-left:8px" style="font-size:36px;" aria-hidden="true">
-              <img id='archive'  ng-click="facebookshare(x)" style="width:16px;height:35%;cursor:pointer;" src="../images/share.png" uib-tooltip="Share with Facebook"  tooltip-placement="bottom" tooltip-append-to-body="true" />
-        </i>
+                <!-- facebook share directive -->
+                <facebookshare></facebookshare>
 
-         <i style="margin-left:6px">
-            <span uib-dropdown on-toggle dropdown-append-to-body="true" >
-                  <a href uib-dropdown-toggle>
-                      <i id='more' uib-popover="More" style="width:16px;height:35%;margin-top:2%" uib-tooltip="More"  tooltip-placement="bottom" tooltip-append-to-body="true" class="fa fa-ellipsis-v"></i>
-                  </a>
-                  <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-                        <li id="fulldrop">
-                            <a id="delete" ng-click = "deletecards(x,'trash')">Delete a note</a>
-                            <a id="makeCopy" ng-click = "cardCopy(x)">Make a copy</a>
-                        </li>
-                    </ul>
-              </span>
-            </i>
+                <!-- more(make a copy and delete) icons directive -->
+                <more></more>
 
         </span>
     </div>
 
-      <div ng-if="x.reminder" id="remindercss">
-        <span  uib-dropdown on-toggle dropdown-append-to-body="true" >
-          <a href uib-dropdown-toggle>
-            <i id='reminder' uib-tooltip="Remind me"  tooltip-placement="bottom" tooltip-append-to-body="true" ></i>
-            <span class="glyphicon glyphicon-time" style="font-size:14px;color:rgba(0, 0, 0, 0.65);">
-                  <span style="font-size:12px;">{{x.reminder | date :'MMMM,dd  HH:mm'}} </span>
-            </span>
-          </a>
+    <!-- reminder footer directive -->
+    <reminderdisplay></reminderdisplay>
 
-            <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-              <li id="fulldrop">
-                      <a id="normal" style="font-size:16px">Reminder:</a>
-                      
-                      <a id="drop" ng-click="createReminder(x,'today',20)" href>Later today<span id="mov" style="margin-left:20%;">20:00</span></a>
-                      <a id="drop" ng-click="createReminder(x, 'tomorrow',8)" href>Tomorrow<span id="mov" style="margin-left:27%;">08:00</span></a>
-                      <a id="drop" ng-click="createReminder(x, 'nextweek',8)" href>Next week<span id="mov" style="margin-left:24%;">08:00</span></a>
-                      <b  style="margin-left:18px;">Pick Date and Time:</b>
-                      <div class="dropdown" style="width: 50%; padding-top: 10px; padding-bottom: 10px">
-                          <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" >
-                                <div class="input-group" style="width:126px;margin-left:18px;">
-                                  <input type="text" class="form-control" data-ng-model="toDo.remainder" name="remainder" placeholder="Pick date & time">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                  </div>
-                                  <a ng-click="createReminder(x,toDo.remainder)" >
-                                    <span id="saveReminder" style="margin-left:56px;color:teal;">Save</span></a>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                               <datetimepicker data-ng-model="toDo.remainder" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
-                            </ul>
-                        </div>
-                      </li>
-                    </ul>
-                  </span>
-            <span class="glyphicon glyphicon-remove-circle" id="removecircle" ng-click = "deleteReminder(x)" style="font-size:14px;float:right;" uib-tooltip="Delete reminder"  tooltip-placement="bottom" tooltip-append-to-body="true"></span>
-      </div>
 
     </div>
   </div>

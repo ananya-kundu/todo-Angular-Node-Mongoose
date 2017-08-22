@@ -49,6 +49,15 @@ return {
 });
 
 
+app.directive("collaborator", function() {
+console.log("inside the directive");
+return {
+    restrict : "AE",
+    templateUrl : "html/directiveView/collaborator.html"
+};
+});
+
+
 app.directive("more", function() {
 console.log("inside the directive");
 return {

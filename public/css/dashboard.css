@@ -946,7 +946,19 @@ a
     width :420px;
   }
   #dummyTitle{
-    width:163%;
+    width:119%;
+  }
+}
+@media(max-width:380px){
+
+  #dummyTitle{
+    width:140%;
+  }
+}
+@media(max-width:380px){
+
+  #dummyTitle{
+    width:162%;
   }
 }
 /*.center-block {

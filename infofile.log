@@ -13565,3 +13565,14 @@
 {"level":"info","message":"Card displayed","timestamp":"2017-08-18T12:12:58.990Z"}
 {"level":"info","message":"Card deleted Successfully","timestamp":"2017-08-18T12:13:02.711Z"}
 {"level":"info","message":"Card displayed","timestamp":"2017-08-18T12:13:02.734Z"}
+{"level":"error","message":"Authentication Failed","timestamp":"2017-08-21T11:08:02.579Z"}
+{"level":"error","message":"Authentication Failed","timestamp":"2017-08-21T11:08:02.584Z"}
+{"level":"error","message":"Authentication Failed","timestamp":"2017-08-21T11:08:02.585Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-08-21T11:08:31.719Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-08-21T11:08:31.785Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-08-21T11:08:31.787Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-08-21T11:08:40.314Z"}
+{"level":"info","message":"User profile is available","timestamp":"2017-08-21T11:08:40.319Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-08-21T11:08:40.320Z"}
+{"level":"info","message":"Color changed","timestamp":"2017-08-21T11:08:45.209Z"}
+{"level":"info","message":"Card displayed","timestamp":"2017-08-21T11:08:45.224Z"}
